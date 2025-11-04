@@ -16,6 +16,19 @@ const forbidden = [
   /\b(api[_-]?key|secret[_-]?key|access[_-]?token|password)\s*[:=]/i // Potential secrets
 ]
 
+// Non-inclusive / discouraged terminology heuristics (case-insensitive)
+const inclusiveHeuristics = [
+  /\bwhitelist\b/i,
+  /\bblacklist\b/i,
+  /\bmaster\b/i,
+  /\bslave\b/i,
+  /\bguys\b/i,
+  /\bsanity check\b/i,
+  /\btribe\b/i,
+  /\bninja\b/i,
+  /\brockstar\b/i
+]
+
 // Valid change types and their line limits
 const CHANGE_LIMITS = {
   patch: 200,
@@ -93,6 +106,16 @@ function checkFile(p) {
     yellow.push(
       `${p}: Possible internal/sensitive content detected (${forbiddenMatches.length} pattern(s))`
     )
+    checkCount++
+  }
+
+  // Inclusive language heuristics
+  const nonInclusive = []
+  for (const rx of inclusiveHeuristics) {
+    if (rx.test(content)) nonInclusive.push(rx.source)
+  }
+  if (nonInclusive.length) {
+    yellow.push(`${p}: Non-inclusive terminology flagged (${nonInclusive.length} match(es))`)
     checkCount++
   }
 

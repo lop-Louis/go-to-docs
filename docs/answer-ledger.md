@@ -5,6 +5,7 @@ owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
+last_reviewed: '2025-11-04'
 ---
 
 # Answer Ledger Pattern
@@ -36,9 +37,9 @@ A searchable log of questions teams ask repeatedly, with:
 Breaking changes require a new version. Non-breaking changes can be added
 to existing versions.
 
-**Last updated:** 2024-10-15  
-**Owner:** @api-guild  
-**Related:** [API Guidelines](./api-guidelines.md)
+**Last updated:** YYYY-MM-DD  
+**Owner:** @handle  
+**Related:** [API Guidelines](./api-guidelines)
 
 ---
 
@@ -47,8 +48,8 @@ to existing versions.
 **Answer:** First review within 4 business hours for PRs under 200 lines.
 Larger PRs should be split or flagged in advance.
 
-**Last updated:** 2024-09-20  
-**Owner:** @platform-team
+**Last updated:** YYYY-MM-DD  
+**Owner:** @handle
 ```
 
 ## Maintenance

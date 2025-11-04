@@ -10,16 +10,18 @@ A public VitePress documentation site for Band A content (sanitized, public-safe
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start dev server
-npm run docs:dev
+pnpm run docs:dev
 
 # Build for production
-npm run docs:build
+pnpm run docs:build
 
 # Preview production build
-npm run docs:preview
+pnpm run docs:preview
+pnpm run validate
+pnpm run review:update
 ```
 
 ---
@@ -56,14 +58,16 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 
 ## Scripts
 
-| Command              | Description                 |
-| -------------------- | --------------------------- |
-| `npm run docs:dev`   | Start local dev server      |
-| `npm run docs:build` | Build production site       |
-| `npm run guard`      | Check Band A compliance     |
-| `npm run stale`      | Generate stale pages report |
-| `npm test`           | Run all tests               |
-| `npm run validate`   | Run guard + build           |
+| Command                  | Description                            |
+| ------------------------ | -------------------------------------- |
+| `pnpm run docs:dev`      | Start local dev server                 |
+| `pnpm run docs:build`    | Build production site                  |
+| `pnpm run guard`         | Check Band A compliance                |
+| `pnpm run links`         | Check internal/external links          |
+| `pnpm run stale`         | Generate stale pages report            |
+| `pnpm test`              | Run all tests                          |
+| `pnpm run validate`      | Lint + type + guard + build + links    |
+| `pnpm run review:update` | Set last_reviewed today in frontmatter |
 
 ---
 
@@ -74,7 +78,7 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 1. **Enable GitHub Pages:** Settings → Pages → Source: GitHub Actions
 2. **Branch Protection:** Require Content Guard checks on `main`
 3. **Labels:** Create `green`, `yellow`, `red`, `stale`, `automated`
-4. **Optional:** Add `CLOUDFLARE_TOKEN` secret for analytics
+4. **Optional:** Add `PLAUSIBLE_DOMAIN` / `PLAUSIBLE_SCRIPT` or analytics env if enabling privacy-friendly tracking
 
 ### Acceptance Tests
 

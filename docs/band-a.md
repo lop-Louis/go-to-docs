@@ -5,6 +5,7 @@ owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
+last_reviewed: '2025-11-04'
 ---
 
 # What is Band A
@@ -57,7 +58,7 @@ Before publishing (sanitize in this order):
 1. Replace any company / product / vendor names with neutral descriptors ("the organization", "the platform")
 2. Convert exact numbers to ranges or relative changes ("~15% increase", "5–10", "a few", "several")
 3. Remove or recreate screenshots using dummy data (avoid cropping with sensitive fragments)
-4. Strip internal links, ticket references (use `TICKET-ID` placeholder when explaining processes)
+4. Strip internal links, ticket references (use `TICKET-ID` placeholder when explaining processes); avoid real calendar dates — use relative phrasing
 5. Search for any secrets, access tokens, environment variable values – remove entirely
 6. Replace calendar dates with relative phrasing ("within 3 months", "quarterly", "weekly")
 7. Review frontmatter: `band: A` and `owner` are present and accurate

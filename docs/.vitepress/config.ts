@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Chapter Go-To',
+  title: 'Knowledge Go-To and Governance Playbook',
   description: 'Reusable practices, sanitized for public use.',
   base: '/go-to-docs/',
   lastUpdated: true,

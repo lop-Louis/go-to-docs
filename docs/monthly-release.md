@@ -5,6 +5,7 @@ owner: '@lop'
 refresh_after_days: 120
 change_type: minor
 status: live
+last_reviewed: '2025-11-04'
 ---
 
 # Monthly Release Rhythm
