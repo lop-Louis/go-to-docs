@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 const GA_ID = process.env.VITE_GA_ID || 'G-FZ8N89SQKN'
 
 export default defineConfig({
-  title: 'Knowledge Go-To and Governance Playbook',
+  title: 'Go-To Docs & Governance',
   description: 'Reusable practices, sanitized for public use.',
   base: '/go-to-docs/',
   lastUpdated: true,

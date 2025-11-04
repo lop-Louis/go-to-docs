@@ -133,6 +133,43 @@
 }
 
 /* ===================================
+ * Navigation title overflow prevention
+ * ================================== */
+
+/* Prevent long site titles from breaking layout on mobile sidebar */
+.VPNavBarTitle .title {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .VPNavBarTitle .title {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .VPNavBarTitle .title {
+    max-width: 100px;
+  }
+}
+
+/* Sidebar link text wrapping for long titles */
+.VPSidebarItem .text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Ensure sidebar links don't overflow container */
+.VPSidebarItem a {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===================================
  * Content segment visual indicators
  * ================================== */
 

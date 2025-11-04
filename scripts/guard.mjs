@@ -109,6 +109,22 @@ function checkFile(p) {
     checkCount++
   }
 
+  // Title length validation (UX: prevent sidebar overflow)
+  if (data.title) {
+    const titleLength = String(data.title).length
+    if (titleLength > 50) {
+      yellow.push(
+        `${p}: Title length ${titleLength} chars exceeds 50 (mobile sidebar may truncate)`
+      )
+      checkCount++
+    } else if (titleLength > 40) {
+      yellow.push(
+        `${p}: Title length ${titleLength} chars approaching limit (consider shortening for mobile)`
+      )
+      checkCount++
+    }
+  }
+
   // Check for forbidden patterns in content
   const forbiddenMatches = []
   for (const rx of forbidden) {
