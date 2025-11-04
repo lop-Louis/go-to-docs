@@ -185,6 +185,7 @@ jobs:
         if: steps.status.outputs.status == 'green'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
+          pull-request-number: ${{ github.event.pull_request.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
           merge-method: squash
 
