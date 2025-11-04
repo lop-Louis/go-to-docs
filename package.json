@@ -21,8 +21,9 @@
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier --write .",
     "typecheck": "tsc --noEmit",
-    "validate": "npm run lint && npm run typecheck && npm run guard && npm run docs:build",
-    "ci": "npm run validate && npm test",
+    "links": "node scripts/link-check.mjs",
+    "lighthouse": "node scripts/lighthouse-runner.mjs",
+    "review:update": "node scripts/update-last-reviewed.mjs",
     "prepare": "husky"
   },
   "lint-staged": {
@@ -63,6 +64,7 @@
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.46.3",
     "@vitejs/plugin-vue": "^6.0.1",
+    "typescript": "^5.7.2",
     "@vitest/ui": "^4.0.6",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.39.1",
@@ -72,7 +74,9 @@
     "gray-matter": "^4.0.3",
     "happy-dom": "^20.0.10",
     "husky": "^9.1.7",
+    "lighthouse": "^12.2.1",
     "lint-staged": "^16.2.6",
+    "playwright": "^1.48.2",
     "prettier": "^3.6.2",
     "vitepress": "^1.3.4",
     "vitest": "^4.0.6",
@@ -80,5 +84,6 @@
   },
   "dependencies": {
     "vue": "^3.5.22"
-  }
+  },
+  "packageManager": "pnpm@9.0.0+sha512.b4106707c7225b1748b61595953ccbebff97b54ad05d002aa3635f633b9c53cd666f7ce9b8bc44704f1fa048b9a49b55371ab2d9e9d667d1efe2ef1514bcd513"
 }

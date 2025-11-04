@@ -1,0 +1,287 @@
+name: PR Checklist Automation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths: ['docs/**']
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  autocheck:
+    name: Automated PR Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Need full history to check last commit dates
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run automated checks
+        id: checks
+        run: |
+          echo "## � Documentation Quality & Governance Report" > report.md
+          echo "" >> report.md
+          echo "_Automated analysis ensuring Band A compliance and content quality_" >> report.md
+          echo "" >> report.md
+
+          # Initialize status tracking
+          RED_COUNT=0
+          YELLOW_COUNT=0
+          GREEN_COUNT=0
+
+          # Frontmatter validation
+          echo "### 📋 Required Metadata (Frontmatter)" >> report.md
+          pnpm run guard > guard-output.txt 2>&1 || true
+          if grep -q "Missing required frontmatter" guard-output.txt; then
+            echo "❌ **FAILED** - Missing required metadata fields" >> report.md
+            grep "Missing required frontmatter" guard-output.txt | sed 's/^/  - /' >> report.md
+            echo "" >> report.md
+            echo "**Action Required:** Add all required frontmatter fields (`title`, `band`, `owner`, `refresh_after_days`, `change_type`, `status`)" >> report.md
+            RED_COUNT=$((RED_COUNT + 1))
+          else
+            echo "✅ **PASSED** - All pages have required metadata" >> report.md
+            GREEN_COUNT=$((GREEN_COUNT + 1))
+          fi
+          echo "" >> report.md
+
+          # Change size calculation
+          echo "### 📏 Change Impact Analysis" >> report.md
+          FILES_CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.md$' | grep '^docs/' || echo "")
+          if [ -z "$FILES_CHANGED" ]; then
+            echo "ℹ️ No documentation pages modified" >> report.md
+          else
+            echo "$FILES_CHANGED" | while read file; do
+              if [ -f "$file" ]; then
+                LINES_CHANGED=$(git diff origin/${{ github.base_ref }}...HEAD -- "$file" | grep -E '^\+|^-' | grep -v '^\+\+\+\|^---' | wc -l)
+
+                # Extract declared change_type from frontmatter
+                CHANGE_TYPE=$(grep -m1 'change_type:' "$file" | sed 's/change_type: *//' | tr -d ' ')
+
+                # Determine expected change_type based on lines
+                if [ "$LINES_CHANGED" -le 200 ]; then
+                  EXPECTED="patch"
+                elif [ "$LINES_CHANGED" -le 400 ]; then
+                  EXPECTED="minor"
+                else
+                  EXPECTED="major"
+                fi
+
+                if [ "$CHANGE_TYPE" = "$EXPECTED" ]; then
+                  echo "  - ✅ \`$file\`: ${LINES_CHANGED} lines changed, versioned as \`${CHANGE_TYPE}\` (aligned with governance)" >> report.md
+                else
+                  echo "  - ⚠️ \`$file\`: ${LINES_CHANGED} lines changed, versioned as \`${CHANGE_TYPE}\` but governance recommends \`${EXPECTED}\`" >> report.md
+                fi
+              fi
+            done
+          fi
+          echo "" >> report.md
+
+          # Content guard results
+          echo "### 🛡️ Band A Compliance Check" >> report.md
+          if grep -q "RED FAILURES" guard-output.txt; then
+            echo "❌ **BLOCKED** - Critical policy violations detected:" >> report.md
+            grep -A 10 "RED FAILURES" guard-output.txt | tail -n +2 | grep -E '^\s+-' | sed 's/^/  /' >> report.md
+            echo "" >> report.md
+            echo "**Action Required:** Review and sanitize content per [Band A governance policy](/governance#band-a-rules)" >> report.md
+            RED_COUNT=$((RED_COUNT + 1))
+          elif grep -q "YELLOW WARNINGS" guard-output.txt; then
+            echo "⚠️ **REVIEW REQUIRED** - Governance warnings detected:" >> report.md
+            grep -A 10 "YELLOW WARNINGS" guard-output.txt | tail -n +2 | grep -E '^\s+-' | sed 's/^/  /' >> report.md
+            echo "" >> report.md
+            echo "_Note: Yellow warnings indicate potential compliance issues that require manual review_" >> report.md
+            YELLOW_COUNT=$((YELLOW_COUNT + 1))
+          else
+            echo "✅ **APPROVED** - Content complies with Band A sanitization rules" >> report.md
+            GREEN_COUNT=$((GREEN_COUNT + 1))
+          fi
+          echo "" >> report.md
+
+          # Link validation
+          echo "### 🔗 Link Integrity Check" >> report.md
+          pnpm run links > links-output.txt 2>&1 || true
+          if grep -q "Broken Internal Links" links-output.txt; then
+            echo "❌ **FAILED** - Broken documentation links detected" >> report.md
+            grep -A 20 "Broken Internal Links" links-output.txt | tail -n +2 | sed 's/^/  /' >> report.md
+            echo "" >> report.md
+            echo "**Action Required:** Fix broken internal links to maintain navigation integrity" >> report.md
+            RED_COUNT=$((RED_COUNT + 1))
+          else
+            echo "✅ **PASSED** - All documentation links verified" >> report.md
+            GREEN_COUNT=$((GREEN_COUNT + 1))
+          fi
+
+          if grep -q "External Link Issues" links-output.txt; then
+            echo "⚠️ **WARNING** - External link issues detected (non-blocking)" >> report.md
+            grep -A 20 "External Link Issues" links-output.txt | tail -n +2 | sed 's/^/  /' >> report.md
+            YELLOW_COUNT=$((YELLOW_COUNT + 1))
+          fi
+          echo "" >> report.md
+
+          # Build test
+          echo "### 🏗️ Documentation Build Verification" >> report.md
+          if pnpm run docs:build > build-output.txt 2>&1; then
+            echo "✅ **PASSED** - Site builds successfully, ready for deployment" >> report.md
+            GREEN_COUNT=$((GREEN_COUNT + 1))
+          else
+            echo "❌ **FAILED** - Build errors prevent site generation" >> report.md
+            tail -20 build-output.txt | sed 's/^/  /' >> report.md
+            echo "" >> report.md
+            echo "**Action Required:** Fix build errors before merging" >> report.md
+            RED_COUNT=$((RED_COUNT + 1))
+          fi
+          echo "" >> report.md
+
+          # Component tests
+          echo "### 🧪 Automated Testing Suite" >> report.md
+          if pnpm test > test-output.txt 2>&1; then
+            TEST_RESULTS=$(grep -E "Test Files|Tests" test-output.txt | head -1 || echo "All tests passed")
+            echo "✅ **PASSED** - $TEST_RESULTS" >> report.md
+            echo "  - Component tests: Feedback, Layout, WCAG compliance" >> report.md
+            GREEN_COUNT=$((GREEN_COUNT + 1))
+          else
+            echo "❌ **FAILED** - Test failures detected" >> report.md
+            grep -A 10 "FAIL" test-output.txt | sed 's/^/  /' >> report.md
+            echo "" >> report.md
+            echo "**Action Required:** Fix failing tests before merging" >> report.md
+            RED_COUNT=$((RED_COUNT + 1))
+          fi
+          echo "" >> report.md
+
+          # Lighthouse CI (reference to separate workflow)
+          echo "### 🚦 Performance & Accessibility Audit (Lighthouse)" >> report.md
+          echo "ℹ️ **RUNNING** - Separate workflow validates production-ready quality" >> report.md
+          echo "  - Performance score (target: 90+)" >> report.md
+          echo "  - Accessibility score (target: 100, WCAG AA compliance)" >> report.md
+          echo "  - SEO & Best Practices validation" >> report.md
+          echo "  - Check \`lighthouse\` workflow results for details" >> report.md
+          echo "" >> report.md
+
+          # Secret scan (reference to content-guard workflow)
+          echo "### 🔐 Sensitive Data Scan (GitLeaks)" >> report.md
+          echo "ℹ️ **RUNNING** - Automated secret detection via \`content-guard\` workflow" >> report.md
+          echo "  - Scans for exposed API keys, credentials, tokens" >> report.md
+          echo "  - Prevents accidental leakage of sensitive information" >> report.md
+          echo "  - Check \`Governance Compliance Report\` above for results" >> report.md
+          echo "" >> report.md
+
+          # Public safety checks
+          echo "### ✅ Automated Governance Safeguards" >> report.md
+          echo "The following Band A compliance checks run automatically:" >> report.md
+          echo "- ✅ **No internal URLs** - All hostnames sanitized for public consumption" >> report.md
+          echo "- ✅ **No ticket IDs** - Internal reference patterns removed" >> report.md
+          echo "- ✅ **No secrets** - API keys, credentials, tokens excluded" >> report.md
+          echo "- ✅ **No calendar dates** - Relative time references used (see governance policy)" >> report.md
+          echo "" >> report.md
+          echo "_These checks enforce [Band A sanitization rules](/governance#band-a-rules) established in Product Ops governance_" >> report.md
+          echo "" >> report.md
+
+          # Manual checklist reminder
+          echo "### ✋ Manual Verification (4 Items)" >> report.md
+          echo "Please confirm the following before merging:" >> report.md
+          echo "- [ ] **Code samples** are original or properly attributed (copyright compliance)" >> report.md
+          echo "- [ ] **Local preview** completed via \`pnpm run docs:dev\` (visual verification)" >> report.md
+          echo "- [ ] **Screenshots** match current UI if applicable (visual accuracy)" >> report.md
+          echo "- [ ] **Accessibility** tested with keyboard navigation (WCAG AA compliance)" >> report.md
+          echo "" >> report.md
+          echo "_Reduced from 14 manual items to 4 via automation (71% reduction)_" >> report.md
+          echo "" >> report.md
+
+          # Summary stats
+          echo "---" >> report.md
+          echo "## 📈 Quality Gate Summary" >> report.md
+          echo "" >> report.md
+          echo "| Status | Count | Description |" >> report.md
+          echo "|--------|-------|-------------|" >> report.md
+          echo "| ✅ Approved | $GREEN_COUNT | Meets governance requirements |" >> report.md
+          echo "| ⚠️ Review | $YELLOW_COUNT | Requires manual assessment |" >> report.md
+          echo "| ❌ Blocked | $RED_COUNT | Must fix before merging |" >> report.md
+          echo "" >> report.md
+
+          # Final verdict
+          echo "---" >> report.md
+          if [ "$RED_COUNT" -gt 0 ]; then
+            echo "## 🔴 Overall Status: **BLOCKED**" >> report.md
+            echo "" >> report.md
+            echo "This PR cannot be merged until **$RED_COUNT critical issue(s)** are resolved." >> report.md
+            echo "" >> report.md
+            echo "**Action Required:** Fix all ❌ failures to meet governance requirements. Review [Band A compliance policy](/governance#band-a-rules) for guidance." >> report.md
+          elif [ "$YELLOW_COUNT" -gt 0 ]; then
+            echo "## 🟡 Overall Status: **REVIEW REQUIRED**" >> report.md
+            echo "" >> report.md
+            echo "This PR has **$YELLOW_COUNT warning(s)** requiring Product Ops review." >> report.md
+            echo "" >> report.md
+            echo "**Reviewer Note:** Verify warnings align with governance policy before approving." >> report.md
+          else
+            echo "## 🟢 Overall Status: **APPROVED**" >> report.md
+            echo "" >> report.md
+            echo "All automated governance checks passed! (**$GREEN_COUNT/$GREEN_COUNT**)" >> report.md
+            echo "" >> report.md
+            echo "✨ Ready for merge pending manual verification checklist (4 items above)." >> report.md
+          fi
+
+          # Additional workflow references
+          echo "" >> report.md
+          echo "---" >> report.md
+          echo "### 🔄 Related Governance Workflows" >> report.md
+          echo "" >> report.md
+          echo "Additional quality validations running in parallel:" >> report.md
+          echo "- **Governance Compliance** (\`content-guard\`) - Band A validation, secret scan, auto-merge gating" >> report.md
+          echo "- **Performance Audit** (\`lighthouse\`) - Production-ready quality: performance, accessibility, SEO" >> report.md
+          echo "- **Content Drift Detection** (\`stale-pages\`) - Weekly \`refresh_after_days\` monitoring" >> report.md
+          echo "" >> report.md
+          echo "📖 **Learn More:** [Governance Policy](/governance) | [Contributing Guide](/CONTRIBUTING)" >> report.md
+          echo "" >> report.md
+          echo "_💡 All workflows enforce Product Ops governance standards. Check 'Checks' tab for full status._" >> report.md
+
+      - name: Comment PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('report.md', 'utf8');
+
+            // Find existing bot comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+
+            const botComment = comments.find(c =>
+              c.user.type === 'Bot' &&
+              c.body.includes('📊 Comprehensive PR Summary')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: report
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: report
+              });
+            }

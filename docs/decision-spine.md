@@ -5,6 +5,7 @@ owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
+last_reviewed: '2025-11-04'
 ---
 
 # Decision Spine

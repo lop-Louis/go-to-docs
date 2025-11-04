@@ -5,6 +5,7 @@ owner: '@lop'
 refresh_after_days: 60
 change_type: patch
 status: live
+last_reviewed: '2025-11-04'
 ---
 
 # Sanitization Checklist
@@ -67,7 +68,7 @@ npm run docs:build    # Ensure production build succeeds
 3. **Yellow**: Review recommended (non-blocking warnings)
 4. **Red**: Blocked until fixed (policy / leak risk)
 
-See GOVERNANCE.md (repository root) for policy, stop rules, and SLOs.
+See [Governance Policy](./governance) for policy, stop rules, and SLOs.
 
 ## Final Self-check Before PR
 

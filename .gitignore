@@ -5,6 +5,9 @@ dist/
 # VitePress build
 .vitepress/dist/
 
+# Lighthouse results
+.lighthouse/
+
 # Temporary files
 *.log
 *.tmp

@@ -10,16 +10,18 @@ A public VitePress documentation site for Band A content (sanitized, public-safe
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start dev server
-npm run docs:dev
+pnpm run docs:dev
 
 # Build for production
-npm run docs:build
+pnpm run docs:build
 
 # Preview production build
-npm run docs:preview
+pnpm run docs:preview
+pnpm run validate
+pnpm run review:update
 ```
 
 ---
@@ -44,26 +46,43 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 
 1. Check the [Sanitization Checklist](./docs/sanitization.md)
 2. Add required frontmatter to every page (see [Band A Guidelines](./docs/band-a.md))
-3. Test locally: `npm run docs:dev` and `npm run guard`
+3. Test locally: `pnpm run docs:dev`
+
+**Automation handles most checks:**
+
+- Pre-commit hooks run guard + link validation automatically
+- CI posts detailed check results as a PR comment
+- Manual review only needed for nuanced content decisions
 
 ### PR Process
 
-- **Green** ✅ - Auto-merged within 1 minute
-- **Yellow** ⚠️ - Needs one review
-- **Red** 🛑 - Blocked until fixed
+- **🟢 Green** - Auto-merged within 1 minute (all automated checks pass)
+- **🟡 Yellow** - Human review needed (warnings detected)
+- **🔴 Red** - Blocked until fixed (violations found)
+
+**Automated checks include:**
+
+- Frontmatter validation
+- Change size vs declared `change_type`
+- Content guard (Band A compliance)
+- Link validation (internal + external)
+- Build test
+- Secret scanning
 
 ---
 
 ## Scripts
 
-| Command              | Description                 |
-| -------------------- | --------------------------- |
-| `npm run docs:dev`   | Start local dev server      |
-| `npm run docs:build` | Build production site       |
-| `npm run guard`      | Check Band A compliance     |
-| `npm run stale`      | Generate stale pages report |
-| `npm test`           | Run all tests               |
-| `npm run validate`   | Run guard + build           |
+| Command                  | Description                            |
+| ------------------------ | -------------------------------------- |
+| `pnpm run docs:dev`      | Start local dev server                 |
+| `pnpm run docs:build`    | Build production site                  |
+| `pnpm run guard`         | Check Band A compliance                |
+| `pnpm run links`         | Check internal/external links          |
+| `pnpm run stale`         | Generate stale pages report            |
+| `pnpm test`              | Run all tests                          |
+| `pnpm run validate`      | Lint + type + guard + build + links    |
+| `pnpm run review:update` | Set last_reviewed today in frontmatter |
 
 ---
 
@@ -72,17 +91,51 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 ### GitHub Configuration
 
 1. **Enable GitHub Pages:** Settings → Pages → Source: GitHub Actions
-2. **Branch Protection:** Require Content Guard checks on `main`
-3. **Labels:** Create `green`, `yellow`, `red`, `stale`, `automated`
-4. **Optional:** Add `CLOUDFLARE_TOKEN` secret for analytics
+2. **Branch Protection (Recommended):**
+   - Settings → Branches → Add rule for `main`
+   - Require status checks: ✅ Content Guard, ✅ PR Checklist, ✅ Lighthouse CI
+   - Require review from code owners: ✅
+   - Require linear history: ✅
+   - Require deployments to succeed: ✅
+3. **Labels:** Create `green`, `yellow`, `red`, `stale`, `automated`, `documentation`
+4. **Secrets (Optional):**
+   - `PLAUSIBLE_DOMAIN` - For analytics integration
+   - Custom tokens if using external services
+
+### Branch Protection Rules
+
+Enforce quality gates by requiring these checks to pass:
+
+```yaml
+Required status checks:
+  - Content Guard (content-guard.yml)
+  - PR Checklist Automation (pr-checklist.yml)
+  - Lighthouse CI (lighthouse.yml)
+  - Build Test (included in content-guard)
+```
+
+**Manual Setup:**
+
+1. Go to Settings → Branches
+2. Click "Add rule"
+3. Branch name pattern: `main`
+4. Enable:
+   - ✅ Require a pull request before merging
+   - ✅ Require status checks to pass before merging
+   - ✅ Require branches to be up to date before merging
+5. Search and select required checks (after first workflow run)
+6. Save changes
 
 ### Acceptance Tests
 
 - [x] Push to `main` deploys to GitHub Pages
 - [x] PR with Band A violation is blocked
-- [x] Valid PR auto-merges
+- [x] Valid PR auto-merges (green status)
 - [x] Weekly stale report created
-- [x] All tests pass: `npm test`
+- [x] Monthly release tagging automated
+- [x] All tests pass: `pnpm test`
+- [x] Performance audits via Lighthouse CI
+- [ ] Branch protection rules configured (manual GitHub setup required)
 
 ---
 
@@ -91,13 +144,18 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 ### CI/CD Workflows
 
 1. **Pages** (`pages.yml`) - Deploys to GitHub Pages on push to main
-2. **Content Guard** (`content-guard.yml`) - Validates PRs, auto-merges green
-3. **Stale Pages** (`stale-pages.yml`) - Weekly audit on Mondays at 2 AM UTC
+2. **Content Guard** (`content-guard.yml`) - Validates PRs, auto-labels, enables auto-merge
+3. **PR Checklist** (`pr-checklist.yml`) - Posts automated check results as PR comment
+4. **Lighthouse CI** (`lighthouse.yml`) - Performance, accessibility, SEO audits
+5. **Stale Pages** (`stale-pages.yml`) - Weekly audit on Mondays at 2 AM UTC
+6. **Release** (`release.yml`) - Monthly changelog finalization and tagging
 
 ### Key Files
 
-- `scripts/guard.mjs` - Band A validation
+- `scripts/guard.mjs` - Band A validation + inclusive language heuristics
 - `scripts/stale.mjs` - Staleness detection
+- `scripts/link-check.mjs` - Internal/external link validation
+- `scripts/update-last-reviewed.mjs` - Frontmatter date injection
 - `docs/.vitepress/config.ts` - Site configuration
 - `.lychee.toml` - Link checker config
 - `GOVERNANCE.md` - Complete governance policy

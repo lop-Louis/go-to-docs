@@ -1,0 +1,48 @@
+[[pipelines]]
+name = "lighthouse-ci"
+description = "Run Lighthouse CI with Playwright-managed preview server"
+
+[pipelines.triggers]
+branches = ["main", "development"]
+actions = ["push", "pull_request"]
+
+[[pipelines.steps]]
+name = "install"
+commands = [
+  "pnpm install --frozen-lockfile"
+]
+
+[[pipelines.steps]]
+name = "build"
+commands = [
+  "pnpm run docs:build"
+]
+
+[[pipelines.steps]]
+name = "lighthouse"
+commands = [
+  "npx playwright install chromium --with-deps",
+  "node scripts/lighthouse-runner.mjs"
+]
+
+[[pipelines]]
+name = "content-guard"
+description = "Run governance compliance checks"
+
+[pipelines.triggers]
+branches = ["main", "development"]
+actions = ["pull_request"]
+
+[[pipelines.steps]]
+name = "install"
+commands = [
+  "pnpm install --frozen-lockfile"
+]
+
+[[pipelines.steps]]
+name = "guard"
+commands = [
+  "pnpm run guard",
+  "pnpm run links",
+  "pnpm run docs:build"
+]

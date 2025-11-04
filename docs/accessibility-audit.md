@@ -5,11 +5,12 @@ owner: '@lop'
 refresh_after_days: 180
 change_type: minor
 status: live
+last_reviewed: '2025-11-04'
 ---
 
 # Accessibility Checklist
 
-Frontend Dev completed accessibility review on 2025-11-04.
+Latest accessibility review completed (see git history for exact date; reviews occur quarterly). Exact calendar dates are avoided for public neutrality.
 
 ## Pages Reviewed
 
