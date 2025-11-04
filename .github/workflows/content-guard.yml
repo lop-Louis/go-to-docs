@@ -73,7 +73,7 @@ jobs:
           if [[ "$GUARD_EXIT" == "failure" ]] || [[ "$GITLEAKS_EXIT" == "failure" ]] || [[ "$BUILD_EXIT" == "failure" ]]; then
             echo "status=red" >> $GITHUB_OUTPUT
             echo "label=red" >> $GITHUB_OUTPUT
-          elif [[ "$LYCHEE_EXIT" == "failure" ]] || grep -q "YELLOW" guard-output.txt; then
+          elif [[ "$LYCHEE_EXIT" == "failure" ]] || (test -f guard-output.txt && grep -q "YELLOW" guard-output.txt 2>/dev/null); then
             echo "status=yellow" >> $GITHUB_OUTPUT
             echo "label=yellow" >> $GITHUB_OUTPUT
           else
@@ -128,6 +128,13 @@ jobs:
         with:
           script: |
             const label = '${{ steps.status.outputs.label }}';
+
+            // Validate label is not empty
+            if (!label || label.trim() === '') {
+              console.log('Warning: Label is empty, skipping label operation');
+              return;
+            }
+
             const labels = ['green', 'yellow', 'red'];
 
             // Remove other status labels
