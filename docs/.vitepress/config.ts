@@ -59,8 +59,9 @@ gtag('config', '${GA_ID}', {
         collapsed: false,
         items: [
           { text: 'Decision Spine', link: '/decision-spine' },
-          { text: 'Facilitation Techniques', link: '/facilitation' },
-          { text: 'Accessibility Quick Wins', link: '/accessibility-quick-wins' }
+          { text: 'Facilitation', link: '/facilitation' },
+          { text: 'Accessibility Quick Wins', link: '/accessibility-quick-wins' },
+          { text: 'Expenses: Policy → Action', link: '/pattern-expense-sla' }
         ]
       },
       {

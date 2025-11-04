@@ -122,6 +122,13 @@ Sunset or pivot if after 2 consecutive tags:
 - Policy Owner (@manager-handle) reviews monthly changelog
 - Team contributes improvements via normal PR flow
 
+### 2025-11 - Expense SLA pattern (public-safe)
+
+- Added **Expenses: Policy → Action** page (Band A): SLA + example + consequence + common loophole Q.
+- "Ask KL" on that page now auto-labels finance questions for easier routing via the `finance` label.
+- FAQ for New Joiners links to the pattern with a 10-second action card.
+- Internal specifics remain internal; this page teaches the behavior only.
+
 ---
 
 _This rhythm supports transparency and lean scope. Avoid bloating monthly tags with low-value changes._

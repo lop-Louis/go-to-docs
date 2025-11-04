@@ -9,6 +9,7 @@ const forbidden = [
   /\bhttps?:\/\/(intra|internal|corp)[^\s)]+/i,
   /\bJIRA-\d+\b/i,
   /\b[A-Z]{2,}-\d+\b/, // Generic ticket patterns
+  /\biWow\b/i, // Internal system name (keep out of public docs)
   /\bTopdanmark\b/i,
   /\bIf Insurance\b/i,
   /\b(localhost|127\.0\.0\.1|internal\.)[^\s)]+/i,

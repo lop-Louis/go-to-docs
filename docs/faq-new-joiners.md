@@ -12,6 +12,14 @@ last_reviewed: '2025-11-04'
 
 Common questions from engineers joining the team, with quick answers.
 
+## Policy → Action in 10 seconds
+
+- **Rule of thumb:** Submit any expense within **14 days**.
+- **Action today:** If your last receipt is older than **10 days**, submit it now.
+- **If unclear:** Ask "**Which date controls eligibility**?" then follow the SLA.
+
+Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](./pattern-expense-sla)
+
 ## Technical Setup
 
 ### What's our tech stack?
