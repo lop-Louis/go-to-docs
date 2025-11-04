@@ -1,7 +1,7 @@
 ---
 title: FAQ for New Joiners
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 60
 change_type: patch
 status: live
@@ -16,6 +16,7 @@ Common questions from engineers joining the team, with quick answers.
 ### What's our tech stack?
 
 Varies by team, but common patterns:
+
 - **Frontend**: React/TypeScript, Next.js or Vite
 - **Backend**: Node.js, Python, or Go
 - **Databases**: PostgreSQL, Redis for caching
@@ -47,7 +48,7 @@ Varies by team, but common patterns:
 
 ### What should I work on first?
 
-Your manager assigns initial tasks. Good starter issues are tagged `good-first-issue`. 
+Your manager assigns initial tasks. Good starter issues are tagged `good-first-issue`.
 After 2 weeks, you'll pick up regular sprint work.
 
 ### How do code reviews work?
@@ -69,11 +70,13 @@ After 2 weeks, you'll pick up regular sprint work.
 ### What meetings should I attend?
 
 Required:
+
 - Team stand-up (daily)
 - Sprint planning (bi-weekly)
 - Retrospectives (bi-weekly)
 
 Optional but useful:
+
 - Guild meetings (topic-specific)
 - Office hours (ask experts anything)
 - Show & tell (demos)
@@ -97,6 +100,7 @@ Optional but useful:
 ### When can I ship to production?
 
 After you've:
+
 - Merged 2-3 PRs successfully
 - Shadowed a deployment
 - Understand rollback procedure
@@ -131,5 +135,6 @@ Usually by week 3-4.
 ---
 
 See also:
+
 - [Decision Spine](./decision-spine) - how we make technical decisions
 - [Sanitization Checklist](./sanitization) - for contributing to this site

@@ -1,7 +1,7 @@
 ---
 title: Sanitization Checklist
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 60
 change_type: patch
 status: live
@@ -36,7 +36,7 @@ Every page must have:
 title: Page Title
 band: A
 owner: '@handle'
-refresh_after_days: 60  # adjust for volatility (60–120 typical)
+refresh_after_days: 60 # adjust for volatility (60–120 typical)
 change_type: patch | minor | major
 status: live | stale | archived | draft
 ---
@@ -44,11 +44,11 @@ status: live | stale | archived | draft
 
 ## Change size guidelines
 
-| Declared | Suggested Scope | Typical Line Delta | Examples |
-|----------|-----------------|--------------------|----------|
-| patch | Minor clarity, typo, 1–2 sentences | ≤ 50 | Fix wording, add link |
-| minor | New subsection, moderate rewrite | ≤ 250 | Add facilitation pattern |
-| major | New page or large restructure | > 250 | Introduce new practice page |
+| Declared | Suggested Scope                    | Typical Line Delta | Examples                    |
+| -------- | ---------------------------------- | ------------------ | --------------------------- |
+| patch    | Minor clarity, typo, 1–2 sentences | ≤ 50               | Fix wording, add link       |
+| minor    | New subsection, moderate rewrite   | ≤ 250              | Add facilitation pattern    |
+| major    | New page or large restructure      | > 250              | Introduce new practice page |
 
 ## Testing locally
 
@@ -81,10 +81,9 @@ See GOVERNANCE.md (repository root) for policy, stop rules, and SLOs.
 
 Use the following placeholders when teaching patterns:
 
-| Placeholder | Meaning |
-|-------------|---------|
-| `TICKET-ID` | Internal tracker reference omitted |
-| `INTERNAL-URL` | Non-public link removed |
-| `REDACTED` | Sensitive detail intentionally removed |
-| `@handle` | Any valid GitHub username |
-
+| Placeholder    | Meaning                                |
+| -------------- | -------------------------------------- |
+| `TICKET-ID`    | Internal tracker reference omitted     |
+| `INTERNAL-URL` | Non-public link removed                |
+| `REDACTED`     | Sensitive detail intentionally removed |
+| `@handle`      | Any valid GitHub username              |

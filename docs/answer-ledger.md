@@ -1,7 +1,7 @@
 ---
 title: Answer Ledger Pattern
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
@@ -14,6 +14,7 @@ A living document that captures recurring questions and their canonical answers.
 ## What it is
 
 A searchable log of questions teams ask repeatedly, with:
+
 - The question (as commonly phrased)
 - The current answer
 - When it was last updated
@@ -32,7 +33,7 @@ A searchable log of questions teams ask repeatedly, with:
 ## How do we handle API versioning?
 
 **Answer:** We use URL path versioning (e.g., `/v1/users`, `/v2/users`).
-Breaking changes require a new version. Non-breaking changes can be added 
+Breaking changes require a new version. Non-breaking changes can be added
 to existing versions.
 
 **Last updated:** 2024-10-15  
@@ -47,7 +48,7 @@ to existing versions.
 Larger PRs should be split or flagged in advance.
 
 **Last updated:** 2024-09-20  
-**Owner:** @platform-team  
+**Owner:** @platform-team
 ```
 
 ## Maintenance
@@ -60,6 +61,7 @@ Larger PRs should be split or flagged in advance.
 ## Integration
 
 Works well with:
+
 - [Decision Spine](./decision-spine) - ledger stores decision outcomes
 - Team wikis - ledger is the FAQ section
 - Onboarding docs - link to ledger entries
@@ -74,6 +76,7 @@ Works well with:
 ## Success metrics
 
 Track:
+
 - Number of repeat questions in chat (should decrease)
 - Time to onboard new team members (should decrease)
 - Link-back rate (ledger links shared in conversations)

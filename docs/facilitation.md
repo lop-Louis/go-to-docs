@@ -1,7 +1,7 @@
 ---
 title: Facilitation Techniques
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
@@ -50,6 +50,7 @@ Practical patterns for running effective meetings and workshops.
 **When:** Checking agreement level
 
 Everyone shows fingers:
+
 - 0 (fist): Block, cannot support
 - 1-2: Concerns, want discussion
 - 3: Neutral, will go with group

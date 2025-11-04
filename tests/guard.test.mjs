@@ -47,14 +47,18 @@ describe('Content Guard - Frontmatter Validation', () => {
   })
 
   it('should pass with valid Band A frontmatter', () => {
-    createTestFile('valid.md', {
-      title: 'Test Page',
-      band: 'A',
-      owner: '@testuser',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Valid content')
+    createTestFile(
+      'valid.md',
+      {
+        title: 'Test Page',
+        band: 'A',
+        owner: '@testuser',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Valid content'
+    )
 
     const result = runGuard()
     assert.strictEqual(result.success, true, 'Guard should pass for valid content')
@@ -64,14 +68,18 @@ describe('Content Guard - Frontmatter Validation', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('invalid-band.md', {
-      title: 'Test',
-      band: 'B',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Content')
+    createTestFile(
+      'invalid-band.md',
+      {
+        title: 'Test',
+        band: 'B',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Content'
+    )
 
     const result = runGuard()
     assert.strictEqual(result.success, false, 'Guard should fail for non-A band')
@@ -82,10 +90,14 @@ describe('Content Guard - Frontmatter Validation', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('missing-fields.md', {
-      title: 'Test',
-      band: 'A'
-    }, 'Content')
+    createTestFile(
+      'missing-fields.md',
+      {
+        title: 'Test',
+        band: 'A'
+      },
+      'Content'
+    )
 
     const result = runGuard()
     assert.strictEqual(result.success, false, 'Guard should fail for missing fields')
@@ -96,14 +108,18 @@ describe('Content Guard - Frontmatter Validation', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('invalid-change.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'huge',
-      status: 'live'
-    }, 'Content')
+    createTestFile(
+      'invalid-change.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'huge',
+        status: 'live'
+      },
+      'Content'
+    )
 
     const result = runGuard()
     assert.strictEqual(result.success, false, 'Guard should fail for invalid change_type')
@@ -113,14 +129,18 @@ describe('Content Guard - Frontmatter Validation', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('invalid-status.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'deleted'
-    }, 'Content')
+    createTestFile(
+      'invalid-status.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'deleted'
+      },
+      'Content'
+    )
 
     const result = runGuard()
     assert.strictEqual(result.success, false, 'Guard should fail for invalid status')
@@ -142,14 +162,18 @@ describe('Content Guard - Forbidden Patterns', () => {
   })
 
   it('should warn about internal URLs', () => {
-    createTestFile('internal-url.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Visit https://internal.company.com for more')
+    createTestFile(
+      'internal-url.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Visit https://internal.company.com for more'
+    )
 
     const result = runGuard()
     assert.match(result.output, /internal/i, 'Should detect internal URLs')
@@ -159,14 +183,18 @@ describe('Content Guard - Forbidden Patterns', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('ticket-id.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Fixed in JIRA-1234')
+    createTestFile(
+      'ticket-id.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Fixed in JIRA-1234'
+    )
 
     const result = runGuard()
     assert.match(result.output, /internal/i, 'Should detect ticket IDs')
@@ -176,14 +204,18 @@ describe('Content Guard - Forbidden Patterns', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('placeholder.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'API key: YOUR_TOKEN_REPLACE_ME')
+    createTestFile(
+      'placeholder.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'API key: YOUR_TOKEN_REPLACE_ME'
+    )
 
     const result = runGuard()
     assert.strictEqual(result.success, false, 'Should fail for placeholder tokens')
@@ -207,14 +239,18 @@ describe('Content Guard - Change Size Validation', () => {
   it('should warn when patch exceeds line limit', () => {
     const largeContent = 'Line\n'.repeat(300)
 
-    createTestFile('large-patch.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, largeContent)
+    createTestFile(
+      'large-patch.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      largeContent
+    )
 
     const result = runGuard()
     assert.match(result.output, /exceeds.*patch/i, 'Should warn about large patch')
@@ -226,14 +262,18 @@ describe('Content Guard - Change Size Validation', () => {
 
     const largeContent = 'Line\n'.repeat(500)
 
-    createTestFile('large-major.md', {
-      title: 'Test',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'major',
-      status: 'live'
-    }, largeContent)
+    createTestFile(
+      'large-major.md',
+      {
+        title: 'Test',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'major',
+        status: 'live'
+      },
+      largeContent
+    )
 
     const result = runGuard()
     // Should not have size warnings for major changes

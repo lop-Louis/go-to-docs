@@ -1,7 +1,7 @@
 ---
 title: What is Band A
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
@@ -14,6 +14,7 @@ Band A content is **public-safe** material that can be shared openly without ris
 ## What belongs in Band A
 
 ✅ **Include (safe patterns only):**
+
 - Role definitions and common responsibilities (generic, not org-specific)
 - Process patterns without company-specific details
 - Generic decision frameworks (e.g., lightweight decision spine)
@@ -23,12 +24,14 @@ Band A content is **public-safe** material that can be shared openly without ris
 - Accessibility best practices (contrast ratios, ARIA usage)
 
 ✅ **Examples (allowed phrasing):**
+
 - "A tech lead typically reviews 5–10 pull requests per day" (range, not exact count tied to individuals)
 - "A decision spine can have 4 stages: frame, options, decide, review" (generic pattern)
 - "Accessibility quick wins: keyboard navigation, ARIA labels, color contrast" (industry-standard guidance)
 - "On-call handoffs should include: context summary, active incidents, next review time" (neutral list)
 
 ❌ **Exclude (never publish):**
+
 - Internal product / system names, proprietary URLs, or screenshots of internal tools
 - Specific ticket IDs (e.g., replace `JIRA-1234` with `TICKET-ID` when describing patterns)
 - Names of employees, customers, vendors, or identifying details
@@ -41,6 +44,7 @@ Band A content is **public-safe** material that can be shared openly without ris
 ## Why Band A only
 
 This site is **public on GitHub Pages**. Band A ensures:
+
 - Legal compliance (no proprietary information)
 - Privacy protection (no personal data)
 - Longevity (generic patterns age better)
@@ -49,6 +53,7 @@ This site is **public on GitHub Pages**. Band A ensures:
 ## Sanitization process
 
 Before publishing (sanitize in this order):
+
 1. Replace any company / product / vendor names with neutral descriptors ("the organization", "the platform")
 2. Convert exact numbers to ranges or relative changes ("~15% increase", "5–10", "a few", "several")
 3. Remove or recreate screenshots using dummy data (avoid cropping with sensitive fragments)
@@ -62,30 +67,30 @@ See [Sanitization Checklist](./sanitization) for the full process and final veri
 
 ## Quick Safe/Unsafe Cheat Sheet
 
-| Topic Type | Safe (Band A) | Unsafe (Remove) |
-|------------|----------------|-----------------|
-| Metrics | "response times ~100–500ms" | Exact SLA tied to internal contract |
-| Roles | "A tech lead reviews PRs and mentors engineers" | Listing individual engineer names |
-| Tools | "Static analysis runs in CI" | Internal CI server hostname / URL |
-| Decisions | Generic frameworks & criteria | Internal approval chains with names |
-| Incidents | Pattern: "post-incident review focuses on prevention" | Specific incident IDs + timeline |
-| Architecture | High-level pattern ("event-driven workflow") | Internal topology, IP ranges |
+| Topic Type   | Safe (Band A)                                         | Unsafe (Remove)                     |
+| ------------ | ----------------------------------------------------- | ----------------------------------- |
+| Metrics      | "response times ~100–500ms"                           | Exact SLA tied to internal contract |
+| Roles        | "A tech lead reviews PRs and mentors engineers"       | Listing individual engineer names   |
+| Tools        | "Static analysis runs in CI"                          | Internal CI server hostname / URL   |
+| Decisions    | Generic frameworks & criteria                         | Internal approval chains with names |
+| Incidents    | Pattern: "post-incident review focuses on prevention" | Specific incident IDs + timeline    |
+| Architecture | High-level pattern ("event-driven workflow")          | Internal topology, IP ranges        |
 
 ## Band A Review Triggers
 
 Flag for re-review if:
-* Content references an internal codebase path or proprietary repo name
-* More than 30% line change without `change_type: major`
-* Owner field removed or replaced with non-handle
-* New section includes operational metrics beyond ranges
+
+- Content references an internal codebase path or proprietary repo name
+- More than 30% line change without `change_type: major`
+- Owner field removed or replaced with non-handle
+- New section includes operational metrics beyond ranges
 
 ## Common Neutral Substitutions
 
-| Internal Term | Replace With |
-|---------------|-------------|
-| Product codename | "the product" / "the service" |
-| Team name | "the team" |
-| Specific metric (e.g. exact count) | Range or approximate ("~50", "40–60") |
-| Internal system (e.g. Jenkins host) | "CI pipeline" |
-| Specific incident date | "recent incident" |
-
+| Internal Term                       | Replace With                          |
+| ----------------------------------- | ------------------------------------- |
+| Product codename                    | "the product" / "the service"         |
+| Team name                           | "the team"                            |
+| Specific metric (e.g. exact count)  | Range or approximate ("~50", "40–60") |
+| Internal system (e.g. Jenkins host) | "CI pipeline"                         |
+| Specific incident date              | "recent incident"                     |

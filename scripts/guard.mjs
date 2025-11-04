@@ -8,12 +8,12 @@ const DOCS = 'docs'
 const forbidden = [
   /\bhttps?:\/\/(intra|internal|corp)[^\s)]+/i,
   /\bJIRA-\d+\b/i,
-  /\b[A-Z]{2,}-\d+\b/,  // Generic ticket patterns
+  /\b[A-Z]{2,}-\d+\b/, // Generic ticket patterns
   /\bTopdanmark\b/i,
   /\bIf Insurance\b/i,
   /\b(localhost|127\.0\.0\.1|internal\.)[^\s)]+/i,
-  /\b[A-Za-z0-9._%+-]+@(company|internal|corp|topdanmark|if)\.[a-z]+/i,  // Internal emails
-  /\b(api[_-]?key|secret[_-]?key|access[_-]?token|password)\s*[:=]/i,  // Potential secrets
+  /\b[A-Za-z0-9._%+-]+@(company|internal|corp|topdanmark|if)\.[a-z]+/i, // Internal emails
+  /\b(api[_-]?key|secret[_-]?key|access[_-]?token|password)\s*[:=]/i // Potential secrets
 ]
 
 // Valid change types and their line limits
@@ -35,31 +35,31 @@ function checkFile(p) {
   fileCount++
   const raw = fs.readFileSync(p, 'utf8')
   const { data, content } = matter(raw)
-  
+
   // Skip VitePress config directory
   if (p.includes('.vitepress')) return
-  
+
   // Required frontmatter fields
   const required = ['title', 'band', 'owner', 'refresh_after_days', 'change_type', 'status']
   const missing = required.filter(k => data[k] == null)
-  
+
   if (missing.length) {
     red.push(`${p}: Missing required frontmatter: ${missing.join(', ')}`)
     checkCount++
   }
-  
+
   // Band A validation
   if (data.band && String(data.band).trim() !== 'A') {
     red.push(`${p}: band=${data.band} not allowed (must be 'A')`)
     checkCount++
   }
-  
+
   // Owner validation
   if (data.owner && !String(data.owner).startsWith('@')) {
     yellow.push(`${p}: owner should start with @ (GitHub handle)`)
     checkCount++
   }
-  
+
   // Refresh days validation
   if (data.refresh_after_days) {
     const days = Number(data.refresh_after_days)
@@ -68,19 +68,19 @@ function checkFile(p) {
       checkCount++
     }
   }
-  
+
   // Change type validation
   if (data.change_type && !CHANGE_LIMITS[data.change_type]) {
     red.push(`${p}: Invalid change_type='${data.change_type}' (must be patch, minor, or major)`)
     checkCount++
   }
-  
+
   // Status validation
   if (data.status && !VALID_STATUSES.includes(data.status)) {
     red.push(`${p}: Invalid status='${data.status}' (must be: ${VALID_STATUSES.join(', ')})`)
     checkCount++
   }
-  
+
   // Check for forbidden patterns in content
   const forbiddenMatches = []
   for (const rx of forbidden) {
@@ -88,12 +88,14 @@ function checkFile(p) {
       forbiddenMatches.push(rx.toString())
     }
   }
-  
+
   if (forbiddenMatches.length) {
-    yellow.push(`${p}: Possible internal/sensitive content detected (${forbiddenMatches.length} pattern(s))`)
+    yellow.push(
+      `${p}: Possible internal/sensitive content detected (${forbiddenMatches.length} pattern(s))`
+    )
     checkCount++
   }
-  
+
   // Change size vs declared change_type
   const lines = raw.split('\n').length
   if (data.change_type && CHANGE_LIMITS[data.change_type] !== Infinity) {
@@ -103,13 +105,13 @@ function checkFile(p) {
       checkCount++
     }
   }
-  
+
   // Check for common issues
   if (content.includes('TODO:') || content.includes('FIXME:')) {
     yellow.push(`${p}: Contains TODO/FIXME markers`)
     checkCount++
   }
-  
+
   if (content.includes('YOUR_TOKEN') || content.includes('REPLACE_ME')) {
     red.push(`${p}: Contains placeholder values that must be replaced`)
     checkCount++

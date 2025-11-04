@@ -54,14 +54,19 @@ describe('Stale Detection - Basic Functionality', () => {
 
   it('should report no stale pages when all are fresh', () => {
     // Create a fresh file
-    createTestFile('fresh.md', {
-      title: 'Fresh Page',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Fresh content', 0)
+    createTestFile(
+      'fresh.md',
+      {
+        title: 'Fresh Page',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Fresh content',
+      0
+    )
 
     const result = runStale()
     assert.strictEqual(result.success, true, 'Stale script should run successfully')
@@ -86,14 +91,19 @@ describe('Stale Detection - Age Calculation', () => {
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
     // Create a file that's 100 days old with 90-day threshold
-    createTestFile('old.md', {
-      title: 'Old Page',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Old content', 100)
+    createTestFile(
+      'old.md',
+      {
+        title: 'Old Page',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Old content',
+      100
+    )
 
     const result = runStale()
     assert.strictEqual(result.success, true, 'Stale script should run')
@@ -106,14 +116,19 @@ describe('Stale Detection - Age Calculation', () => {
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
     // Create a file that's 50 days old with 90-day threshold
-    createTestFile('recent.md', {
-      title: 'Recent Page',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 90,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Recent content', 50)
+    createTestFile(
+      'recent.md',
+      {
+        title: 'Recent Page',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 90,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Recent content',
+      50
+    )
 
     const result = runStale()
     assert.match(result.output, /No stale pages/i, 'Should not flag recent pages')
@@ -135,14 +150,19 @@ describe('Stale Detection - Report Format', () => {
   })
 
   it('should generate markdown table format', () => {
-    createTestFile('stale1.md', {
-      title: 'Stale Page',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 30,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Content', 45)
+    createTestFile(
+      'stale1.md',
+      {
+        title: 'Stale Page',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 30,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Content',
+      45
+    )
 
     const result = runStale()
     assert.match(result.output, /\|.*\|.*\|/, 'Should contain markdown table')
@@ -153,14 +173,19 @@ describe('Stale Detection - Report Format', () => {
     fs.rmSync(TEST_DIR, { recursive: true })
     fs.mkdirSync(TEST_DIR, { recursive: true })
 
-    createTestFile('owned.md', {
-      title: 'Owned Page',
-      band: 'A',
-      owner: '@alice',
-      refresh_after_days: 30,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Content', 45)
+    createTestFile(
+      'owned.md',
+      {
+        title: 'Owned Page',
+        band: 'A',
+        owner: '@alice',
+        refresh_after_days: 30,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Content',
+      45
+    )
 
     const result = runStale()
     assert.match(result.output, /@alice/i, 'Should include owner in report')
@@ -182,14 +207,19 @@ describe('Stale Detection - Severity Levels', () => {
   })
 
   it('should flag severely stale pages (2x threshold)', () => {
-    createTestFile('ancient.md', {
-      title: 'Ancient Page',
-      band: 'A',
-      owner: '@test',
-      refresh_after_days: 60,
-      change_type: 'patch',
-      status: 'live'
-    }, 'Very old content', 150)
+    createTestFile(
+      'ancient.md',
+      {
+        title: 'Ancient Page',
+        band: 'A',
+        owner: '@test',
+        refresh_after_days: 60,
+        change_type: 'patch',
+        status: 'live'
+      },
+      'Very old content',
+      150
+    )
 
     const result = runStale()
     assert.match(result.output, /severely stale|priority/i, 'Should flag severe staleness')

@@ -25,24 +25,24 @@ function scan(dir = 'docs') {
 
     for (const f of fs.readdirSync(dir)) {
       const p = path.join(dir, f)
-      
+
       try {
         const s = fs.statSync(p)
-        
+
         if (s.isDirectory() && f !== 'node_modules' && f !== '.git' && !f.startsWith('.')) {
           scan(p)
         } else if (p.endsWith('.md') && !p.includes('.vitepress')) {
           fileCount++
           const raw = fs.readFileSync(p, 'utf8')
           const { data } = matter(raw)
-          
+
           const refresh = Number(data.refresh_after_days ?? 90)
           const last = lastCommitDate(p) || new Date(s.mtime)
           const age = Math.floor((Date.now() - last.getTime()) / 86400000)
-          
+
           const status = data.status || 'unknown'
           const owner = data.owner || 'unassigned'
-          
+
           if (age > refresh) {
             rows.push({
               path: p,
@@ -53,7 +53,7 @@ function scan(dir = 'docs') {
               lastUpdate: last.toISOString().split('T')[0]
             })
           }
-          
+
           // Additional staleness indicators
           if (age > refresh * 2) {
             errors.push(`${p} is severely stale (${age} days, 2x the threshold)`)
@@ -98,7 +98,9 @@ const sorted = rows.sort((a, b) => b.age - a.age)
 
 for (const r of sorted) {
   const emoji = r.age > r.refresh * 2 ? '🔴' : '🟡'
-  console.log(`| ${emoji} ${r.path} | ${r.status} | ${r.owner} | ${r.age} | ${r.refresh} | ${r.lastUpdate} |`)
+  console.log(
+    `| ${emoji} ${r.path} | ${r.status} | ${r.owner} | ${r.age} | ${r.refresh} | ${r.lastUpdate} |`
+  )
 }
 
 console.log('')
@@ -106,7 +108,7 @@ console.log('## Actions Required')
 console.log('')
 console.log('For each stale page:')
 console.log('1. Review the content for accuracy')
-console.log('2. Update if needed, or confirm it\'s still valid')
+console.log("2. Update if needed, or confirm it's still valid")
 console.log('3. If valid, extend `refresh_after_days` in frontmatter')
 console.log('4. If outdated, either update or set `status: archived`')
 console.log('')
@@ -122,7 +124,9 @@ console.log('---')
 console.log(`Generated: ${new Date().toISOString()}`)
 console.log(`Total files: ${fileCount} | Stale: ${rows.length}`)
 console.log('')
-console.log('💡 **Tip:** Pages become stale when not updated within their `refresh_after_days` window.')
+console.log(
+  '💡 **Tip:** Pages become stale when not updated within their `refresh_after_days` window.'
+)
 
 // Exit with code 0 (report is informational, not blocking)
 process.exit(0)
