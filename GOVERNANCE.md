@@ -25,7 +25,7 @@ Keep public documentation useful, safe, and small. Bots chase compliance; humans
 - Vendor-specific implementations
 - Calendar dates or project timelines
 
-See [Band A Guidelines](./docs/band-a.md) for detailed examples.
+See `docs/band-a.md` for detailed examples.
 
 ---
 
@@ -52,7 +52,7 @@ Every markdown page must include:
 ---
 title: Page Title               # Human-readable title
 band: A                         # Content classification (only A allowed)
-owner: 'company-initials'      # Responsible maintainer (company INITIALS)
+owner: '@handle'               # Responsible maintainer (GitHub handle)
 refresh_after_days: 90          # Review window (typically 60-90)
 change_type: patch              # patch | minor | major
 status: live                    # live | stale | archived | draft
@@ -260,12 +260,15 @@ Before ANY commit to main:
 
 ## Version History
 
-| Version | Date | Changes | Author |
-|---------|------|---------|--------|
-| 1.0 | 2024-11-04 | Initial governance | lop |
+| Version | Date | Changes | Author | Approved By |
+|---------|------|---------|--------|-------------|
+| 1.0 | 2024-11-04 | Initial governance | @lop | @manager-handle |
 
 ---
 
 **Last Reviewed:** 2024-11-04  
 **Next Review:** 2025-02-04 (90 days)  
-**Owner:** lop
+**Owner:** @lop  
+**Policy Owner Approval:** @manager-handle  
+**Change Control:** Amend only via PR tagged `governance` + approval from Policy Owner
+
