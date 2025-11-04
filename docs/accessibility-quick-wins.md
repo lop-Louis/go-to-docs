@@ -1,7 +1,7 @@
 ---
 title: Accessibility Quick Wins
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
@@ -16,7 +16,8 @@ High-impact accessibility improvements that take minimal effort.
 ✅ **Add tab index and focus styles**
 
 ```css
-button:focus, a:focus {
+button:focus,
+a:focus {
   outline: 2px solid #005fcc;
   outline-offset: 2px;
 }
@@ -41,6 +42,7 @@ button:focus, a:focus {
 ## Color contrast
 
 ✅ **Minimum ratios** (WCAG AA):
+
 - Text: 4.5:1
 - Large text (18pt+): 3:1
 - UI components: 3:1
@@ -52,13 +54,13 @@ button:focus, a:focus {
 ✅ **Descriptive for content images**
 
 ```html
-<img src="chart.png" alt="Bar chart showing 40% increase in response time">
+<img src="chart.png" alt="Bar chart showing 40% increase in response time" />
 ```
 
 ✅ **Empty for decorative images**
 
 ```html
-<img src="decorative-line.png" alt="">
+<img src="decorative-line.png" alt="" />
 ```
 
 ## ARIA labels
@@ -74,9 +76,7 @@ button:focus, a:focus {
 ✅ **Announce dynamic changes**
 
 ```html
-<div role="alert" aria-live="polite">
-  Form submitted successfully
-</div>
+<div role="alert" aria-live="polite">Form submitted successfully</div>
 ```
 
 ## Form labels
@@ -84,14 +84,13 @@ button:focus, a:focus {
 ✅ **Associate labels with inputs**
 
 ```html
-<label for="email">Email address</label>
-<input id="email" type="email" required>
+<label for="email">Email address</label> <input id="email" type="email" required />
 ```
 
 ✅ **Show error messages clearly**
 
 ```html
-<input aria-invalid="true" aria-describedby="email-error">
+<input aria-invalid="true" aria-describedby="email-error" />
 <span id="email-error" role="alert">Please enter a valid email</span>
 ```
 

@@ -6,16 +6,18 @@ labels: documentation
 ---
 
 ## Content Type
+
 - [ ] New page
 - [ ] Update existing page
 - [ ] Fix/correction
-- [ ] Other: _____
+- [ ] Other: **\_**
 
 ## Sanitization Checklist
 
 Before submitting, verify all items:
 
 ### Public Safety
+
 - [ ] No internal names (company, product, vendor)
 - [ ] No internal URLs or screenshots
 - [ ] No ticket IDs (JIRA-1234, etc.)
@@ -24,11 +26,13 @@ Before submitting, verify all items:
 - [ ] No personal data (names, emails, phone numbers)
 
 ### Code Samples
+
 - [ ] Code is original work or properly attributed
 - [ ] No API keys, tokens, passwords, or secrets
 - [ ] License noted if adapted from external sources
 
 ### Frontmatter (Required)
+
 - [ ] `title` set
 - [ ] `band: A` confirmed
 - [ ] `owner` assigned (your GitHub handle with @)
@@ -37,11 +41,13 @@ Before submitting, verify all items:
 - [ ] `status` set (usually 'live')
 
 ### Change Size
+
 - [ ] **Patch** (≤ 20 lines): Typos, small clarifications
 - [ ] **Minor** (≤ 120 lines): New section, substantial edits
 - [ ] **Major** (> 120 lines): New page, major restructure
 
 ### Testing
+
 - [ ] Previewed locally with `npm run docs:dev`
 - [ ] Ran content guard with `npm run guard`
 - [ ] Links are valid and accessible
@@ -50,12 +56,9 @@ Before submitting, verify all items:
 
 **What does this change/add?**
 
-
 **Why is this needed?**
 
-
 **How does it help the team?**
-
 
 ## Additional Notes
 

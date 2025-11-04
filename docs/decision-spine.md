@@ -1,7 +1,7 @@
 ---
 title: Decision Spine
 band: A
-owner: "@lop"
+owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
@@ -31,11 +31,13 @@ A lightweight framework for making and documenting technical decisions in teams.
 ## Decision: [Short title]
 
 ### Frame
+
 Problem: [What needs deciding]
 Constraints: [Time, budget, skills, compliance]
 Stakes: [What happens if we get this wrong]
 
 ### Options
+
 **A. [Name]**
 Pros: ...
 Cons: ...
@@ -47,12 +49,14 @@ Cons: ...
 Effort: [S/M/L]
 
 ### Decide
+
 Choice: [A/B]
 Decider: [Role or name]
 Rationale: [Why this beats alternatives]
 Date: YYYY-MM-DD
 
 ### Review
+
 Next review: [Date or trigger]
 Success metric: [What good looks like]
 ```
@@ -67,5 +71,6 @@ Success metric: [What good looks like]
 ## Integration with other practices
 
 Combine with:
+
 - [Answer Ledger](./answer-ledger) for recurring questions
 - [Facilitation](./facilitation) techniques for group decisions

@@ -13,13 +13,12 @@ labels: security, urgent
 
 <!-- Brief description without exposing the leak -->
 
-
 ## Where?
 
-- [ ] Specific page/file: _____
+- [ ] Specific page/file: **\_**
 - [ ] Public documentation site
 - [ ] Source code repository
-- [ ] Other: _____
+- [ ] Other: **\_**
 
 ## Type of Issue
 
@@ -27,14 +26,14 @@ labels: security, urgent
 - [ ] Internal URL/system name leaked
 - [ ] Personal identifiable information (PII)
 - [ ] Proprietary business information
-- [ ] Other: _____
+- [ ] Other: **\_**
 
 ## Immediate Actions Taken
 
 - [ ] Notified security team
 - [ ] Paused deployments
 - [ ] Reviewed recent commits
-- [ ] Other: _____
+- [ ] Other: **\_**
 
 ## Next Steps
 

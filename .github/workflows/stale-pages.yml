@@ -2,7 +2,7 @@ name: Stale Page Audit
 
 on:
   schedule:
-    - cron: '0 2 * * 1'  # Every Monday at 2 AM UTC
+    - cron: '0 2 * * 1' # Every Monday at 2 AM UTC
   workflow_dispatch:
 
 permissions:
@@ -16,21 +16,26 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          fetch-depth: 0  # Need full history to check last commit dates
+          fetch-depth: 0 # Need full history to check last commit dates
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run stale detection
-        run: npm run stale > stale-report.md
+        run: pnpm run stale > stale-report.md
 
       - name: Check if report has content
         id: check

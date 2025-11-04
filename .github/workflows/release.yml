@@ -1,0 +1,63 @@
+name: Monthly Release Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      finalize:
+        description: 'Finalize current month changelog and create tag'
+        type: boolean
+        default: true
+  schedule:
+    - cron: '0 6 1 * *' # 06:00 UTC on the 1st of each month
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+      - name: Preview changelog aggregation
+        run: pnpm run changelog:preview > changelog_preview.md
+      - name: Append preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog-preview
+          path: changelog_preview.md
+      - name: Finalize changelog
+        if: ${{ github.event_name == 'schedule' || inputs.finalize == 'true' }}
+        run: |
+          pnpm run changelog:finalize
+          cat CHANGELOG.md
+      - name: Derive tag
+        id: tag
+        run: |
+          YEAR=$(date -u +%Y)
+          MONTH=$(date -u +%m)
+          echo "tag=site-v${YEAR}.${MONTH}" >> $GITHUB_OUTPUT
+      - name: Create tag
+        if: ${{ github.event_name == 'schedule' || inputs.finalize == 'true' }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add CHANGELOG.md
+          git commit -m "chore: finalize changelog for ${{ steps.tag.outputs.tag }}" || echo "No changes to commit"
+          git tag ${{ steps.tag.outputs.tag }}
+          git push origin HEAD --tags
+      - name: Release summary
+        run: |
+          echo "Tagged ${{ steps.tag.outputs.tag }} (if finalize enabled)."

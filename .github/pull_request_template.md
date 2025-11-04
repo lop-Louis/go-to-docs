@@ -3,6 +3,7 @@
 Before submitting, verify all items below:
 
 ### Public Safety ✅
+
 - [ ] No internal names (company, product, vendor)
 - [ ] No internal URLs, screenshots, or system references
 - [ ] No ticket IDs (JIRA-1234, Linear-ABC, etc.)
@@ -11,6 +12,7 @@ Before submitting, verify all items below:
 - [ ] No personal data (names, emails, identifying details)
 
 ### Code Samples 💻
+
 - [ ] Code is original or properly licensed
 - [ ] Attribution included if adapted from external sources
 - [ ] No API keys, tokens, passwords, or connection strings
@@ -33,11 +35,13 @@ status: live
 ### Change Size 📏
 
 Check the appropriate size:
+
 - [ ] **patch** (≤ 20 lines) - Typos, small clarifications
-- [ ] **minor** (≤ 120 lines) - New section, substantial edits  
+- [ ] **minor** (≤ 120 lines) - New section, substantial edits
 - [ ] **major** (> 120 lines) - New page, major restructure
 
 ### Testing 🧪
+
 - [ ] Previewed locally: `npm run docs:dev`
 - [ ] Passed content guard: `npm run guard`
 - [ ] Links are valid and accessible
@@ -53,6 +57,7 @@ Check the appropriate size:
 ---
 
 **CI will automatically:**
+
 - ✅ **Green**: Auto-merge if all checks pass
 - ⚠️ **Yellow**: Request review for warnings
 - ❌ **Red**: Block merge until issues are fixed

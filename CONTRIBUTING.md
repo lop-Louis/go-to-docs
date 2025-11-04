@@ -63,17 +63,20 @@ npm run docs:dev     # Preview
 ## Submitting a PR
 
 1. **Create branch:**
+
    ```bash
    git checkout -b feature/my-practice
    ```
 
 2. **Make changes and commit:**
+
    ```bash
    git add docs/my-practice.md
    git commit -m "docs: add my practice guide"
    ```
 
 3. **Push and open PR:**
+
    ```bash
    git push origin feature/my-practice
    ```
@@ -90,6 +93,7 @@ npm run docs:dev     # Preview
 ### Guard Fails with "Missing Frontmatter"
 
 Add all required fields:
+
 ```yaml
 ---
 title: Required
@@ -108,6 +112,7 @@ Ensure `band: A` (exactly, capital A).
 ### "Possible Internal Reference"
 
 Remove:
+
 - Internal URLs (intranet, corp domains)
 - Ticket IDs (JIRA-1234)
 - Company/product names
@@ -116,6 +121,7 @@ Remove:
 ### Build Fails
 
 Check for:
+
 - Broken links in markdown
 - Invalid Vue syntax in frontmatter
 - Missing images
@@ -141,16 +147,19 @@ Check for:
 ## Review Process
 
 ### Green PRs (Auto-merge)
+
 - All checks pass
 - No warnings
 - Valid Band A content
 
 ### Yellow PRs (Review Required)
+
 - Large changes for declared `change_type`
 - Possible internal references detected
 - Broken external links
 
 ### Red PRs (Blocked)
+
 - Missing frontmatter
 - Invalid band value
 - Secret scan fails
