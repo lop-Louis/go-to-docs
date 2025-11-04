@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+dist/
+
+# VitePress build
+.vitepress/dist/
+
+# Temporary files
+*.log
+*.tmp
+
+# OS-specific
+.DS_Store
+Thumbs.db
