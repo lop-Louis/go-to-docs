@@ -19,12 +19,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -69,7 +69,7 @@ jobs:
           LYCHEE_EXIT=${{ steps.lychee.outcome }}
           GITLEAKS_EXIT=${{ steps.gitleaks.outcome }}
           BUILD_EXIT=${{ steps.build.outcome }}
-          
+
           if [[ "$GUARD_EXIT" == "failure" ]] || [[ "$GITLEAKS_EXIT" == "failure" ]] || [[ "$BUILD_EXIT" == "failure" ]]; then
             echo "status=red" >> $GITHUB_OUTPUT
             echo "label=red" >> $GITHUB_OUTPUT
@@ -91,30 +91,30 @@ jobs:
             const lycheeResult = '${{ steps.lychee.outcome }}';
             const gitleaksResult = '${{ steps.gitleaks.outcome }}';
             const buildResult = '${{ steps.build.outcome }}';
-            
+
             const emoji = {
               'green': '✅',
               'yellow': '⚠️',
               'red': '❌'
             }[status] || '❓';
-            
+
             const message = `## ${emoji} Content Guard Report
-            
+
             **Overall Status: ${status.toUpperCase()}**
-            
+
             | Check | Result |
             |-------|--------|
             | Band A Compliance | ${guardResult === 'success' ? '✅' : '❌'} |
             | Link Validation | ${lycheeResult === 'success' ? '✅' : '⚠️'} |
             | Secret Scan | ${gitleaksResult === 'success' ? '✅' : '❌'} |
             | Build Test | ${buildResult === 'success' ? '✅' : '❌'} |
-            
+
             ${status === 'green' ? '🎉 All checks passed! This PR is ready to merge.' : ''}
             ${status === 'yellow' ? '⚠️ Some warnings detected. Manual review recommended.' : ''}
             ${status === 'red' ? '🛑 Blocking issues found. Please fix before merging.' : ''}
-            
+
             See workflow run for details.`;
-            
+
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -129,7 +129,7 @@ jobs:
           script: |
             const label = '${{ steps.status.outputs.label }}';
             const labels = ['green', 'yellow', 'red'];
-            
+
             // Remove other status labels
             for (const l of labels) {
               if (l !== label) {
@@ -145,7 +145,7 @@ jobs:
                 }
               }
             }
-            
+
             // Add current status label
             await github.rest.issues.addLabels({
               owner: context.repo.owner,

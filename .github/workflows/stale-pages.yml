@@ -2,7 +2,7 @@ name: Stale Page Audit
 
 on:
   schedule:
-    - cron: '0 2 * * 1'  # Every Monday at 2 AM UTC
+    - cron: '0 2 * * 1' # Every Monday at 2 AM UTC
   workflow_dispatch:
 
 permissions:
@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
-          fetch-depth: 0  # Need full history to check last commit dates
+          fetch-depth: 0 # Need full history to check last commit dates
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '20'
           cache: 'npm'
