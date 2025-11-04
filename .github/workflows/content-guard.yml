@@ -181,8 +181,21 @@ jobs:
               labels: [label]
             });
 
-      - name: Enable auto-merge for green PRs
+      - name: Confirm all checks passed
         if: steps.status.outputs.status == 'green'
+        id: combined
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          state=$(gh api repos/${{ github.repository }}/commits/$SHA/status --jq '.state')
+          echo "state=$state" >> $GITHUB_OUTPUT
+          if [ "$state" != "success" ]; then
+            echo "Combined commit status is $state. Auto-merge will not be enabled."
+          fi
+
+      - name: Enable auto-merge for green PRs
+        if: steps.status.outputs.status == 'green' && steps.combined.outputs.state == 'success'
         uses: peter-evans/enable-pull-request-automerge@v3
         with:
           pull-request-number: ${{ github.event.pull_request.number }}
