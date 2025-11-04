@@ -13,7 +13,22 @@ const forbidden = [
   /\bIf Insurance\b/i,
   /\b(localhost|127\.0\.0\.1|internal\.)[^\s)]+/i,
   /\b[A-Za-z0-9._%+-]+@(company|internal|corp|topdanmark|if)\.[a-z]+/i, // Internal emails
-  /\b(api[_-]?key|secret[_-]?key|access[_-]?token|password)\s*[:=]/i // Potential secrets
+  /\b(api[_-]?key|secret[_-]?key|access[_-]?token|password)\s*[:=]/i, // Potential secrets
+  /\b\d{4}-\d{2}-\d{2}\b/, // ISO dates (YYYY-MM-DD)
+  /\bQ[1-4]\s+20\d{2}\b/i, // Quarter dates (Q1 2024)
+  /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+20\d{2}\b/i // Calendar dates
+]
+
+// Allowed placeholders (won't trigger forbidden pattern warnings)
+const allowedPlaceholders = [
+  'TICKET-ID',
+  'INTERNAL-URL',
+  'REDACTED',
+  '@handle',
+  'YYYY-MM-DD',
+  'company-name',
+  'product-name',
+  'vendor-name'
 ]
 
 // Non-inclusive / discouraged terminology heuristics (case-insensitive)
@@ -97,8 +112,15 @@ function checkFile(p) {
   // Check for forbidden patterns in content
   const forbiddenMatches = []
   for (const rx of forbidden) {
-    if (rx.test(content)) {
-      forbiddenMatches.push(rx.toString())
+    const matches = content.match(rx)
+    if (matches) {
+      // Filter out allowed placeholders
+      const hasAllowedPlaceholder = allowedPlaceholders.some(placeholder =>
+        matches.some(match => match.includes(placeholder))
+      )
+      if (!hasAllowedPlaceholder) {
+        forbiddenMatches.push(rx.toString())
+      }
     }
   }
 

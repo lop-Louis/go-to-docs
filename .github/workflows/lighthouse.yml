@@ -1,0 +1,80 @@
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['docs/**', '.vitepress/**']
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+
+jobs:
+  lighthouse:
+    name: Performance Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm run docs:build
+
+      - name: Start preview server
+        run: pnpm run docs:preview &
+        env:
+          PORT: 5173
+
+      - name: Wait for server
+        run: |
+          npx wait-on http://localhost:5173 -t 30000
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:5173/go-to-docs/
+            http://localhost:5173/go-to-docs/band-a
+            http://localhost:5173/go-to-docs/governance
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = `## 🔦 Lighthouse Performance Report
+
+            Performance audit completed! View detailed results in the artifacts.
+
+            **Key Metrics Checked:**
+            - ⚡ Performance
+            - ♿ Accessibility
+            - 🎯 Best Practices
+            - 🔍 SEO
+
+            Check the workflow artifacts for full Lighthouse reports.`;
+
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment
+            });

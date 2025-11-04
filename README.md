@@ -91,17 +91,51 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 ### GitHub Configuration
 
 1. **Enable GitHub Pages:** Settings → Pages → Source: GitHub Actions
-2. **Branch Protection:** Require Content Guard checks on `main`
-3. **Labels:** Create `green`, `yellow`, `red`, `stale`, `automated`
-4. **Optional:** Add `PLAUSIBLE_DOMAIN` / `PLAUSIBLE_SCRIPT` or analytics env if enabling privacy-friendly tracking
+2. **Branch Protection (Recommended):**
+   - Settings → Branches → Add rule for `main`
+   - Require status checks: ✅ Content Guard, ✅ PR Checklist, ✅ Lighthouse CI
+   - Require review from code owners: ✅
+   - Require linear history: ✅
+   - Require deployments to succeed: ✅
+3. **Labels:** Create `green`, `yellow`, `red`, `stale`, `automated`, `documentation`
+4. **Secrets (Optional):**
+   - `PLAUSIBLE_DOMAIN` - For analytics integration
+   - Custom tokens if using external services
+
+### Branch Protection Rules
+
+Enforce quality gates by requiring these checks to pass:
+
+```yaml
+Required status checks:
+  - Content Guard (content-guard.yml)
+  - PR Checklist Automation (pr-checklist.yml)
+  - Lighthouse CI (lighthouse.yml)
+  - Build Test (included in content-guard)
+```
+
+**Manual Setup:**
+
+1. Go to Settings → Branches
+2. Click "Add rule"
+3. Branch name pattern: `main`
+4. Enable:
+   - ✅ Require a pull request before merging
+   - ✅ Require status checks to pass before merging
+   - ✅ Require branches to be up to date before merging
+5. Search and select required checks (after first workflow run)
+6. Save changes
 
 ### Acceptance Tests
 
 - [x] Push to `main` deploys to GitHub Pages
 - [x] PR with Band A violation is blocked
-- [x] Valid PR auto-merges
+- [x] Valid PR auto-merges (green status)
 - [x] Weekly stale report created
-- [x] All tests pass: `npm test`
+- [x] Monthly release tagging automated
+- [x] All tests pass: `pnpm test`
+- [x] Performance audits via Lighthouse CI
+- [ ] Branch protection rules configured (manual GitHub setup required)
 
 ---
 
@@ -112,7 +146,9 @@ See [GOVERNANCE.md](./GOVERNANCE.md) for complete details.
 1. **Pages** (`pages.yml`) - Deploys to GitHub Pages on push to main
 2. **Content Guard** (`content-guard.yml`) - Validates PRs, auto-labels, enables auto-merge
 3. **PR Checklist** (`pr-checklist.yml`) - Posts automated check results as PR comment
-4. **Stale Pages** (`stale-pages.yml`) - Weekly audit on Mondays at 2 AM UTC
+4. **Lighthouse CI** (`lighthouse.yml`) - Performance, accessibility, SEO audits
+5. **Stale Pages** (`stale-pages.yml`) - Weekly audit on Mondays at 2 AM UTC
+6. **Release** (`release.yml`) - Monthly changelog finalization and tagging
 
 ### Key Files
 
