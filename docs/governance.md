@@ -55,7 +55,7 @@ Based on usage patterns, watch for:
    - "15 team members" → "~15 members" or "mid-sized team"
 
 3. **Temporal Specificity:**
-   - "Launched on Q2 2024" → "Launched recently" or "within the past year"
+   - "Launched in a named quarter" → "Launched recently" or "within the past year"
    - "Meeting every Tuesday" → "Weekly meetings" or "regular cadence"
    - "Deploy by March 15" → "Deploy within 2 weeks" or "upcoming sprint"
 
@@ -66,16 +66,16 @@ Based on usage patterns, watch for:
 
 ### Good vs. Bad Examples
 
-| ❌ Avoid                           | ✅ Prefer                        |
-| ---------------------------------- | -------------------------------- |
-| "Our Acme CRM system handles..."   | "The CRM system handles..."      |
-| "Contact Jane at jane@company.com" | "Contact the team owner"         |
-| "JIRA-1234 tracks this issue"      | "TICKET-ID tracks this pattern"  |
-| "Deployed on Jan 15, 2024"         | "Deployed in early 2024"         |
-| "Exactly 127 users affected"       | "~125 users" or "over 100 users" |
-| "http://internal.corp/wiki"        | "Internal documentation"         |
-| "The Phoenix project cost $2.3M"   | "The project" (omit cost)        |
-| "Our 23-person team in building 7" | "A mid-sized team"               |
+| ❌ Avoid                               | ✅ Prefer                        |
+| -------------------------------------- | -------------------------------- |
+| "Our Acme CRM system handles..."       | "The CRM system handles..."      |
+| "Contact Jane at NAME@PRIVATE-EMAIL"   | "Contact the team owner"         |
+| "JIRA-123X tracks this issue"          | "TICKET-ID tracks this pattern"  |
+| "Deployed on a specific calendar date" | "Deployed in early 2024"         |
+| "Exactly 127 users affected"           | "~125 users" or "over 100 users" |
+| "https://INTERNAL-URL/wiki"            | "Internal documentation"         |
+| "The Phoenix project cost $2.3M"       | "The project" (omit cost)        |
+| "Our 23-person team in building 7"     | "A mid-sized team"               |
 
 ## Lifecycle States
 
@@ -159,7 +159,7 @@ Every quarter (Q1, Q2, Q3, Q4), conduct systematic review:
 - **Guard violations:** Red/Yellow trends over time
 - **Link health:** Broken link count and resolution time
 
-**Q1 2026 Review Target:** < 5 stale pages, < 3 open stale issues
+**Next Quarter Review Target:** < 5 stale pages, < 3 open stale issues
 
 ## Monthly Release Tagging
 

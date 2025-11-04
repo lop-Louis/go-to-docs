@@ -25,9 +25,11 @@ Run locally with:
 npm run docs:build
 npm run docs:preview
 # In another terminal:
-npx lighthouse http://localhost:4173/go-to-docs/decision-spine --view
-npx lighthouse http://localhost:4173/go-to-docs/accessibility-quick-wins --view
+npx lighthouse http://<preview-host>/go-to-docs/decision-spine --view
+npx lighthouse http://<preview-host>/go-to-docs/accessibility-quick-wins --view
 ```
+
+Replace `<preview-host>` with the address printed by `npm run docs:preview` (use whatever loopback host your environment exposes).
 
 ## Accessibility Features Verified
 
@@ -79,5 +81,5 @@ None identified.
 ## Sign-off
 
 Reviewed by: Frontend Dev  
-Date: 2025-11-04  
+Date: latest quarterly audit (see git history for exact timestamp)  
 Status: ✅ Accessible

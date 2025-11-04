@@ -36,7 +36,7 @@ Band A content is **public-safe** material that can be shared openly without ris
 ❌ **Exclude (never publish):**
 
 - Internal product / system names, proprietary URLs, or screenshots of internal tools
-- Specific ticket IDs (e.g., replace `JIRA-1234` with `TICKET-ID` when describing patterns)
+- Specific ticket IDs (e.g., replace a reference like `JIRA-123X` with `TICKET-ID` when describing patterns)
 - Names of employees, customers, vendors, or identifying details
 - Exact financials (revenue, cost, contract values) or customer counts
 - Internal infrastructure topology, IPs, environment hostnames

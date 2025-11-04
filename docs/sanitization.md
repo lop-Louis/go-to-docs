@@ -19,7 +19,7 @@ Use this checklist before submitting any PR to ensure content is public-safe.
 - [ ] **No screenshots**: If needed, redact or recreate with dummy data
 - [ ] **No ticket IDs**: Strip patterns like `JIRA-####`, `ABC-####` (replace with `TICKET-ID` if educational)
 - [ ] **No exact numbers**: Convert to ranges ("10-20 users") or percentages ("~15% increase")
-- [ ] **No calendar dates**: Use relative time ("Q2 2024" → "within 3 months")
+- [ ] **No calendar dates**: Use relative time ("next quarter" → "within 3 months")
 - [ ] **No personal data**: Remove names, emails, phone numbers, or identifying details
 
 ## Code samples
