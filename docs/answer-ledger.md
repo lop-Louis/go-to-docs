@@ -10,7 +10,9 @@ last_reviewed: '2025-11-04'
 
 # Answer Ledger Pattern
 
-A living document that captures recurring questions and their canonical answers.
+What: Structured, searchable list of recurring questions with their current canonical answers.
+Why: Saves time, reduces interruptions, and accelerates onboarding by turning chatter into linkable knowledge.
+When: After a question is answered twice, or when a decision needs a stable reference others can reuse.
 
 ## What it is
 

@@ -1,53 +1,36 @@
 ---
-title: Welcome to the Practice Hub
+title: Go-To Docs
+layout: home
 band: A
 owner: '@lop'
 refresh_after_days: 90
 change_type: minor
 status: live
 last_reviewed: '2025-11-04'
+
+hero:
+  name: Go-To Docs
+  text: Answers you can link. Patterns you can trust.
+  tagline: Public-safe playbook for decisions, facilitation, and quick wins.
+  actions:
+    - theme: brand
+      text: Start here
+      link: /band-a
+    - theme: alt
+      text: Ask a question
+      link: https://github.com/lop-Louis/go-to-docs/issues/new?labels=kl,question&title=[Question]%20
+
+features:
+  - title: Make decisions faster
+    details: Use the Decision Spine and stop relitigating. → /decision-spine
+  - title: Run better meetings
+    details: Copy-paste facilitation prompts that work. → /facilitation
+  - title: Ship accessible UI
+    details: Quick checks that catch 80% of issues. → /accessibility-quick-wins
 ---
 
-# Practice Hub
+---
 
-Public-safe patterns for working, deciding, and improving. This site keeps knowledge lightweight, generic, and reusable.
-
-## What You'll Find
-
-| Area           | Purpose                            |
-| -------------- | ---------------------------------- |
-| Decision Spine | Lightweight decision-making steps  |
-| Facilitation   | Inclusive group techniques         |
-| Answer Ledger  | Pattern for recurring Q&A          |
-| Accessibility  | Quick wins + audit approach        |
-| Release Rhythm | Monthly tagging & cadence          |
-| Governance     | Policy & automation model          |
-| Sanitization   | How to prepare public-safe content |
-
-## Quick Start
-
-1. Read the [Band A guide](./band-a)
-2. Follow the [Sanitization Checklist](./sanitization)
-3. Open a draft PR early for feedback
-4. Let automation run (guard, link checks, secret scan)
-5. Green PRs auto-merge; Yellow requires review
-
-## Contributing Flow
-
-```text
-Idea → Draft Page → Guard / Build Pass → Review → Merge → Tag (monthly)
-```
-
-## Cross-linking Conventions
-
-- Use relative links without `.md` extension: `./decision-spine`
-- Prefer short nouns or verbs for titles
-- Add new pages only when an existing one cannot expand logically
-
-## Maintenance Expectations
-
-- Each page declares `refresh_after_days`
-- Weekly stale scan alerts when pages pass their window
 - Monthly release captures meaningful changes in `CHANGELOG.md`
 
 ## Governance & Safety

@@ -10,6 +10,8 @@ last_reviewed: '2025-11-04'
 
 # Governance Policy
 
+> Public-safe content only. Internal specifics live elsewhere.
+
 Content governance ensures public documentation stays small, safe, and current.
 
 ## Scope

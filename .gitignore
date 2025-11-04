@@ -4,6 +4,7 @@ dist/
 
 # VitePress build
 .vitepress/dist/
+.vitepress/cache/*
 
 # Lighthouse results
 .lighthouse/

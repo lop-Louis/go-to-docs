@@ -10,7 +10,9 @@ last_reviewed: '2025-11-04'
 
 # Decision Spine
 
-A lightweight framework for making and documenting technical decisions in teams.
+What: Lightweight framework for making and documenting technical decisions in a repeatable, linkable way.
+Why: Prevents re-litigation, makes tradeoffs explicit early, and leaves a durable paper trail for future teams.
+When: Use for multi‑stakeholder choices, anything with meaningful tradeoffs, or answers you expect to paste more than twice.
 
 ## Four stages
 

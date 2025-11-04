@@ -10,6 +10,8 @@ last_reviewed: '2025-11-04'
 
 # What is Band A
 
+> Public-safe content only. Internal specifics live elsewhere.
+
 Band A content is **public-safe** material that can be shared openly without risk to the organization or individuals.
 
 ## What belongs in Band A

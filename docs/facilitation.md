@@ -10,9 +10,13 @@ last_reviewed: '2025-11-04'
 
 # Facilitation Techniques
 
-Practical patterns for running effective meetings and workshops.
+What: Small, plug‑and‑play patterns for focused, inclusive sessions and faster group decisions.
+Why: Prevents drift, balances voices, and converts meetings into clear outcomes instead of vague discussion.
+When: Kickoffs, retros, prioritization, brainstorming, or anytime alignment feels slow or uneven.
 
 ## Silent brainstorming
+
+Generates broad idea diversity before any group influence sets in.
 
 **When:** Generating ideas without groupthink
 
@@ -26,6 +30,8 @@ Practical patterns for running effective meetings and workshops.
 
 ## 1-2-4-All
 
+Progressively scales individual thought into shared, converged options.
+
 **When:** Building consensus on options
 
 1. **1 min solo:** Think about the question individually
@@ -37,6 +43,8 @@ Practical patterns for running effective meetings and workshops.
 
 ## Dot voting
 
+Quick visual prioritization that highlights collective energy hotspots.
+
 **When:** Prioritizing from many options
 
 1. List all options on a board/doc
@@ -47,6 +55,8 @@ Practical patterns for running effective meetings and workshops.
 **Why it works:** Fast, visual, democratizes choice
 
 ## Fist to five
+
+Fast agreement scan surfacing objections early while showing support depth.
 
 **When:** Checking agreement level
 
@@ -62,6 +72,8 @@ Everyone shows fingers:
 
 ## Parking lot
 
+Captures tangents safely so momentum stays on the core objective.
+
 **When:** Managing tangents in meetings
 
 1. Keep a visible list (doc section, whiteboard)
@@ -72,6 +84,8 @@ Everyone shows fingers:
 **Why it works:** Respects contributor, keeps meeting on track
 
 ## Time boxing
+
+Enforces crisp decision cadence and prevents fatigue-driven poor choices.
 
 **When:** Preventing endless discussions
 
