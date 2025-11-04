@@ -11,6 +11,17 @@ const { page } = useData()
   <Layout>
     <template #doc-before>
       <div
+        v-if="page.frontmatter.owner || page.frontmatter.status"
+        style="font-size: 0.85rem; opacity: 0.75; margin-bottom: 0.5rem"
+      >
+        <span v-if="page.frontmatter.owner">
+          Owner: <strong>{{ page.frontmatter.owner }}</strong>
+        </span>
+        <span v-if="page.frontmatter.status" style="margin-left: 0.5rem">
+          • {{ page.frontmatter.status }}
+        </span>
+      </div>
+      <div
         v-if="page.frontmatter.status === 'stale'"
         style="
           padding: 0.8rem;
