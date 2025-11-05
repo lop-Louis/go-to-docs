@@ -92,13 +92,6 @@ Optional but useful:
 
 ## Learning & Growth
 
-### Where are the docs?
-
-- Team handbook: [internal wiki link - needs sanitization before publishing]
-- Technical RFCs: [docs repo]
-- This site: Architecture Decision Records and patterns
-- API docs: [dev portal]
-
 ### How do I learn the codebase?
 
 1. Start with README in main repos
