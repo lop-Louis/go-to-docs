@@ -35,7 +35,7 @@ jobs:
       - name: Run automated checks (enhanced governance report)
         id: checks
         env:
-          VITE_GA_ID: ${{ secrets.GA_ID }}
+          VITE_GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
         run: |
           REPORT_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
           echo "## 📘 Documentation Quality & Governance Report" > report.md

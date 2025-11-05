@@ -38,7 +38,7 @@ jobs:
 
       - name: Build VitePress site
         env:
-          VITE_GA_ID: ${{ secrets.GA_ID }}
+          VITE_GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
         run: pnpm run docs:build
 
       - name: Upload artifact

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
-const GA_ID = process.env.VITE_GA_ID || 'G-XXXX'
-const SITE_BASE = '/Northbook'
+const GA_ID = process.env.VITE_GA_ID || 'G-511628512'
+const SITE_BASE = '/northbook'
 
 export default defineConfig({
   title: 'Northbook',
