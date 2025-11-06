@@ -13,5 +13,8 @@ primary_action: Pick the runbook that matches your scenario and execute it
 
 # Runbooks
 
+All runbooks follow the [Governance Policy](../governance.md); keep identifiers sanitized when you adapt them.
+
 - [20-minute handover drill](./handover-20-min.md)
 - [Community meeting pack](./community-pack.md)
+- [Handover RACI template](./handover-raci-template.md)

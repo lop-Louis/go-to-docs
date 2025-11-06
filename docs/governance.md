@@ -29,7 +29,7 @@ Band A restricts pages to neutral, non-sensitive patterns:
 
 - Generic role or process descriptions
 - Decision-making frameworks and facilitation patterns
-- Sanitized examples (no real identifiers)
+- Sanitized examples (no real identifiers) — see the [Handover RACI template runbook](./runbooks/handover-raci-template.md) for a ready-to-use pattern
 - Ranges/relative metrics ("~15%", "5–10", "few", "several")
 - Original or properly licensed code samples
 
