@@ -16,40 +16,6 @@ primary_action: Scan the FAQs and follow the linked deeper dives as needed
 
 Common questions from engineers joining the team, with quick answers.
 
-## Policy → Action in 10 seconds
-
-- **Rule of thumb:** Submit any expense within **14 days**.
-- **Action today:** If your last receipt is older than **10 days**, submit it now.
-- **If unclear:** Ask "**Which date controls eligibility**?" then follow the SLA.
-
-Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](./pattern-expense-sla)
-
-## Technical Setup
-
-### What's our tech stack?
-
-Varies by team, but common patterns:
-
-- **Frontend**: React/TypeScript, Next.js or Vite
-- **Backend**: Node.js, Python, or Go
-- **Databases**: PostgreSQL, Redis for caching
-- **Infrastructure**: Containerized, CI/CD via GitHub Actions
-
-### How do I get access to systems?
-
-1. Check onboarding ticket for access request links
-2. Most tools use SSO (single sign-on)
-3. GitHub org invite comes via email
-4. For urgent access, ping #help-access channel
-
-### What's the development workflow?
-
-1. Branch from `main`
-2. Open PR when ready (draft PRs welcome)
-3. Request review from suggested reviewers
-4. Address feedback
-5. Merge when approved and CI passes
-
 ## Process & Culture
 
 ### How formal are our meetings?
@@ -130,10 +96,18 @@ Usually by week 3-4.
 - **RFC**: Request for Comments (design doc)
 - **On-call**: Rotation for handling production issues
 
+## Policy → Action in 10 seconds
+
+- **Rule of thumb:** Submit any expense within **14 days**.
+- **Action today:** If your last receipt is older than **10 days**, submit it now.
+- **If unclear:** Ask "**Which date controls eligibility**?" then follow the SLA.
+
+Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](./pattern-expense-sla)
+
 ## Still stuck?
 
 - Ping `@your-onboarding-buddy` assigned in week 1
-- Ask in `#new-joiners` channel
+- Ask in `#general` channel
 - DM your manager
 
 **Remember**: There are no dumb questions in your first 90 days (or ever).

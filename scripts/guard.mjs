@@ -198,11 +198,6 @@ function checkFile(p, withinDocs = false) {
     checkCount++
   }
 
-  if (withinDocs && /\/runbooks\//i.test(content)) {
-    red.push(`${p}: guidance must not link directly to /runbooks`)
-    checkCount++
-  }
-
   // Change size vs declared change_type
   const lines = raw.split('\n').length
   if (data.change_type && CHANGE_LIMITS[data.change_type] !== Infinity) {

@@ -18,7 +18,7 @@ hero:
   image:
     src: /logo-symbol.png
     alt: Northbook logo
-  tagline: Principles and patterns you can link. Checklists live in /runbooks.
+  tagline: Guidance you can ship today. Grab checklists from the runbooks.
   actions:
     - theme: brand
       text: Start here
@@ -39,6 +39,10 @@ features:
 ---
 
 - Monthly release captures meaningful changes in `CHANGELOG.md`.
+
+## Runbooks
+
+Guidance stays light on chores. When you need the step-by-step checklist, jump to [/runbooks/](/runbooks/).
 
 ## Governance & Safety
 

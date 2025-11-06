@@ -3,7 +3,7 @@ name: Deploy VitePress to Pages
 on:
   push:
     branches: [main]
-    paths: ['docs/**', '.github/workflows/pages.yml', 'package.json']
+    paths: ['docs/**', 'runbooks/**', '.github/workflows/pages.yml', 'package.json']
   workflow_dispatch:
 
 permissions:

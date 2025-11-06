@@ -4,7 +4,7 @@ change_type: minor
 band: A
 owner: '@lop'
 refresh_after_days: 60
-status: 'draft'
+status: live
 audience: Maintainers looking for operational to-do checklists
 tone: Plainspoken, candid, energetic
 narrative_goal: Point to the tactical runbooks kept out of guidance sections

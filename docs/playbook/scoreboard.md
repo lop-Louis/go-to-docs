@@ -20,7 +20,7 @@ Scoreboards make a shared outcome visible so every stream knows if the work is m
 | Piece              | Guidance                                                       | Example                                                 |
 | ------------------ | -------------------------------------------------------------- | ------------------------------------------------------- |
 | Goal statement     | Start with an action verb and the metric you’re moving.        | “Increase activated workspaces on self-serve plans.”    |
-| Baseline           | Current value, updated with the last verified date.            | “Baseline: 430 (validated Oct 2025).”                   |
+| Baseline           | Current value, updated with the last verified check-in.        | “Baseline: 430 (validated last month).”                 |
 | Target             | The next meaningful threshold, not a random stretch.           | “Target: 520 sustained for four weeks.”                 |
 | Review cadence     | How often you look at the metric together.                     | “Review: every Monday stand-up; roll-up monthly.”       |
 | Owner + partners   | Role responsible for updates and the teams contributing.       | “Owner: Growth PM · Partners: Marketing, Activation.”   |
@@ -41,7 +41,7 @@ Scoreboards make a shared outcome visible so every stream knows if the work is m
 ```markdown
 ## Goal: Increase activated workspaces on self-serve plans
 
-- **Baseline:** 430 active workspaces (data pull 2025-10-31)
+- **Baseline:** 430 active workspaces (latest pull: last month)
 - **Target:** 520 for four consecutive weeks
 - **Review:** Weekly in Growth stand-up; recap in monthly release note
 - **Owner:** Growth PM · **Partners:** Marketing, Activation, Support
