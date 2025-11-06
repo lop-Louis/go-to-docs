@@ -87,6 +87,8 @@ function checkFile(p, withinDocs = false) {
   const raw = fs.readFileSync(p, 'utf8')
   const { data, content } = matter(raw)
 
+  const relPath = path.relative(process.cwd(), p).split(path.sep).join('/')
+
   // Skip VitePress config directory
   if (p.includes('.vitepress')) return
 
@@ -97,6 +99,22 @@ function checkFile(p, withinDocs = false) {
   if (missing.length) {
     red.push(`${p}: Missing required frontmatter: ${missing.join(', ')}`)
     checkCount++
+  }
+
+  const audienceRequiredPrefixes = [
+    /^docs\/playbook\//i,
+    /^docs\/runbooks\//i,
+    /^docs\/start-here\//i,
+    /^docs\/runbooks\//i
+  ]
+  const needsAudienceFields = audienceRequiredPrefixes.some(rx => rx.test(relPath))
+  if (needsAudienceFields) {
+    const storytellingFields = ['audience', 'tone', 'narrative_goal', 'primary_action']
+    const missingStorytelling = storytellingFields.filter(key => data[key] == null)
+    if (missingStorytelling.length) {
+      yellow.push(`${p}: Missing storytelling signals: ${missingStorytelling.join(', ')}`)
+      checkCount++
+    }
   }
 
   // Band A validation
