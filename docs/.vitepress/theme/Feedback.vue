@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 
 const route = useRoute()
 const { page } = useData()
 const repo = 'lop-louis/northbook'
+const isPlaybook = computed(() => route.path.includes('/playbook/'))
 
 function mk(label: 'helpful' | 'not-helpful' | 'question', prefix: string) {
   const origin = typeof window !== 'undefined' ? window.location.origin : ''
@@ -21,23 +23,36 @@ function track(kind: 'helpful' | 'not-helpful' | 'question') {
   if (typeof window === 'undefined' || !('gtag' in window)) return
 
   const version = location.pathname.startsWith('/v2/') ? 'v2' : 'v1'
-  window.gtag('event', 'feedback_click', {
-    feedback_type: kind,
+  const commonPayload = {
     page_path: location.pathname,
     site_version: version
+  }
+
+  window.gtag('event', 'feedback_click', {
+    feedback_type: kind,
+    ...commonPayload
   })
+
+  if (kind === 'helpful' || kind === 'not-helpful') {
+    window.gtag('event', 'doc_helped', {
+      ...commonPayload,
+      response: kind === 'helpful' ? 'yes' : 'no',
+      value: kind === 'helpful' ? 1 : 0
+    })
+  }
 }
 </script>
 
 <template>
   <div
+    v-if="isPlaybook"
     class="vp-feedback"
     role="region"
     aria-label="Page feedback"
-    style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--vp-c-divider)"
+    style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--vp-c-divider)"
   >
     <div class="vp-feedback__title" style="font-size: 0.9rem; opacity: 0.85; margin-bottom: 0.5rem">
-      Was this page helpful
+      Was this helpful?
     </div>
     <div class="vp-feedback__row">
       <a
