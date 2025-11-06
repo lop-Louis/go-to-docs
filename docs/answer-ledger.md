@@ -83,3 +83,5 @@ Track:
 - Number of repeat questions in chat (should decrease)
 - Time to onboard new team members (should decrease)
 - Link-back rate (ledger links shared in conversations)
+
+See [Governance](./governance) for change types and monthly [release cadence](./release).
