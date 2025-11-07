@@ -1,0 +1,50 @@
+name: Accessibility Audit
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths: ['docs/**', 'runbooks/**', '**.vue', '**.ts']
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  a11y:
+    name: Axe Accessibility Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build documentation
+        env:
+          SKIP_DOCS_GUARD: '1'
+        run: pnpm run docs:build
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+
+      - name: Run accessibility tests
+        run: pnpm test tests/accessibility/wcag-compliance.test.ts
+
+      - name: Upload accessibility report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-report
+          path: test-results/
+          retention-days: 7

@@ -42,6 +42,17 @@ const forbidden = [
   /\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+20\d{2}\b/i // Calendar dates
 ]
 
+// Inclusive language patterns (generate warnings with suggestions)
+const inclusiveLanguagePatterns = [
+  { pattern: /\bwhitelist\b/gi, suggestion: 'allowlist' },
+  { pattern: /\bblacklist\b/gi, suggestion: 'denylist or blocklist' },
+  { pattern: /\bmaster\b(?![-\s]?(class|key|plan|branch))/gi, suggestion: 'primary or main' },
+  { pattern: /\bslave\b/gi, suggestion: 'replica or secondary' },
+  { pattern: /\bguys\b/gi, suggestion: 'folks, people, team, or everyone' },
+  { pattern: /\bgrandfathered\b/gi, suggestion: 'legacy or established' },
+  { pattern: /\bsanity[- ]check\b/gi, suggestion: 'coherence check or smoke test' }
+]
+
 // Allowed placeholders (won't trigger forbidden pattern warnings)
 const allowedPlaceholders = [
   'TICKET-ID',
@@ -102,6 +113,37 @@ function checkFile(p) {
       yellow.push(`${p}: External link with target="_blank" missing rel="noopener noreferrer"`)
       checkCount++
     }
+  }
+
+  // Check for non-inclusive language
+  for (const { pattern, suggestion } of inclusiveLanguagePatterns) {
+    const matches = content.match(pattern)
+    if (matches) {
+      yellow.push(
+        `${p}: Consider replacing "${matches[0]}" with "${suggestion}" for more inclusive language`
+      )
+      checkCount++
+    }
+  }
+
+  // Check for external links in markdown without UTM parameters
+  // Pattern: [text](https://external-domain.com/path) where external-domain is not northbook.guide
+  const markdownLinkPattern = /\[([^\]]+)\]\((https?:\/\/(?!northbook\.guide)[^)]+)\)/gi
+  let mdLinkMatch
+  while ((mdLinkMatch = markdownLinkPattern.exec(content)) !== null) {
+    const url = mdLinkMatch[2]
+    // Allow GitHub links and common dev resources without UTM
+    if (
+      url.includes('github.com') ||
+      url.includes('developer.mozilla.org') ||
+      url.includes('wikipedia.org') ||
+      url.includes('?utm_source=') ||
+      url.includes('&utm_source=')
+    ) {
+      continue
+    }
+    yellow.push(`${p}: External link to ${url} missing utm_source=northbook for analytics tracking`)
+    checkCount++
   }
 }
 
