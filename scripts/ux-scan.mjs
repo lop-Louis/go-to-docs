@@ -6,6 +6,9 @@ const repoRoot = process.cwd()
 const roots = [path.join(repoRoot, 'docs'), path.join(repoRoot, 'runbooks')]
 const excludedDirs = new Set(['.git', 'node_modules', 'public', '.vitepress'])
 
+const PRIMARY_ANCHOR_REGEX = /<a\b[^>]*\bdata-primary-action\b[^>]*>/i
+const SECONDARY_ANCHOR_REGEX = /<a\b[^>]*\bdata-secondary-action\b[^>]*>/i
+
 function collectMarkdownFiles() {
   const files = []
 
@@ -39,12 +42,35 @@ function walk(dir, bucket) {
 
 function extractIntro(content) {
   const markerIndex = content.indexOf('\n## ')
-  return markerIndex === -1 ? content : content.slice(0, markerIndex)
+  const section = markerIndex === -1 ? content : content.slice(0, markerIndex)
+  return stripLeadingHeading(section)
 }
 
-function hasCTA(intro, attr) {
-  const regex = new RegExp(`data-${attr}`)
-  return regex.test(intro)
+function stripLeadingHeading(block) {
+  if (!block.startsWith('# ')) return block
+  const firstBreak = block.indexOf('\n')
+  return firstBreak === -1 ? '' : block.slice(firstBreak + 1)
+}
+
+function firstContentLine(block) {
+  const lines = block.split('\n')
+  for (const line of lines) {
+    const trimmed = line.trim()
+    if (!trimmed) continue
+    return trimmed
+  }
+  return ''
+}
+
+function stripHtmlAndMd(text) {
+  return text
+    .replace(/`[^`]+`/g, '')
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/\[[^\]]*\]\([^)]+\)/g, '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/^>+\s*/gm, '')
+    .replace(/\*\*?|__?/g, '')
+    .trim()
 }
 
 function runScan() {
@@ -61,14 +87,31 @@ function runScan() {
     if (data && data.layout === 'home') continue
 
     const intro = extractIntro(content)
-    const primary = hasCTA(intro, 'primary-action')
-    const secondary = hasCTA(intro, 'secondary-action')
+    const primaryMatch = PRIMARY_ANCHOR_REGEX.exec(intro)
+    const secondaryMatch = SECONDARY_ANCHOR_REGEX.exec(intro)
 
-    if (!primary || !secondary) {
-      const missing = [!primary ? 'primary action' : null, !secondary ? 'secondary action' : null]
-        .filter(Boolean)
-        .join(' & ')
-      issues.push(`${relative}: Missing ${missing} CTA before the first section heading`)
+    const missing = []
+    if (!primaryMatch) missing.push('primary action')
+    if (!secondaryMatch) missing.push('secondary action')
+
+    const rawFirstLine = firstContentLine(intro || '')
+    const normalizedFirstLine = stripHtmlAndMd(rawFirstLine)
+    const hasPlainspokenOpener =
+      normalizedFirstLine.length > 0 && !rawFirstLine.trim().toLowerCase().startsWith('<a ')
+
+    const introBeforePrimary =
+      primaryMatch && stripHtmlAndMd(intro.slice(0, primaryMatch.index)).length > 0
+
+    if (!hasPlainspokenOpener || (primaryMatch && !introBeforePrimary)) {
+      missing.push('plainspoken opener before CTA pair')
+    }
+
+    if (missing.length) {
+      issues.push(
+        `${relative}: CTA contract violation — ${missing.join(
+          ', '
+        )} ahead of the first "##" heading`
+      )
     } else {
       inspected++
     }

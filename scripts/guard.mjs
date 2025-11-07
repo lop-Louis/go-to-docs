@@ -54,17 +54,6 @@ const allowedPlaceholders = [
   'vendor-name'
 ]
 
-// Non-inclusive / discouraged terminology heuristics (case-insensitive)
-// Valid change types and their line limits
-const CHANGE_LIMITS = {
-  patch: 200,
-  minor: 400,
-  major: Infinity
-}
-
-// Valid status values
-const VALID_STATUSES = ['live', 'stale', 'archived', 'draft']
-
 let red = []
 let yellow = []
 let fileCount = 0
@@ -77,33 +66,6 @@ function checkFile(p) {
 
   // Skip VitePress config directory
   if (p.includes('.vitepress')) return
-
-  // Required frontmatter fields
-  const required = ['title', 'band', 'owner', 'refresh_after_days', 'change_type', 'status']
-  const missing = required.filter(k => data[k] == null)
-
-  if (missing.length) {
-    red.push(`${p}: Missing required frontmatter: ${missing.join(', ')}`)
-    checkCount++
-  }
-
-  // Band A validation
-  if (data.band && String(data.band).trim() !== 'A') {
-    red.push(`${p}: band=${data.band} not allowed (must be 'A')`)
-    checkCount++
-  }
-
-  // Change type validation
-  if (data.change_type && !CHANGE_LIMITS[data.change_type]) {
-    red.push(`${p}: Invalid change_type='${data.change_type}' (must be patch, minor, or major)`)
-    checkCount++
-  }
-
-  // Status validation
-  if (data.status && !VALID_STATUSES.includes(data.status)) {
-    red.push(`${p}: Invalid status='${data.status}' (must be: ${VALID_STATUSES.join(', ')})`)
-    checkCount++
-  }
 
   // Check for forbidden patterns in content
   const forbiddenMatches = []

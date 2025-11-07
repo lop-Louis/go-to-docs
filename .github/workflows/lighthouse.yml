@@ -1,20 +1,18 @@
 name: Lighthouse CI
 
 on:
-  pull_request:
-    branches: [main]
-    paths: ['docs/**', '.vitepress/**']
-  push:
-    branches: [main]
+  workflow_run:
+    workflows: ['Deploy VitePress to Pages']
+    types: [completed]
 
 permissions:
   contents: read
-  pull-requests: write
-  checks: write
+  actions: read
 
 jobs:
   lighthouse:
-    name: Performance Audit
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    name: Post-deploy Performance Audit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,49 +31,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Determine Playwright version
-        id: playwright-version
-        run: |
-          PLAYWRIGHT_VERSION=$(node -p "require('playwright/package.json').version")
-          echo "version=${PLAYWRIGHT_VERSION}" >> "$GITHUB_OUTPUT"
-
-      - name: Configure Playwright cache path
-        id: playwright-path
-        run: |
-          PLAYWRIGHT_CACHE="$HOME/.cache/ms-playwright"
-          mkdir -p "$PLAYWRIGHT_CACHE"
-          echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_CACHE" >> "$GITHUB_ENV"
-          echo "path=$PLAYWRIGHT_CACHE" >> "$GITHUB_OUTPUT"
-
-      - name: Restore Playwright browsers
-        id: playwright-cache
-        uses: actions/cache/restore@v4
-        with:
-          path: ${{ steps.playwright-path.outputs.path }}
-          key: playwright-browsers-${{ runner.os }}-${{ runner.arch }}-${{ steps.playwright-version.outputs.version }}
-          restore-keys: |
-            playwright-browsers-${{ runner.os }}-${{ runner.arch }}-
-            playwright-browsers-${{ runner.os }}-
-
-      - name: Install Playwright browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install chromium --with-deps
-
-      - name: Save Playwright browsers cache
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
-        with:
-          path: ${{ steps.playwright-path.outputs.path }}
-          key: playwright-browsers-${{ runner.os }}-${{ runner.arch }}-${{ steps.playwright-version.outputs.version }}
-
-      - name: Build site
-        env:
-          VITE_GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
-          SKIP_DOCS_GUARD: ${{ github.event_name == 'pull_request' && '1' || '0' }}
-        run: pnpm run docs:build
-
-      - name: Run Lighthouse CI with Playwright
+      - name: Run Lighthouse audits against production
         id: lighthouse
+        env:
+          LH_REMOTE_BASE: https://northbook.guide
         run: pnpm run lighthouse
         continue-on-error: true
 
@@ -87,72 +46,17 @@ jobs:
           path: .lighthouse/
           retention-days: 30
 
-      - name: Comment PR with results
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const path = require('path');
-
-            const lighthouseDir = '.lighthouse';
-            if (!fs.existsSync(lighthouseDir)) {
-              core.warning(`Lighthouse directory "${lighthouseDir}" not found. Skipping comment.`);
-              return;
-            }
-
-            const files = fs.readdirSync(lighthouseDir).filter(name => name.endsWith('.json'));
-            if (!files.length) {
-              core.warning(`No Lighthouse result files found in "${lighthouseDir}".`);
-              return;
-            }
-
-            const latestFile = files.sort().reverse()[0];
-            const results = JSON.parse(fs.readFileSync(path.join(lighthouseDir, latestFile), 'utf8'));
-
-            // Build comment
-            let comment = `## 🔦 Lighthouse Performance Report\n\n`;
-            comment += `Performance audit completed with Playwright-managed server.\n\n`;
-
-            const thresholds = {
-              performance: 90,
-              accessibility: 100,
-              bestPractices: 90,
-              seo: 90
-            };
-
-            for (const result of results) {
-              if (result.error) {
-                comment += `### ❌ ${result.url}\n\n`;
-                comment += `Error: ${result.error}\n\n`;
-                continue;
-              }
-
-              comment += `### 🔗 ${result.url}\n\n`;
-              comment += `| Category | Score | Threshold | Status |\n`;
-              comment += `|----------|-------|-----------|--------|\n`;
-
-              for (const [category, score] of Object.entries(result.scores)) {
-                const threshold = thresholds[category];
-                const passed = score >= threshold;
-                const icon = passed ? '✅' : '❌';
-                const displayName = category.charAt(0).toUpperCase() + category.slice(1).replace(/([A-Z])/g, ' $1');
-
-                comment += `| ${displayName} | **${score}** | ${threshold} | ${icon} |\n`;
-              }
-              comment += `\n`;
-            }
-
-            comment += `\n📊 **Performance Targets:**\n`;
-            comment += `- Performance: ≥90 (production-ready)\n`;
-            comment += `- Accessibility: 100 (WCAG AA compliance)\n`;
-            comment += `- Best Practices: ≥90\n`;
-            comment += `- SEO: ≥90\n\n`;
-            comment += `_Powered by Lighthouse + Playwright for reliable CI execution_`;
-
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: comment
-            });
+      - name: Summarize scores
+        if: always()
+        run: |
+          if [ ! -d ".lighthouse" ]; then
+            echo "No Lighthouse directory found" >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+          latest=$(ls .lighthouse | sort | tail -n 1)
+          if [ -z "$latest" ]; then
+            echo "No Lighthouse result file found" >> $GITHUB_STEP_SUMMARY
+            exit 0
+          fi
+          echo "## 🔦 Lighthouse Performance Report" >> $GITHUB_STEP_SUMMARY
+          jq -r '.[] | if has("error") then "### ❌ \(.url)\nError: \(.error)\n" else "### 🔗 \(.url)\n| Category | Score |\n| --- | --- |\nPerformance | \(.scores.performance)\nAccessibility | \(.scores.accessibility)\nBest Practices | \(.scores.bestPractices)\nSEO | \(.scores.seo)\n" end' ".lighthouse/$latest" >> $GITHUB_STEP_SUMMARY

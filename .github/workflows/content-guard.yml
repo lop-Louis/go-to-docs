@@ -35,6 +35,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Frontmatter schema
+        id: frontmatter
+        run: |
+          set -o pipefail
+          FRONTMATTER_FORMAT=json pnpm run frontmatter:lint | tee frontmatter-output.json
+          FRONTMATTER_STATUS=$(jq -r '.status' frontmatter-output.json)
+          FRONTMATTER_VIOLATIONS=$(jq '.violationCount' frontmatter-output.json)
+          echo "status=$FRONTMATTER_STATUS" >> $GITHUB_OUTPUT
+          echo "violations=$FRONTMATTER_VIOLATIONS" >> $GITHUB_OUTPUT
+        continue-on-error: true
+
       - name: Band A compliance
         id: guard
         run: |
@@ -58,17 +69,6 @@ jobs:
           STATUS=$(jq -r '.status' guard-output.json)
           echo "status=$STATUS" >> $GITHUB_OUTPUT
           exit $GUARD_EXIT
-        continue-on-error: true
-
-      - name: Drift audit
-        id: drift
-        run: |
-          set -o pipefail
-          DRIFT_FORMAT=json pnpm run drift | tee drift-output.json
-          DRIFT_STATUS=$(jq -r '.status' drift-output.json)
-          DRIFT_WARNINGS=$(jq '.warnings | length' drift-output.json)
-          echo "status=$DRIFT_STATUS" >> $GITHUB_OUTPUT
-          echo "warnings=$DRIFT_WARNINGS" >> $GITHUB_OUTPUT
         continue-on-error: true
 
       - name: UX scan
@@ -110,8 +110,9 @@ jobs:
           GITLEAKS_EXIT=${{ steps.gitleaks.outcome }}
           BUILD_EXIT=${{ steps.build.outcome }}
           GUARD_STATUS='${{ steps.guard.outputs.status }}'
+          FRONTMATTER_EXIT=${{ steps.frontmatter.outcome }}
 
-          if [[ "$GUARD_EXIT" == "failure" ]] || [[ "$GITLEAKS_EXIT" == "failure" ]] || [[ "$BUILD_EXIT" == "failure" ]]; then
+          if [[ "$FRONTMATTER_EXIT" == "failure" ]] || [[ "$GUARD_EXIT" == "failure" ]] || [[ "$GITLEAKS_EXIT" == "failure" ]] || [[ "$BUILD_EXIT" == "failure" ]]; then
             echo "status=red" >> $GITHUB_OUTPUT
             echo "label=red" >> $GITHUB_OUTPUT
           elif [[ "$LINKS_EXIT" == "failure" ]] || [[ "$UX_EXIT" == "failure" ]] || [[ "$GUARD_STATUS" == "yellow" ]]; then
@@ -128,12 +129,13 @@ jobs:
         with:
           script: |
             const status = '${{ steps.status.outputs.status }}';
+            const frontmatterResult = '${{ steps.frontmatter.outcome }}';
+            const frontmatterStatus = '${{ steps.frontmatter.outputs.status }}';
+            const frontmatterViolations = '${{ steps.frontmatter.outputs.violations }}';
             const guardResult = '${{ steps.guard.outcome }}';
             const guardStatus = '${{ steps.guard.outputs.status }}';
             const linksResult = '${{ steps.links.outcome }}';
             const uxResult = '${{ steps.uxscan.outcome }}';
-            const driftStatus = '${{ steps.drift.outputs.status }}';
-            const driftWarnings = '${{ steps.drift.outputs.warnings }}';
             const gitleaksResult = '${{ steps.gitleaks.outcome }}';
             const buildResult = '${{ steps.build.outcome }}';
 
@@ -155,17 +157,17 @@ jobs:
 
             | Governance Check | Result |
             |------------------|--------|
+            | Frontmatter Schema | ${
+              frontmatterResult === 'success'
+                ? '✅ Passed'
+                : `❌ ${frontmatterViolations || 0} issue(s)`
+            } |
             | Band A Compliance | ${
               guardResult === 'success'
                 ? (guardStatus === 'yellow' ? '⚠️ Passed w/ warnings' : '✅ Passed')
                 : '❌ Failed'
             } |
             | Link Integrity | ${linksResult === 'success' ? '✅ Passed' : '⚠️ Issues Found'} |
-            | Drift Audit | ${
-              driftStatus === 'warning'
-                ? `⚠️ ${driftWarnings || 0} warning(s)`
-                : '✅ Clear'
-            } |
             | UX Scan | ${uxResult === 'success' ? '✅ Passed' : '⚠️ Issues Found'} |
             | Sensitive Data Scan | ${gitleaksResult === 'success' ? '✅ Passed' : '❌ Secrets Detected'} |
             | Documentation Build | ${buildResult === 'success' ? '✅ Passed' : '❌ Build Failed'} |
@@ -177,6 +179,7 @@ jobs:
             ---
 
             **What these checks mean:**
+            - **Frontmatter Schema:** JSON Schema lint that enforces required Band A metadata (owner, change_type, status, refresh window)
             - **Band A Compliance:** Verifies content follows public-safe sanitization rules (no internal URLs, ticket IDs, calendar dates, secrets, personal data)
             - **Link Integrity:** Validates all internal documentation links work correctly
             - **Drift Audit:** Highlights storytelling metadata and inclusive-language gaps (non-blocking hygiene)

@@ -54,18 +54,22 @@ jobs:
 
           # Frontmatter validation
           echo "### 📋 Required Metadata (Frontmatter)" >> report.md
-          pnpm run guard > guard-output.txt 2>&1 || true
-          if grep -q "Missing required frontmatter" guard-output.txt; then
-            echo "❌ **FAILED** - Missing required metadata fields" >> report.md
-            grep "Missing required frontmatter" guard-output.txt | sed 's/^/  - /' >> report.md
+          FRONTMATTER_FORMAT=json pnpm run frontmatter:lint > frontmatter-output.json 2>&1 || true
+          FRONTMATTER_STATUS=$(jq -r '.status // "passed"' frontmatter-output.json 2>/dev/null)
+          if [ "$FRONTMATTER_STATUS" = "failed" ]; then
+            echo "❌ **FAILED** - Missing or invalid metadata fields" >> report.md
+            jq -r '.violations[] | "  - " + .file + " [" + .field + "]: " + .message' frontmatter-output.json >> report.md
             echo "" >> report.md
-            echo "**Action Required:** Add all required frontmatter fields (`title`, `band`, `owner`, `refresh_after_days`, `change_type`, `status`)" >> report.md
+            echo "**Action Required:** Fix required frontmatter (`title`, `band`, `owner`, `refresh_after_days`, `change_type`, `status`)" >> report.md
             RED_COUNT=$((RED_COUNT + 1))
           else
             echo "✅ **PASSED** - All pages have required metadata" >> report.md
             GREEN_COUNT=$((GREEN_COUNT + 1))
           fi
           echo "" >> report.md
+
+          # Band A guard (forbidden patterns)
+          pnpm run guard > guard-output.txt 2>&1 || true
 
           # Change size calculation
           echo "### 📏 Change Impact & Versioning" >> report.md
@@ -180,11 +184,10 @@ jobs:
 
           # Lighthouse CI (reference to separate workflow)
           echo "### 🚦 Performance & Accessibility Audit (Lighthouse)" >> report.md
-          echo "ℹ️ **RUNNING** - Separate workflow validates production-ready quality" >> report.md
-          echo "  - Performance score (target: 90+)" >> report.md
-          echo "  - Accessibility score (target: 100, WCAG AA compliance)" >> report.md
-          echo "  - SEO & Best Practices validation" >> report.md
-          echo "  - Check \`lighthouse\` workflow results for details" >> report.md
+          echo "ℹ️ **RUNS AFTER DEPLOY** - Post-deploy workflow (triggered after Pages publishes main) validates:" >> report.md
+          echo "  - Performance ≥ 90, Accessibility = 100 (WCAG AA), Best Practices ≥ 90, SEO ≥ 90" >> report.md
+          echo "  - Live site at https://northbook.guide (no local preview)" >> report.md
+          echo "  - Review the latest *Lighthouse CI* workflow summary for scores" >> report.md
           echo "" >> report.md
 
           # Secret scan (reference to content-guard workflow)

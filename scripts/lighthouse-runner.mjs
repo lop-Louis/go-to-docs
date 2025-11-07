@@ -19,7 +19,10 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PORT = 5173
-const BASE_URL = `http://localhost:${PORT}`
+const REMOTE_BASE = process.env.LH_REMOTE_BASE ? process.env.LH_REMOTE_BASE.trim() : ''
+const USE_REMOTE = REMOTE_BASE.length > 0
+const NORMALIZED_REMOTE_BASE = USE_REMOTE ? REMOTE_BASE.replace(/\/+$/, '') : ''
+const BASE_URL = USE_REMOTE ? NORMALIZED_REMOTE_BASE : `http://localhost:${PORT}`
 const TIMEOUT = 60000 // 60 seconds
 
 // Pages to audit
@@ -32,6 +35,8 @@ let browser = null
  * Start VitePress preview server
  */
 async function startServer() {
+  if (USE_REMOTE) return
+
   console.log('🚀 Starting VitePress preview server...')
 
   return new Promise((resolve, reject) => {
@@ -70,6 +75,8 @@ async function startServer() {
  * Wait for server to be responsive using Playwright
  */
 async function waitForServer(maxAttempts = 30) {
+  if (USE_REMOTE) return
+
   console.log('⏳ Waiting for server to be responsive...')
 
   browser = await chromium.launch()
@@ -191,7 +198,7 @@ async function cleanup() {
     await browser.close()
   }
 
-  if (serverProcess) {
+  if (!USE_REMOTE && serverProcess) {
     serverProcess.kill('SIGTERM')
 
     // Give it 5 seconds to terminate gracefully
@@ -273,11 +280,15 @@ async function main() {
   let exitCode = 0
 
   try {
-    // Start server
-    await startServer()
+    if (USE_REMOTE) {
+      console.log(`🌐 Remote mode enabled. Auditing ${BASE_URL}`)
+    } else {
+      // Start server
+      await startServer()
 
-    // Wait for server to be ready
-    await waitForServer()
+      // Wait for server to be ready
+      await waitForServer()
+    }
 
     // Run audits
     const results = await runAllAudits()
