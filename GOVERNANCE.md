@@ -14,7 +14,7 @@ The public policy for Band A scope, lifecycle states, and frontmatter validati
 
 - **Band A:** Follow the public-facing [Band A reference](docs/band-a.md). Anything forbidden there is also forbidden here.
 - **Lifecycle:** Apply the Draft→Review→Live→Watch→Stale→Archive model from `docs/governance.md`. This internal file only tracks the automation owners for each state.
-- **Frontmatter + CTAs:** Use the required fields documented in `docs/governance.md`; CTA text now lives in the body via `data-primary-action` + `data-secondary-action` pairs, which drift prevention enforces.
+- **Frontmatter + CTAs:** Use the required fields documented in `docs/governance.md`; CTA text now lives in the body via `data-primary-action` + `data-secondary-action` pairs, which drift prevention enforces. Frontmatter is validated by `schemas/frontmatter.schema.json` through the `pnpm run frontmatter:lint` script in CI.
 
 Whenever you update those rules, update `docs/governance.md` first, then link back here if new context is needed.
 
@@ -26,10 +26,8 @@ All pull requests undergo these automated checks:
 
 ### 🔴 Red (Blocking)
 
-- Missing required frontmatter fields
-- `band` set to anything other than 'A'
+- Frontmatter schema violations (missing metadata, band≠A, invalid change_type/status/refresh windows)
 - Forbidden patterns detected (internal URLs, ticket IDs, secrets)
-- Invalid `change_type` or `status` values
 - Secret scan fails (gitleaks)
 - Build fails
 
@@ -37,13 +35,11 @@ All pull requests undergo these automated checks:
 
 ### 🟡 Yellow (Warning)
 
-- File size exceeds `change_type` limit
-- Broken external links detected
-- TODO/FIXME markers in content
-- Possible internal references flagged
-- Owner format unusual (missing @)
+- Link validation failures
+- UX scan misses (missing CTA pair before the first heading)
+- Drift audit warnings (storytelling metadata gaps, change-size heuristics, inclusive-language nudge)
 
-**Action:** Requires one reviewer approval before merge
+**Action:** Requires one reviewer approval before merge. Drift alerts never block the workflow but surface inside the CI comment for visibility.
 
 ### 🟢 Green (Auto-merge)
 

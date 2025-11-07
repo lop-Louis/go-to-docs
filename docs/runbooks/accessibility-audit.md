@@ -12,9 +12,7 @@ narrative_goal: Outline the repeatable tasks for verifying accessibility health
 
 # Accessibility audit runbook
 
-<a href="#purpose" data-primary-action>Use this runbook to execute the quarterly accessibility audit and log findings.</a>
-
-<a href="./index" data-secondary-action>Browse the Runbooks index for hands-on checklists.</a>
+Run this quarterly sweep before release windows to keep public docs accessible. <a href="#purpose" data-primary-action>Start the audit</a> or <a href="./index" data-secondary-action>Browse the runbooks index</a>.
 
 ## Purpose
 

@@ -33,14 +33,17 @@ Update them together: policy/tone changes go here; ownership/process changes go 
 This policy applies to all pages under `docs/` published to the public site.
 Internal planning, decision records, and handover artifacts remain in `_ADR/` and are not part of the public build.
 
-## Action pairs above the fold
+## CTA + feedback contract
 
-Every page (except the homepage layout) must start with two actions before the first `##` heading:
+Anti-drift governance treats the CTA pair as part of the narrative, not an afterthought:
 
-- `<a data-primary-action>…</a>` — the default “do this now” guidance tailored to the page.
-- `<a data-secondary-action>…</a>` — a complementary option (e.g., link to runbooks, governance, or deeper references) so readers have a fallback.
-
-Keep both actions ≤ 140 characters and link only to Band A-safe destinations. Automated drift checks fail the build if either action is missing or the primary action appears more than ~600 px from the start of the content.
+1. **Plainspoken opener:** Start each page with one crisp sentence that states the value or outcome in the page’s declared tone.
+2. **Inline CTA pair:** Immediately follow that sentence with a single clause that contains _both_ actions, e.g.\
+   `Intro sentence. <a … data-primary-action>Run the prep</a> or <a … data-secondary-action>Give feedback</a>.`
+3. **Primary CTA:** Short verb phrase (≤ ~8 words) that points to the default action on the page. No trailing period inside the link text.
+4. **Secondary CTA:** Offer a real alternative (runbooks index, related guide, deeper policy). When no obvious action exists, point to the GitHub feedback flow used by [`Feedback.vue`](https://github.com/lop-Louis/go-to-docs/blob/main/docs/.vitepress/theme/Feedback.vue):\
+   `https://github.com/lop-Louis/go-to-docs/issues/new?labels=kl,feedback&title=[Feedback]%20TITLE&body=Page:%20URL`
+5. **Placement:** The CTA sentence must appear before the first `##` heading. Drift checks fail if either action is missing or if the primary action renders more than ~600 px below the H1.
 
 ## Frontmatter contract
 
@@ -58,6 +61,8 @@ status: live | stale | archived | draft
 ```
 
 > CTA text now lives in the body, so you **do not** need a `primary_action` field in frontmatter. Drift prevention scripts enforce the action pair directly in the rendered content.
+
+Frontmatter is linted via `pnpm run frontmatter:lint`, which loads `schemas/frontmatter.schema.json` to keep Band A metadata (owner handle, change type, status, refresh window) consistent before a PR can merge.
 
 ## Allowed Content (Band A)
 
