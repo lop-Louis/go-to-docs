@@ -16,6 +16,8 @@ primary_action: Scan the FAQs and follow the linked deeper dives as needed
 
 Common questions from engineers joining the team, with quick answers.
 
+> **Primary action:** Scan the FAQs and follow the linked deeper dives as needed.
+
 ## Process & Culture
 
 ### How formal are our meetings?

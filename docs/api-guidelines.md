@@ -16,6 +16,8 @@ primary_action: Apply these defaults when drafting or reviewing API changes
 
 Neutral, public-safe principles for designing and evolving HTTP+JSON APIs. This page is a placeholder until a fuller version is needed.
 
+> **Primary action:** Apply these defaults when drafting or reviewing API changes.
+
 ## Core Principles
 
 1. Consistency over cleverness

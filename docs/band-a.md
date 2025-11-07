@@ -18,6 +18,8 @@ primary_action: Use this checklist before publishing or reviewing content
 
 Band A content is **public-safe** material that can be shared openly without risk to the organization or individuals.
 
+> **Primary action:** Use this checklist before publishing or reviewing content.
+
 ## What belongs in Band A
 
 ✅ **Include (safe patterns only):**

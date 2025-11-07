@@ -16,6 +16,8 @@ primary_action: Run these sanitization checks before shipping or reviewing a pag
 
 Northbook only publishes guidance that the public can quote without a second thought. Use these guardrails to keep every page linkable while chore-like checklists stay in `/runbooks`.
 
+> **Primary action:** Run these sanitization checks before shipping or reviewing a page.
+
 ## What Sanitization Protects
 
 - **People** — strip personal data, names, emails, or avatars that could identify someone.

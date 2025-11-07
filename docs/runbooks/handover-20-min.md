@@ -15,6 +15,8 @@ primary_action: Run the drill and confirm the acceptance condition is met
 
 **Goal:** move a stream from Framing to Ready.
 
+> **Primary action:** Run the drill and confirm the acceptance condition is met.
+
 **Steps**
 
 1. Owner + one-line why + exit metric

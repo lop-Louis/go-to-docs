@@ -17,6 +17,8 @@ What: Shared language rules for anything public-facing—docs, release notes, su
 Why: Keeps every channel tight, human, and on-brand so readers know it's us.
 When: Use this before writing net-new content or auditing drafts from others.
 
+> **Primary action:** Apply the pillars and scenario guidance before publishing.
+
 ## Voice Pillars
 
 - **Plainspoken:** Prefer everyday words over jargon; anchor on verbs.

@@ -24,6 +24,7 @@
     "links": "node scripts/link-check.mjs",
     "lighthouse": "node scripts/lighthouse-runner.mjs",
     "review:update": "node scripts/update-last-reviewed.mjs",
+    "ux:scan": "node scripts/ux-scan.mjs",
     "prepare": "husky"
   },
   "lint-staged": {

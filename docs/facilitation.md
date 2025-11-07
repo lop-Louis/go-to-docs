@@ -20,6 +20,8 @@ What: Small, plug‑and‑play patterns for focused, inclusive sessions and fast
 Why: Prevents drift, balances voices, and converts meetings into clear outcomes instead of vague discussion.
 When: Kickoffs, retros, prioritization, brainstorming, or anytime alignment feels slow or uneven.
 
+> **Primary action:** Pick one technique and run it in your next collaborative session.
+
 ## Silent brainstorming
 
 Generates broad idea diversity before any group influence sets in.

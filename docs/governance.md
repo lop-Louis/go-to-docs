@@ -18,6 +18,8 @@ primary_action: Apply these rules when editing or approving any page
 
 Content governance ensures public documentation stays small, safe, and current.
 
+> **Primary action:** Apply these rules when editing or approving any page.
+
 ## Scope
 
 This policy applies to all pages under `docs/` published to the public site.

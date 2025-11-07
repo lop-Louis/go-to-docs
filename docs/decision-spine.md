@@ -20,6 +20,8 @@ What: Lightweight framework for making and documenting technical decisions in a 
 Why: Prevents re-litigation, makes tradeoffs explicit early, and leaves a durable paper trail for future teams.
 When: Use for multi‑stakeholder choices, anything with meaningful tradeoffs, or answers you expect to paste more than twice.
 
+> **Primary action:** Run your next decision through the four-stage spine.
+
 ## Four stages
 
 1. **Frame** - What are we deciding? What constraints matter?

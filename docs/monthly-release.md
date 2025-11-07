@@ -16,6 +16,8 @@ primary_action: Follow the prep checklist and tag the monthly release
 
 A lightweight cadence for publishing improvements and tracking impact.
 
+> **Primary action:** Follow the prep checklist and tag the monthly release.
+
 ## Goals
 
 - Keep public documentation fresh and intentionally small

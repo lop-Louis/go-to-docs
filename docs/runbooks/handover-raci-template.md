@@ -16,6 +16,8 @@ primary_action: Copy the template and adapt the example for your handover
 Use this page when you need to broadcast handover roles without exposing internal specifics.
 The structure below stays inside the [Governance Policy](../governance.md) guardrails and keeps RACI labels uncluttered.
 
+> **Primary action:** Copy the template and adapt the example for your handover.
+
 ## How to use it
 
 1. Duplicate the template table into your handover document.

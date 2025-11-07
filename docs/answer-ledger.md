@@ -18,6 +18,8 @@ What: Structured, searchable list of recurring questions with their current cano
 Why: Saves time, reduces interruptions, and accelerates onboarding by turning chatter into linkable knowledge.
 When: After a question is answered twice, or when a decision needs a stable reference others can reuse.
 
+> **Primary action:** Stand up or update your answer ledger using this pattern.
+
 ## What it is
 
 A searchable log of questions teams ask repeatedly, with:

@@ -18,6 +18,8 @@ primary_action: Run these quick checks before approving UI work
 
 High-impact accessibility improvements that take minimal effort.
 
+> **Primary action:** Run these quick checks before approving UI work.
+
 ## Keyboard navigation
 
 ✅ **Add tab index and focus styles**

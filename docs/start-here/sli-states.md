@@ -13,6 +13,8 @@ primary_action: Map your current initiative to these states and monitor the SLIs
 
 # SLI States
 
+> **Primary action:** Map your current initiative to these states and monitor the SLIs.
+
 | State        | Entry                        | Exit                  | SLI                      |
 | ------------ | ---------------------------- | --------------------- | ------------------------ |
 | 0. Idle      | No owner                     | Owner set             | Time in idle             |

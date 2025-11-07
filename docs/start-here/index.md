@@ -15,6 +15,8 @@ primary_action: Follow the essentials links to align voice, UI, and flow
 
 Use this hub when you need the current voice, UI, and operational rules before shipping anything public.
 
+> **Primary action:** Follow the essentials links to align voice, UI, and flow.
+
 ## Essentials
 
 - [Voice & Tone Guide](./tone) — Align copy to our plainspoken, candid voice with ready-to-use phrasing.

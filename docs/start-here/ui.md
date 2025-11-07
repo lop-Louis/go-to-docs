@@ -17,6 +17,8 @@ What: Canonical specs for spacing, typography, and states across product surface
 Why: Prevents drift between teams and keeps polished UI without pixel-policing.
 When: Before starting screens, reviewing PRs, or creating shared components.
 
+> **Primary action:** Apply these tokens and specs before shipping UI work.
+
 ## Layout Rules
 
 - **Grid:** 8px unit; snap components to multiples of 8. Use 24px gutters on desktop, 16px on mobile.

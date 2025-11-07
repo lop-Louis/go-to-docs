@@ -14,4 +14,6 @@ primary_action: Jump to the release changelog you need
 
 # Releases
 
+> **Primary action:** Jump to the release changelog you need.
+
 - [v2025.11](/CHANGELOG/site-v2025.11)

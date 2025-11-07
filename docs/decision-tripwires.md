@@ -15,6 +15,8 @@ primary_action: Copy a tripwire example and wire it into your Decision Spine fol
 
 Tripwires convert slow drift into clear prompts to act. Pair them with the [Decision Spine](./decision-spine.md) so each decision has a safety net.
 
+> **Primary action:** Copy a tripwire example and wire it into your Decision Spine follow-up plan.
+
 Each example follows the `condition -> action -> owner -> time box` format so you can drop it straight into a decision follow-up checklist.
 
 | Condition                                                       | Action                                                                       | Owner                | Time box                                   |

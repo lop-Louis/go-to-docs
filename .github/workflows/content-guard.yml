@@ -61,11 +61,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
-      - name: Build test
-        id: build
-        env:
-          VITE_GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
-        run: pnpm run docs:build
+      - name: Content guard
+        id: guard
+        run: pnpm run docs:guard
         continue-on-error: true
 
       - name: Determine status
