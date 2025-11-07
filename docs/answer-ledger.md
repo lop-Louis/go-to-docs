@@ -19,9 +19,9 @@ nav:
 
 Answer ledgers turn recurring questions into searchable, linkable answers. <a href="#what-it-is" data-primary-action>Stand up your ledger</a> or <a href="./runbooks/index" data-secondary-action>Browse the runbooks index</a>.
 
-What: Structured, searchable list of recurring questions with their current canonical answers.
-Why: Saves time, reduces interruptions, and accelerates onboarding by turning chatter into linkable knowledge.
-When: After a question is answered twice, or when a decision needs a stable reference others can reuse.
+- **What**: Structured, searchable list of recurring questions with their current canonical answers.
+- **Why**: Saves time, reduces interruptions, and accelerates onboarding by turning chatter into linkable knowledge.
+- **When**: After a question is answered twice, or when a decision needs a stable reference others can reuse.
 
 ## What it is
 

@@ -5,7 +5,13 @@ import { useRoute, useData } from 'vitepress'
 const route = useRoute()
 const { page } = useData()
 const repo = 'lop-louis/northbook'
-const isPlaybook = computed(() => route.path.includes('/playbook/'))
+
+const shouldRender = computed(() => {
+  const frontmatter = page.value?.frontmatter ?? {}
+  if (frontmatter.skip_feedback === true) return false
+  if (frontmatter.layout === 'home') return false
+  return true
+})
 
 function mk(label: 'helpful' | 'not-helpful' | 'question', prefix: string) {
   const origin = typeof window !== 'undefined' ? window.location.origin : ''
@@ -45,7 +51,7 @@ function track(kind: 'helpful' | 'not-helpful' | 'question') {
 
 <template>
   <div
-    v-if="isPlaybook"
+    v-if="shouldRender"
     class="vp-feedback"
     role="region"
     aria-label="Page feedback"
