@@ -7,13 +7,51 @@ const DOCS_DIR = path.join(ROOT, 'docs')
 const linkRegex = /\[[^\]]+\]\(([^)]+)\)/g
 const externalLinks = new Set()
 const internalLinks = []
+const anchorLinks = [] // Track links with anchors
 
 function collectLinks(file) {
   const text = fs.readFileSync(file, 'utf8')
   let m
   while ((m = linkRegex.exec(text)) !== null) {
     const url = m[1].trim()
-    if (!url || url.startsWith('#')) continue
+    if (!url) continue
+
+    // Handle anchor-only links (#section)
+    if (url.startsWith('#')) {
+      anchorLinks.push({ from: file, target: file, anchor: url.slice(1), fullUrl: url })
+      continue
+    }
+
+    // Handle links with anchors (./page#section or /path#section)
+    const hashIndex = url.indexOf('#')
+    if (hashIndex > 0) {
+      const pathPart = url.slice(0, hashIndex)
+      const anchorPart = url.slice(hashIndex + 1)
+
+      if (/^https?:\/\//i.test(pathPart)) {
+        externalLinks.add(url.split('#')[0].split('?')[0])
+      } else {
+        // Internal link with anchor
+        const cleanPath = pathPart.split('?')[0]
+        if (cleanPath.startsWith('./') || cleanPath.startsWith('../')) {
+          internalLinks.push({ from: file, target: cleanPath })
+          anchorLinks.push({ from: file, target: cleanPath, anchor: anchorPart, fullUrl: url })
+        } else if (cleanPath.startsWith('/')) {
+          internalLinks.push({ from: file, target: cleanPath })
+          anchorLinks.push({ from: file, target: cleanPath, anchor: anchorPart, fullUrl: url })
+        } else {
+          internalLinks.push({ from: file, target: './' + cleanPath })
+          anchorLinks.push({
+            from: file,
+            target: './' + cleanPath,
+            anchor: anchorPart,
+            fullUrl: url
+          })
+        }
+      }
+      continue
+    }
+
     // Strip query/hash
     const clean = url.split('#')[0].split('?')[0]
     if (/^https?:\/\//i.test(clean)) {
@@ -30,6 +68,30 @@ function collectLinks(file) {
       internalLinks.push({ from: file, target: './' + clean })
     }
   }
+}
+
+// Generate anchor ID from heading text (matches VitePress/markdown-it behavior)
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+// Extract all heading anchors from a markdown file
+function extractAnchors(filePath) {
+  const text = fs.readFileSync(filePath, 'utf8')
+  const headingRegex = /^#{1,6}\s+(.+)$/gm
+  const anchors = new Set()
+  let m
+  while ((m = headingRegex.exec(text)) !== null) {
+    const headingText = m[1].trim()
+    const slug = slugify(headingText)
+    if (slug) anchors.add(slug)
+  }
+  return anchors
 }
 
 function walk(dir) {
@@ -62,6 +124,52 @@ for (const l of internalLinks) {
   }
 }
 
+// Validate anchor links
+const brokenAnchors = []
+for (const link of anchorLinks) {
+  let targetFile
+
+  if (link.target === link.from) {
+    // Same-file anchor (#section)
+    targetFile = link.from
+  } else {
+    // Cross-file anchor (./page#section or /path#section)
+    const originDir = path.dirname(link.from)
+    let targetPath = link.target
+
+    // Handle absolute paths from docs root
+    if (targetPath.startsWith('/')) {
+      targetPath = path.join(DOCS_DIR, targetPath)
+    } else {
+      targetPath = path.join(originDir, targetPath)
+    }
+
+    // Try with and without .md extension
+    if (fs.existsSync(targetPath)) {
+      targetFile = targetPath
+    } else if (fs.existsSync(targetPath + '.md')) {
+      targetFile = targetPath + '.md'
+    } else {
+      // File doesn't exist, will be caught by internal link check
+      continue
+    }
+  }
+
+  // Extract anchors from target file
+  const availableAnchors = extractAnchors(targetFile)
+
+  // Check if anchor exists
+  const anchorSlug = slugify(link.anchor)
+  if (!availableAnchors.has(anchorSlug) && !availableAnchors.has(link.anchor)) {
+    brokenAnchors.push({
+      from: path.relative(ROOT, link.from),
+      target: path.relative(ROOT, targetFile),
+      anchor: link.anchor,
+      fullUrl: link.fullUrl
+    })
+  }
+}
+
 // Fetch external links (basic HEAD/GET)
 const fetch = global.fetch
 const externalStatuses = []
@@ -88,15 +196,33 @@ async function checkExternal() {
 ;(async () => {
   await checkExternal()
   console.log(`Total internal links: ${internalLinks.length}`)
+  console.log(`Total anchor links: ${anchorLinks.length}`)
   console.log(`Total external links: ${externalLinks.size}`)
+
+  let hasErrors = false
 
   if (brokenInternal.length) {
     console.log('\n❌ Broken Internal Links:')
     for (const b of brokenInternal) {
       console.log(`  - ${path.relative(ROOT, b.from)} -> ${b.target}`)
     }
+    hasErrors = true
   } else {
     console.log('\n✅ No broken internal links detected')
+  }
+
+  if (brokenAnchors.length) {
+    console.log('\n❌ Broken Anchor Links:')
+    for (const b of brokenAnchors) {
+      if (b.from === b.target) {
+        console.log(`  - ${b.from}: #${b.anchor} (anchor not found)`)
+      } else {
+        console.log(`  - ${b.from} -> ${b.target}#${b.anchor} (anchor not found)`)
+      }
+    }
+    hasErrors = true
+  } else {
+    console.log('\n✅ No broken anchor links detected')
   }
 
   const badExternal = externalStatuses.filter(x => x.status === 'ERROR' || Number(x.status) >= 400)
@@ -107,6 +233,6 @@ async function checkExternal() {
     console.log('\n✅ All external links responded successfully (>=200 <400)')
   }
 
-  // Exit code: 1 if internal broken (blocking), 0 otherwise
-  process.exit(brokenInternal.length ? 1 : 0)
+  // Exit code: 1 if internal broken or anchors broken (blocking), 0 otherwise
+  process.exit(hasErrors ? 1 : 0)
 })()

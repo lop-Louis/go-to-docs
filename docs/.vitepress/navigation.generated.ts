@@ -30,6 +30,10 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
+        text: 'Playbook index',
+        link: '/playbook/'
+      },
+      {
         text: 'Decision Spine',
         link: '/decision-spine'
       },
@@ -69,6 +73,10 @@ export const generatedSidebar = [
     text: 'Fix it fast',
     collapsed: false,
     items: [
+      {
+        text: 'Fix it fast index',
+        link: '/fix/'
+      },
       {
         text: 'Teams notifications: quick checks and when to escalate',
         link: '/fix/teams-notifications'
