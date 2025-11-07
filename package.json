@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs && node scripts/verify-primary-actions.mjs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs --port 5173",
+    "docs:guard": "node scripts/verify-primary-actions.mjs && node scripts/ux.scan.mjs",
     "guard": "node scripts/guard.mjs",
     "stale": "node scripts/stale.mjs",
     "changelog:preview": "node scripts/changelog.mjs preview",
