@@ -1,0 +1,19 @@
+name: Link Check
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - '.lychee.toml'
+      - '.github/workflows/linkcheck.yml'
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify documentation links
+        uses: lycheeverse/lychee-action@v1.9.3
+        with:
+          args: --config .lychee.toml docs

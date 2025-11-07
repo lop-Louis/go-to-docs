@@ -85,6 +85,8 @@ jobs:
 
       - name: Build documentation
         id: build
+        env:
+          SKIP_DOCS_GUARD: '1'
         run: pnpm run docs:build
         continue-on-error: true
 

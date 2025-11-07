@@ -22,19 +22,23 @@ Back to [Releases](../release.md)
 
 ## Added
 
-- “Was this helpful?” control wired to GA4 on updated pages.
-- CI: Markdown link checker.
-- CI: PR required-fields enforcer (Why, Exit metric, Stream/Seam ID, Exception).
-- CI: Homepage↔Runbooks assertion.
+- **Decision Tripwires** page: three condition → action prompts for missing owner/date, SLA breaches, and metric regression.
+- **Runbooks:** Handover RACI template, Transition operating promises, Shared metric visibility, and State visibility map now live with sanitized examples.
+- **UX + UI Standard:** Playbook entry codifying layout width, typography scale, link styling, color rules, a11y guardrails, allowed components, and media requirements.
+- **Tooling:** `scripts/ux-scan.mjs` enforces primary-action tone plus heading rhythm; CTA verifier now scans every published route.
 
 ## Updated
 
-- Homepage: removed “Runbooks live here” claim until `/runbooks/` ships.
-- Decision Spine, Answer Ledger: added Governance cross-links.
+- Governance policy now references the internal `GOVERNANCE.md` for automation/RACI, removing redundant Band A copy.
+- Every doc with `primary_action` exposes it above the fold via a `data-primary-action` anchor; legacy runbooks cleaned up to match.
+- Runbooks index, Decision Spine, Handshake Contracts, RACI by Seams, Stop Rules, Scoreboard, and other Playbook pages now link to the new templates and use underlined cross-links per the UX standard.
+- Homepage CTA clarified (“Use these starting links…”), and multiple guidance pages (Band A, FAQ, Sanitization, Start Here, etc.) refreshed to the new tone.
 
 ## Fixed
 
-- Broken internal links caught by linkcheck.
+- Removed duplicate CTA callouts and ensured CTA placement ignores the home layout to prevent false positives.
+- Styled global link underline in the VitePress theme so anchors stay accessible without wrapping everything in `<u>`.
+- Changelog page itself now carries a `data-primary-action` and the release flow documents the shared metric snapshot link.
 
 ### Governance receipts
 

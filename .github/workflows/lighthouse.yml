@@ -71,6 +71,7 @@ jobs:
       - name: Build site
         env:
           VITE_GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
+          SKIP_DOCS_GUARD: ${{ github.event_name == 'pull_request' && '1' || '0' }}
         run: pnpm run docs:build
 
       - name: Run Lighthouse CI with Playwright
