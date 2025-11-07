@@ -74,6 +74,7 @@ Frontmatter is linted via `pnpm run frontmatter:lint`, which loads `schemas/fron
 - **Anti-drift (working branch push):** `pnpm run drift` runs whenever you push to a non-default working branch. The warnings land in that workflow’s job summary (no PR comment spam) so you can clean drift before opening a PR.
 - **Lighthouse (post-deploy):** Performance and accessibility checks run _after_ deployment against <https://northbook.guide>. The report lives in the Lighthouse workflow summary; PRs do not need to attach the artifact.
 - **Navigation sync:** `pnpm run nav:sync` regenerates `.vitepress/navigation.generated.ts` from frontmatter before `docs:build`. Treat the docs themselves as the source of truth; never hand-edit the generated nav.
+- **Guide vs rule escalation:** KL guidance yields to corporate rules. Use the matrix below and escalate according to the project governance playbook.
 
 ## Navigation & sidebar verification
 
@@ -137,4 +138,12 @@ Based on usage patterns, watch for:
 ### Good vs. Bad Examples
 
 | ❌ Avoid | ✅ Prefer |
-|
+
+## Guide vs rule escalation
+
+|           | Local KL (team-level)                                       | Corporate / enterprise                                                                   |
+| --------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Guide** | Preferred practice; can diverge with rationale in PR        | Advisory note; always cite or link to the policy                                         |
+| **Rule**  | Enforced via automation; escalate to KL lead for exceptions | Always overrides KL content. Follow it, then document the conflict and inform governance |
+
+Corporate rules always win. If a KL rule conflicts with a corporate mandate, follow the corporate requirement immediately, then document the exception (what changed, who approved, when) and notify the governance owner so the KL doc can be updated. If two guidelines conflict, resolve it locally; escalate only when the conflict blocks delivery or requires a policy update.
