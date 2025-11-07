@@ -18,3 +18,4 @@ All runbooks follow the [Governance Policy](../governance.md); keep identifiers 
 - [20-minute handover drill](./handover-20-min.md)
 - [Community meeting pack](./community-pack.md)
 - [Handover RACI template](./handover-raci-template.md)
+- [Transition operating promises](./transition-operating-promises.md)

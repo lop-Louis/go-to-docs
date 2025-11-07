@@ -22,6 +22,7 @@ The structure below stays inside the [Governance Policy](../governance.md) guard
 2. Replace the placeholder rows with the concrete activities in scope.
 3. Stick to role names or generic titles (for example, "On-call engineer") rather than personal identifiers.
 4. Link to the supporting [Runbooks index](./index.md) if you need step-by-step execution support.
+5. Pair each owner with the [transition operating promises](./transition-operating-promises.md) so SLA and backup coverage stays visible.
 
 ## Template
 
