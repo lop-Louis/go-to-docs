@@ -2,7 +2,7 @@
 
 Guidance over to-do. Northbook is a public VitePress site for Band A principles, patterns, and decisions—guidance you can link without dumping chores.
 
-**Live Site:** https://lop-louis.github.io/northbook/
+**Live Site:** https://northbook.guide
 
 ---
 

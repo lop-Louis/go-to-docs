@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Manrope';
   src:
-    url('/northbook/fonts/Manrope/Manrope-VariableFont_wght.woff2') format('truetype'),
+    url('/fonts/Manrope/Manrope-VariableFont_wght.woff2') format('truetype'),
     url('/fonts/Manrope/Manrope-VariableFont_wght.woff2') format('truetype');
   font-weight: 400 800;
   font-style: normal;
@@ -11,7 +11,7 @@
 @font-face {
   font-family: 'Inter';
   src:
-    url('/northbook/fonts/Inter/Inter-VariableFont_opsz,wght.woff2') format('truetype'),
+    url('/fonts/Inter/Inter-VariableFont_opsz,wght.woff2') format('truetype'),
     url('/fonts/Inter/Inter-VariableFont_opsz,wght.woff2') format('truetype');
   font-weight: 300 800;
   font-style: normal;
@@ -21,7 +21,7 @@
 @font-face {
   font-family: 'Inter';
   src:
-    url('/northbook/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.woff2') format('truetype'),
+    url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.woff2') format('truetype'),
     url('/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.woff2') format('truetype');
   font-weight: 300 800;
   font-style: italic;

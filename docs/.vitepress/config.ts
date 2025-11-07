@@ -1,12 +1,12 @@
 import { defineConfig } from 'vitepress'
 
 const GA_ID = process.env.VITE_GA_ID || 'G-511628512'
-const SITE_BASE = '/northbook'
+const SITE_BASE = '/'
 
 export default defineConfig({
   title: 'Northbook',
   description: 'Guidance over to-do.',
-  base: `${SITE_BASE}/`,
+  base: `${SITE_BASE}`,
   lastUpdated: true,
   head: [
     [
@@ -15,14 +15,14 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: `${SITE_BASE}/favicon-32x32.png`
+        href: `${SITE_BASE}favicon-32x32.png`
       }
     ],
     [
       'link',
       {
         rel: 'preload',
-        href: `${SITE_BASE}/fonts/Inter/Inter-VariableFont_opsz,wght.woff2`,
+        href: `${SITE_BASE}fonts/Inter/Inter-VariableFont_opsz,wght.woff2`,
         as: 'font',
         type: 'font/woff2',
         crossorigin: ''
@@ -32,7 +32,7 @@ export default defineConfig({
       'link',
       {
         rel: 'preload',
-        href: `${SITE_BASE}/fonts/Manrope/Manrope-VariableFont_wght.woff2`,
+        href: `${SITE_BASE}fonts/Manrope/Manrope-VariableFont_wght.woff2`,
         as: 'font',
         type: 'font/woff2',
         crossorigin: ''
@@ -44,7 +44,7 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: `${SITE_BASE}/favicon-16x16.png`
+        href: `${SITE_BASE}favicon-16x16.png`
       }
     ],
     [
@@ -53,7 +53,7 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '192x192',
-        href: `${SITE_BASE}/android-chrome-192x192.png`
+        href: `${SITE_BASE}android-chrome-192x192.png`
       }
     ],
     [
@@ -62,21 +62,21 @@ export default defineConfig({
         rel: 'icon',
         type: 'image/png',
         sizes: '512x512',
-        href: `${SITE_BASE}/android-chrome-512x512.png`
+        href: `${SITE_BASE}android-chrome-512x512.png`
       }
     ],
     [
       'link',
       {
         rel: 'apple-touch-icon',
-        href: `${SITE_BASE}/apple-touch-icon.png`
+        href: `${SITE_BASE}apple-touch-icon.png`
       }
     ],
     [
       'link',
       {
         rel: 'manifest',
-        href: `${SITE_BASE}/site.webmanifest`
+        href: `${SITE_BASE}site.webmanifest`
       }
     ],
     [
@@ -97,7 +97,7 @@ export default defineConfig({
       'meta',
       {
         property: 'og:image',
-        content: `${SITE_BASE}/og-image.png`
+        content: `${SITE_BASE}og-image.png`
       }
     ],
     [
