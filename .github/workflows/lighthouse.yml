@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows: ['Deploy VitePress to Pages']
     types: [completed]
+    branches: [main]
 
 permissions:
   contents: read

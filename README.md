@@ -100,7 +100,6 @@ Automation catches most issues; reviewers focus on judgment calls.
 - `docs/index.md` — Homepage hero that sells “Guidance over to-do.”
 - `docs/governance.md` — Anti-drift rules for public content.
 - `scripts/guard.mjs` — Band A and anti-drift guard (read-only).
-- `scripts/nav-guard.mjs` — Verifies frontmatter nav metadata matches generated nav/sidebar.
 - `scripts/sync-navigation.mjs` — Generates the nav/sidebar file from frontmatter.
 - `.github/workflows/pages.yml` — Deploys the site.
 - `.github/workflows/guard.yml` — Runs guard on PRs.

@@ -26,7 +26,7 @@ This changelog captures the mid-November hygiene release so you can skim what sh
 - **Decision Tripwires** page: three condition → action prompts for missing owner/date, SLA breaches, and metric regression.
 - **Runbooks:** Handover RACI template, Transition operating promises, Shared metric visibility, State visibility map, and Accessibility Audit runbook now live with sanitized examples.
 - **CTA policy:** Anti-drift governance now requires inline primary + secondary CTA pairs per page; frontmatter `primary_action` removed in favor of body-level actions and Feedback.vue fallbacks.
-- **Tooling:** `scripts/nav-guard.mjs`, `scripts/frontmatter-lint.mjs` (with nav support), and `scripts/sync-navigation.mjs` shipped to keep frontmatter `nav` metadata, generated nav, and `.vitepress/config.ts` aligned.
+- **Tooling:** `scripts/frontmatter-lint.mjs` (with nav support), and `scripts/sync-navigation.mjs` shipped to keep frontmatter `nav` metadata, generated nav, and `.vitepress/config.ts` aligned.
 
 ## Updated
 
