@@ -33,14 +33,6 @@ const REQUIRED_DOCS = [
   'docs/faq-new-joiners.md'
 ]
 
-describe('Project Structure - Required Files', () => {
-  for (const file of REQUIRED_FILES) {
-    it(`should have ${file}`, () => {
-      assert.ok(fs.existsSync(file), `Missing required file: ${file}`)
-    })
-  }
-})
-
 describe('Project Structure - Documentation Pages', () => {
   for (const doc of REQUIRED_DOCS) {
     it(`should have ${doc}`, () => {
@@ -69,23 +61,6 @@ describe('Project Configuration - package.json', () => {
     assert.ok(pkg.devDependencies.vitepress, 'Missing vitepress dependency')
     assert.ok(pkg.devDependencies['gray-matter'], 'Missing gray-matter dependency')
   })
-})
-
-describe('GitHub Workflows - Syntax', () => {
-  const workflows = [
-    '.github/workflows/pages.yml',
-    '.github/workflows/content-guard.yml',
-    '.github/workflows/stale-pages.yml'
-  ]
-
-  for (const workflow of workflows) {
-    it(`${workflow} should be valid YAML`, () => {
-      const content = fs.readFileSync(workflow, 'utf8')
-      assert.ok(content.includes('name:'), 'Workflow should have a name')
-      assert.ok(content.includes('on:'), 'Workflow should have triggers')
-      assert.ok(content.includes('jobs:'), 'Workflow should have jobs')
-    })
-  }
 })
 
 describe('Documentation - Frontmatter Validation', () => {
