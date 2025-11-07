@@ -148,7 +148,12 @@ async function writeNavigation(nav, sidebar) {
     null,
     2
   )} as const;\nexport const generatedSidebar = ${JSON.stringify(sidebar, null, 2)} as const;\n`
-  const formatted = await prettier.format(content, { filepath: outputPath })
+  const formatted = await prettier.format(content, {
+    parser: 'typescript',
+    singleQuote: true,
+    semi: false,
+    trailingComma: 'none'
+  })
   fs.writeFileSync(outputPath, formatted)
   console.log(`Navigation synced -> ${path.relative(repoRoot, outputPath)}`)
 }
