@@ -33,18 +33,11 @@ Results post automatically as a PR comment; review that report for red/yellow fi
 
 ## What's Changed
 
-<!-- Brief description of your changes -->
+- [ ] Add changes into `docs/CHANGELOG/site-vYYYY.MM.md` if applicable
 
 ## Context
 
-<!-- Why is this change needed? How does it help? -->
-
-### Decision Snapshot
-
-- **Why (one line):** <!-- State the single-sentence intent -->
-- **Exit metric:** <!-- baseline → target · review date (YYYY-MM-DD) -->
-- **Stream/Seam ID:** <!-- e.g., Stream-07 or Seam-B -->
-- **Exception (reason · owner · date):** <!-- e.g., Skipped retro · @handle · 2025-01-15; if none, type N/A -->
+- [ ] Link to relevant issues, PRs, or decision records
 
 ---
 
