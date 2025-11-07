@@ -163,23 +163,11 @@ jobs:
           fi
           echo "" >> report.md
 
-          # Component tests
+          # Component tests (separate workflow)
           echo "### 🧪 Test Suite Summary" >> report.md
-          if pnpm test > test-output.txt 2>&1; then
-            PASSING=$(grep -E "pass" test-output.txt | tail -1 | awk '{print $2}' || echo "")
-            echo "✅ **PASSED** - All tests green" >> report.md
-            GREEN_COUNT=$((GREEN_COUNT + 1))
-          else
-            TOTAL=$(grep -E "pass" test-output.txt | tail -1 | awk '{print $2}' || echo "")
-            FAIL_COUNT=$(grep -c "not ok" test-output.txt || echo 0)
-            echo "❌ **FAILED** - ${FAIL_COUNT} failing tests" >> report.md
-            echo "" >> report.md
-            echo "Top failure categories (sample):" >> report.md
-            grep -E "stale|patch exceeds|severely stale" test-output.txt | head -5 | sed 's/^/  - /' >> report.md || true
-            echo "" >> report.md
-            echo "**Action Required:** Address stale report formatting & patch size validation first." >> report.md
-            RED_COUNT=$((RED_COUNT + 1))
-          fi
+          echo "ℹ️ **RUNS IN TESTS WORKFLOW** - Unit + component tests execute in the \`Tests\` workflow." >> report.md
+          echo "  - Review the *Tests* check in the PR status list for pass/fail." >> report.md
+          echo "  - Fix any failing specs before requesting review." >> report.md
           echo "" >> report.md
 
           # Lighthouse CI (reference to separate workflow)
