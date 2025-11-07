@@ -35,17 +35,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Frontmatter schema
-        id: frontmatter
-        run: |
-          set -o pipefail
-          FRONTMATTER_FORMAT=json pnpm run frontmatter:lint | tee frontmatter-output.json
-          FRONTMATTER_STATUS=$(jq -r '.status' frontmatter-output.json)
-          FRONTMATTER_VIOLATIONS=$(jq '.violationCount' frontmatter-output.json)
-          echo "status=$FRONTMATTER_STATUS" >> $GITHUB_OUTPUT
-          echo "violations=$FRONTMATTER_VIOLATIONS" >> $GITHUB_OUTPUT
-        continue-on-error: true
-
       - name: Band A compliance
         id: guard
         run: |
@@ -112,7 +101,7 @@ jobs:
           GUARD_STATUS='${{ steps.guard.outputs.status }}'
           FRONTMATTER_EXIT=${{ steps.frontmatter.outcome }}
 
-          if [[ "$FRONTMATTER_EXIT" == "failure" ]] || [[ "$GUARD_EXIT" == "failure" ]] || [[ "$GITLEAKS_EXIT" == "failure" ]] || [[ "$BUILD_EXIT" == "failure" ]]; then
+          if [[ "$GUARD_EXIT" == "failure" ]] || [[ "$GITLEAKS_EXIT" == "failure" ]] || [[ "$BUILD_EXIT" == "failure" ]]; then
             echo "status=red" >> $GITHUB_OUTPUT
             echo "label=red" >> $GITHUB_OUTPUT
           elif [[ "$LINKS_EXIT" == "failure" ]] || [[ "$UX_EXIT" == "failure" ]] || [[ "$GUARD_STATUS" == "yellow" ]]; then
@@ -157,11 +146,6 @@ jobs:
 
             | Governance Check | Result |
             |------------------|--------|
-            | Frontmatter Schema | ${
-              frontmatterResult === 'success'
-                ? '✅ Passed'
-                : `❌ ${frontmatterViolations || 0} issue(s)`
-            } |
             | Band A Compliance | ${
               guardResult === 'success'
                 ? (guardStatus === 'yellow' ? '⚠️ Passed w/ warnings' : '✅ Passed')

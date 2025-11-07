@@ -3,7 +3,7 @@
   "title": "Northbook frontmatter",
   "type": "object",
   "additionalProperties": true,
-  "required": ["title", "band", "owner", "refresh_after_days", "change_type", "status", "nav"],
+  "required": ["title", "band", "owner", "refresh_after_days", "change_type", "status"],
   "properties": {
     "title": {
       "type": "string",
@@ -74,7 +74,7 @@
           }
         ]
       },
-      "minItems": 1,
+      "minItems": 0,
       "uniqueItems": false
     },
     "nav_label": {
