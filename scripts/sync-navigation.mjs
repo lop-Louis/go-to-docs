@@ -12,7 +12,8 @@ const GROUP_ORDER = new Map([
   ['Start here', 10],
   ['Guides', 20],
   ['Runbooks', 30],
-  ['Contributor Kit', 40]
+  ['Contributor Kit', 40],
+  ['Fix it fast', 50]
 ])
 
 function collectMarkdownFiles(dir) {

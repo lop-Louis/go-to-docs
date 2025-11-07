@@ -1,0 +1,81 @@
+name: Unified Guard (Blocker + Warners)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths: ['docs/**', 'runbooks/**', 'scripts/**', '.github/**']
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  guard_blocker:
+    name: Critical Checks (Blockers)
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false && vars.NORTHBOOK_STRICT != 'false'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Link validation (404s block)
+        run: pnpm run links
+
+      - name: Frontmatter schema (required fields)
+        run: pnpm run frontmatter:lint
+
+      - name: Primary action validation
+        run: |
+          # Build docs first (verify-primary-actions needs the dist/)
+          SKIP_DOCS_GUARD=1 pnpm run docs:build
+          node scripts/verify-primary-actions.mjs
+
+  guard_warners:
+    name: Soft Checks (Warn Only)
+    runs-on: ubuntu-latest
+    needs: guard_blocker
+    continue-on-error: true
+    if: github.event.pull_request.draft == false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Content guard (internal content scan)
+        run: pnpm run guard
+
+      - name: UX scan (narrative alignment)
+        run: pnpm run ux:scan
+
+      - name: Drift detection
+        run: pnpm run drift
+
+      - name: Stale page check
+        run: pnpm run stale
