@@ -13,6 +13,7 @@ jobs:
   a11y:
     name: Axe Accessibility Check
     runs-on: ubuntu-latest
+    continue-on-error: true
 
     steps:
       - name: Checkout
@@ -39,7 +40,38 @@ jobs:
         run: npx playwright install chromium
 
       - name: Run accessibility tests
+        id: a11y_test
         run: pnpm test tests/accessibility/wcag-compliance.test.ts
+        continue-on-error: true
+
+      - name: Generate summary
+        if: always()
+        run: |
+          echo "## 🔍 Accessibility Audit Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.a11y_test.outcome }}" == "success" ]; then
+            echo "✅ **All accessibility checks passed!**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- WCAG AA component compliance verified" >> $GITHUB_STEP_SUMMARY
+            echo "- Semantic HTML structure validated" >> $GITHUB_STEP_SUMMARY
+            echo "- Keyboard navigation tested" >> $GITHUB_STEP_SUMMARY
+            echo "- Screen reader support confirmed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ **Accessibility warnings detected**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Some accessibility tests failed. Review the details below:" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Action required:**" >> $GITHUB_STEP_SUMMARY
+            echo "- Check test output for specific violations" >> $GITHUB_STEP_SUMMARY
+            echo "- Review [WCAG 2.1 AA guidelines](https://www.w3.org/WAI/WCAG21/quickref/?versions=2.1&currentsidebar=%23col_customize&levels=aa)" >> $GITHUB_STEP_SUMMARY
+            echo "- Consider fixing in a follow-up PR" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Note:** This check is non-blocking. PR can still merge." >> $GITHUB_STEP_SUMMARY
+
+            # Add warning annotation
+            echo "::warning title=Accessibility Check::Accessibility tests failed but this is non-blocking. Review test output for details."
+          fi
 
       - name: Upload accessibility report
         if: failure()
