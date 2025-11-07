@@ -13,7 +13,7 @@
 
 import { chromium } from 'playwright'
 import { spawn } from 'child_process'
-import { writeFileSync, mkdirSync } from 'fs'
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -25,8 +25,54 @@ const NORMALIZED_REMOTE_BASE = USE_REMOTE ? REMOTE_BASE.replace(/\/+$/, '') : ''
 const BASE_URL = USE_REMOTE ? NORMALIZED_REMOTE_BASE : `http://localhost:${PORT}`
 const TIMEOUT = 60000 // 60 seconds
 
-// Pages to audit
-const PAGES = ['/northbook/', '/northbook/band-a', '/northbook/governance']
+/**
+ * Extract unique page paths from navigation.generated.ts
+ */
+async function extractPagesFromNav() {
+  const navPath = resolve(__dirname, '../docs/.vitepress/navigation.generated.ts')
+
+  if (!existsSync(navPath)) {
+    console.warn('⚠️  navigation.generated.ts not found, using default pages')
+    return ['/', '/band-a', '/governance']
+  }
+
+  try {
+    // Read the TypeScript file and parse it manually
+    const content = readFileSync(navPath, 'utf-8')
+    const pages = new Set()
+
+    // Add homepage
+    pages.add('/')
+
+    // Use regex to extract link paths from the navigation structure
+    // Match patterns like: link: '/some-path'
+    const linkPattern = /link:\s*['"]([^'"]+)['"]/g
+    let match
+
+    while ((match = linkPattern.exec(content)) !== null) {
+      const link = match[1]
+      // Only add if it looks like a valid path (starts with /)
+      if (link.startsWith('/')) {
+        pages.add(link)
+      }
+    }
+
+    // If no pages were found, use defaults
+    if (pages.size === 1) {
+      // Only has the homepage
+      console.warn('⚠️  No pages found in navigation, using defaults')
+      return ['/', '/band-a', '/governance']
+    }
+
+    return Array.from(pages).sort()
+  } catch (err) {
+    console.warn(`⚠️  Failed to load navigation file: ${err.message}`)
+    return ['/', '/band-a', '/governance']
+  }
+}
+
+// Pages to audit - will be populated from navigation
+let PAGES = []
 
 let serverProcess = null
 let browser = null
@@ -85,7 +131,7 @@ async function waitForServer(maxAttempts = 30) {
 
   for (let i = 0; i < maxAttempts; i++) {
     try {
-      const response = await page.goto(`${BASE_URL}/northbook/`, {
+      const response = await page.goto(`${BASE_URL}/`, {
         timeout: 2000,
         waitUntil: 'domcontentloaded'
       })
@@ -280,6 +326,11 @@ async function main() {
   let exitCode = 0
 
   try {
+    // Extract pages from navigation
+    console.log('📚 Loading pages from navigation.generated.ts...')
+    PAGES = await extractPagesFromNav()
+    console.log(`Found ${PAGES.length} pages to audit:`, PAGES)
+
     if (USE_REMOTE) {
       console.log(`🌐 Remote mode enabled. Auditing ${BASE_URL}`)
     } else {
