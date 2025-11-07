@@ -9,6 +9,9 @@ export default defineConfig({
   description: 'Guidance over to-do.',
   base: `${SITE_BASE}`,
   lastUpdated: true,
+  sitemap: {
+    hostname: 'https://northbook.guide'
+  },
   head: [
     [
       'link',
@@ -98,7 +101,14 @@ export default defineConfig({
       'meta',
       {
         property: 'og:image',
-        content: `${SITE_BASE}og-image.png`
+        content: 'https://northbook.guide/og-image.png'
+      }
+    ],
+    [
+      'meta',
+      {
+        property: 'og:url',
+        content: 'https://northbook.guide/'
       }
     ],
     [

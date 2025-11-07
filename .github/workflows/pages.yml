@@ -57,6 +57,36 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
+      - name: Smoke test production
+        if: success()
+        run: |
+          echo "🧪 Running post-deploy smoke tests..."
+
+          # Wait for deployment to propagate
+          sleep 10
+
+          # Test homepage
+          curl -sf https://northbook.guide/ | grep -q "Northbook" || {
+            echo "❌ Homepage test failed"
+            exit 1
+          }
+          echo "✅ Homepage responding"
+
+          # Test key pages
+          curl -sf https://northbook.guide/playbook/raci-by-seams | grep -q "RACI" || {
+            echo "❌ RACI page test failed"
+            exit 1
+          }
+          echo "✅ RACI page responding"
+
+          curl -sf https://northbook.guide/decision-spine | grep -q "decision" || {
+            echo "❌ Decision spine page test failed"
+            exit 1
+          }
+          echo "✅ Decision spine page responding"
+
+          echo "🎉 All smoke tests passed!"
+
       - name: Notify deployment
         if: success()
         run: |

@@ -62,7 +62,7 @@ let checkCount = 0
 function checkFile(p) {
   fileCount++
   const raw = fs.readFileSync(p, 'utf8')
-  const { data, content } = matter(raw)
+  const { content } = matter(raw)
 
   // Skip VitePress config directory
   if (p.includes('.vitepress')) return
@@ -87,6 +87,21 @@ function checkFile(p) {
       `${p}: Possible internal/sensitive content detected (${forbiddenMatches.length} pattern(s))`
     )
     checkCount++
+  }
+
+  // Check external links for security attributes
+  const externalLinkPattern = /<a\s+[^>]*href=["']https?:\/\/[^"']+["'][^>]*>/gi
+  const externalLinks = content.match(externalLinkPattern) || []
+
+  for (const link of externalLinks) {
+    const hasTargetBlank = /target=["']_blank["']/.test(link)
+    const hasNoopener = /rel=["'][^"']*noopener[^"']*["']/.test(link)
+    const hasNoreferrer = /rel=["'][^"']*noreferrer[^"']*["']/.test(link)
+
+    if (hasTargetBlank && (!hasNoopener || !hasNoreferrer)) {
+      yellow.push(`${p}: External link with target="_blank" missing rel="noopener noreferrer"`)
+      checkCount++
+    }
   }
 }
 

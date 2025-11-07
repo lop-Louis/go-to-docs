@@ -110,6 +110,16 @@
   background: inherit;
 }
 
+/* Keep <pre> background in sync with inline code badges */
+.vp-doc pre {
+  background-color: var(--vp-c-bg-soft);
+  color: var(--vp-code-color);
+}
+
+.vp-doc pre code {
+  background: transparent;
+}
+
 /* Skip to content link for screen readers */
 .skip-to-content {
   position: absolute;
