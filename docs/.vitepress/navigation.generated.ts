@@ -64,5 +64,31 @@ export const generatedSidebar = [
         link: '/governance'
       }
     ]
+  },
+  {
+    text: 'Fix it fast',
+    collapsed: false,
+    items: [
+      {
+        text: 'Teams notifications: quick checks and when to escalate',
+        link: '/fix/teams-notifications'
+      },
+      {
+        text: 'Access to repo or pipeline: quick checks and request',
+        link: '/fix/access-repo-pipeline'
+      },
+      {
+        text: 'Design System component usage decision',
+        link: '/fix/ds-component-decision'
+      },
+      {
+        text: 'Feature flag not behaving on Staging',
+        link: '/fix/flag-staging'
+      },
+      {
+        text: 'VWO/Bloomreach script sanity check',
+        link: '/fix/vwo-bloomreach-sanity'
+      }
+    ]
   }
 ] as const
