@@ -20,3 +20,4 @@ All runbooks follow the [Governance Policy](../governance.md); keep identifiers 
 - [Handover RACI template](./handover-raci-template.md)
 - [Transition operating promises](./transition-operating-promises.md)
 - [Shared metric visibility](./shared-metric-visibility.md)
+- [State visibility map](./state-visibility.md)

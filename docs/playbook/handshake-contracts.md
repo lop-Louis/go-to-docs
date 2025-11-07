@@ -25,14 +25,14 @@ Handshake contracts spell out how two groups promise to work together without wa
 
 ## Core ingredients
 
-| Piece       | Guidance                                               | Example                                                                 |
-| ----------- | ------------------------------------------------------ | ----------------------------------------------------------------------- |
-| Purpose     | One line that names the shared outcome.                | “Keep release notes current within 24 hours of merge.”                  |
-| Approvals   | Who signs off and how fast they respond.               | “Decisions acknowledged within 48h. Backups listed in the contract.”    |
-| Escalation  | Default path when something blocks progress.           | “Owner → Backup → Sponsor, each with 24h to respond.”                   |
-| Cadence     | How you review whether the contract still makes sense. | “Weekly 15-minute checkpoints; update metrics in the monthly tag.”      |
-| Exit metric | Signal that shows the contract is working—or isn’t.    | “Support backlog stays under 5 tickets older than 3 days.”              |
-| Sunsets     | Trigger for rewriting or retiring the contract.        | “Revisit after the quarterly retrospective or any severity-1 incident.” |
+| Piece       | Guidance                                               | Example                                                                                                                                    |
+| ----------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| Purpose     | One line that names the shared outcome.                | “Keep release notes current within 24 hours of merge.”                                                                                     |
+| Approvals   | Who signs off and how fast they respond.               | “Decisions acknowledged within 48h. Backups listed in the contract.”                                                                       |
+| Escalation  | Default path when something blocks progress.           | “Owner → Backup → Sponsor, each with 24h to respond.”                                                                                      |
+| Cadence     | How you review whether the contract still makes sense. | “Weekly 15-minute checkpoints referencing the [state visibility map](../runbooks/state-visibility.md); update metrics in the monthly tag.” |
+| Exit metric | Signal that shows the contract is working—or isn’t.    | “Support backlog stays under 5 tickets older than 3 days.”                                                                                 |
+| Sunsets     | Trigger for rewriting or retiring the contract.        | “Revisit after the quarterly retrospective or any severity-1 incident.”                                                                    |
 
 ## How to stand one up
 
@@ -41,7 +41,7 @@ Handshake contracts spell out how two groups promise to work together without wa
 3. **Define turnaround times.** State the SLA for approvals, escalations, and status pings.
 4. **Agree on the exit metric.** Choose a signal you can measure weekly so drift is obvious.
 5. **Write the escalation ladder.** Include response windows so no one wonders how long to wait.
-6. **Schedule a cadence review.** Protect 15 minutes to inspect the metric and renew the agreement.
+6. **Schedule a cadence review.** Protect 15 minutes to inspect the metric, walk the [state visibility map](../runbooks/state-visibility.md), and renew the agreement.
 7. **Share the contract link.** Pin it in both teams’ channels and reference it in relevant docs.
 
 ## Example outline
