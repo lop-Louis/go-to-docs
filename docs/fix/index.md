@@ -10,7 +10,7 @@ tone: practical
 narrative_goal: Route teammates to the right quick-check flow before escalating
 nav_group: Fix it fast
 nav_order: 5
-nav_label: Fix it fast
+nav_label: Interrupt flows
 nav:
   - sidebar
 ---

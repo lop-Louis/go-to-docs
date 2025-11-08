@@ -11,7 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Give newcomers outcome-based entry points before policy
 nav_group: Start
 nav_order: 1
-nav_label: Start
+nav_label: Orientation hub
 nav:
   - main
   - sidebar

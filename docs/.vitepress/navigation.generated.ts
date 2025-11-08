@@ -2,7 +2,7 @@
 // Do not edit manually.
 export const generatedNav = [
   {
-    text: 'Start',
+    text: 'Orientation hub',
     link: '/start-here/'
   },
   {
@@ -16,7 +16,7 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Start',
+        text: 'Orientation hub',
         link: '/start-here/'
       },
       {
@@ -92,7 +92,7 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Runbooks',
+        text: 'All runbooks',
         link: '/runbooks/'
       },
       {
@@ -124,7 +124,7 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Fix it fast',
+        text: 'Interrupt flows',
         link: '/fix/'
       },
       {

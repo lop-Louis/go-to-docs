@@ -10,7 +10,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Point to the tactical runbooks kept out of guidance sections
 nav_group: Runbooks
 nav_order: 10
-nav_label: Runbooks
+nav_label: All runbooks
 nav:
   - sidebar
 ---
