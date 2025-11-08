@@ -35,7 +35,9 @@ nav:
   - none
 ---
 
-Guidance stays light on chores; runbooks carry the detailed checklists. <a href="./guides/find" data-primary-action>Use the starting links</a> or <a href="./runbooks/index" data-secondary-action>Browse the runbooks index</a>.
+Find the answer. Use it now. <a href="./guides/find" data-primary-action>Use the starting links</a> or <a href="./runbooks/index" data-secondary-action>Browse the runbooks index</a>.
+
+Guidance stays light on chores; runbooks carry the detailed checklists.
 
 ## Governance & Safety
 

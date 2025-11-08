@@ -3,7 +3,11 @@ import { generatedNav, generatedSidebar } from './navigation.generated'
 
 const GA_ID = process.env.VITE_GA_ID || 'G-511628512'
 const ENABLE_GA4 = process.env.ENABLE_GA4 === 'true'
-const RELEASE_TAG = process.env.RELEASE_TAG || 'dev'
+const DEFAULT_RELEASE_TAG = '2025-11.0'
+const RELEASE_TAG =
+  process.env.RELEASE_TAG && process.env.RELEASE_TAG !== 'dev'
+    ? process.env.RELEASE_TAG
+    : DEFAULT_RELEASE_TAG
 const SITE_BASE = '/'
 
 export default defineConfig({
@@ -175,14 +179,14 @@ if (window.ENABLE_GA4) {
         text: 'Start',
         items: [
           { text: 'Receipts', link: '/receipts/' },
-          { text: 'Ops Quick-Run', link: '/ops/quick-run' }
+          { text: 'Quick-Run', link: '/ops/quick-run' }
         ]
       },
       ...generatedSidebar
     ],
     outline: [2, 3],
     footer: {
-      message: `Privacy-friendly analytics enabled.${RELEASE_TAG !== 'dev' ? ` Release: ${RELEASE_TAG}` : ''}`,
+      message: `Privacy-friendly analytics. Release: ${RELEASE_TAG}`,
       copyright: '© Northbook'
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/lop-louis/northbook' }],
