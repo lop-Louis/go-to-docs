@@ -11,6 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Show how to capture recurring questions into a searchable ledger
 nav_group: Contributor Kit
 nav_order: 20
+nav_label: Answer ledger pattern
 nav:
   - sidebar
 ---

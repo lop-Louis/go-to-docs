@@ -50,6 +50,16 @@ export const generatedSidebar = [
     ]
   },
   {
+    text: 'Fast support',
+    collapsed: false,
+    items: [
+      {
+        text: 'Interrupt flows',
+        link: '/fix/'
+      }
+    ]
+  },
+  {
     text: 'Guides',
     collapsed: false,
     items: [
@@ -98,11 +108,11 @@ export const generatedSidebar = [
         link: '/sanitization'
       },
       {
-        text: 'Answer Ledger Pattern',
+        text: 'Answer ledger pattern',
         link: '/answer-ledger'
       },
       {
-        text: 'Anti-drift Content Governance',
+        text: 'Anti-drift governance',
         link: '/governance'
       }
     ]
@@ -111,10 +121,6 @@ export const generatedSidebar = [
     text: 'Fix it fast',
     collapsed: false,
     items: [
-      {
-        text: 'Interrupt flows',
-        link: '/fix/'
-      },
       {
         text: 'Teams notifications check',
         link: '/fix/teams-notifications'
