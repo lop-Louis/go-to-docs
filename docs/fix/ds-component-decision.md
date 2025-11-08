@@ -24,6 +24,10 @@ nav_group: Fix it fast
 nav_order: 30
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 Make a consistent call on whether to use, extend, or fork a DS component without re-litigating. <a href="#quick-path" data-primary-action>Walk the decision steps</a> or <a href="/playbook/handshake-contracts" data-secondary-action>Review the handshake contract pattern</a>.
 
 > **Works here:** prod · Flos UI · Regions: MY, DK  

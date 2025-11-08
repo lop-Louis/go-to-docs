@@ -12,6 +12,10 @@ nav:
   - none
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # State visibility map
 
 Stop guessing whether work is stuck—let this map show the state, entry signal, and SLI guardrail for every stream. <a href="#weekly-15-minute-review-agenda" data-primary-action>Publish your state map</a> or <a href="./index" data-secondary-action>Browse the runbooks index</a>. Pair this with a weekly 15-minute review so deviations surface fast.

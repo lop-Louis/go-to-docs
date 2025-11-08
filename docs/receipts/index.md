@@ -7,8 +7,9 @@ refresh_after_days: 30
 status: live
 ---
 
-Need to fix this fast? <a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or
-<a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
 
 Use this page to surface the last few proof points.
 

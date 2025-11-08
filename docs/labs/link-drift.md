@@ -8,6 +8,10 @@ status: live
 sidebar: false
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 Need to confirm hyperlinks survived the latest edit? <a href="/ops/quick-run" data-primary-action>Jump back to the Ops Quick-Run</a> or
 <a href="/labs/link-drift.lab.json" data-secondary-action>Download the lab config</a>.
 

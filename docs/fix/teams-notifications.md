@@ -24,6 +24,10 @@ nav_group: Fix it fast
 nav_order: 10
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 Keep Teams notifications reliable with a 10-minute check path before involving IT. <a href="#quick-path-3-7-checks" data-primary-action>Run the quick checks</a> or <a href="/support-it/contacting-it" data-secondary-action>Escalate to Support IT</a>.
 
 > **Works here:** prod · Microsoft Teams desktop/web · Regions: MY, DK  

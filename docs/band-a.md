@@ -17,6 +17,10 @@ nav:
   - sidebar
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # What is Band A
 
 Band A keeps our public guidance safe to quote without leaking specifics. <a href="#what-belongs-in-band-a" data-primary-action>Run the Band A checklist</a> or <a href="./runbooks/index" data-secondary-action>Browse the runbooks index</a>.

@@ -15,8 +15,16 @@ function fmok(text) {
   return { ok: missing.length === 0, missing }
 }
 
+function stripFrontmatterBlock(text) {
+  if (!text.startsWith('---')) return text
+  const match = text.match(/^---\s*[\s\S]*?\n---\s*\n?/)
+  if (!match) return text
+  return text.slice(match[0].length)
+}
+
 function ctaok(text) {
-  const head = text.split('\n').slice(0, 24).join('\n')
+  const body = stripFrontmatterBlock(text)
+  const head = body.split('\n').slice(0, 24).join('\n')
   const links = (head.match(/\[[^\]]+\]\([^)]+\)/g) || []).length
   return links >= 2
 }

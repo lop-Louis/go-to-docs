@@ -35,6 +35,10 @@ nav:
   - none
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 ## Why this exists
 
 **Curated quick-paths with escalation packets and governance guardrails**, not another wiki. Every runbook includes a clear escalation path when self-service hits a wall. See [Fix-it-fast flows](./runbooks/index) for common interrupts or [Governance](./governance) for content lifecycle rules.

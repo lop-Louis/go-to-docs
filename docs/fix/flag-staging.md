@@ -24,6 +24,10 @@ nav_group: Fix it fast
 nav_order: 40
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 Confirm staging feature flags in minutes before looping in the platform team. <a href="#quick-path" data-primary-action>Run the flag checks</a> or <a href="/support-it/contacting-it" data-secondary-action>Escalate to Support IT</a>.
 
 > **Works here:** staging · Feature flag SDK · Regions: MY, DK  

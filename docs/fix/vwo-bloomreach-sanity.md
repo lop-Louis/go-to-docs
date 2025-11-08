@@ -24,6 +24,10 @@ nav_group: Fix it fast
 nav_order: 50
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 Verify experiment scripts are injected once, load from the right CDN, and aren’t blocked by CSP. <a href="#quick-path" data-primary-action>Run the sanity checks</a> or <a href="/support-it/contacting-it" data-secondary-action>Escalate to Support IT</a>.
 
 > **Works here:** staging + prod · VWO + Bloomreach · Regions: MY, DK  

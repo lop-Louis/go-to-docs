@@ -13,6 +13,10 @@ nav:
   - none
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # Handshake Contracts
 
 Handshake contracts spell out how two groups promise to work together before policy catches up. <a href="#when-to-draft-one" data-primary-action>Draft your handshake contract</a> or <a href="../runbooks/index" data-secondary-action>Browse the runbooks index</a>.

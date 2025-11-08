@@ -15,6 +15,10 @@ nav:
   - sidebar
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # Anti-drift Content Governance
 
 Keep public docs anti-drift by following this policy. <a href="#scope" data-primary-action>Apply the rules</a> or <a href="./runbooks/index" data-secondary-action>Jump to the runbooks index</a>.

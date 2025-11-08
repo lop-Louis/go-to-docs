@@ -15,6 +15,10 @@ nav:
   - sidebar
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # Facilitation Techniques
 
 Small, plug-and-play patterns keep collaborative sessions focused and inclusive. <a href="#silent-brainstorming" data-primary-action>Pick a facilitation pattern</a> or <a href="./runbooks/index" data-secondary-action>Browse the runbooks index</a>.

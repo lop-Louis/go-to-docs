@@ -15,6 +15,10 @@ nav:
   - sidebar
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # Sanitization Guidance
 
 Northbook only ships guidance that anyone can quote safely. <a href="#what-sanitization-protects" data-primary-action>Run the sanitization checklist</a> or <a href="./runbooks/index" data-secondary-action>Browse the runbooks index</a>. Use these guardrails to keep every page linkable while chore-like checklists stay in `/runbooks`.

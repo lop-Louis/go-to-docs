@@ -12,6 +12,10 @@ nav:
   - none
 ---
 
+Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
+<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+
+
 # RACI by Seams
 
 Mapping RACI by seam keeps ownership stable even when teams reorganize. <a href="#why-seams-not-teams" data-primary-action>Use the seam-first template</a> or <a href="../runbooks/index" data-secondary-action>Browse the runbooks index</a>. Each seam represents a boundary where ownership often fuzzes—APIs ↔ clients, platform ↔ feature, product ↔ ops.
