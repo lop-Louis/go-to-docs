@@ -20,14 +20,6 @@ export const generatedSidebar = [
         link: '/start-here/'
       },
       {
-        text: 'Find it fast',
-        link: '/start-here/find'
-      },
-      {
-        text: 'Quick-Run',
-        link: '/ops/quick-run'
-      },
-      {
         text: 'FAQ for New Joiners',
         link: '/faq-new-joiners'
       },
@@ -46,6 +38,26 @@ export const generatedSidebar = [
       {
         text: 'Band A policy',
         link: '/band-a'
+      }
+    ]
+  },
+  {
+    text: 'Ops hygiene',
+    collapsed: false,
+    items: [
+      {
+        text: 'Quick-Run',
+        link: '/ops/quick-run'
+      }
+    ]
+  },
+  {
+    text: 'Wayfinding',
+    collapsed: false,
+    items: [
+      {
+        text: 'Wayfinding map',
+        link: '/start-here/find'
       }
     ]
   },
@@ -82,6 +94,10 @@ export const generatedSidebar = [
       {
         text: 'Runbooks',
         link: '/runbooks/'
+      },
+      {
+        text: 'Link integrity',
+        link: '/runbooks/link-integrity'
       }
     ]
   },

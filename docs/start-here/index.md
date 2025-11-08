@@ -35,6 +35,7 @@ Need to publish or link something publicly? Check [What is Band A](../band-a) 
 
 Need the UI, tone, or states for your artifact? Use:
 
+- [Find anything fast](./find) for a search cheatsheet
 - [Voice & Tone](./tone) for sample phrasing
 - [UI Baseline](./ui) for typography, buttons, and spacing
 - [SLI States](./sli-states) to see how we visualize progress
