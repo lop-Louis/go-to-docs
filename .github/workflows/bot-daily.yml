@@ -15,6 +15,12 @@ jobs:
       - run: npm i -g pnpm && pnpm i
       - run: pnpm guard || true
       - run: pnpm labs || true
+      - name: Build docs for CTA verification
+        run: pnpm build || true
+      - name: Verify primary actions (CTA)
+        run: pnpm verify:cta || true
+      - name: Check freeze status
+        run: pnpm freeze:check || true
       - uses: actions/upload-artifact@v4
         with:
           name: reports

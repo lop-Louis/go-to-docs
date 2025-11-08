@@ -25,7 +25,19 @@
   },
   {
     "name": "guard",
-    "description": "Band A forbidden pattern scan"
+    "description": "Band A forbidden pattern scan"
+  },
+  {
+    "name": "freeze:check",
+    "description": "Check freeze status and auto-freeze/unfreeze based on yellow flag thresholds"
+  },
+  {
+    "name": "freeze:verify",
+    "description": "Verify if a file can be modified during freeze"
+  },
+  {
+    "name": "freeze:status",
+    "description": "Show current freeze state"
   },
   {
     "name": "drift",

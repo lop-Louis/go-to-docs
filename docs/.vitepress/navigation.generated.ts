@@ -12,6 +12,14 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
+        text: 'Quick-Run',
+        link: '/ops/quick-run'
+      },
+      {
+        text: 'Receipts',
+        link: '/receipts/'
+      },
+      {
         text: 'Start',
         link: '/band-a'
       },
@@ -30,7 +38,7 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Playbook index',
+        text: 'Find what you need, fast',
         link: '/playbook/'
       },
       {

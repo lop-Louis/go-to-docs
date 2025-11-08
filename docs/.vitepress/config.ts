@@ -2,12 +2,6 @@ import { defineConfig } from 'vitepress'
 import { generatedNav, generatedSidebar } from './navigation.generated'
 
 const GA_ID = process.env.VITE_GA_ID || 'G-511628512'
-const ENABLE_GA4 = process.env.ENABLE_GA4 === 'true'
-const DEFAULT_RELEASE_TAG = '2025-11.0'
-const RELEASE_TAG =
-  process.env.RELEASE_TAG && process.env.RELEASE_TAG !== 'dev'
-    ? process.env.RELEASE_TAG
-    : DEFAULT_RELEASE_TAG
 const SITE_BASE = '/'
 
 export default defineConfig({
@@ -15,9 +9,6 @@ export default defineConfig({
   description: 'Guidance over to-do.',
   base: `${SITE_BASE}`,
   lastUpdated: true,
-  sitemap: {
-    hostname: 'https://northbook.guide'
-  },
   head: [
     [
       'link',
@@ -107,14 +98,7 @@ export default defineConfig({
       'meta',
       {
         property: 'og:image',
-        content: 'https://northbook.guide/og-image.png'
-      }
-    ],
-    [
-      'meta',
-      {
-        property: 'og:url',
-        content: 'https://northbook.guide/'
+        content: `${SITE_BASE}og-image.png`
       }
     ],
     [
@@ -127,39 +111,24 @@ export default defineConfig({
     [
       'script',
       {
-        defer: '',
-        src: 'https://static.cloudflareinsights.com/beacon.min.js',
-        'data-cf-beacon': '{"token":"CF_TOKEN","spa": true}'
+        async: '',
+        src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
       }
     ],
-    ...(ENABLE_GA4
-      ? [
-          [
-            'script',
-            {
-              async: '',
-              src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
-            }
-          ],
-          [
-            'script',
-            {},
-            `
-window.ENABLE_GA4 = true;
-if (window.ENABLE_GA4) {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '${GA_ID}', { anonymize_ip: true });
-  (function(){
-    var v = location.pathname.startsWith('/v2/') ? 'v2' : 'v1';
-    gtag('event', 'page_view', { site_version: v });
-  })();
-}
+    [
+      'script',
+      {},
+      `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}', { anonymize_ip: true });
+(function(){
+  var v = location.pathname.startsWith('/v2/') ? 'v2' : 'v1';
+  gtag('event', 'page_view', { site_version: v });
+})();
   `
-          ]
-        ]
-      : [['script', {}, 'window.ENABLE_GA4 = false;']])
+    ]
   ],
   themeConfig: {
     siteTitle: false,
@@ -174,32 +143,14 @@ if (window.ENABLE_GA4) {
         link: 'https://github.com/lop-louis/northbook/issues/new?labels=kl,question&title=[Question]%20PATH'
       }
     ],
-    sidebar: [
-      {
-        text: 'Start',
-        items: [
-          { text: 'Receipts', link: '/receipts/' },
-          { text: 'Quick-Run', link: '/ops/quick-run' }
-        ]
-      },
-      ...generatedSidebar
-    ],
+    sidebar: generatedSidebar,
     outline: [2, 3],
     footer: {
-      message: `Privacy-friendly analytics. Release: ${RELEASE_TAG}`,
-      copyright: '© Northbook'
+      message: 'Text © CC BY-NC 4.0 • Code samples MIT • Views are my own.'
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/lop-louis/northbook' }],
     search: {
-      provider: 'local',
-      options: {
-        translations: {
-          button: {
-            buttonText: 'Press K to search',
-            buttonAriaLabel: 'Search documentation'
-          }
-        }
-      }
+      provider: 'local'
     },
     editLink: {
       pattern: 'https://github.com/lop-louis/northbook/edit/main/docs/:path',

@@ -203,6 +203,17 @@ const payload = {
   yellow
 }
 
+// Persist yellow flags to reports/yellow-flags.json
+const reportsDir = path.join(process.cwd(), 'reports')
+if (!fs.existsSync(reportsDir)) {
+  fs.mkdirSync(reportsDir, { recursive: true })
+}
+fs.writeFileSync(
+  path.join(reportsDir, 'yellow-flags.json'),
+  JSON.stringify(yellow, null, 2),
+  'utf8'
+)
+
 if (JSON_MODE) {
   console.log(JSON.stringify(payload))
 } else {
@@ -228,6 +239,8 @@ if (JSON_MODE) {
     console.log('⚠️  Guard check passed with warnings - review recommended')
     console.log('::warning::Yellow flags detected, manual review recommended')
   }
+
+  console.log(`\n📝 Yellow flags persisted to reports/yellow-flags.json`)
 }
 
 if (status === 'red') {
