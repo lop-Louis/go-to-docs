@@ -1,13 +1,14 @@
 ---
 title: Ops Quick-Run
 band: A
-owner: Louis
+owner: '@lop'
+change_type: patch
 refresh_after_days: 60
 status: live
 ---
 
-> Need to fix this fast?  
-> [Do the Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/)
+Need to fix this fast? <a href="#action" data-primary-action>Jump to the Quick-Run steps</a> or
+<a href="/labs/link-drift" data-secondary-action>Run the 10-minute lab</a>.
 
 Use this when you need a fast, repeatable fix.
 
