@@ -1,5 +1,5 @@
 ---
-title: 'Teams notifications: quick checks and when to escalate'
+title: Teams notification check
 band: A
 owner: '@support-it'
 refresh_after_days: 60

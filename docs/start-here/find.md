@@ -8,6 +8,9 @@ status: live
 nav_group: Start
 nav_order: 12
 nav_label: Wayfinding shortcuts
+audience: Anyone who needs the right Northbook page in under a minute
+tone: Plainspoken, candid, energetic
+narrative_goal: Show newcomers the fastest navigation patterns before they guess
 nav:
   - sidebar
 ---

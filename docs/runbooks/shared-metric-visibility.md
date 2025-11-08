@@ -21,5 +21,16 @@ When multiple teams chase one metric, this template keeps baseline → target �
 
 ## Template
 
-| Metric | Baseline | Target | Target date | Status band | Notes / owner |
-|
+| Metric                       | Baseline | Target          | Target date               | Status band | Notes / owner                             |
+| ---------------------------- | -------- | --------------- | ------------------------- | ----------- | ----------------------------------------- |
+| Weekly onboarding NPS        | 38       | ≥50             | Next quarterly checkpoint | 🟡          | Product Ops — blocked on support scripts  |
+| Docs release cadence         | 1/mo     | 1/mo (no skips) | Rolling monthly           | 🟢          | Docs Steward — on track                   |
+| Interrupt resolution <10 min | 62%      | 80%             | Next Fast Support update  | 🟠          | Support Lead — need new Fast Support flow |
+
+Color legend: 🟢 on track, 🟡 at risk, 🟠 behind.
+
+## How to use it
+
+1. Duplicate the table into the shared status doc.
+2. Keep baselines immutable; adjust targets only during planning.
+3. Update status bands weekly and drop a link to the latest receipt (release, PR, metric screenshot).

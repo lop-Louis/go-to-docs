@@ -23,22 +23,35 @@ Run this quarterly sweep before release windows to keep public docs accessible. 
 
 Quarterly accessibility sweep for public Northbook pages. Logs reside in repo history; avoid calendar specifics for public neutrality.
 
-## Steps
+## Checklist
 
-1. `pnpm run docs:build`
-2. `pnpm run docs:preview`
-3. In a second terminal, run Lighthouse against key pages:
+| Step                                                              | Owner              | Tool / Command                   | Receipt                               |
+| ----------------------------------------------------------------- | ------------------ | -------------------------------- | ------------------------------------- |
+| Build docs locally                                                | Docs steward       | `pnpm run docs:build`            | Screenshot of success output          |
+| Preview site                                                      | Docs steward       | `pnpm run docs:preview`          | Preview URL noted in audit log        |
+| Lighthouse sweep (hero, Decision Spine, Accessibility Quick Wins) | Accessibility lead | `npx lighthouse <url> --view`    | JSON/HTML report attached             |
+| Keyboard & screen reader spot check                               | Accessibility lead | VoiceOver/NVDA walkthrough       | Notes in audit log                    |
+| Alt-text & ARIA scan                                              | Content owner      | Manual scan + `pnpm run ux:scan` | Issues logged (label `accessibility`) |
+| Remediation tickets filed                                         | Content owner      | GitHub issues template           | Links pasted in audit log             |
 
-```bash
-npx lighthouse http://<preview-host>/northbook/decision-spine --view
-npx lighthouse http://<preview-host>/northbook/accessibility-quick-wins --view
+## Evidence template
+
+Copy this into your audit doc each quarter:
+
 ```
-
-4. Verify semantic headings, keyboard navigation, and color/contrast. Tick findings in internal tracker.
-5. File issues for remediation in GitHub with label `accessibility`.
+Audit date: YYYY-MM-DD
+Preview URL: https://preview-host.example
+Pages tested: Home, Decision Spine, Accessibility Quick Wins, Runbooks index
+Lighthouse scores: P:XX / A:YY / B:ZZ / SEO:AA
+Manual findings:
+- [ ] Heading levels sequential (list any violations)
+- [ ] Focus ring visible on buttons
+- [ ] Images with descriptive alt text
+Tickets opened: #123, #124
+```
 
 ## Notes
 
-- Ensure alt text on any new images.
-- Screen reader spot-check (VoiceOver/NVDA) at least once per half-year.
-- Update this runbook if new hero components or custom widgets ship.
+- Run Lighthouse in an incognito window to avoid extensions skewing results.
+- If new components ship (e.g., custom nav, accordions), add them to the tested page list.
+- At least once per half-year, pair with an assistive tech user for a qualitative check.

@@ -8,6 +8,9 @@ status: live
 nav_group: Runbooks
 nav_order: 20
 nav_label: Link Integrity
+audience: Maintainers fixing broken links across docs
+tone: Plainspoken, candid, energetic
+narrative_goal: Give a repeatable flow to detect, fix, and prove link health
 nav:
   - sidebar
 ---

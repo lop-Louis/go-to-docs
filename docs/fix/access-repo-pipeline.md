@@ -1,5 +1,5 @@
 ---
-title: 'Access to repo or pipeline: quick checks and request'
+title: Repo & pipeline access
 band: A
 owner: '@platform-eng'
 refresh_after_days: 60
