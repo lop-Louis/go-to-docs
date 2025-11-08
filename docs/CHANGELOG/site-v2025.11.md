@@ -34,12 +34,17 @@ This changelog captures the mid-November hygiene release so you can skim what sh
 - All guidance pages now open with a single sentence plus inline CTA pair, refreshed copy, and secondary actions pointing to runbooks or the feedback helper.
 - README aligns with governance (nav metadata, helpful scripts), and runbook pages now include identical CTA contracts.
 - Top-level docs (Band A, FAQ, Sanitization, Start Here, Runbooks index, etc.) all got tone-aligned intros plus CTA pairs, making the UX consistent.
+- Homepage hero/feature trio now reflects the end-to-end promise (Orientation → Checks → Receipts) with CTAs to Wayfinding, Quick-Run, and the Fast support hub.
+- Start, Guides, Runbooks, and Fast support groups gained “Related references” tables so every doc points to the next action (e.g., Quick-Run → Link Integrity, Runbooks ↔ Transition promises, Playbook pages ↔ Runbooks).
+- Navigation labels regrouped into Start, Guides, Runbooks, Contributor Kit, Fast support with friendlier names (e.g., “Wayfinding shortcuts,” “Link Integrity,” “Interrupt flows”) and the generated nav now mirrors the governance taxonomy.
+- Runbooks now include fully populated checklists/tables (timer-based 20-minute handover, Accessibility audit evidence template, Community pack agenda, Transition promises escalation ladder, Shared/State visibility samples) so the flows are copy-paste ready.
 
 ## Fixed
 
 - Removed duplicate CTA callouts, ensured `nav` metadata is present across all frontmatter, and added a nav guard so `.vitepress/navigation.generated.ts` matches the docs.
 - Styled global link underline in the VitePress theme so anchors stay accessible without wrapping everything in `<u>`.
 - Changelog/Releases pages now use the inline CTA/summary pattern.
+- Patched internal links flagged by guard (Wayfinding shortcuts reference, runbooks links inside Monthly cadence) so all Start/Guides/Fast support cross-links resolve.
 
 ### Governance receipts
 
