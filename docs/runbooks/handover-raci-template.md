@@ -8,8 +8,11 @@ status: live
 audience: Stream leads packaging a handover
 tone: Plainspoken, candid, energetic
 narrative_goal: Offer a public-safe RACI matrix teams can copy fast
+nav_group: Runbooks
+nav_order: 20
+nav_label: Handover RACI template
 nav:
-  - none
+  - sidebar
 ---
 
 # Handover RACI template

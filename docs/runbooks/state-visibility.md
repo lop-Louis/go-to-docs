@@ -8,8 +8,11 @@ status: live
 audience: Stream leads and facilitators sharing transition status publicly
 tone: Plainspoken, candid, energetic
 narrative_goal: Make every work state explicit with its entry/exit signals and SLI
+nav_group: Runbooks
+nav_order: 70
+nav_label: State visibility map
 nav:
-  - none
+  - sidebar
 ---
 
 # State visibility map

@@ -110,12 +110,40 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
+        text: '20-minute handover',
+        link: '/runbooks/handover-20-min'
+      },
+      {
         text: 'All runbooks',
         link: '/runbooks/'
       },
       {
+        text: 'Handover RACI template',
+        link: '/runbooks/handover-raci-template'
+      },
+      {
         text: 'Link Integrity',
         link: '/runbooks/link-integrity'
+      },
+      {
+        text: 'Accessibility audit',
+        link: '/runbooks/accessibility-audit'
+      },
+      {
+        text: 'Community meeting pack',
+        link: '/runbooks/community-pack'
+      },
+      {
+        text: 'Transition promises',
+        link: '/runbooks/transition-operating-promises'
+      },
+      {
+        text: 'Shared metric visibility',
+        link: '/runbooks/shared-metric-visibility'
+      },
+      {
+        text: 'State visibility map',
+        link: '/runbooks/state-visibility'
       }
     ]
   },

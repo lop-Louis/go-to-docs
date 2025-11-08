@@ -8,8 +8,11 @@ status: live
 audience: Stream leads aligning around one transition metric
 tone: Plainspoken, candid, energetic
 narrative_goal: Lock in the baseline -> target -> date promise and keep it visible
+nav_group: Runbooks
+nav_order: 60
+nav_label: Shared metric visibility
 nav:
-  - none
+  - sidebar
 ---
 
 # Shared metric visibility

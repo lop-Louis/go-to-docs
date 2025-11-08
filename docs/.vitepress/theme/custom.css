@@ -271,7 +271,8 @@
  * Dark mode specific adjustments
  * ================================== */
 
-.dark .vp-doc code {
+.dark .vp-doc code, {
+.dark .vp-doc pre {
   background-color: var(--vp-c-bg-soft);
   color: var(--vp-code-color);
 }
