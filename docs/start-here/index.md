@@ -2,25 +2,50 @@
 title: Start Here
 band: A
 owner: '@lop'
-refresh_after_days: 90
+refresh_after_days: 60
 change_type: minor
 status: live
-audience: Anyone kicking off work and needing the latest guardrails
+last_reviewed: '2025-11-10'
+audience: Anyone kicking off work and needing a fast orientation
 tone: Plainspoken, candid, energetic
-narrative_goal: Point readers to the foundational guides before they build
+narrative_goal: Give newcomers outcome-based entry points before policy
+nav_group: Start
+nav_order: 1
+nav_label: Overview
 nav:
-  - none
+  - main
+  - sidebar
 ---
 
 # Start Here
 
-Use this hub whenever you need the current voice, UI, and operational rules before shipping anything public. <a href="#essentials" data-primary-action>Review the essentials</a> or <a href="../runbooks/index" data-secondary-action>Browse the runbooks index</a>.
+Jump into the work, not the policy. <a href="../decision-spine" data-primary-action>Run your first decision</a> or <a href="../playbook/" data-secondary-action>Browse the playbook</a>.
 
-## Essentials
+## Pick your first win
 
-- [Voice & Tone Guide](./tone) — Align copy to our plainspoken, candid voice with ready-to-use phrasing.
-- [UI Baseline](./ui) — Shared layout, typography, and state specs for consistent visual design.
-- [SLI States](./sli-states) — How work moves across framing, build, and verification.
-- [Guide vs rule escalation](../governance.md#guide-vs-rule-escalation) — Understand when KL guidance yields to corporate policy and how to escalate.
+- **Decide faster** — Use the [Decision Spine](../decision-spine) to frame options, make the call, and leave a review plan.
+- **Facilitate better** — Borrow ready-to-use prompts from [Facilitation Techniques](../facilitation) to keep meetings on-rails.
+- **Ship accessibly** — Run the [Accessibility Quick Wins](../accessibility-quick-wins) checklist to catch the 80% issues fast.
 
-Bookmark this page and start every new workstream here to prevent drift.
+Each page opens with the same CTA pair so you always know what to do next.
+
+## When you need the rules
+
+Need to publish or link something publicly? Check [What is Band A](../band-a) for the sanitization contract, then ship.
+
+Need the UI, tone, or states for your artifact? Use:
+
+- [Find anything fast](./find) for a search cheatsheet
+- [Voice & Tone](./tone) for sample phrasing
+- [UI Baseline](./ui) for typography, buttons, and spacing
+- [SLI States](./sli-states) to see how we visualize progress
+
+## Fix it fast or escalate
+
+- Follow the [Quick-Run](../ops/quick-run) when something regresses after an edit.
+- Browse the [Fix-it-fast index](../fix/) when interrupts hit and you need a 10-minute checklist.
+- Need something more involved? The [Runbooks index](../runbooks/) keeps the chore-heavy flows out of guidance pages.
+
+## Feedback loop
+
+If this hub doesn’t land you on the right page within a minute, [tell us](https://github.com/lop-louis/northbook/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Start%20here&body=Page:%20https://northbook.guide/start-here/) so we can plug the gap.

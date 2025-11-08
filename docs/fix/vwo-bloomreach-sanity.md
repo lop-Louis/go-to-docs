@@ -20,8 +20,9 @@ adr_ref: /governance/decisions/exp-platform.html
 stop_rule: Update if vendor URLs or CMS template changes.
 nav:
   - sidebar
-nav_group: Fix it fast
+nav_group: Fast support
 nav_order: 50
+nav_label: VWO/Bloomreach sanity
 ---
 
 Verify experiment scripts are injected once, load from the right CDN, and aren’t blocked by CSP. <a href="#quick-path" data-primary-action>Run the sanity checks</a> or <a href="/support-it/contacting-it" data-secondary-action>Escalate to Support IT</a>.

@@ -20,8 +20,9 @@ adr_ref: /governance/decisions/it-handoff.html
 stop_rule: Archive if <1 use in 90 days or upstream policy changes.
 nav:
   - sidebar
-nav_group: Fix it fast
+nav_group: Fast support
 nav_order: 10
+nav_label: Teams notifications check
 ---
 
 Keep Teams notifications reliable with a 10-minute check path before involving IT. <a href="#quick-path-3-7-checks" data-primary-action>Run the quick checks</a> or <a href="/support-it/contacting-it" data-secondary-action>Escalate to Support IT</a>.

@@ -9,11 +9,10 @@ last_reviewed: '2025-11-04'
 audience: Anyone publishing public-safe guidance from Northbook
 tone: Plainspoken, candid, energetic
 narrative_goal: Explain what qualifies as Band A content and how to sanitize it
-nav_label: Start
-nav_group: Start here
-nav_order: 10
+nav_label: Band A guardrails
+nav_group: Start
+nav_order: 40
 nav:
-  - main
   - sidebar
 ---
 

@@ -8,20 +8,37 @@ status: live
 audience: Maintainers looking for operational to-do checklists
 tone: Plainspoken, candid, energetic
 narrative_goal: Point to the tactical runbooks kept out of guidance sections
+nav_group: Runbooks
+nav_order: 10
+nav_label: All runbooks
 nav:
-  - none
+  - sidebar
 ---
 
 # Runbooks
 
-This index keeps the tactical, chore-heavy work out of the guidance pages. <a href="#top" data-primary-action>Pick the runbook you need</a> or <a href="https://github.com/lop-Louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Runbooks%20index&body=Page:%20https://northbook.guide/runbooks/" data-secondary-action>Share feedback on this page</a>.
+This index keeps the chore-heavy flows out of the softer guidance pages. <a href="#handoffs" data-primary-action>Jump to the runbook stack you need</a> or <a href="https://github.com/lop-Louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Runbooks%20index&body=Page:%20https://northbook.guide/runbooks/" data-secondary-action>Flag a missing runbook</a>.
 
-All runbooks follow the [Anti-drift Content Governance](../governance.md) rules; keep identifiers sanitized when you adapt them.
+Every runbook follows the [Anti-drift Content Governance](../governance.md) rules—sanitize identifiers before you paste receipts.
 
-- [20-minute handover drill](./handover-20-min.md)
-- [Community meeting pack](./community-pack.md)
-- [Handover RACI template](./handover-raci-template.md)
-- [Transition operating promises](./transition-operating-promises.md)
-- [Shared metric visibility](./shared-metric-visibility.md)
-- [State visibility map](./state-visibility.md)
-- [Accessibility audit runbook](./accessibility-audit.md)
+## Handoffs & transitions {#handoffs}
+
+- [20-minute handover drill](./handover-20-min.md) — Force clarity and move a stream from Framing to Ready in one sitting.
+- [Handover RACI template](./handover-raci-template.md) — Capture who runs what when ownership shifts.
+- [Transition operating promises](./transition-operating-promises.md) — Document the promises that keep multi-team transitions aligned.
+
+## Ritual kits
+
+- [Community meeting pack](./community-pack.md) — Agenda, prompts, and follow-ups for recurring community syncs.
+- [Accessibility audit runbook](./accessibility-audit.md) — Scope, checklist, and receipts for full-audit weeks.
+
+## Visibility & metrics
+
+- [Shared metric visibility](./shared-metric-visibility.md) — Publish shared KPIs with context and owners.
+- [State visibility map](./state-visibility.md) — Show every work stream’s entry/exit signals plus the SLI tied to it.
+
+## Quality gates & hygiene
+
+- [Link integrity runbook](./link-integrity.md) — When Quick-Run isn’t enough, this walks you through fixing broken anchors at scale.
+
+Need a quick pre-flight before you drop into these flows? Run the [Quick-Run](../ops/quick-run) first; escalate here only if that guard still fails.

@@ -2,26 +2,80 @@
 // Do not edit manually.
 export const generatedNav = [
   {
-    text: 'Start',
-    link: '/band-a'
+    text: 'Overview',
+    link: '/start-here/'
+  },
+  {
+    text: 'Playbook canon',
+    link: '/playbook/'
   }
 ] as const
 export const generatedSidebar = [
   {
-    text: 'Start here',
+    text: 'Start',
     collapsed: false,
     items: [
       {
-        text: 'Start',
-        link: '/band-a'
+        text: 'Overview',
+        link: '/start-here/'
       },
       {
-        text: 'FAQ for New Joiners',
+        text: 'Wayfinding shortcuts',
+        link: '/start-here/find'
+      },
+      {
+        text: 'Quick-Run check',
+        link: '/ops/quick-run'
+      },
+      {
+        text: 'New joiner FAQ',
         link: '/faq-new-joiners'
       },
       {
-        text: 'Monthly Release Rhythm',
+        text: 'Release receipts',
+        link: '/receipts/'
+      },
+      {
+        text: 'Monthly cadence',
         link: '/monthly-release'
+      },
+      {
+        text: 'SLI states map',
+        link: '/start-here/sli-states'
+      },
+      {
+        text: 'Band A guardrails',
+        link: '/band-a'
+      }
+    ]
+  },
+  {
+    text: 'Fast support',
+    collapsed: false,
+    items: [
+      {
+        text: 'Interrupt flows',
+        link: '/fix/'
+      },
+      {
+        text: 'Teams notifications check',
+        link: '/fix/teams-notifications'
+      },
+      {
+        text: 'Repo & pipeline access',
+        link: '/fix/access-repo-pipeline'
+      },
+      {
+        text: 'Design system component',
+        link: '/fix/ds-component-decision'
+      },
+      {
+        text: 'Feature flag on staging',
+        link: '/fix/flag-staging'
+      },
+      {
+        text: 'VWO/Bloomreach sanity',
+        link: '/fix/vwo-bloomreach-sanity'
       }
     ]
   },
@@ -30,24 +84,38 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Playbook index',
-        link: '/playbook/'
-      },
-      {
-        text: 'Decision Spine',
+        text: 'Decision spine template',
         link: '/decision-spine'
       },
       {
-        text: 'Facilitation Techniques',
+        text: 'Playbook canon',
+        link: '/playbook/'
+      },
+      {
+        text: 'Facilitation patterns',
         link: '/facilitation'
       },
       {
-        text: 'Accessibility Quick Wins',
+        text: 'Accessibility quick wins',
         link: '/accessibility-quick-wins'
       },
       {
-        text: 'Policy → Action Pattern (Expenses)',
+        text: 'Policy-to-action example',
         link: '/pattern-expense-sla'
+      }
+    ]
+  },
+  {
+    text: 'Runbooks',
+    collapsed: false,
+    items: [
+      {
+        text: 'All runbooks',
+        link: '/runbooks/'
+      },
+      {
+        text: 'Link Integrity',
+        link: '/runbooks/link-integrity'
       }
     ]
   },
@@ -56,46 +124,16 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Sanitization Guidance',
+        text: 'Sanitization checklist',
         link: '/sanitization'
       },
       {
-        text: 'Answer Ledger Pattern',
+        text: 'Answer ledger pattern',
         link: '/answer-ledger'
       },
       {
-        text: 'Anti-drift Content Governance',
+        text: 'Anti-drift governance',
         link: '/governance'
-      }
-    ]
-  },
-  {
-    text: 'Fix it fast',
-    collapsed: false,
-    items: [
-      {
-        text: 'Fix it fast index',
-        link: '/fix/'
-      },
-      {
-        text: 'Teams notifications: quick checks and when to escalate',
-        link: '/fix/teams-notifications'
-      },
-      {
-        text: 'Access to repo or pipeline: quick checks and request',
-        link: '/fix/access-repo-pipeline'
-      },
-      {
-        text: 'Design System component usage decision',
-        link: '/fix/ds-component-decision'
-      },
-      {
-        text: 'Feature flag not behaving on Staging',
-        link: '/fix/flag-staging'
-      },
-      {
-        text: 'VWO/Bloomreach script sanity check',
-        link: '/fix/vwo-bloomreach-sanity'
       }
     ]
   }

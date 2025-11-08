@@ -8,9 +8,7 @@ status: live
 sidebar: false
 ---
 
-> Find the answer. Use it now.  
-> [Run the Quick-Run](/ops/quick-run) · [Open the Proof Run](/labs/link-drift)
-> <a href="/ops/quick-run" data-primary-action>Run the Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Open the Proof Run</a>.
+Find the answer. Use it now. <a href="../ops/quick-run" data-primary-action>Run the Quick-Run</a> or <a href="../labs/link-drift" data-secondary-action>Open the Proof Run</a>.
 
 ## Goal
 
@@ -20,19 +18,19 @@ Ship a page without broken links in under 10 minutes.
 
 1. Build the docs
 
-   ```bash
-   pnpm docs:build
-   ```
+```bash
+pnpm docs:build
+```
 
-   Expect "Build complete."
+Expect "Build complete."
 
-2) Check links
+2. Check links
 
-   ```bash
-   node scripts/check-links.mjs
-   ```
+```bash
+node scripts/check-links.mjs
+```
 
-   Expect "0 broken links."
+Expect "0 broken links."
 
 ## Pass/Fail
 

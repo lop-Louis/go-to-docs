@@ -11,6 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Give the fastest accessibility fixes that raise baseline quality
 nav_group: Guides
 nav_order: 30
+nav_label: Accessibility quick wins
 nav:
   - sidebar
 ---

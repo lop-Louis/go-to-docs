@@ -11,6 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Define the guardrails that keep public docs safe and trustworthy
 nav_group: Contributor Kit
 nav_order: 30
+nav_label: Anti-drift governance
 nav:
   - sidebar
 ---

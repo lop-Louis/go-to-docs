@@ -11,6 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Give a reusable structure for framing, deciding, and reviewing work
 nav_group: Guides
 nav_order: 10
+nav_label: Decision spine template
 nav:
   - sidebar
 ---

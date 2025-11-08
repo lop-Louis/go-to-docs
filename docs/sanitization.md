@@ -11,6 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Show how to strip risk while keeping guidance useful
 nav_group: Contributor Kit
 nav_order: 10
+nav_label: Sanitization checklist
 nav:
   - sidebar
 ---

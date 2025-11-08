@@ -2,7 +2,7 @@
 title: Accessibility audit runbook
 change_type: minor
 band: A
-owner: '@louis'
+owner: '@lop'
 refresh_after_days: 90
 status: live
 audience: Product ops and accessibility leads running the quarterly sweep

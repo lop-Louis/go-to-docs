@@ -19,6 +19,8 @@ jobs:
       - run: pnpm fingerprint
       - run: node scripts/should-build.mjs || true
       - run: pnpm labs || true
+      - name: Check freeze status before release
+        run: pnpm freeze:check || true
       - name: Compute signal and tag
         run: |
           node -e "
@@ -31,10 +33,19 @@ jobs:
             const openFlags=flags.length;
             const signal=Math.round(40*pagesTouched + 40*passRate*10 - 20*Math.min(openFlags,10));
             console.log({pagesTouched, passRate, openFlags, signal});
-            const now=new Date(); const tag=`site-v${now.getUTCFullYear()}.${String(now.getUTCMonth()+1).padStart(2,'0')}`;
+            const now=new Date(); const tag=\`site-v\${now.getUTCFullYear()}.\${String(now.getUTCMonth()+1).padStart(2,'0')}\`;
             const {execSync}=require('child_process');
-            try{execSync('git rev-parse --verify '+tag,{stdio:'ignore'}); process.exit(0);}catch{}
-            execSync('git tag '+tag); execSync('git push origin '+tag);
+            let tagAction='reused';
+            try{
+              execSync('git rev-parse --verify '+tag,{stdio:'ignore'});
+              console.log(\`Tag \${tag} already exists - reusing existing tag\`);
+            }catch{
+              execSync('git tag '+tag);
+              execSync('git push origin '+tag);
+              tagAction='created';
+              console.log(\`Tag \${tag} created and pushed\`);
+            }
+            console.log(\`::notice::Monthly release tag \${tag} \${tagAction}\`);
           "
       - uses: actions/upload-artifact@v4
         with:
