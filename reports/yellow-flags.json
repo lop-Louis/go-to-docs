@@ -1,0 +1,110 @@
+[
+  {
+    "file": "docs/CHANGELOG/site-v2025.11.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/accessibility-quick-wins.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/answer-ledger.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/api-guidelines.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/band-a.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/decision-spine.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/decision-tripwires.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/facilitation.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/faq-new-joiners.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/monthly-release.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/pattern-expense-sla.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/playbook/guides-vs-rules.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/playbook/handshake-contracts.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/playbook/scoreboard.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/playbook/stop-rules.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/release.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/runbooks/accessibility-audit.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/runbooks/community-pack.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/runbooks/handover-20-min.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/runbooks/shared-metric-visibility.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/runbooks/state-visibility.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/runbooks/transition-operating-promises.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/sanitization.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/start-here/sli-states.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/start-here/tone.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/start-here/ui.md",
+    "reason": "missing human CTA pair near top"
+  },
+  {
+    "file": "docs/support-it/contacting-it.md",
+    "reason": "missing human CTA pair near top"
+  }
+]

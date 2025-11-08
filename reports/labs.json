@@ -1,0 +1,10 @@
+{
+  "pass": 0,
+  "fail": 1,
+  "results": [
+    {
+      "lab": "link-drift.lab.json",
+      "ok": false
+    }
+  ]
+}

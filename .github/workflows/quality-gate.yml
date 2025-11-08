@@ -71,17 +71,12 @@ jobs:
 
       - name: 🟡 Accessibility
         id: accessibility
-        run: pnpm test tests/accessibility/wcag-compliance.test.ts
+        run: pnpm run test:components
         continue-on-error: true
 
       - name: 🟡 Unit tests
         id: unit_tests
-        run: pnpm test tests/*.test.mjs
-        continue-on-error: true
-
-      - name: 🟡 Component tests
-        id: component_tests
-        run: pnpm test tests/components/*.test.ts
+        run: pnpm run test:unit
         continue-on-error: true
 
       # SUMMARY REPORT
@@ -122,9 +117,8 @@ jobs:
           [ "${{ steps.ux_scan.outcome }}" == "success" ] && echo "✅ UX scan" >> $GITHUB_STEP_SUMMARY || echo "⚠️ UX scan - Check narrative alignment" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.drift.outcome }}" == "success" ] && echo "✅ Drift detection" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Drift detected" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.stale.outcome }}" == "success" ] && echo "✅ Stale pages" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Stale pages need review" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.accessibility.outcome }}" == "success" ] && echo "✅ Accessibility" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Accessibility warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.accessibility.outcome }}" == "success" ] && echo "✅ Component & accessibility tests" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Component test failures" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.unit_tests.outcome }}" == "success" ] && echo "✅ Unit tests" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Unit test failures" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.component_tests.outcome }}" == "success" ] && echo "✅ Component tests" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Component test failures" >> $GITHUB_STEP_SUMMARY
 
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY

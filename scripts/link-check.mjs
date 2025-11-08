@@ -113,13 +113,24 @@ walk(DOCS_DIR)
 // Validate internal links
 const brokenInternal = []
 for (const l of internalLinks) {
-  // Normalize target path relative to origin directory
   const originDir = path.dirname(l.from)
-  let targetRel = l.target.replace(/\.md$/, '') // our convention is no .md in published links
-  // Compute actual file path possibilities
-  const candidate = path.join(originDir, targetRel)
-  const withMd = candidate + '.md'
-  if (!fs.existsSync(candidate) && !fs.existsSync(withMd)) {
+  let targetRel = l.target.replace(/\.md$/, '')
+
+  // Absolute paths anchor to docs root
+  const basePath = targetRel.startsWith('/')
+    ? path.join(DOCS_DIR, targetRel)
+    : path.join(originDir, targetRel)
+
+  const candidates = [basePath, basePath + '.md']
+
+  if (fs.existsSync(basePath)) {
+    const stats = fs.statSync(basePath)
+    if (stats.isDirectory()) {
+      candidates.push(path.join(basePath, 'index.md'))
+    }
+  }
+
+  if (!candidates.some(p => fs.existsSync(p))) {
     brokenInternal.push(l)
   }
 }
@@ -146,7 +157,18 @@ for (const link of anchorLinks) {
 
     // Try with and without .md extension
     if (fs.existsSync(targetPath)) {
-      targetFile = targetPath
+      const stats = fs.statSync(targetPath)
+      if (stats.isDirectory()) {
+        const indexFile = path.join(targetPath, 'index.md')
+        if (fs.existsSync(indexFile)) {
+          targetFile = indexFile
+        } else {
+          // Directory without index, skip anchor check (internal link validator will flag)
+          continue
+        }
+      } else {
+        targetFile = targetPath
+      }
     } else if (fs.existsSync(targetPath + '.md')) {
       targetFile = targetPath + '.md'
     } else {

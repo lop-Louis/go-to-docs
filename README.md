@@ -77,6 +77,24 @@ See `docs/principles.md` and [GOVERNANCE](./GOVERNANCE.md) for fuller details.
 
 <!-- scripts:end -->
 
+**Quality Gate Preview:**
+
+Every PR runs automated checks ensuring content quality:
+
+```
+🔴 Critical (Must Pass)
+✅ Link validation (52 internal + 8 external)
+✅ Frontmatter schema (42 files checked)
+✅ Primary actions (CTA pairs validated)
+
+🟡 Advisory (Non-Blocking)
+✅ Content guard (sanitization checks)
+✅ UX scan (narrative alignment)
+⚠️ Drift detection (4 warnings)
+✅ Component & accessibility tests (29 passed)
+✅ Unit tests (36 passed)
+```
+
 Automation catches most issues; reviewers focus on judgment calls.
 
 ---

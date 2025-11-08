@@ -1,0 +1,5 @@
+{
+  "setup": ["pnpm i", "pnpm build"],
+  "check": ["node scripts/check-links.mjs", "node scripts/verify-primary-actions.mjs"],
+  "timeout_minutes": 10
+}

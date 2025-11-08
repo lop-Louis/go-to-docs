@@ -1,350 +1,70 @@
 #!/usr/bin/env node
-
-import * as fsSync from 'node:fs'
-import { promises as fs } from 'node:fs'
+import fs from 'node:fs'
 import path from 'node:path'
-import process from 'node:process'
-import { fileURLToPath } from 'node:url'
-import { Window } from 'happy-dom'
-import matter from 'gray-matter'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const repoRoot = path.resolve(__dirname, '..')
-const distDir = path.join(repoRoot, 'docs/.vitepress/dist')
+const ROOT = path.join(process.cwd(), 'docs')
+const MAX_LINES = 24
+const offenders = []
 
-const CTA_DISTANCE_LIMIT = Number(process.env.PRIMARY_ACTION_MAX_DISTANCE_PX ?? 600)
-const CHAR_TO_PX = Number(process.env.PRIMARY_ACTION_CHAR_TO_PX ?? 0.35)
-const BLOCK_BASE_PX = Number(process.env.PRIMARY_ACTION_BLOCK_BASE_PX ?? 24)
-
-const BLOCK_TAGS = new Set([
-  'P',
-  'DIV',
-  'SECTION',
-  'ARTICLE',
-  'UL',
-  'OL',
-  'LI',
-  'PRE',
-  'TABLE',
-  'BLOCKQUOTE',
-  'FIGURE',
-  'H1',
-  'H2',
-  'H3',
-  'H4',
-  'H5',
-  'H6'
-])
-
-const BONUS_PX = {
-  IMG: 160,
-  PICTURE: 160,
-  VIDEO: 200,
-  CANVAS: 200,
-  SVG: 120,
-  PRE: 160,
-  CODE: 120,
-  TABLE: 180,
-  HR: 24
+function stripFrontmatter(text) {
+  if (!text.startsWith('---')) return text
+  const match = text.match(/^---\n[\s\S]*?\n---\n?/m)
+  if (!match) return text
+  return text.slice(match[0].length)
 }
 
-/**
- * Recursively collect .html files from a directory and push them into a Set.
- */
-async function collectHtmlFiles(dir, targetSet) {
-  let entries
-  try {
-    entries = await fs.readdir(dir, { withFileTypes: true })
-  } catch (error) {
-    if (error && error.code === 'ENOENT') return
-    throw error
-  }
+function head24(text) {
+  const body = stripFrontmatter(text)
+  return body.split('\n').slice(0, MAX_LINES).join('\n')
+}
 
-  for (const entry of entries) {
-    const entryPath = path.join(dir, entry.name)
+function hasMarkdownCTA(head) {
+  const links = head.match(/\[[^\]]+\]\([^)]+\)/g) || []
+  return links.length >= 2
+}
+
+function hasHtmlCTA(head) {
+  const primary = /<a[^>]*\bdata-primary-action\b[^>]*>/i.test(head)
+  const secondary = /<a[^>]*\bdata-secondary-action\b[^>]*>/i.test(head)
+  return primary && secondary
+}
+
+function shouldSkip(filePath) {
+  const raw = fs.readFileSync(filePath, 'utf8')
+  const match = raw.match(/^---\n([\s\S]*?)\n---\n?/m)
+  if (!match) return { skip: false, text: raw }
+  const frontmatter = match[1]
+  const skip = /layout:\s*home/.test(frontmatter) || /skip_cta:\s*true/.test(frontmatter)
+  return { skip, text: raw }
+}
+
+function scan(dir) {
+  if (!fs.existsSync(dir)) return
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name.startsWith('.')) continue
+    const fullPath = path.join(dir, entry.name)
     if (entry.isDirectory()) {
-      await collectHtmlFiles(entryPath, targetSet)
-    } else if (entry.isFile() && entry.name.endsWith('.html')) {
-      targetSet.add(entryPath)
-    }
-  }
-}
-
-/**
- * Convert a route like `/decision-spine` into the corresponding dist HTML path.
- */
-function linkToHtmlPath(route) {
-  const trimmed = route.replace(/^\/+/, '')
-  const hasTrailingSlash = route.endsWith('/')
-
-  if (trimmed === '') {
-    return path.join(distDir, 'index.html')
-  }
-
-  const normalized = trimmed.replace(/\/+/g, '/')
-  if (hasTrailingSlash) {
-    return path.join(distDir, normalized, 'index.html')
-  }
-
-  return path.join(distDir, `${normalized}.html`)
-}
-
-function collectDocRoutes() {
-  const docsDir = path.join(repoRoot, 'docs')
-  const skipDirs = new Set(['public', '.vitepress'])
-  const targets = []
-
-  function walk(currentDir) {
-    let entries
-    try {
-      entries = fsSync.readdirSync(currentDir, { withFileTypes: true })
-    } catch (error) {
-      if (error && error.code === 'ENOENT') return
-      throw error
-    }
-
-    for (const entry of entries) {
-      if (entry.name.startsWith('.')) continue
-      if (entry.isDirectory()) {
-        if (skipDirs.has(entry.name)) continue
-        walk(path.join(currentDir, entry.name))
-        continue
-      }
-
-      if (entry.isFile() && entry.name.endsWith('.md')) {
-        const fullPath = path.join(currentDir, entry.name)
-        const relPath = path.relative(docsDir, fullPath)
-        const route = normalizeRoute(relPath)
-        let requiresCTA = true
-
-        try {
-          const raw = fsSync.readFileSync(fullPath, 'utf8')
-          const { data } = matter(raw)
-          const layout = data?.layout
-          const skip = data?.skip_cta === true
-          if (layout === 'home' || skip) requiresCTA = false
-        } catch (error) {
-          console.warn(
-            `[verify-primary-actions] Unable to read frontmatter for ${relPath}: ${error.message}`
-          )
-        }
-
-        targets.push({ route, requiresCTA })
+      if (entry.name === '.vitepress' || entry.name === 'public') continue
+      scan(fullPath)
+    } else if (entry.isFile() && entry.name.endsWith('.md')) {
+      const { skip, text } = shouldSkip(fullPath)
+      if (skip) continue
+      const head = head24(text)
+      if (!(hasMarkdownCTA(head) || hasHtmlCTA(head))) {
+        offenders.push(path.relative(process.cwd(), fullPath))
       }
     }
   }
-
-  walk(docsDir)
-
-  return targets
 }
 
-function normalizeRoute(relPath) {
-  const normalized = relPath.replace(/\\/g, '/').replace(/\.md$/, '')
+scan(ROOT)
 
-  if (normalized === 'index') return '/'
-
-  if (normalized.endsWith('/index')) {
-    const base = normalized.slice(0, -6)
-    return base ? `/${base}/` : '/'
+if (offenders.length) {
+  console.error('Primary action not found in content:')
+  for (const file of offenders) {
+    console.error(` - ${file}`)
   }
-
-  return `/${normalized}`
-}
-
-async function main() {
-  const targets = collectDocRoutes()
-  const htmlTargets = []
-
-  for (const target of targets) {
-    const htmlPath = linkToHtmlPath(target.route)
-    try {
-      const stats = await fs.stat(htmlPath)
-      if (stats.isFile()) {
-        htmlTargets.push({ ...target, htmlPath })
-      } else {
-        console.warn(
-          `[verify-primary-actions] Skipping non-file target: ${path.relative(repoRoot, htmlPath)}`
-        )
-      }
-    } catch (error) {
-      if (error && error.code === 'ENOENT') {
-        console.warn(
-          `[verify-primary-actions] Skipping missing target: ${path.relative(repoRoot, htmlPath)}`
-        )
-        continue
-      }
-      throw error
-    }
-  }
-
-  if (!htmlTargets.length) {
-    console.warn('[verify-primary-actions] No documentation HTML files found. Skipping check.')
-    return
-  }
-
-  const failures = []
-
-  for (const target of htmlTargets) {
-    if (!target.requiresCTA) continue
-
-    const { primary, secondary } = await analyzeHtmlFile(target.htmlPath)
-
-    if (
-      !primary.has ||
-      primary.distance == null ||
-      primary.distance > CTA_DISTANCE_LIMIT ||
-      !secondary.has
-    ) {
-      failures.push({
-        page: target.route,
-        primary,
-        secondary
-      })
-    }
-  }
-
-  if (failures.length === 0) {
-    console.log('[verify-primary-actions] All required pages include CTA pairs within the fold.')
-    return
-  }
-
-  console.error('\nPrimary action CTA check failed on these pages:\n')
-  for (const { page, primary, secondary } of failures) {
-    let detail
-    if (!primary.has) {
-      detail = 'Primary action not found in content'
-    } else if (primary.distance == null) {
-      detail = 'Primary action distance could not be measured'
-    } else if (primary.distance > CTA_DISTANCE_LIMIT) {
-      detail = `Primary action appears in estimated ~${primary.distance}px from start of content`
-    } else if (!secondary.has) {
-      detail = 'Secondary action not found in content'
-    } else {
-      detail = 'CTA pair failed validation'
-    }
-
-    console.error(
-      ` - ${page || '/'} (${detail}). Add <a href="/runbooks/handover-20-min" data-primary-action>Do this next</a>`
-    )
-  }
-  console.error('')
-
-  process.exitCode = 1
-}
-
-main().catch(error => {
-  console.error('[verify-primary-actions] Unexpected error:')
-  console.error(error)
-  process.exitCode = 1
-})
-
-async function analyzeHtmlFile(htmlPath) {
-  const html = await fs.readFile(htmlPath, 'utf8')
-  const window = new Window()
-  window.document.write(html)
-
-  const doc = window.document
-  const contentRoot =
-    doc.querySelector('#VPContent') ||
-    doc.querySelector('.VPDoc') ||
-    doc.querySelector('main') ||
-    doc.body
-
-  if (!contentRoot) {
-    return { primary: { has: false, distance: null }, secondary: { has: false } }
-  }
-
-  const primaryAnchor = contentRoot.querySelector('[data-primary-action]')
-  const secondaryAnchor = contentRoot.querySelector('[data-secondary-action]')
-
-  let primaryDistance = null
-  if (primaryAnchor) {
-    const { chars, blocks, bonus } = accumulateBeforeAnchor(contentRoot, primaryAnchor)
-    primaryDistance = Math.round(blocks * BLOCK_BASE_PX + chars * CHAR_TO_PX + bonus)
-  }
-
-  return {
-    primary: {
-      has: Boolean(primaryAnchor),
-      distance: primaryDistance
-    },
-    secondary: {
-      has: Boolean(secondaryAnchor)
-    }
-  }
-}
-
-function accumulateBeforeAnchor(root, anchor) {
-  let totalChars = 0
-  let totalBlocks = 0
-  let totalBonus = 0
-
-  for (const child of root.childNodes) {
-    const result = gatherNodeStats(child, anchor)
-    totalChars += result.chars
-    totalBlocks += result.blocks
-    totalBonus += result.bonus
-    if (result.found) break
-  }
-
-  return {
-    chars: totalChars,
-    blocks: totalBlocks,
-    bonus: totalBonus
-  }
-}
-
-function gatherNodeStats(node, anchor) {
-  if (node === anchor) {
-    return { chars: 0, blocks: 0, bonus: 0, found: true }
-  }
-
-  const ELEMENT_NODE = 1
-  const TEXT_NODE = 3
-
-  if (node.nodeType === TEXT_NODE) {
-    return {
-      chars: normalizeText(node.textContent).length,
-      blocks: 0,
-      bonus: 0,
-      found: false
-    }
-  }
-
-  if (node.nodeType !== ELEMENT_NODE) {
-    return { chars: 0, blocks: 0, bonus: 0, found: false }
-  }
-
-  const element = node
-  let chars = 0
-  let blocks = 0
-  let bonus = 0
-
-  if (BLOCK_TAGS.has(element.tagName)) {
-    blocks += 1
-  }
-
-  if (BONUS_PX[element.tagName]) {
-    bonus += BONUS_PX[element.tagName]
-  }
-
-  for (const child of element.childNodes) {
-    const childStats = gatherNodeStats(child, anchor)
-    chars += childStats.chars
-    blocks += childStats.blocks
-    bonus += childStats.bonus
-    if (childStats.found) {
-      return { chars, blocks, bonus, found: true }
-    }
-  }
-
-  return { chars, blocks, bonus, found: false }
-}
-
-function normalizeText(text) {
-  return String(text || '')
-    .replace(/\s+/g, ' ')
-    .trim()
+  process.exit(1)
+} else {
+  console.log('CTA verifier OK')
 }

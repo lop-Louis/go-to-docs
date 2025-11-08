@@ -2,6 +2,8 @@ import { defineConfig } from 'vitepress'
 import { generatedNav, generatedSidebar } from './navigation.generated'
 
 const GA_ID = process.env.VITE_GA_ID || 'G-511628512'
+const ENABLE_GA4 = process.env.ENABLE_GA4 === 'true'
+const RELEASE_TAG = process.env.RELEASE_TAG || 'dev'
 const SITE_BASE = '/'
 
 export default defineConfig({
@@ -121,24 +123,39 @@ export default defineConfig({
     [
       'script',
       {
-        async: '',
-        src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+        defer: '',
+        src: 'https://static.cloudflareinsights.com/beacon.min.js',
+        'data-cf-beacon': '{"token":"CF_TOKEN","spa": true}'
       }
     ],
-    [
-      'script',
-      {},
-      `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}', { anonymize_ip: true });
-(function(){
-  var v = location.pathname.startsWith('/v2/') ? 'v2' : 'v1';
-  gtag('event', 'page_view', { site_version: v });
-})();
+    ...(ENABLE_GA4
+      ? [
+          [
+            'script',
+            {
+              async: '',
+              src: `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`
+            }
+          ],
+          [
+            'script',
+            {},
+            `
+window.ENABLE_GA4 = true;
+if (window.ENABLE_GA4) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${GA_ID}', { anonymize_ip: true });
+  (function(){
+    var v = location.pathname.startsWith('/v2/') ? 'v2' : 'v1';
+    gtag('event', 'page_view', { site_version: v });
+  })();
+}
   `
-    ]
+          ]
+        ]
+      : [['script', {}, 'window.ENABLE_GA4 = false;']])
   ],
   themeConfig: {
     siteTitle: false,
@@ -153,14 +170,32 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });
         link: 'https://github.com/lop-louis/northbook/issues/new?labels=kl,question&title=[Question]%20PATH'
       }
     ],
-    sidebar: generatedSidebar,
+    sidebar: [
+      {
+        text: 'Start',
+        items: [
+          { text: 'Receipts', link: '/receipts/' },
+          { text: 'Ops Quick-Run', link: '/ops/quick-run' }
+        ]
+      },
+      ...generatedSidebar
+    ],
     outline: [2, 3],
     footer: {
-      message: 'Text © CC BY-NC 4.0 • Code samples MIT • Views are my own.'
+      message: `Privacy-friendly analytics enabled.${RELEASE_TAG !== 'dev' ? ` Release: ${RELEASE_TAG}` : ''}`,
+      copyright: '© Northbook'
     },
     socialLinks: [{ icon: 'github', link: 'https://github.com/lop-louis/northbook' }],
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: 'Press K to search',
+            buttonAriaLabel: 'Search documentation'
+          }
+        }
+      }
     },
     editLink: {
       pattern: 'https://github.com/lop-louis/northbook/edit/main/docs/:path',

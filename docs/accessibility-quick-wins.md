@@ -55,7 +55,7 @@ a:focus {
 - Large text (18pt+): 3:1
 - UI components: 3:1
 
-✅ **Tools**: Use browser DevTools contrast checker or [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+✅ **Tools**: Use browser DevTools contrast checker or [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/?utm_source=northbook)
 
 ## Alt text
 
@@ -121,6 +121,6 @@ a:focus {
 
 ## Resources
 
-- [WebAIM Articles](https://webaim.org/articles/)
-- [A11y Project Checklist](https://www.a11yproject.com/checklist/)
-- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)
+- [WebAIM Articles](https://webaim.org/articles/?utm_source=northbook)
+- [A11y Project Checklist](https://www.a11yproject.com/checklist/?utm_source=northbook)
+- [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/?utm_source=northbook)
