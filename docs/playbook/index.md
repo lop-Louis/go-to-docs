@@ -10,7 +10,7 @@ tone: plainspoken
 narrative_goal: Point to the core playbook pages that keep guidance consistent
 nav_group: Guides
 nav_order: 15
-nav_label: Playbook
+nav_label: Playbook canon
 nav:
   - main
   - sidebar

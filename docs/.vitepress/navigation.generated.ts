@@ -6,7 +6,7 @@ export const generatedNav = [
     link: '/start-here/'
   },
   {
-    text: 'Playbook',
+    text: 'Playbook canon',
     link: '/playbook/'
   }
 ] as const
@@ -54,23 +54,23 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Decision Spine',
+        text: 'Decision spine template',
         link: '/decision-spine'
       },
       {
-        text: 'Playbook',
+        text: 'Playbook canon',
         link: '/playbook/'
       },
       {
-        text: 'Facilitation Techniques',
+        text: 'Facilitation patterns',
         link: '/facilitation'
       },
       {
-        text: 'Accessibility Quick Wins',
+        text: 'Accessibility quick wins',
         link: '/accessibility-quick-wins'
       },
       {
-        text: 'Policy → Action Pattern (Expenses)',
+        text: 'Policy-to-action example',
         link: '/pattern-expense-sla'
       }
     ]
@@ -94,7 +94,7 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Sanitization Guidance',
+        text: 'Sanitization checklist',
         link: '/sanitization'
       },
       {

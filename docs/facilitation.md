@@ -11,6 +11,7 @@ tone: Plainspoken, candid, energetic
 narrative_goal: Equip meetings with repeatable structures that keep outcomes sharp
 nav_group: Guides
 nav_order: 20
+nav_label: Facilitation patterns
 nav:
   - sidebar
 ---
