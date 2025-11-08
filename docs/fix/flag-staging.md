@@ -20,7 +20,7 @@ adr_ref: /governance/decisions/flagging-model.html
 stop_rule: Archive if vendor/keys change or <1 use in 90 days.
 nav:
   - sidebar
-nav_group: Fix it fast
+nav_group: Fast support
 nav_order: 40
 nav_label: Feature flag on staging
 ---

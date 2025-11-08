@@ -56,6 +56,26 @@ export const generatedSidebar = [
       {
         text: 'Interrupt flows',
         link: '/fix/'
+      },
+      {
+        text: 'Teams notifications check',
+        link: '/fix/teams-notifications'
+      },
+      {
+        text: 'Repo & pipeline access',
+        link: '/fix/access-repo-pipeline'
+      },
+      {
+        text: 'Design system component',
+        link: '/fix/ds-component-decision'
+      },
+      {
+        text: 'Feature flag on staging',
+        link: '/fix/flag-staging'
+      },
+      {
+        text: 'VWO/Bloomreach sanity',
+        link: '/fix/vwo-bloomreach-sanity'
       }
     ]
   },
@@ -114,32 +134,6 @@ export const generatedSidebar = [
       {
         text: 'Anti-drift governance',
         link: '/governance'
-      }
-    ]
-  },
-  {
-    text: 'Fix it fast',
-    collapsed: false,
-    items: [
-      {
-        text: 'Teams notifications check',
-        link: '/fix/teams-notifications'
-      },
-      {
-        text: 'Repo & pipeline access',
-        link: '/fix/access-repo-pipeline'
-      },
-      {
-        text: 'Design system component',
-        link: '/fix/ds-component-decision'
-      },
-      {
-        text: 'Feature flag on staging',
-        link: '/fix/flag-staging'
-      },
-      {
-        text: 'VWO/Bloomreach sanity',
-        link: '/fix/vwo-bloomreach-sanity'
       }
     ]
   }

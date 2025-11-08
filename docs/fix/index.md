@@ -1,5 +1,5 @@
 ---
-title: Fix it fast index
+title: Fast support index
 band: A
 owner: '@platform-eng'
 refresh_after_days: 45

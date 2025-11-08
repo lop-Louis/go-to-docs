@@ -20,7 +20,7 @@ adr_ref: /governance/decisions/ds-fork-policy.html
 stop_rule: If tokens or a11y rules change, refresh immediately.
 nav:
   - sidebar
-nav_group: Fix it fast
+nav_group: Fast support
 nav_order: 30
 nav_label: Design system component
 ---
