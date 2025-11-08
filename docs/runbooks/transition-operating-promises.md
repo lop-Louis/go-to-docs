@@ -56,7 +56,7 @@ When a promise is violated, the on-call should know exactly who to page.
 
 ## After the handover
 
-1. Archive the fulfilled promises in [Release receipts](../receipts/) with the release tag.
+1. Archive the fulfilled promises in [Release receipts](../receipts/index) with the release tag.
 2. Note any exceptions or escalations in the [Link Integrity runbook](./link-integrity.md) if they affected docs.
 3. Update the [Fast support index](../fix/) if new interrupts surfaced during the transition.
 4. Review this page every 6 months—promises that no one owns should be removed or reassigned.

@@ -38,5 +38,5 @@ Color legend: 🟢 on track, 🟡 at risk, 🟠 behind.
 ## Related references
 
 - [Transition operating promises](./transition-operating-promises.md) — Promise owners should include their metric deltas in status updates.
-- [Release receipts](../receipts/) — Attach the table or a screenshot each time you tag a release.
+- [Release receipts](../receipts/index) — Attach the table or a screenshot each time you tag a release.
 - [Fast support index](../fix/) — Add a metric row if interrupts are part of the promise you’re tracking.

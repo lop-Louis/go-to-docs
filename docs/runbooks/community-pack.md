@@ -65,4 +65,4 @@ Next session: DATE (topic nominations welcome)
 
 - [Facilitation Techniques](../facilitation.md) — Pluck prompts or warm-ups from here when the agenda needs energy.
 - [Decision Spine](../decision-spine.md) — Use it when the community session includes a decision point.
-- [Release receipts](../receipts/) — Capture the outcomes when the community meeting leads to a ship-worthy change.
+- [Release receipts](../receipts/index) — Capture the outcomes when the community meeting leads to a ship-worthy change.

@@ -52,4 +52,4 @@ If you spend more than 10 minutes chasing failures or the guard stays red after 
 
 - [Link Integrity runbook](../runbooks/link-integrity.md) — Full remediation path when Quick-Run isn’t enough.
 - [Fast support index](../fix/) — Interrupt flows for anything that blocks shipping.
-- [Release receipts](../receipts/) — Paste your Quick-Run evidence when logging a release.
+- [Release receipts](../receipts/index) — Paste your Quick-Run evidence when logging a release.

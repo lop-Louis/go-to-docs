@@ -35,7 +35,7 @@ You shouldn’t fight the site to find work. <a href="#routes" data-primary-acti
 | Clear interrupts fast  | [Fast support index](../fix/)                           | Triage flows with escalation packets      |
 | Verify your doc change | [Quick-Run](../ops/quick-run)                           | Fast regression check before you merge    |
 | Run a deeper op        | [All runbooks](../runbooks/)                            | Chore-heavy flows with receipts           |
-| See what changed       | [Release receipts](../receipts/)                        | Highlights from the latest release        |
+| See what changed       | [Release receipts](../receipts/index)                   | Highlights from the latest release        |
 
 ## URL and anchor cheats
 
