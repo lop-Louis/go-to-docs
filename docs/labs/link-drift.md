@@ -1,30 +1,37 @@
 ---
-title: Link Drift Lab
+title: Link Drift · Proof Run
 band: A
-owner: '@lop'
-change_type: patch
+owner: Louis
 refresh_after_days: 60
 status: live
 sidebar: false
 ---
 
-Need to fix this fast? [Run the Ops Quick-Run](/ops/quick-run) · [Try the 10-minute lab](/labs/link-drift)
-<a href="/ops/quick-run" data-primary-action>Run the Ops Quick-Run</a> or <a href="/labs/link-drift" data-secondary-action>Try the 10-minute lab</a>.
+> Find the answer. Use it now.  
+> [Run the Quick-Run](/ops/quick-run) · [Open the Proof Run](/labs/link-drift)
 
+## Goal
 
-Need to confirm hyperlinks survived the latest edit? <a href="/ops/quick-run" data-primary-action>Jump back to the Ops Quick-Run</a> or
-<a href="/labs/link-drift.lab.json" data-secondary-action>Download the lab config</a>.
+Ship a page without broken links in under 10 minutes.
 
-## Trigger
-Use this lab if a guidance page loses outbound link hygiene (missing `utm_source`, 404s) or when the guard warns about link drift.
+## Steps
 
-## Action
-- Run `pnpm labs` to execute every lab (this one is lightweight).
-- Inspect `reports/labs.json` for the latest status.
-- Patch the offending doc links, then rerun the lab.
+1. Build the docs
 
-## Receipt
-- `reports/labs.json` shows `{ "lab": "link-drift.lab.json", "ok": true }`.
+   ```bash
+   pnpm docs:build
+   ```
 
-## Stop rule
-- If the lab continues to fail after two runs, capture the broken URLs and open an issue tagged `link-drift`.
+   Expect "Build complete."
+
+2) Check links
+
+   ```bash
+   node scripts/check-links.mjs
+   ```
+
+   Expect "0 broken links."
+
+## Pass/Fail
+
+Pass if both commands exit 0 within 10 minutes. Otherwise fail, shrink scope, retry.
