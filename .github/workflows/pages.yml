@@ -1,9 +1,17 @@
-name: Deploy VitePress to Pages
+name: Deploy versioned docs to Pages
 
 on:
   push:
-    branches: [main]
-    paths: ['docs/**', 'runbooks/**', '.github/workflows/pages.yml', 'package.json']
+    branches:
+      - main
+      - development
+    paths:
+      - 'docs/**'
+      - 'runbooks/**'
+      - '.github/workflows/pages.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'scripts/**'
   workflow_dispatch:
 
 permissions:
@@ -18,11 +26,22 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
     steps:
-      - name: Checkout
+      - name: Checkout main (release)
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0 # Full history for lastUpdated feature
+          ref: main
+          path: release
+          fetch-depth: 0
+
+      - name: Checkout development (staging)
+        uses: actions/checkout@v5
+        with:
+          ref: development
+          path: staging
+          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -32,19 +51,65 @@ jobs:
         with:
           node-version: '20'
           cache: 'pnpm'
+          cache-dependency-path: |
+            release/pnpm-lock.yaml
+            staging/pnpm-lock.yaml
 
-      - name: Install dependencies
+      - name: Install dependencies (release)
         run: pnpm install --frozen-lockfile
+        working-directory: release
 
-      - name: Build VitePress site
+      - name: Build main → /V1
+        working-directory: release
         env:
-          VITE_GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
+          SITE_BASE: /V1/
+          EDIT_BRANCH: main
+          VITE_GA_ID: ${{ env.GA_ID }}
         run: pnpm run docs:build
+
+      - name: Install dependencies (staging)
+        run: pnpm install --frozen-lockfile
+        working-directory: staging
+
+      - name: Build development → /staging
+        working-directory: staging
+        env:
+          SITE_BASE: /staging/
+          EDIT_BRANCH: development
+          VITE_GA_ID: ${{ env.GA_ID }}
+          SKIP_ANALYTICS: 'true'
+        run: pnpm run docs:build
+
+      - name: Capture commit metadata
+        id: metadata
+        run: |
+          echo "release_sha=$(git -C release rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "staging_sha=$(git -C staging rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "generated_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      - name: Assemble deployment payload
+        run: |
+          rm -rf public
+          mkdir -p public/V1 public/staging
+          rsync -a --delete release/docs/.vitepress/dist/ public/V1/
+          rsync -a --delete staging/docs/.vitepress/dist/ public/staging/
+
+      - name: Create redirect + versions manifest
+        env:
+          RELEASE_SHA: ${{ steps.metadata.outputs.release_sha }}
+          STAGING_SHA: ${{ steps.metadata.outputs.staging_sha }}
+          GENERATED_AT: ${{ steps.metadata.outputs.generated_at }}
+          OUTPUT_DIR: public
+          LATEST_VERSION: V1
+          RELEASE_BRANCH: main
+          STAGING_BRANCH: development
+          REDIRECT_TARGET: /V1/
+        run: node scripts/generate-pages-assets.mjs
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: 'docs/.vitepress/dist'
+          path: public
 
   deploy:
     needs: build
@@ -61,29 +126,37 @@ jobs:
         if: success()
         run: |
           echo "🧪 Running post-deploy smoke tests..."
-
-          # Wait for deployment to propagate
           sleep 10
 
-          # Test homepage
-          curl -sf https://northbook.guide/ | grep -q "Northbook" || {
-            echo "❌ Homepage test failed"
+          curl -sf https://northbook.guide/V1/ | grep -q "Northbook" || {
+            echo "❌ /V1/ root failed"
             exit 1
           }
-          echo "✅ Homepage responding"
+          echo "✅ /V1/ responding"
 
-          # Test key pages
-          curl -sf https://northbook.guide/playbook/raci-by-seams | grep -q "RACI" || {
-            echo "❌ RACI page test failed"
+          curl -sf https://northbook.guide/staging/ | grep -q "Northbook" || {
+            echo "❌ /staging/ root failed"
             exit 1
           }
-          echo "✅ RACI page responding"
+          echo "✅ /staging/ responding"
 
-          curl -sf https://northbook.guide/decision-spine | grep -q "decision" || {
-            echo "❌ Decision spine page test failed"
+          curl -sf https://northbook.guide/V1/playbook/raci-by-seams | grep -q "RACI" || {
+            echo "❌ /V1/ RACI page failed"
             exit 1
           }
-          echo "✅ Decision spine page responding"
+          echo "✅ /V1/ RACI responding"
+
+          curl -sf https://northbook.guide/staging/playbook/raci-by-seams | grep -q "RACI" || {
+            echo "❌ /staging/ RACI page failed"
+            exit 1
+          }
+          echo "✅ /staging/ RACI responding"
+
+          curl -sf https://northbook.guide/versions.json | grep -q "\"latest\"" || {
+            echo "❌ versions manifest missing"
+            exit 1
+          }
+          echo "✅ versions manifest reachable"
 
           echo "🎉 All smoke tests passed!"
 
