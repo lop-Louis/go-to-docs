@@ -29,6 +29,11 @@ jobs:
     env:
       GA_ID: ${{ secrets.GA_ID || 'G-511628512' }}
     steps:
+      - name: Checkout root (tooling)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
       - name: Checkout main (release)
         uses: actions/checkout@v5
         with:
@@ -101,11 +106,12 @@ jobs:
           RELEASE_SHA: ${{ steps.metadata.outputs.release_sha }}
           STAGING_SHA: ${{ steps.metadata.outputs.staging_sha }}
           GENERATED_AT: ${{ steps.metadata.outputs.generated_at }}
-          OUTPUT_DIR: public
+          OUTPUT_DIR: ../public
           LATEST_VERSION: V1
           RELEASE_BRANCH: main
           STAGING_BRANCH: development
           REDIRECT_TARGET: /V1/
+        working-directory: release
         run: node scripts/generate-pages-assets.mjs
 
       - name: Upload artifact
