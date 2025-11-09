@@ -60,23 +60,23 @@ See `docs/principles.md` and [GOVERNANCE](./GOVERNANCE.md) for fuller details.
 
 <!-- scripts:start -->
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm run docs:dev` | Start the VitePress dev server |
-| `pnpm run docs:build` | Build the production site and verify CTA placement |
-| `pnpm run docs:preview` | Preview the production build locally |
-| `pnpm run docs:guard` | Run frontmatter lint, guard, drift, and UX scans |
-| `pnpm run nav:sync` | Regenerate nav + sidebar from frontmatter metadata |
-| `pnpm run frontmatter:lint` | Validate Band A frontmatter against the JSON schema |
-| `pnpm run guard` | Band A forbidden pattern scan |
-| `pnpm run freeze:check` | Check freeze status and auto-freeze/unfreeze based on yellow flag thresholds |
-| `pnpm run freeze:verify` | Verify if a file can be modified during freeze |
-| `pnpm run freeze:status` | Show current freeze state |
-| `pnpm run drift` | Advisory drift audit (storytelling, inclusive language, etc.) |
-| `pnpm run ux:scan` | Verify CTA intro sentence includes both actions before the first section |
-| `pnpm run links` | Check internal and external links |
-| `pnpm run stale` | Generate stale page report |
-| `pnpm run test` | Run Node tests and component suite |
+| Command                     | Purpose                                                                      |
+| --------------------------- | ---------------------------------------------------------------------------- |
+| `pnpm run docs:dev`         | Start the VitePress dev server                                               |
+| `pnpm run docs:build`       | Build the production site and verify CTA placement                           |
+| `pnpm run docs:preview`     | Preview the production build locally                                         |
+| `pnpm run docs:guard`       | Run frontmatter lint, guard, drift, and UX scans                             |
+| `pnpm run nav:sync`         | Regenerate nav + sidebar from frontmatter metadata                           |
+| `pnpm run frontmatter:lint` | Validate Band A frontmatter against the JSON schema                          |
+| `pnpm run guard`            | Band A forbidden pattern scan                                                |
+| `pnpm run freeze:check`     | Check freeze status and auto-freeze/unfreeze based on yellow flag thresholds |
+| `pnpm run freeze:verify`    | Verify if a file can be modified during freeze                               |
+| `pnpm run freeze:status`    | Show current freeze state                                                    |
+| `pnpm run drift`            | Advisory drift audit (storytelling, inclusive language, etc.)                |
+| `pnpm run ux:scan`          | Verify CTA intro sentence includes both actions before the first section     |
+| `pnpm run links`            | Check internal and external links                                            |
+| `pnpm run stale`            | Generate stale page report                                                   |
+| `pnpm run test`             | Run Node tests and component suite                                           |
 
 <!-- scripts:end -->
 
