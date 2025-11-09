@@ -13,7 +13,7 @@ function requiredEnv(name) {
 }
 
 const outputDir = process.env.OUTPUT_DIR ?? 'public'
-const latestVersion = process.env.LATEST_VERSION ?? 'V1'
+const latestVersion = process.env.LATEST_VERSION ?? 'v1'
 const redirectTarget = process.env.REDIRECT_TARGET ?? `/${latestVersion}/`
 const generatedAt = process.env.GENERATED_AT ?? new Date().toISOString()
 const releaseSha = requiredEnv('RELEASE_SHA')

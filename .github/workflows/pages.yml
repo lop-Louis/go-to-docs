@@ -64,10 +64,10 @@ jobs:
         run: pnpm install --frozen-lockfile
         working-directory: release
 
-      - name: Build main → /V1
+      - name: Build main → /v1
         working-directory: release
         env:
-          SITE_BASE: /V1/
+          SITE_BASE: /v1/
           EDIT_BRANCH: main
           VITE_GA_ID: ${{ env.GA_ID }}
         run: pnpm run docs:build
@@ -95,8 +95,8 @@ jobs:
       - name: Assemble deployment payload
         run: |
           rm -rf public
-          mkdir -p public/V1 public/staging
-          rsync -a --delete release/docs/.vitepress/dist/ public/V1/
+          mkdir -p public/v1 public/staging
+          rsync -a --delete release/docs/.vitepress/dist/ public/v1/
           rsync -a --delete staging/docs/.vitepress/dist/ public/staging/
 
       - name: Create redirect + versions manifest
@@ -105,10 +105,10 @@ jobs:
           STAGING_SHA: ${{ steps.metadata.outputs.staging_sha }}
           GENERATED_AT: ${{ steps.metadata.outputs.generated_at }}
           OUTPUT_DIR: ../public
-          LATEST_VERSION: V1
+          LATEST_VERSION: v1
           RELEASE_BRANCH: main
           STAGING_BRANCH: development
-          REDIRECT_TARGET: /V1/
+          REDIRECT_TARGET: /v1/
         working-directory: release
         run: node scripts/generate-pages-assets.mjs
 
@@ -135,11 +135,11 @@ jobs:
           echo "🧪 Running post-deploy smoke tests..."
           sleep 10
 
-          curl -sf https://northbook.guide/V1/ | grep -q "Northbook" || {
-            echo "❌ /V1/ root failed"
+          curl -sf https://northbook.guide/v1/ | grep -q "Northbook" || {
+            echo "❌ /v1/ root failed"
             exit 1
           }
-          echo "✅ /V1/ responding"
+          echo "✅ /v1/ responding"
 
           curl -sf https://northbook.guide/staging/ | grep -q "Northbook" || {
             echo "❌ /staging/ root failed"
@@ -147,11 +147,11 @@ jobs:
           }
           echo "✅ /staging/ responding"
 
-          curl -sf https://northbook.guide/V1/playbook/raci-by-seams | grep -q "RACI" || {
-            echo "❌ /V1/ RACI page failed"
+          curl -sf https://northbook.guide/v1/playbook/raci-by-seams | grep -q "RACI" || {
+            echo "❌ /v1/ RACI page failed"
             exit 1
           }
-          echo "✅ /V1/ RACI responding"
+          echo "✅ /v1/ RACI responding"
 
           curl -sf https://northbook.guide/staging/playbook/raci-by-seams | grep -q "RACI" || {
             echo "❌ /staging/ RACI page failed"
