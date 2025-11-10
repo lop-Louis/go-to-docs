@@ -13,6 +13,10 @@
   },
   "decisions": [
     {
+      "title": "Navigation lanes decision",
+      "path": "docs/decisions/navigation-lanes.md"
+    },
+    {
       "title": "Cloudflare analytics decision",
       "path": "docs/decisions/cloudflare-analytics.md"
     },
