@@ -45,7 +45,7 @@ Example: `site-v2025.11`
 2. Run `pnpm run docs:guard` and fix red failures.
 3. Refresh analytics + labs: `pnpm run analytics:snapshot` and rerun the relevant labs (`pnpm run labs` or Quick-Run/Proof Run) so `reports/labs.json` is current.
 4. Update `ops/releases/YYYY-MM/manifest.json`, then run `pnpm run state:build` to regenerate `ops/releases/YYYY-MM/index.md` and `docs/state/index.md`.
-5. Update the [Receipts](./receipts/index.md) entry for the month using the snapshot values and link back to the release bundle.
+5. Update the manifest `metrics` block with the adoption, quality, and credibility summary for the month so the State ledger reflects the human-friendly view.
 
 ## Release Manifest Template
 
@@ -62,11 +62,13 @@ Create `ops/releases/YYYY-MM/manifest.json` (copy the previous month) and fill:
   "summary": "Monthly release artefacts live here.",
   "decisions": [{ "title": "Example decision", "path": "docs/decisions/example.md" }],
   "signals": [{ "title": "Analytics snapshot", "path": "reports/cloudflare-snapshot.json" }],
-  "receipts": [{ "title": "Receipts 2025-11", "path": "docs/receipts/index.md#2025-11" }]
+  "receipts": [
+    { "title": "State ledger entry", "path": "docs/state/index.md#site-v2025.11-2025-11" }
+  ]
 }
 ```
 
-Run `pnpm run state:build` to regenerate `ops/releases/YYYY-MM/index.md` and `docs/state/index.md`, then commit those files with the manifest. This keeps the State ledger, release bundle, and Receipts page in sync.
+Run `pnpm run state:build` to regenerate `ops/releases/YYYY-MM/index.md` and `docs/state/index.md`, then commit those files with the manifest. This keeps the State ledger and release bundle in sync.
 
 ## Tagging Steps
 
@@ -77,8 +79,8 @@ pnpm run analytics:snapshot
 # Update release manifest and regenerate state bundle
 pnpm run state:build
 
-# Commit manifest + generated files + receipts entry
-git add ops/releases/YYYY-MM docs/state/index.md docs/receipts/index.md
+# Commit manifest + generated files
+git add ops/releases/YYYY-MM docs/state/index.md
 git commit -m "release: bundle site-vYYYY.MM"
 
 # Create and push tag after review
@@ -115,6 +117,6 @@ Sunset or pivot if after 2 consecutive tags:
 ## Related references
 
 - [State ledger](./state/index.md) — Generated from the release manifests.
-- [Release receipts](./receipts/index) — Publish the highlights from each tag here.
+- [State ledger](./state/index.md) — Generated from the release manifests.
 - [Shared metric visibility](./runbooks/shared-metric-visibility.md) — Update metrics before locking the manifest.
 - [Transition operating promises](./runbooks/transition-operating-promises.md) — Align monthly commitments with the promises table if cadence slips.

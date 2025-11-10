@@ -56,4 +56,4 @@ This pattern turns a policy reminder into action with three lines:
 
 - [Start overview](./start-here/index.md) — Direct readers here when they need the why before the pattern.
 - [Transition operating promises](./runbooks/transition-operating-promises.md) — Use this when expenses are part of a handover contract.
-- [Release receipts](./receipts/index) — Log when you update this pattern so the change shows up in the release notes.
+- [State ledger](./state/index.md) — Log when you update this pattern so the change shows up in the release notes.

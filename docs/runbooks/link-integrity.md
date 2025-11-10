@@ -53,4 +53,4 @@ If the link checker fails twice or you uncover a structural navigation issue, st
 
 - [Quick-Run](../ops/quick-run) — fastest check when you touched a single file.
 - [Fix-it-fast index](../fix/) — when the link outage is blocking production work.
-- [Receipts](../receipts/index) — confirm whether the fix landed in the latest release.
+- [State ledger](../state/index.md) — confirm whether the fix landed in the latest release.

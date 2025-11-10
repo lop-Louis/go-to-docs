@@ -60,4 +60,4 @@ Tickets opened: #123, #124
 
 - [Accessibility Quick Wins](../accessibility-quick-wins) — Share this page with partners after the sweep.
 - [Wayfinding shortcuts](../start-here/find.md) — Confirm links in navigation tables still map correctly.
-- [Release receipts](../receipts/index) — Log the audit date and key outcomes with the monthly tag.
+- [State ledger](../state/index.md) — Log the audit date and key outcomes with the monthly tag.

@@ -35,7 +35,7 @@ features:
     linkText: Run Quick-Run
   - title: Keep receipts
     details: Public state, named owners, and traceability prevent hidden work. Change → Decision → Guardrail → Page → Signal → Receipt.
-    link: /playbook/north-star-guardrails#visibility
+    link: /state/index.md
     linkText: See traceability
 nav:
   - none

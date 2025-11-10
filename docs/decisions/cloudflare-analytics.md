@@ -61,7 +61,7 @@ Export sanitized Cloudflare analytics for northbook.guide, convert to the Signal
 1. **Suitability & privacy:** Document the Cloudflare export path (GraphQL query + aggregation). Confirm only aggregated page metrics and CTA/feedback events are captured.
 2. **Signal mapping:** Define how each North Star signal maps to Cloudflare metrics or existing lab/exception data inside `docs/runbooks/signal-registry.md`.
 3. **Instrumentation:** Ship `scripts/cloudflare-analytics.mjs`, which ingests a sanitized Cloudflare export plus lab data and emits `reports/cloudflare-snapshot.json`.
-4. **Receipts integration:** Reference the snapshot from `docs/receipts/index.md` and ensure the monthly cadence logs adoption, quality, and credibility numbers.
+4. **State integration:** Reference the snapshot from the release manifest (`ops/releases/YYYY-MM/manifest.json`) so the State ledger entry shows adoption, quality, and credibility numbers.
 5. **Baseline:** Capture a 14-day baseline in `reports/cloudflare-export.sample.json` so future runs have a template.
 
 ## Acceptance checks

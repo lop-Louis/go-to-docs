@@ -17,7 +17,7 @@ release_tag: site-v2025.11
 
 Keep governance docs discoverable and receipt-backed. [Review the frame](#frame) or [Read the operations contract](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)  
+State: [State visibility map](../runbooks/state-visibility.md) · Ledger: [Release state](../state/index.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)  
 Guardrail mapping: Governance & Decisions invariants (decision entries visible, exceptions current, state updated under 30 days, monthly release tags) in the [North Star & Guardrails playbook](../playbook/north-star-guardrails.md#governance-requirements).
 
 ## Frame

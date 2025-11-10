@@ -48,5 +48,5 @@ This is the canonical list of metrics we publish every cycle. [Log a new signal]
 ## Related references
 
 - [Cloudflare analytics snapshot](./cloudflare-analytics.md)
-- [Receipts](../receipts/index.md)
+- [State ledger](../state/index.md)
 - [North Star & Guardrails](../playbook/north-star-guardrails.md)

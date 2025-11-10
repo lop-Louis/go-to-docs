@@ -11,7 +11,7 @@ refresh_after_days: 14
 
 Keep the work predictable and receipts visible. [Apply this contract](#purpose) or [Review the release context](../release.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)
+State: [State visibility map](../runbooks/state-visibility.md) · Ledger: [Release state](../state/index.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)
 
 ## Purpose
 

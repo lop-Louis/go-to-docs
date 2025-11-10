@@ -5,7 +5,7 @@ owner: '@lop'
 change_type: patch
 status: live
 refresh_after_days: 30
-nav_group: Start
+nav_group: Contributor Kit
 nav_order: 15
 nav_label: State
 nav:
@@ -22,4 +22,7 @@ Keep the monthly state bundle predictable. [Open site-v2025.11](../../ops/releas
 - [Release bundle](../../ops/releases/2025-11/index.md)
 - Decisions: [Cloudflare analytics decision](../decisions/cloudflare-analytics.md), [Release-centric ops folders](../decisions/release-folders.md), [Automate state and release pages](../decisions/automation-state-pages.md)
 - Signals: [Analytics snapshot](../../reports/cloudflare-snapshot.json), [Cloudflare export template](../../reports/cloudflare-export.sample.json), [Labs report](../../reports/labs.json)
-- Receipts: [Receipts 2025-11](../receipts/index.md#2025-11), [State visibility](../runbooks/state-visibility.md)
+- Receipts: [State ledger entry](./index.md#site-v2025.11-2025-11), [State visibility runbook](../runbooks/state-visibility.md)
+- Adoption: 3 pages touched / 1,740 views / median time-to-answer 51 s (Cloudflare analytics, 14-day window).
+- Quality: Lab pass rate 1.00, broken links 0 (Quick-Run + Link Drift).
+- Credibility: State page refreshed 12 days ago, 1 exception open / 2 resolved on time.

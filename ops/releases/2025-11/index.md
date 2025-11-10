@@ -11,6 +11,12 @@ status: live
 
 Monthly release artefacts live here. Follow the release folder decision for naming rules.
 
+## Highlights
+
+- **Adoption** — 3 pages touched / 1,740 views / median time-to-answer 51 s (Cloudflare analytics, 14-day window).
+- **Quality** — Lab pass rate 1.00, broken links 0 (Quick-Run + Link Drift).
+- **Credibility** — State page refreshed 12 days ago, 1 exception open / 2 resolved on time.
+
 ## Decisions
 
 - [Cloudflare analytics decision](../../../docs/decisions/cloudflare-analytics.md)
@@ -25,5 +31,5 @@ Monthly release artefacts live here. Follow the release folder decision for nami
 
 ## Receipts
 
-- [Receipts 2025-11](../../../docs/receipts/index.md#2025-11)
-- [State visibility](../../../docs/runbooks/state-visibility.md)
+- [State ledger entry](../../../docs/state/index.md#site-v2025.11-2025-11)
+- [State visibility runbook](../../../docs/runbooks/state-visibility.md)

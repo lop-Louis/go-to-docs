@@ -54,4 +54,4 @@ This map keeps every initiative’s SLI state and guardrails obvious. [Place you
 
 - [State visibility map](../runbooks/state-visibility.md) — Publish this table in your shared status doc.
 - [Transition operating promises](../runbooks/transition-operating-promises.md) — Define what happens when an SLI breaches.
-- [Release receipts](../receipts/index) — Note state changes when you tag a release.
+- [State ledger](../state/index.md) — Note state changes when you tag a release.

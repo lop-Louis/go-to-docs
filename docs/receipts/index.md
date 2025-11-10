@@ -5,11 +5,9 @@ owner: '@lop'
 change_type: patch
 refresh_after_days: 90
 status: archived
-nav:
-  - none
 ---
 
-Release receipts now live inside the automated [State ledger](../state/index.md) and the per-release bundles under `ops/releases/`.
+Release receipts now live in the automated State ledger. [Open the State ledger](../state/index.md) or [Browse the release bundles](../../ops/releases).
 
 - Open `docs/state/index.md` to see the latest site-vYYYY.MM entry with adoption/quality/credibility highlights.
 - Each entry is generated from `ops/releases/YYYY-MM/manifest.json`; update the manifest and run `pnpm run state:build` whenever you tag a release.

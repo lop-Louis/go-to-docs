@@ -17,7 +17,7 @@ release_tag: site-v2025.11
 
 Reduce overlapping CTA drift checks until the metadata path is ready. [Review the frame](#frame) or [See the governing contract](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md)
+State: [State visibility map](../runbooks/state-visibility.md) · Ledger: [Release state](../state/index.md)
 
 ## Frame
 

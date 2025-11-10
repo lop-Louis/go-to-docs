@@ -24,10 +24,6 @@ export const generatedSidebar = [
         link: '/start-here/find'
       },
       {
-        text: 'State',
-        link: '/state/'
-      },
-      {
         text: 'New joiner FAQ',
         link: '/faq-new-joiners'
       },
@@ -162,6 +158,10 @@ export const generatedSidebar = [
       {
         text: 'Sanitization checklist',
         link: '/sanitization'
+      },
+      {
+        text: 'State',
+        link: '/state/'
       },
       {
         text: 'Answer ledger pattern',

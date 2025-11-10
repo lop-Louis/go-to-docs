@@ -111,9 +111,9 @@ curl -s -X POST https://api.cloudflare.com/client/v4/graphql \
 
 ## Publish receipts
 
-1. Open [`docs/receipts/index.md`](../receipts/index.md).
-2. Update the Adoption/Quality/Credibility bullet list with the newest snapshot values.
-3. Link to the JSON artifact (`reports/cloudflare-snapshot.json`) so reviewers can trace back the data.
+1. Update `ops/releases/YYYY-MM/manifest.json` with the new `metrics` summary.
+2. Run `pnpm run state:build` so `docs/state/index.md` reflects the new adoption/quality/credibility values.
+3. Commit the manifest + generated files and mention the Cloudflare snapshot path in the release bundle.
 
 ## Troubleshooting
 
@@ -126,4 +126,4 @@ curl -s -X POST https://api.cloudflare.com/client/v4/graphql \
 
 - [Signal Registry](./signal-registry.md) — Canonical list of signals and owners.
 - [Cloudflare API tokens](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/?utm_source=northbook) — How to scope the analytics token.
-- [Receipts](../receipts/index.md) — Where the snapshot is quoted each cycle.
+- [State ledger](../state/index.md) — Where the snapshot is quoted each cycle.
