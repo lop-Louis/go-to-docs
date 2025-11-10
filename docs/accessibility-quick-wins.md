@@ -9,7 +9,7 @@ last_reviewed: '2025-11-04'
 audience: Designers and engineers shipping customer-facing UI
 tone: Plainspoken, candid, energetic
 narrative_goal: Give the fastest accessibility fixes that raise baseline quality
-nav_group: Playbook
+nav_group: Operate
 nav_order: 30
 nav_label: Accessibility quick wins
 nav:

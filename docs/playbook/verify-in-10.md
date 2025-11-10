@@ -8,7 +8,7 @@ refresh_after_days: 60
 audience: Operators and reviewers moving work from Verify to Live
 tone: Plainspoken, candid, energetic
 narrative_goal: Explain when and why to run Verify-in-10 before using the lab
-nav_group: Playbook
+nav_group: Operate
 nav_order: 35
 nav_label: Verify-in-10 guide
 nav:

@@ -9,9 +9,9 @@ last_reviewed: '2025-11-04'
 audience: Deciders and collaborators tackling multi-team technical choices
 tone: Plainspoken, candid, energetic
 narrative_goal: Give a reusable structure for framing, deciding, and reviewing work
-nav_group: Playbook
+nav_group: Operate
 nav_order: 10
-nav_label: Decision spine template
+nav_label: Decision spine
 nav:
   - sidebar
 ---

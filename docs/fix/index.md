@@ -8,10 +8,12 @@ status: live
 audience: People clearing high-volume interrupts in under 10 minutes
 tone: practical
 narrative_goal: Route teammates to the right quick-check flow before escalating
-nav_group: Fast support
+nav_group: Support
 nav_order: 5
-nav_label: Interrupt flows
+nav_label: 'Fix: Interrupt flows'
 nav:
+  - slot: main
+    label: Support
   - sidebar
 ---
 

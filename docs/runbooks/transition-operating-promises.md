@@ -8,7 +8,7 @@ status: live
 audience: Stream leads and facilitators shepherding handovers
 tone: Plainspoken, candid, energetic
 narrative_goal: Codify the non-negotiable rhythms that keep a transition safe
-nav_group: Runbooks
+nav_group: Operate
 nav_order: 50
 nav_label: Transition promises
 nav:

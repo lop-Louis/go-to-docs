@@ -9,7 +9,7 @@ last_reviewed: '2025-11-04'
 audience: Engineers and collaborators onboarding to Northbook habits
 tone: Plainspoken, candid, energetic
 narrative_goal: Answer recurring new-joiner questions with actionable next steps
-nav_group: Start
+nav_group: Navigate
 nav_order: 20
 nav_label: New joiner FAQ
 nav:

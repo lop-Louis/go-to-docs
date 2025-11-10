@@ -8,11 +8,12 @@ status: live
 audience: Teams aligning on principles, policies, and shared patterns
 tone: plainspoken
 narrative_goal: Point to the core playbook pages that keep guidance consistent
-nav_group: Playbook
+nav_group: Operate
 nav_order: 15
 nav_label: Playbook canon
 nav:
-  - main
+  - slot: main
+    label: Operate
   - sidebar
 ---
 

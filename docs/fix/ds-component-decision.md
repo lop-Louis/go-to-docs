@@ -19,8 +19,8 @@ narrative_goal: decide
 adr_ref: /governance/decisions/ds-fork-policy.html
 stop_rule: If tokens or a11y rules change, refresh immediately.
 nav:
-  - sidebar
-nav_group: Fast support
+  - none
+nav_group: Support
 nav_order: 30
 nav_label: Design system component
 ---

@@ -8,7 +8,7 @@ refresh_after_days: 30
 audience: Stewards keeping adoption, quality, and credibility signals current
 tone: Plainspoken, candid, energetic
 narrative_goal: List every signal, its source, refresh cadence, and kill criteria
-nav_group: Runbooks
+nav_group: Operate
 nav_order: 95
 nav_label: Signal Registry
 nav:

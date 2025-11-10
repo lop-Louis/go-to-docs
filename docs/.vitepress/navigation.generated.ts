@@ -2,17 +2,21 @@
 // Do not edit manually.
 export const generatedNav = [
   {
-    text: 'Overview',
+    text: 'Navigate',
     link: '/start-here/'
   },
   {
-    text: 'Playbook canon',
+    text: 'Support',
+    link: '/fix/'
+  },
+  {
+    text: 'Operate',
     link: '/playbook/'
   }
 ] as const
 export const generatedSidebar = [
   {
-    text: 'Start',
+    text: 'Navigate',
     collapsed: false,
     items: [
       {
@@ -46,71 +50,7 @@ export const generatedSidebar = [
     ]
   },
   {
-    text: 'Fast support',
-    collapsed: false,
-    items: [
-      {
-        text: 'Interrupt flows',
-        link: '/fix/'
-      },
-      {
-        text: 'Teams notifications check',
-        link: '/fix/teams-notifications'
-      },
-      {
-        text: 'Repo & pipeline access',
-        link: '/fix/access-repo-pipeline'
-      },
-      {
-        text: 'Design system component',
-        link: '/fix/ds-component-decision'
-      },
-      {
-        text: 'Feature flag on staging',
-        link: '/fix/flag-staging'
-      },
-      {
-        text: 'VWO/Bloomreach sanity',
-        link: '/fix/vwo-bloomreach-sanity'
-      }
-    ]
-  },
-  {
-    text: 'Playbook',
-    collapsed: false,
-    items: [
-      {
-        text: 'Decision spine template',
-        link: '/decision-spine'
-      },
-      {
-        text: 'Playbook canon',
-        link: '/playbook/'
-      },
-      {
-        text: 'Facilitation patterns',
-        link: '/facilitation'
-      },
-      {
-        text: 'North Star & Guardrails',
-        link: '/playbook/north-star-guardrails'
-      },
-      {
-        text: 'Accessibility quick wins',
-        link: '/accessibility-quick-wins'
-      },
-      {
-        text: 'Verify-in-10 guide',
-        link: '/playbook/verify-in-10'
-      },
-      {
-        text: 'Policy-to-action example',
-        link: '/pattern-expense-sla'
-      }
-    ]
-  },
-  {
-    text: 'Runbooks',
+    text: 'Operate',
     collapsed: false,
     items: [
       {
@@ -122,6 +62,26 @@ export const generatedSidebar = [
         link: '/runbooks/'
       },
       {
+        text: 'Decision spine',
+        link: '/decision-spine'
+      },
+      {
+        text: 'Sanitization checklist',
+        link: '/sanitization'
+      },
+      {
+        text: 'Playbook canon',
+        link: '/playbook/'
+      },
+      {
+        text: 'Answer ledger pattern',
+        link: '/answer-ledger'
+      },
+      {
+        text: 'Facilitation patterns',
+        link: '/facilitation'
+      },
+      {
         text: 'Handover RACI template',
         link: '/runbooks/handover-raci-template'
       },
@@ -130,12 +90,32 @@ export const generatedSidebar = [
         link: '/runbooks/link-integrity'
       },
       {
+        text: 'North Star & Guardrails',
+        link: '/playbook/north-star-guardrails'
+      },
+      {
         text: 'Accessibility audit',
         link: '/runbooks/accessibility-audit'
       },
       {
+        text: 'Accessibility quick wins',
+        link: '/accessibility-quick-wins'
+      },
+      {
+        text: 'Anti-drift governance',
+        link: '/governance'
+      },
+      {
+        text: 'Verify-in-10 guide',
+        link: '/playbook/verify-in-10'
+      },
+      {
         text: 'Community meeting pack',
         link: '/runbooks/community-pack'
+      },
+      {
+        text: 'Policy-to-action example',
+        link: '/pattern-expense-sla'
       },
       {
         text: 'Transition promises',
@@ -160,20 +140,20 @@ export const generatedSidebar = [
     ]
   },
   {
-    text: 'Contributor Kit',
+    text: 'Support',
     collapsed: false,
     items: [
       {
-        text: 'Sanitization checklist',
-        link: '/sanitization'
+        text: 'Fix: Interrupt flows',
+        link: '/fix/'
       },
       {
-        text: 'Answer ledger pattern',
-        link: '/answer-ledger'
+        text: 'Fix: Teams notifications',
+        link: '/fix/teams-notifications'
       },
       {
-        text: 'Anti-drift governance',
-        link: '/governance'
+        text: 'Fix: Repo & pipeline access',
+        link: '/fix/access-repo-pipeline'
       }
     ]
   }

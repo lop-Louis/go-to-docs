@@ -9,11 +9,12 @@ last_reviewed: '2025-11-10'
 audience: Anyone kicking off work and needing a fast orientation
 tone: Plainspoken, candid, energetic
 narrative_goal: Give newcomers outcome-based entry points before policy
-nav_group: Start
+nav_group: Navigate
 nav_order: 1
 nav_label: Overview
 nav:
-  - main
+  - slot: main
+    label: Navigate
   - sidebar
 ---
 

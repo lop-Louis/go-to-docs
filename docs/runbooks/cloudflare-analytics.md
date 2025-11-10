@@ -8,7 +8,7 @@ refresh_after_days: 30
 audience: Maintainers publishing receipts and signal updates
 tone: Plainspoken, candid, energetic
 narrative_goal: Show how to export Cloudflare analytics and convert it into the Signal Registry snapshot
-nav_group: Runbooks
+nav_group: Operate
 nav_order: 90
 nav_label: Cloudflare analytics
 nav:

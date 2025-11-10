@@ -114,7 +114,7 @@ async function buildStatePage(releases) {
     change_type: 'patch',
     status: 'live',
     refresh_after_days: 30,
-    nav_group: 'Start',
+    nav_group: 'Navigate',
     nav_order: 15,
     nav_label: 'State',
     nav: ['sidebar']

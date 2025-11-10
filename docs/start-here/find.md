@@ -5,7 +5,7 @@ owner: '@lop'
 change_type: patch
 refresh_after_days: 30
 status: live
-nav_group: Start
+nav_group: Navigate
 nav_order: 12
 nav_label: Wayfinding shortcuts
 audience: Anyone who needs the right Northbook page in under a minute

@@ -9,11 +9,9 @@ const repoRoot = process.cwd()
 const docsDir = path.join(repoRoot, 'docs')
 const outputPath = path.join(docsDir, '.vitepress', 'navigation.generated.ts')
 const GROUP_ORDER = new Map([
-  ['Onboarding', 10],
-  ['Guides', 20],
-  ['Runbooks', 30],
-  ['Contributor Kit', 40],
-  ['Fix it fast', 50]
+  ['Navigate', 10],
+  ['Operate', 20],
+  ['Support', 30]
 ])
 
 function collectMarkdownFiles(dir) {
@@ -63,15 +61,12 @@ function deriveGroup(route) {
   const [segment] = clean.split('/')
   switch (segment) {
     case '':
-      return 'Onboarding'
     case 'start-here':
-      return 'Onboarding'
-    case 'playbook':
-      return 'Guides'
-    case 'runbooks':
-      return 'Runbooks'
+      return 'Navigate'
+    case 'fix':
+      return 'Support'
     default:
-      return 'Guides'
+      return 'Operate'
   }
 }
 

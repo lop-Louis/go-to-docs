@@ -19,8 +19,8 @@ narrative_goal: resolve
 adr_ref: /governance/decisions/exp-platform.html
 stop_rule: Update if vendor URLs or CMS template changes.
 nav:
-  - sidebar
-nav_group: Fast support
+  - none
+nav_group: Support
 nav_order: 50
 nav_label: VWO/Bloomreach sanity
 ---

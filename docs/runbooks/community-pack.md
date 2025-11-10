@@ -8,7 +8,7 @@ status: draft
 audience: Facilitators running community meetings
 tone: Plainspoken, candid, energetic
 narrative_goal: Provide the quick-reference pack for a community session
-nav_group: Runbooks
+nav_group: Operate
 nav_order: 40
 nav_label: Community meeting pack
 nav:

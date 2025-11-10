@@ -19,8 +19,8 @@ narrative_goal: resolve
 adr_ref: /governance/decisions/flagging-model.html
 stop_rule: Archive if vendor/keys change or <1 use in 90 days.
 nav:
-  - sidebar
-nav_group: Fast support
+  - none
+nav_group: Support
 nav_order: 40
 nav_label: Feature flag on staging
 ---

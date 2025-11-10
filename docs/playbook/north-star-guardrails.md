@@ -8,7 +8,7 @@ status: live
 audience: Leaders and teams wanting clarity without deep technical detail
 tone: Plainspoken, candid, reassuring
 narrative_goal: Explain how North Stars, guardrails, roles, and rhythm keep delivery steady without excess process
-nav_group: Playbook
+nav_group: Operate
 nav_order: 20
 nav_label: North Star & Guardrails
 nav:

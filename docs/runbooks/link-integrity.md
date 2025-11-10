@@ -5,7 +5,7 @@ owner: '@lop'
 change_type: patch
 refresh_after_days: 60
 status: live
-nav_group: Runbooks
+nav_group: Operate
 nav_order: 20
 nav_label: Link Integrity
 audience: Maintainers fixing broken links across docs

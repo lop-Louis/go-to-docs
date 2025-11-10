@@ -8,7 +8,7 @@ status: draft
 audience: Stream leads executing a rapid handover
 tone: Plainspoken, candid, energetic
 narrative_goal: Lay out the steps that move work from Framing to Ready fast
-nav_group: Runbooks
+nav_group: Operate
 nav_order: 10
 nav_label: 20-minute handover
 nav:

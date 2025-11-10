@@ -9,7 +9,7 @@ last_reviewed: '2025-11-04'
 audience: Contributors preparing public-safe guidance
 tone: Plainspoken, candid, energetic
 narrative_goal: Show how to strip risk while keeping guidance useful
-nav_group: Contributor Kit
+nav_group: Operate
 nav_order: 10
 nav_label: Sanitization checklist
 nav:

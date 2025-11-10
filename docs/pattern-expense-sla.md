@@ -10,7 +10,7 @@ labels:
 audience: People converting finance policies into public-safe actions
 tone: Plainspoken, candid, energetic
 narrative_goal: Show how to translate expense policy into fast, safe guidance
-nav_group: Playbook
+nav_group: Operate
 nav_order: 40
 nav_label: Policy-to-action example
 nav:

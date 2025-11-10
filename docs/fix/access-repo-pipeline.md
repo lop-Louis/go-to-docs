@@ -20,9 +20,9 @@ adr_ref: /governance/decisions/access-model.html
 stop_rule: Archive if model changes or <1 use in 90 days.
 nav:
   - sidebar
-nav_group: Fast support
+nav_group: Support
 nav_order: 20
-nav_label: Repo & pipeline access
+nav_label: 'Fix: Repo & pipeline access'
 ---
 
 Unblock repo or pipeline access in five minutes, then escalate with a clean request. [Follow the quick checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).

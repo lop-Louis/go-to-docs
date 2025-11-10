@@ -5,7 +5,7 @@ owner: '@lop'
 change_type: patch
 refresh_after_days: 45
 status: archived
-nav_group: Start
+nav_group: Navigate
 nav_order: 15
 nav_label: Quick-Run check
 nav:

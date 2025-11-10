@@ -9,7 +9,7 @@ last_reviewed: '2025-11-04'
 audience: Maintainers and contributors who publish or review Northbook content
 tone: Plainspoken, candid, energetic
 narrative_goal: Define the guardrails that keep public docs safe and trustworthy
-nav_group: Contributor Kit
+nav_group: Operate
 nav_order: 30
 nav_label: Anti-drift governance
 nav:
