@@ -30,6 +30,14 @@ date: '2025-11-10'
 # Start Here
 
 Jump into the work, not the policy. [Place your initiative on the SLI map](./sli-states) or [Read the Verify-in-10 guide](.../operate/verify-in-10).
+Exit metric: readers act via the CTA pair within 60 seconds.
+
+::: tip Tiny receipts — Navigate (v2025.11)
+
+- m-nav-open: +8% vs baseline
+- m-time-to-answer: 51 s median
+  [See the receipts](../signals/receipts/v2025.11-navigate.md)
+  :::
 
 ## SL actions first
 

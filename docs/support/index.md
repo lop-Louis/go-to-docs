@@ -30,10 +30,11 @@ Resolve the highest-volume interrupts with a single click. [Pick the quick-check
 Exit metric: freezes trigger inside 24 hours and recoveries land within 7 days.
 
 ::: tip Tiny receipts — Mitigate (v2025.11)
+
 - m-time-to-freeze: 6 hours average
 - m-time-to-recovery: 2.5 days
-[See the receipts](../signals/receipts/v2025.11-mitigate.md)
-:::
+  [See the receipts](../signals/receipts/v2025.11-mitigate.md)
+  :::
 
 Each page sticks to the 10-minute path and ends with a ready-to-paste escalation packet.
 

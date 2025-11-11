@@ -18,6 +18,14 @@ date: '2025-11-11'
 ---
 
 Run this checklist in ≤10 minutes after reading the [Verify-in-10 guide](../operate/verify-in-10.md). [Run the lab](#steps) or [Log your receipts](../navigate/state-ledger.md).
+Exit metric: dashboards refresh within 30 days and decision hit rate stays ≥ 60%.
+
+::: tip Tiny receipts — Learn (v2025.11)
+
+- m-dashboard-freshness-days: 9 days
+- m-decision-hit-rate: 62%
+  [See the receipts](../signals/receipts/v2025.11-learn.md)
+  :::
 
 ## Preconditions
 

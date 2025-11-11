@@ -27,6 +27,14 @@ date: '2025-11-11'
 ---
 
 Keep guidance consistent without adding chores. [Open the playbook page you need](#playbook-pages) or [Give feedback on the playbook](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Playbook%20index&body=Page:%20https://northbook.guide/operate/).
+Exit metric: annex labs stay ≥ 0.9 pass rate and defects per changed page ≤ 0.05.
+
+::: tip Tiny receipts — Operate (v2025.11)
+
+- m-lab-pass: 0.94 across Verify-in-10 runs
+- m-defect-rate-changed-pages: 0.03
+  [See the receipts](../signals/receipts/v2025.11-operate.md)
+  :::
 
 These entries inherit the [content governance rules](/governance) so readers recognize layout, tone, and CTA placement at a glance.
 
