@@ -42,6 +42,7 @@ These entries inherit the [content governance rules](./governance) so readers re
 
 - [Guides vs rules](./guides-vs-rules.md) — Classify whether something is advisory or mandatory.
 - [Handshake contracts](./handshake-contracts.md) — Frame promises and acceptance criteria before collaborating across seams.
+- [Versioning & releases pilot](./versioning-and-releases/) — Follow the opener pattern + annex lab combo before cloning the slice.
 - [RACI by seams](./raci-by-seams.md) — Assign ownership using the seam-first model.
 - [Stop rules](./stop-rules.md) — Define the tripwires that pause or stop work when promises are at risk.
 - [Scoreboard](./scoreboard.md) — Publish baselines, targets, cadence, and accountability in one card.

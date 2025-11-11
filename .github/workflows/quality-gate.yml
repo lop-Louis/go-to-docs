@@ -15,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
 
+    env:
+      DIST_DIR: docs/.vitepress/dist
+      BASE_URL: /
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -33,7 +37,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # BLOCKERS (must pass)
+      # ---------------------
+      # 🔴 BLOCKERS (must pass)
+      # ---------------------
+
       - name: 🔴 Markdown lint & links
         id: markdown_lint
         run: pnpm run lint:md
@@ -50,8 +57,32 @@ jobs:
         id: state_check
         run: pnpm run state:check
 
-      # WARNERS (continue on error)
-      - name: 🟡 Content guard
+      # New: build must succeed → L4 if not
+      - name: 🔴 Build VitePress site
+        id: build_docs
+        run: pnpm run docs:build
+        # typical script: "docs:build": "vitepress build docs"
+
+      # New: crawl built site for broken links → L4 if internal links fail
+      - name: 🔴 Check internal links (dist crawl)
+        id: link_check_internal
+        uses: lycheeverse/lychee-action@v1.10.0
+        with:
+          args: >-
+            --base "${{ env.DIST_DIR }}"
+            --require-https
+            --offline
+            --exclude-mail
+            --exclude-path "**/drafts/**"
+            "${{ env.DIST_DIR }}/**/*.html"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---------------------
+      # 🟡 WARNERS (non-blocking)
+      # ---------------------
+
+      - name: 🟡 Content guard (L2/L3 logs)
         id: content_guard
         run: pnpm run guard
         continue-on-error: true
@@ -81,59 +112,69 @@ jobs:
         run: pnpm run test:unit
         continue-on-error: true
 
-      # SUMMARY REPORT
+      # Optional: external link check as advisory (keeps flakes out)
+      - name: 🟡 Check external links (advisory)
+        id: link_check_external
+        uses: lycheeverse/lychee-action@v1.10.0
+        with:
+          args: >-
+            --no-progress
+            --max-concurrency 8
+            --exclude-mail
+            --exclude "https://localhost/*"
+            "${{ env.DIST_DIR }}/**/*.html"
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---------------------
+      # 📦 Preview artifact (optional but handy)
+      # ---------------------
+      - name: Upload preview artifact
+        if: always() && steps.build_docs.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-dist
+          path: ${{ env.DIST_DIR }}
+          retention-days: 7
+
+      # ---------------------
+      # 🧾 SUMMARY REPORT
+      # ---------------------
       - name: Generate summary
         if: always()
         run: |
           echo "# Quality Gate Report" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          # Blockers section
           echo "## 🔴 Critical (Must Pass)" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ markdown lint" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.markdown_lint.outcome }}" != "success" ] && echo "❌ **markdown lint failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ markdown lint" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.frontmatter.outcome }}" != "success" ] && echo "❌ **frontmatter failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ frontmatter" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.state_check.outcome }}" != "success" ] && echo "❌ **state check failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ state check" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.release_folders.outcome }}" != "success" ] && echo "❌ **release folders failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ release folders" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.build_docs.outcome }}" != "success" ] && echo "❌ **build docs failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ build docs" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.link_check_internal.outcome }}" != "success" ] && echo "❌ **link check internal failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ link check internal" >> $GITHUB_STEP_SUMMARY
 
-          if [ "${{ steps.markdown_lint.outcome }}" == "success" ]; then
-            echo "✅ Markdown links & lint" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **Markdown link check failed** - Fix broken links or lint errors" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          if [ "${{ steps.frontmatter.outcome }}" == "success" ]; then
-            echo "✅ Frontmatter schema" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **Frontmatter schema failed** - Add missing required fields" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          if [ "${{ steps.state_check.outcome }}" == "success" ]; then
-            echo "✅ State & release automation" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **State automation failed** - Run pnpm run state:build and commit outputs" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          if [ "${{ steps.release_folders.outcome }}" == "success" ]; then
-            echo "✅ Release folder structure" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **Release folder structure failed** - Ensure ops/releases/YYYY-MM/index.md exists with required metadata." >> $GITHUB_STEP_SUMMARY
-          fi
-
-          # Warners section
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## 🟡 Advisory (Non-Blocking)" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-
-          [ "${{ steps.content_guard.outcome }}" == "success" ] && echo "✅ Content guard" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Content guard - Review warnings" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.ux_scan.outcome }}" == "success" ] && echo "✅ UX scan" >> $GITHUB_STEP_SUMMARY || echo "⚠️ UX scan - Check narrative alignment" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.drift.outcome }}" == "success" ] && echo "✅ Drift detection" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Drift detected" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.stale.outcome }}" == "success" ] && echo "✅ Stale pages" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Stale pages need review" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.accessibility.outcome }}" == "success" ] && echo "✅ Component & accessibility tests" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Component test failures" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.unit_tests.outcome }}" == "success" ] && echo "✅ Unit tests" >> $GITHUB_STEP_SUMMARY || echo "⚠️ Unit test failures" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.content_guard.outcome }}" = "success" ] && echo "✅ content guard" >> $GITHUB_STEP_SUMMARY || echo "⚠️ content guard – review warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.ux_scan.outcome }}" = "success" ] && echo "✅ ux scan" >> $GITHUB_STEP_SUMMARY || echo "⚠️ ux scan – review warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.drift.outcome }}" = "success" ] && echo "✅ drift" >> $GITHUB_STEP_SUMMARY || echo "⚠️ drift – review warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.stale.outcome }}" = "success" ] && echo "✅ stale" >> $GITHUB_STEP_SUMMARY || echo "⚠️ stale – review warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.accessibility.outcome }}" = "success" ] && echo "✅ accessibility" >> $GITHUB_STEP_SUMMARY || echo "⚠️ accessibility – review warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.unit_tests.outcome }}" = "success" ] && echo "✅ unit tests" >> $GITHUB_STEP_SUMMARY || echo "⚠️ unit tests – review warnings" >> $GITHUB_STEP_SUMMARY
+          [ "${{ steps.link_check_external.outcome }}" = "success" ] && echo "✅ link check external" >> $GITHUB_STEP_SUMMARY || echo "⚠️ link check external – review warnings" >> $GITHUB_STEP_SUMMARY
 
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY
-
-          # Final verdict
-          if [ "${{ steps.markdown_lint.outcome }}" == "success" ] && [ "${{ steps.frontmatter.outcome }}" == "success" ] && [ "${{ steps.release_folders.outcome }}" == "success" ] && [ "${{ steps.state_check.outcome }}" == "success" ]; then
-            echo "✨ **All critical checks passed** - Ready to merge" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.markdown_lint.outcome }}" = "success" ] \
+             && [ "${{ steps.frontmatter.outcome }}" = "success" ] \
+             && [ "${{ steps.release_folders.outcome }}" = "success" ] \
+             && [ "${{ steps.state_check.outcome }}" = "success" ] \
+             && [ "${{ steps.build_docs.outcome }}" = "success" ] \
+             && [ "${{ steps.link_check_internal.outcome }}" = "success" ]; then
+            echo "✨ **All critical checks passed** – ready to merge" >> $GITHUB_STEP_SUMMARY
           else
-            echo "🚫 **Critical checks failed** - Fix blockers above before merging" >> $GITHUB_STEP_SUMMARY
+            echo "🚫 **Critical checks failed** – fix blockers above before merging" >> $GITHUB_STEP_SUMMARY
           fi

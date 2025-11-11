@@ -1,0 +1,7 @@
+{
+  "setup": ["pnpm run ux:scan", "pnpm run traceability:check", "pnpm run docs:guard"],
+  "check": [
+    "node -e \"const fs=require('fs');const ok=/v2025\\.11-releases/.test(fs.readFileSync('docs/signals/receipts/v2025.11-releases.md','utf8')) && /Versioning & releases/.test(fs.readFileSync('docs/releases/state/v2025.11-releases.md','utf8'));process.exit(ok?0:1)\""
+  ],
+  "timeout_minutes": 10
+}

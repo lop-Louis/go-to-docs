@@ -121,6 +121,10 @@ export const generatedSidebar = [
         link: '/operate/pattern-expense-sla'
       },
       {
+        text: 'Versioning & releases',
+        link: '/operate/versioning-and-releases/'
+      },
+      {
         text: 'Transition promises',
         link: '/operate/transition-operating-promises'
       },
