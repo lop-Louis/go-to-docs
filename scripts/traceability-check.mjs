@@ -8,6 +8,13 @@ const docsDir = path.join(repoRoot, 'docs')
 const signalsCsv = path.join(repoRoot, 'ops', 'signal_registry_seed.csv')
 const canonicalGuardrailsFile = path.join(repoRoot, 'ops', 'canonical_ids.md')
 const receiptsDir = path.join(docsDir, 'signals', 'receipts')
+const exceptionsLogPath = path.join(docsDir, 'governance', 'exceptions.md')
+const exceptionsLedgerPath = path.join(docsDir, 'governance', '_exceptions_ledger.csv')
+
+if (!fs.existsSync(signalsCsv)) {
+  console.error('Traceability check failed: missing ops/signal_registry_seed.csv')
+  process.exit(1)
+}
 
 const allowedGuardrails = new Set()
 if (fs.existsSync(canonicalGuardrailsFile)) {
@@ -24,13 +31,11 @@ if (fs.existsSync(canonicalGuardrailsFile)) {
 }
 
 const signalIds = new Set()
-if (fs.existsSync(signalsCsv)) {
-  const rows = fs.readFileSync(signalsCsv, 'utf8').trim().split(/\r?\n/).slice(1)
-  for (const row of rows) {
-    const [signalIdRaw] = row.split(',')
-    const trimmed = signalIdRaw?.trim()
-    if (trimmed) signalIds.add(trimmed)
-  }
+const rows = fs.readFileSync(signalsCsv, 'utf8').trim().split(/\r?\n/).slice(1)
+for (const row of rows) {
+  const [signalIdRaw] = row.split(',')
+  const trimmed = signalIdRaw?.trim()
+  if (trimmed) signalIds.add(trimmed)
 }
 
 const receiptCoverage = new Map()
@@ -93,6 +98,16 @@ function resolveDecisionLink(pagePath, linkValue) {
 const pages = walkDocs(docsDir, [])
 const errors = []
 const decisionCache = new Map()
+const exceptionsLogContent = fs.existsSync(exceptionsLogPath)
+  ? fs.readFileSync(exceptionsLogPath, 'utf8')
+  : ''
+const exceptionsLedgerContent = fs.existsSync(exceptionsLedgerPath)
+  ? fs.readFileSync(exceptionsLedgerPath, 'utf8')
+  : ''
+
+function isLowercase(value) {
+  return typeof value === 'string' && value === value.toLowerCase()
+}
 
 function getDecisionMeta(targetPath) {
   if (decisionCache.has(targetPath)) return decisionCache.get(targetPath)
@@ -112,10 +127,25 @@ for (const page of pages) {
 
   if (!data || String(data.band).toUpperCase() !== 'A') continue
 
+  if (data.decision_id && !isLowercase(data.decision_id)) {
+    errors.push(`${relPath}: decision_id "${data.decision_id}" must be lowercase`)
+  }
+
+  const tags = Array.isArray(data.tags) ? data.tags : []
+  for (const tag of tags) {
+    if (tag && !isLowercase(tag)) {
+      errors.push(`${relPath}: tag "${tag}" must be lowercase`)
+    }
+  }
+
   const decisionLink = data.decision_link
-  if (!decisionLink) {
-    errors.push(`${relPath}: missing decision_link for traceability`)
-  } else {
+  const exceptionId = data.exception_id
+
+  if (!decisionLink && !exceptionId) {
+    errors.push(`${relPath}: missing decision_link or exception_id for traceability`)
+  }
+
+  if (decisionLink) {
     const resolved = resolveDecisionLink(page, decisionLink)
     if (!resolved) {
       errors.push(`${relPath}: decision_link "${decisionLink}" cannot be resolved`)
@@ -136,15 +166,43 @@ for (const page of pages) {
     }
   }
 
+  if (exceptionId) {
+    if (!/^exc-[a-z0-9-]+$/.test(exceptionId)) {
+      errors.push(`${relPath}: exception_id "${exceptionId}" must match exc-<lowercase>`)
+    } else {
+      if (!exceptionsLogContent) {
+        errors.push(`${relPath}: exception log missing; cannot verify ${exceptionId}`)
+      } else if (!new RegExp(`\\b${exceptionId}\\b`).test(exceptionsLogContent)) {
+        errors.push(
+          `${relPath}: exception_id "${exceptionId}" not found in governance/exceptions.md`
+        )
+      }
+
+      if (!exceptionsLedgerContent) {
+        errors.push(`${relPath}: exceptions ledger missing; cannot verify ${exceptionId}`)
+      } else if (!new RegExp(`\\b${exceptionId}\\b`).test(exceptionsLedgerContent)) {
+        errors.push(
+          `${relPath}: exception_id "${exceptionId}" not found in governance/_exceptions_ledger.csv`
+        )
+      }
+    }
+  }
+
   const guardrailId = data.guardrail_id
   if (!guardrailId) {
     errors.push(`${relPath}: missing guardrail_id`)
+  } else if (!isLowercase(guardrailId)) {
+    errors.push(`${relPath}: guardrail_id "${guardrailId}" must be lowercase`)
   } else if (allowedGuardrails.size && !allowedGuardrails.has(guardrailId)) {
     errors.push(`${relPath}: guardrail_id "${guardrailId}" not in canonical list`)
   }
 
   const metrics = [data.leading_metric, data.lagging_metric].filter(Boolean)
   for (const metric of metrics) {
+    if (!isLowercase(metric)) {
+      errors.push(`${relPath}: metric "${metric}" must be lowercase`)
+      continue
+    }
     if (!signalIds.has(metric)) {
       errors.push(`${relPath}: metric "${metric}" not found in signal registry`)
       continue
