@@ -112,6 +112,16 @@ jobs:
         working-directory: release
         run: node scripts/generate-pages-assets.mjs
 
+      - name: Generate smoke targets
+        working-directory: release
+        run: node scripts/generate-smoke-targets.mjs --output ../smoke-targets.json
+
+      - name: Upload smoke targets
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-targets
+          path: smoke-targets.json
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
@@ -128,6 +138,67 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Download smoke targets
+        uses: actions/download-artifact@v4
+        with:
+          name: smoke-targets
+          path: smoke
+
+      - name: Smoke test production
+        if: success()
+        run: |
+          echo "🧪 Running post-deploy smoke tests..."
+          sleep 10
+
+          curl -sf https://northbook.guide/v1/ | grep -q "Northbook" || {
+            echo "❌ /v1/ root failed"
+            exit 1
+          }
+          echo "✅ /v1/ responding"
+
+          curl -sf https://northbook.guide/staging/ | grep -q "Northbook" || {
+            echo "❌ /staging/ root failed"
+            exit 1
+          }
+          echo "✅ /staging/ responding"
+
+          SMOKE_FILE="smoke/smoke-targets.json"
+          if [ ! -f "$SMOKE_FILE" ]; then
+            echo "❌ smoke targets missing"
+            exit 1
+          fi
+
+          for route in $(jq -r '.topNav[]' "$SMOKE_FILE"); do
+            for base in v1 staging; do
+              url="https://northbook.guide/${base}${route}"
+              curl -sf "$url" > /dev/null || {
+                echo "❌ ${url} failed smoke test"
+                exit 1
+              }
+              echo "✅ ${url} responding"
+            done
+          done
+
+          curl -sf https://northbook.guide/v1/logo-lockup-light.png > /dev/null || {
+            echo "❌ v1 light logo missing"
+            exit 1
+          }
+          echo "✅ v1 light logo reachable"
+
+          curl -sf https://northbook.guide/v1/logo-lockup-dark.png > /dev/null || {
+            echo "❌ v1 dark logo missing"
+            exit 1
+          }
+          echo "✅ v1 dark logo reachable"
+
+          curl -sf https://northbook.guide/versions.json | grep -q "\"latest\"" || {
+            echo "❌ versions manifest missing"
+            exit 1
+          }
+          echo "✅ versions manifest reachable"
+
+          echo "🎉 All smoke tests passed!"
 
       - name: Notify deployment
         if: success()
