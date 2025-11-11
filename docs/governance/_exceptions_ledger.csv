@@ -1,0 +1,2 @@
+exception_id,owner,seam,tags,opened,expiry,status,trigger,exit_criteria,notes
+exc-2025-09-governance-tone,louis,governance,"v2025.09-governance",2025-09-12,2025-09-26,closed,CTA tone lint outage during pipeline upgrade,Restore lint + post receipts for impacted pages,Closed via release site-v2025.10

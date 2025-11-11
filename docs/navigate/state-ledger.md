@@ -20,7 +20,7 @@ Keep the monthly state bundle predictable. [Open site-v2025.11](../../ops/releas
 
 - Owner: @lop
 - [Release bundle](../../ops/releases/2025-11/index.md)
-- Decisions: [Navigation lanes decision](../decisions/navigation-lanes.md), [Cloudflare analytics decision](../decisions/cloudflare-analytics.md), [Release-centric ops folders](../decisions/release-folders.md), [Automate state and release pages](../decisions/automation-state-pages.md), [Verify-in-10 decision](../decisions/verify-in-10.md)
+- Decisions: [Navigation lanes decision](../decisions/navigation-lanes.md), [Cloudflare analytics decision](../decisions/cloudflare-analytics.md), [Release-centric ops folders](../decisions/release-folders.md), [Automate state and release pages](../decisions/automation-state-pages.md), [Verify-in-10 decision](../decisions/verify-in-10.md), [Deep-embed North Star governance decision](../decisions/adopt-deep-embed-north-star.md)
 - Signals: [Analytics snapshot](../../reports/cloudflare-snapshot.json), [Cloudflare export template](../../reports/cloudflare-export.sample.json), [Labs report](../../reports/labs.json)
 - Receipts: [State ledger entry](./state-ledger.md#site-v2025.11-2025-11), [State visibility runbook](../operate/state-visibility.md)
 - Adoption: 3 pages touched / 1,740 views / median time-to-answer 51 s (Cloudflare analytics, 14-day window).
