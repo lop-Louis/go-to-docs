@@ -149,6 +149,7 @@ export default defineConfig({
   description: 'Guidance over to-do.',
   base: SITE_BASE,
   lastUpdated: true,
+  srcExclude: ['drafts/**'],
   head,
   ignoreDeadLinks: [url => url.toLocaleLowerCase().includes('ops/')],
   themeConfig: {
