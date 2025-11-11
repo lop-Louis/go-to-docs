@@ -1,0 +1,28 @@
+{
+  "collected_at": "2025-11-10T03:30:57.403Z",
+  "window": {
+    "since": "2025-10-26T00:00:00Z",
+    "until": "2025-11-09T00:00:00Z"
+  },
+  "adoption": {
+    "pages_touched": 3,
+    "total_views": 1740,
+    "median_time_to_answer_ms": 51000,
+    "not_helpful_clicks": 3,
+    "cta_clicks": 242
+  },
+  "quality": {
+    "lab_pass_rate": 1,
+    "labs_failed": 0,
+    "broken_links": 0
+  },
+  "credibility": {
+    "state_fresh_within_days": 12,
+    "exceptions_open": 1,
+    "exceptions_resolved": 2
+  },
+  "source_files": {
+    "cloudflare_export": "reports/cloudflare-export.sample.json",
+    "labs_report": "reports/labs.json"
+  }
+}

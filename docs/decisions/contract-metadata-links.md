@@ -11,53 +11,54 @@ next_review: '2026-01-10'
 success_metric: Contracts describe their release, state, and receipts context without introducing undocumented frontmatter fields.
 ---
 
-# Contract metadata links decision
+# Contract metadata links
 
-Protect guardrail clarity before adding new schema fields. [Review the frame](#frame) or [See the contract in practice](../contracts/northbook-operations-contract-v1.md).
+Protect guardrail clarity before adding new schema fields. [See the contract in practice](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md) · Release reference: [site-v2025.11 changelog](/CHANGELOG/site-v2025.11)
+State: [State visibility map](../operate/state-visibility.md) · Ledger: [Release state](../navigate/state-ledger.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)
 
-## Frame
+## Intent
 
-### Problem
+Expose release, State, and Receipts context for every contract without inventing undocumented frontmatter fields that automation cannot trust yet.
 
-We want every contract page to expose its introducing release plus links to State and Receipts. Initial implementation added `introduced_in_release`, `state_link`, and `receipts_link` frontmatter keys, but they are undocumented and unvalidated, which risks drift and confusion when editors copy the pattern.
+## Tension
 
-### Constraints
+- Editors added provisional `introduced_in_release`, `state_link`, and `receipts_link` fields with no schema or governance note.
+- Guardrails demand public clarity plus validation across the Change → Decision → Guardrail → Page → Signal → Receipt chain.
+- Any metadata change must remain runnable in ≤10 minutes; manual cleanup of rogue keys breaks that promise.
 
-- Guardrails require public clarity: every addition must be documented, lintable, and traceable through the Change → Decision → Guardrail → Page → Signal → Receipt chain.
-- Frontmatter fields are currently enforced by `schemas/frontmatter.schema.json`; adding new keys without schema/docs means they can rot silently.
-- Documentation should remain runnable in ≤10 minutes—extra metadata must not force manual cleanup when automation regenerates navigation.
+## Guardrails and constraints
 
-### Stakes
+1. Contracts already show owner, band, exit metric sentence, State link, and Receipts link in the body.
+2. `schemas/frontmatter.schema.json` is the single enforcement point—no new keys without schema + docs.
+3. Governance defaults to “deny outside guardrails,” so pseudo-standards create scope creep.
 
-- **Handled well:** Contributors know exactly how to represent release/context links, automation can rely on schema validation, and contracts stay consistent.
-- **Handled poorly:** Editors copy undocumented keys, automation ignores them, and we accumulate pseudo-standards that collide with future guardrails.
+## Options considered
 
-## Options
+| Option                                          | Notes                                                             |
+| ----------------------------------------------- | ----------------------------------------------------------------- |
+| Keep body-only links (status quo)               | No schema work but inconsistent placement.                        |
+| Add new frontmatter keys now                    | Structured data, but undocumented and unlinted.                   |
+| Delay keys until schema/docs are ready (chosen) | Keep clarity in body copy while preparing schema-backed metadata. |
 
-### Option 1 — Keep body-only links (status quo)
+## Decision
 
-Rely on inline paragraphs to mention release/state/receipts. Pros: no schema work. Cons: no structured data and inconsistent placement.
+Choose the delay. Keep release/State/Receipts context in body copy, remove provisional frontmatter keys, and explicitly defer structured fields until schema and governance documentation are ready. This preserves clarity without minting fragile metadata.
 
-### Option 2 — Add new frontmatter keys immediately
+## Commitments
 
-Ship `introduced_in_release`, `state_link`, `receipts_link` now and depend on convention. Pros: structured info exists. Cons: keys are undocumented, unlinted, and easy to drift from the contract philosophy.
+1. Maintain Contracts and Decisions directories so contributors know exactly where governance lives.
+2. Keep each contract body stating its introducing release plus links to State and Receipts until schema work lands.
+3. Draft the schema extension and governance note, then raise a follow-up decision when the structured fields are ready to ship.
 
-### Option 3 — Delay new keys until schema + governance docs are ready
+## Proof / acceptance
 
-Remove the provisional keys for now, keep the context in body copy, and revisit once we have schema updates plus a governance note. Pros: no drift, still communicates context, future change will include automation + documentation. Cons: structured tooling waits until the follow-up cycle.
+- Contributors locate governance docs in ≤60 seconds via the Contracts index.
+- No new undocumented frontmatter keys appear in contracts.
+- Feedback tagged `kl,feedback` confirms editors understand where to place release context.
 
-## Decide
-
-- **Choice:** Option 3 — Delay adding new frontmatter keys until schema + governance docs exist.
-- **Decider:** Product/Operations lead (@lop acting steward).
-- **Date:** Mid-November 2025 release window.
-- **Rationale:** Keeps the contract aligned with published guardrails, avoids undocumented metadata, and sets a clear follow-up to add schema-backed keys later.
-- **Related contract:** [Northbook Operations Contract v1.0](../contracts/northbook-operations-contract-v1.md).
-
-## Review
+## Review cadence
 
 - **Next review:** Early January 2026.
-- **Success metric:** Contracts continue to cite release/state/receipt context in the body, and no new undocumented frontmatter keys appear before the schema/governance update.
-- **Owner actions:** Draft the schema extension + governance note when ready, then create a follow-up decision to adopt the structured fields.
+- **Success metric:** 100% of contracts cite release/State/Receipts context without undocumented keys.
+- **Owner action:** Create the follow-up schema decision once documentation and validation are prepared.

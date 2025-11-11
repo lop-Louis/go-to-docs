@@ -2,170 +2,158 @@
 // Do not edit manually.
 export const generatedNav = [
   {
-    text: 'Overview',
-    link: '/start-here/'
+    text: 'Navigate',
+    link: '/navigate/'
   },
   {
-    text: 'Playbook canon',
-    link: '/playbook/'
+    text: 'Support',
+    link: '/support/'
+  },
+  {
+    text: 'Operate',
+    link: '/operate/'
   }
 ] as const
 export const generatedSidebar = [
   {
-    text: 'Start',
+    text: 'Navigate',
     collapsed: false,
     items: [
       {
         text: 'Overview',
-        link: '/start-here/'
+        link: '/navigate/'
       },
       {
         text: 'Wayfinding shortcuts',
-        link: '/start-here/find'
+        link: '/navigate/find'
       },
       {
-        text: 'Quick-Run check',
-        link: '/ops/quick-run'
+        text: 'State',
+        link: '/navigate/state-ledger'
       },
       {
         text: 'New joiner FAQ',
-        link: '/faq-new-joiners'
-      },
-      {
-        text: 'Release receipts',
-        link: '/receipts/'
+        link: '/navigate/faq-new-joiners'
       },
       {
         text: 'Monthly cadence',
-        link: '/monthly-release'
+        link: '/navigate/monthly-release'
       },
       {
         text: 'SLI states map',
-        link: '/start-here/sli-states'
+        link: '/navigate/sli-states'
       },
       {
         text: 'Band A guardrails',
-        link: '/band-a'
+        link: '/navigate/band-a'
       }
     ]
   },
   {
-    text: 'Fast support',
-    collapsed: false,
-    items: [
-      {
-        text: 'Interrupt flows',
-        link: '/fix/'
-      },
-      {
-        text: 'Teams notifications check',
-        link: '/fix/teams-notifications'
-      },
-      {
-        text: 'Repo & pipeline access',
-        link: '/fix/access-repo-pipeline'
-      },
-      {
-        text: 'Design system component',
-        link: '/fix/ds-component-decision'
-      },
-      {
-        text: 'Feature flag on staging',
-        link: '/fix/flag-staging'
-      },
-      {
-        text: 'VWO/Bloomreach sanity',
-        link: '/fix/vwo-bloomreach-sanity'
-      }
-    ]
-  },
-  {
-    text: 'Guides',
-    collapsed: false,
-    items: [
-      {
-        text: 'Decision spine template',
-        link: '/decision-spine'
-      },
-      {
-        text: 'Playbook canon',
-        link: '/playbook/'
-      },
-      {
-        text: 'Facilitation patterns',
-        link: '/facilitation'
-      },
-      {
-        text: 'North Star & Guardrails',
-        link: '/playbook/north-star-guardrails'
-      },
-      {
-        text: 'Accessibility quick wins',
-        link: '/accessibility-quick-wins'
-      },
-      {
-        text: 'Policy-to-action example',
-        link: '/pattern-expense-sla'
-      }
-    ]
-  },
-  {
-    text: 'Runbooks',
+    text: 'Operate',
     collapsed: false,
     items: [
       {
         text: '20-minute handover',
-        link: '/runbooks/handover-20-min'
+        link: '/operate/handover-20-min'
       },
       {
         text: 'All runbooks',
-        link: '/runbooks/'
+        link: '/operate/runbooks-index'
+      },
+      {
+        text: 'Decision spine',
+        link: '/operate/decision-spine'
+      },
+      {
+        text: 'Sanitization checklist',
+        link: '/operate/sanitization'
+      },
+      {
+        text: 'Playbook canon',
+        link: '/operate/'
+      },
+      {
+        text: 'Answer ledger pattern',
+        link: '/operate/answer-ledger'
+      },
+      {
+        text: 'Facilitation patterns',
+        link: '/operate/facilitation'
       },
       {
         text: 'Handover RACI template',
-        link: '/runbooks/handover-raci-template'
+        link: '/operate/handover-raci-template'
       },
       {
         text: 'Link Integrity',
-        link: '/runbooks/link-integrity'
+        link: '/operate/link-integrity'
+      },
+      {
+        text: 'North Star & Guardrails',
+        link: '/operate/north-star-guardrails'
       },
       {
         text: 'Accessibility audit',
-        link: '/runbooks/accessibility-audit'
+        link: '/operate/accessibility-audit'
+      },
+      {
+        text: 'Accessibility quick wins',
+        link: '/operate/accessibility-quick-wins'
+      },
+      {
+        text: 'Anti-drift governance',
+        link: '/operate/governance'
+      },
+      {
+        text: 'Verify-in-10 guide',
+        link: '/operate/verify-in-10'
       },
       {
         text: 'Community meeting pack',
-        link: '/runbooks/community-pack'
+        link: '/operate/community-pack'
+      },
+      {
+        text: 'Policy-to-action example',
+        link: '/operate/pattern-expense-sla'
       },
       {
         text: 'Transition promises',
-        link: '/runbooks/transition-operating-promises'
+        link: '/operate/transition-operating-promises'
       },
       {
         text: 'Shared metric visibility',
-        link: '/runbooks/shared-metric-visibility'
+        link: '/operate/shared-metric-visibility'
       },
       {
         text: 'State visibility map',
-        link: '/runbooks/state-visibility'
+        link: '/operate/state-visibility'
+      },
+      {
+        text: 'Cloudflare analytics',
+        link: '/operate/cloudflare-analytics'
+      },
+      {
+        text: 'Signal Registry',
+        link: '/operate/signal-registry'
       }
     ]
   },
   {
-    text: 'Contributor Kit',
+    text: 'Support',
     collapsed: false,
     items: [
       {
-        text: 'Sanitization checklist',
-        link: '/sanitization'
+        text: 'Fix: Interrupt flows',
+        link: '/support/'
       },
       {
-        text: 'Answer ledger pattern',
-        link: '/answer-ledger'
+        text: 'Fix: Teams notifications',
+        link: '/support/teams-notifications'
       },
       {
-        text: 'Anti-drift governance',
-        link: '/governance'
+        text: 'Fix: Repo & pipeline access',
+        link: '/support/access-repo-pipeline'
       }
     ]
   }

@@ -19,11 +19,12 @@ const UNFREEZE_THRESHOLD = parseInt(process.env.UNFREEZE_THRESHOLD || '5', 10)
 
 // Allowlist: areas that can be modified even during freeze
 const ALLOWLIST = [
-  'docs/CHANGELOG',
+  'docs/navigate/state-ledger.md',
   'docs/index.md',
   'README.md',
   '.github/workflows',
   'scripts/',
+  'ops/releases',
   'tests/'
 ]
 

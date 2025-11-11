@@ -8,13 +8,15 @@ status: live
 last_reviewed: '2025-11-06'
 audience: Readers tracking monthly site changes
 tone: Plainspoken, candid, energetic
-narrative_goal: Provide a clear index of published release notes
+narrative_goal: Point readers to the State ledger and release bundles
 nav:
   - none
 ---
 
 # Releases
 
-Need a past release? this index jumps you straight to the changelog. [Open the release notes](#releases) or [Browse the runbooks index](./runbooks/index).
+Release notes now live in the [State ledger](./navigate/state-ledger.md) and the per-month bundles under `ops/releases/`. [Open the ledger](./navigate/state-ledger.md) or [Browse the release runbook](./operate/state-visibility.md).
 
-- [v2025.11](/CHANGELOG/site-v2025.11)
+## Current bundle
+
+- [site-v2025.11](../ops/releases/2025-11/index.md)

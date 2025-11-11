@@ -11,7 +11,7 @@ refresh_after_days: 14
 
 Keep the work predictable and receipts visible. [Apply this contract](#purpose) or [Review the release context](../release.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md) · Release reference: [site-v2025.11 changelog](../CHANGELOG/site-v2025.11)
+State: [State visibility map](../operate/state-visibility.md) · Ledger: [Release state](../navigate/state-ledger.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)
 
 ## Purpose
 
@@ -175,6 +175,7 @@ Define and run lightweight acceptance checks that protect the North Star without
 - Page has owner and date.
 - Links resolve within three hops.
 - State and Receipts visible.
+- Verify-in-10 run before promoting a change from Verify to Ready/Live.
 
 ### Risks and tripwires — Subcontract 2: Tests and Acceptance
 
@@ -410,6 +411,8 @@ Canonical list of signals we compute and display. Small, stable set that proves 
 - Automation computes and posts receipts
 - Governance curates and sunsets
 - UI consumes for state panels
+- Cloudflare analytics export → [`scripts/cloudflare-analytics.mjs`](../../scripts/cloudflare-analytics.mjs) → [`docs/operate/cloudflare-analytics.md`](../operate/cloudflare-analytics.md)
+- Registry stays public at [`docs/operate/signal-registry.md`](../operate/signal-registry.md)
 
 ### Rollout — Subcontract 6: Signal Registry
 

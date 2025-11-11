@@ -8,7 +8,7 @@ status: live
 sidebar: false
 ---
 
-Find the answer. Use it now. [Run the Quick-Run](../ops/quick-run) or [Open the Proof Run](../labs/link-drift).
+Find the answer. Use it now. [Run the Quick-Run](../navigate/quick-run) or [Open the Proof Run](../labs/link-drift).
 
 ## Goal
 

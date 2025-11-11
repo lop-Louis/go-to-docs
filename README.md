@@ -8,8 +8,9 @@ Guidance over to-do. Northbook is a public VitePress site for Band A principles,
 
 ## What’s in the repo?
 
-- **Guidance (`/docs`)** — VitePress content for principles, patterns, and decision aids. Subfolders track how automation scopes linting (e.g., `start-here/`, `playbook/`, `runbooks/`).
-- **Runbooks (`/runbooks`)** — Legacy home for operational checklists; new runbooks live under `docs/runbooks/` so they render on the public site.
+- **Navigate (`docs/navigate`)** — Entry points (Start hub, SLIs, FAQ, monthly cadence, Quick-Run) that orient people within 60 seconds.
+- **Operate (`docs/operate`)** — Guardrails, playbooks, runbooks, and Verify-in-10 guidance that keep delivery predictable.
+- **Support (`docs/support`)** — Capped interrupt fixes (teams notifications, repo access, etc.) with proofs and escalation packets.
 - **Guardrails (`/scripts`)** — Automation that stops drift, broken links, and unsanitized content.
 
 Every published page declares its navigation placement via the `nav` array in frontmatter (e.g., `['main','sidebar']` for top nav and sidebar entries, `['none']` for hidden pages). `.vitepress/navigation.generated.ts` is generated from that metadata via `pnpm run nav:sync`, so the docs themselves stay the source of truth.

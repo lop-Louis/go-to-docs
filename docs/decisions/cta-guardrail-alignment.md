@@ -13,53 +13,54 @@ related_contract: ../contracts/northbook-operations-contract-v1.md
 release_tag: site-v2025.11
 ---
 
-# CTA guardrail alignment decision
+# CTA guardrail alignment
 
-Reduce overlapping CTA drift checks until the metadata path is ready. [Review the frame](#frame) or [See the governing contract](../contracts/northbook-operations-contract-v1.md).
+Reduce overlapping CTA drift checks until the metadata path is ready. [See the governing contract](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md)
+State: [State visibility map](../operate/state-visibility.md) · Ledger: [Release state](../navigate/state-ledger.md)
 
-## Frame
+## Intent
 
-### Problem
+Keep the high-signal CTA guardrail (the above-the-fold render check) and pause the redundant markdown scan so Quick-Run receipts stay clean while we design schema-backed metadata.
 
-We currently run two CTA contract checks: a markdown head scan that enforces `data-primary-action`/`data-secondary-action`, and a post-build scan that confirms the CTA pair renders above the first section. These duplicate each other, add noise to Quick-Run receipts, and block experiments with future metadata/frontmatter without giving additional safety.
+## Tension
 
-### Constraints
+- Two checks—`verify-primary-actions.mjs` (markdown) and the post-build render scan—flag the same failures and extend Quick-Run for no extra safety.
+- CTA placement must still satisfy the [North Star & Guardrails opener contract](../operate/north-star-guardrails.md#ui-delivery-checks).
+- Future CTA metadata needs schema + documentation before we add automation again.
 
-- CTA placement still has to satisfy the [North Star & Guardrails](../playbook/north-star-guardrails.md#ui-delivery-checks) opener contract.
-- Automation should stay runnable in ≤10 minutes (`Quick-Run` contract), so overlapping checks that fail for the same reason are discouraged.
-- Future metadata changes (e.g., CTA definitions in frontmatter) must be documented and schema-backed before we add new enforcement.
+## Guardrails and constraints
 
-### Stakes
+1. Quick-Run must finish in ≤10 minutes; duplicate failures violate that.
+2. Rendered output is the source of truth for CTA placement, not markdown heuristics.
+3. Any new metadata enforcement must be documented, schema-backed, and publicly logged before shipping.
 
-- **If handled well:** Contributors keep the higher-signal post-build scan while we design the next metadata contract, and PR noise drops.
-- **If handled poorly:** Removing the redundant check without a trace allows drift or creates confusion when we reintroduce stricter automation later.
+## Options considered
 
-## Options
+| Option                          | Notes                                                      |
+| ------------------------------- | ---------------------------------------------------------- |
+| Keep both checks                | Zero change but doubles noise.                             |
+| Drop the render scan            | Faster but loses the real guardrail.                       |
+| Drop the markdown scan (chosen) | Keeps the higher-value guardrail while we design metadata. |
 
-### Option 1 — Keep both checks
+## Decision
 
-Do nothing; the markdown scan and the post-build scan both run. Pros: zero change. Cons: duplicated failures, no new signal, harder to evolve metadata.
+Pause the markdown CTA enforcement (`scripts/verify-primary-actions.mjs`, `pnpm run verify:cta`, docs-build hook, Link Drift lab reference). Rely on the post-build above-the-fold scan as the single CTA guardrail until metadata work is ready.
 
-### Option 2 — Remove the post-build scan
+## Commitments
 
-Drop the above-the-fold check and keep the markdown enforcement. Pros: simpler implementation. Cons: Loses the guardrail that actually checks rendered output, leaving only a syntax heuristic.
+1. Remove the markdown script and all references so Quick-Run stays within the budget.
+2. Document that CTA compliance relies on the render scan, and log the future metadata follow-up.
+3. Track CTA incidents via the render scan to confirm coverage while metadata design progresses.
 
-### Option 3 — Remove the markdown-enforcement scan (preferred)
+## Proof / acceptance
 
-Stop running `verify-primary-actions.mjs` until new metadata/frontmatter automation exists; keep the post-build/above-fold scan as the single source of truth. Pros: Removes redundant noise while preserving the higher-value guardrail. Cons: Requires future decision to reintroduce structured enforcement when ready.
+- CTA issues continue to surface through the post-build scan.
+- Quick-Run remains ≤10 minutes without redundant failures.
+- Future CTA metadata decision is documented before reintroducing structured enforcement.
 
-## Decide
-
-- **Choice:** Option 3 — Pause the markdown CTA enforcement.
-- **Decider:** Product/Operations lead (@lop acting steward).
-- **Date:** Mid-November 2025 release window.
-- **Rationale:** The above-the-fold scan already guarantees CTA compliance in the rendered output. Keeping only one guardrail reduces noise and keeps cycle time under the 10-minute Quick-Run target while we design the next metadata layer.
-- **Implementation:** Removed `scripts/verify-primary-actions.mjs`, its `pnpm run verify:cta` hook, the docs-build call, and the Link Drift lab reference.
-
-## Review
+## Review cadence
 
 - **Next review:** Early January 2026.
-- **Success metric:** CTA issues continue to be caught by the post-build scan, Quick-Run stays ≤10 minutes, and future CTA metadata decisions are documented before reintroducing the check.
-- **Follow-up:** When the frontmatter schema and automation for CTA metadata are ready, create a new decision to reintroduce structured enforcement.
+- **Success metric:** Zero CTA regressions escape because of the pared-back guardrail; Quick-Run receipts show reduced noise.
+- **Follow-up:** Reintroduce structured enforcement when the CTA metadata schema and automation ship.

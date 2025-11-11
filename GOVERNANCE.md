@@ -171,7 +171,7 @@ Automated weekly scan on Mondays at 2 AM UTC checks for:
 ### Monthly (Manual)
 
 - First week: Review stale report, close or extend
-- Release tag: `site-YYYY.MM` with changelog
+- Release tag: `site-YYYY.MM` with updated release manifest and State ledger entry
 - SLO review in team retrospective
 
 ### Quarterly (Strategic)
@@ -260,7 +260,7 @@ band: A
 audience: squad|leads|exec
 tone: practical|coaching|policy
 narrative_goal: resolve|decide|teach
-primary_action: /runbooks/handover-20-min
+primary_action: /operate/handover-20-min
 review_after_days: 90
 owner_role: chapter-lead
 ```

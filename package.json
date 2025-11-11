@@ -8,7 +8,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "RELEASE_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo dev) node scripts/docs-build.mjs",
     "docs:preview": "vitepress preview docs --port 5173",
-    "docs:guard": "pnpm run frontmatter:lint && pnpm run guard && pnpm run drift && pnpm run ux:scan",
+    "docs:guard": "pnpm run frontmatter:lint && pnpm run guard && pnpm run drift && pnpm run release:folders:check && pnpm run state:check && pnpm run ux:scan",
     "guard": "node scripts/guard.mjs",
     "labs": "node scripts/run-labs.mjs",
     "lint:md": "markdownlint \"**/*.md\" --config .markdownlint.jsonc",
@@ -23,9 +23,10 @@
     "readme:sync": "node scripts/sync-readme.mjs",
     "drift": "node scripts/drift.mjs",
     "stale": "node scripts/stale.mjs",
-    "changelog:preview": "node scripts/changelog.mjs preview",
-    "changelog:finalize": "node scripts/changelog.mjs finalize",
-    "changelog:add": "node scripts/changelog.mjs add",
+    "analytics:snapshot": "node scripts/cloudflare-analytics.mjs",
+    "release:folders:check": "node scripts/release-folders-check.mjs",
+    "state:build": "node scripts/generate-state.mjs",
+    "state:check": "node scripts/generate-state.mjs --check",
     "test": "pnpm run test:unit && pnpm run test:components",
     "test:unit": "node --test tests/*.test.mjs",
     "test:components": "vitest run tests/components tests/accessibility",
@@ -53,10 +54,6 @@
       "prettier --write"
     ],
     "docs/**/*.md": [
-      "node scripts/guard.mjs",
-      "pnpm run nav:sync && git add docs/.vitepress/navigation.generated.ts"
-    ],
-    "runbooks/**/*.md": [
       "node scripts/guard.mjs",
       "pnpm run nav:sync && git add docs/.vitepress/navigation.generated.ts"
     ],

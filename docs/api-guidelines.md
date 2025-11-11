@@ -16,7 +16,7 @@ nav:
 
 # API Guidelines (Stub)
 
-Neutral, public-safe defaults keep every HTTP+JSON API predictable while the full guide is in flight. [Apply the API defaults](#core-principles) or [Browse the runbooks index](./runbooks/index).
+Neutral, public-safe defaults keep every HTTP+JSON API predictable while the full guide is in flight. [Apply the API defaults](#core-principles) or [Browse the runbooks index](./operate/runbooks-index).
 
 ## Core Principles
 

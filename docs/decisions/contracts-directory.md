@@ -13,56 +13,55 @@ related_contract: ../contracts/northbook-operations-contract-v1.md
 release_tag: site-v2025.11
 ---
 
-# Contracts directory decision
+# Contracts directory
 
-Keep governance docs discoverable and receipt-backed. [Review the frame](#frame) or [Read the operations contract](../contracts/northbook-operations-contract-v1.md).
+Keep governance docs discoverable and receipt-backed. [Read the operations contract](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Receipts: [Release receipts](../receipts/index.md) · Release reference: [site-v2025.11 changelog](/CHANGELOG/site-v2025.11)  
-Guardrail mapping: Governance & Decisions invariants (decision entries visible, exceptions current, state updated under 30 days, monthly release tags) in the [North Star & Guardrails playbook](../playbook/north-star-guardrails.md#governance-requirements).
+State: [State visibility map](../operate/state-visibility.md) · Ledger: [Release state](../navigate/state-ledger.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)  
+Guardrail mapping: Governance & Decisions invariants (decision entries visible, exceptions current, State updated under 30 days, monthly release tags) in the [North Star & Guardrails playbook](../operate/north-star-guardrails.md#governance-requirements).
 
-## Frame
+## Intent
 
-### Problem
+Give every post‑V1 contract and decision a predictable home so contributors reach the right governance doc in ≤60 seconds without breaking the Change → Decision → Guardrail → Page → Signal → Receipt chain.
 
-Post‑V1 contracts and their decision entries need a predictable home so contributors can find them in under 60 seconds while maintaining the traceability chain (Change → Decision → Guardrail → Page → Signal → Receipt).
+## Tension
 
-### Constraints
+- Governance artifacts must show owner, band, exit metric, and visible State/Receipts links.
+- Navigation needs to stay slim; dumping contracts across release folders or legacy changelogs makes discovery painful.
+- We have to maintain public-ready, sanitized docs that default-deny outside guardrails.
 
-- Every page must show owner, band, exit metric sentence, and visible State/Receipts links per [UI Delivery guardrails](../playbook/north-star-guardrails.md).
-- Governance artifacts have to stay sanitized for public use and default deny outside guardrails as defined in the [operations contract](../contracts/northbook-operations-contract-v1.md).
-- Navigation should remain slim; adding contracts cannot clutter the main sidebar or bury other Band‑A guidance.
+## Guardrails and constraints
 
-### Stakes
+1. UI Delivery contract: owner/band/exit metric/State and Receipts links stay visible.
+2. Governance contract: scope, state, exceptions, and release tags remain public.
+3. Release cadence: monthly tagging cannot slow down because contracts hide in ad-hoc paths.
 
-- **Placed well:** Governance docs remain easy to locate, stay linked to their releases, and model how to log future contracts (security, privacy, etc.).
-- **Placed poorly:** Contracts sprawl across release folders or changelog notes, making it slow to discover, update, or audit them.
+## Options considered
 
-## Options
+| Option                                 | Notes                                                                |
+| -------------------------------------- | -------------------------------------------------------------------- |
+| Per-release folders                    | Keeps temporal context but forces editors to know the exact release. |
+| Dedicated contracts directory (chosen) | Predictable location, scales cleanly, keeps nav intentional.         |
+| Embed full text in release log         | Zero new folders but bloats the log and complicates updates.         |
 
-### Option 1 — Per-release folders
+## Decision
 
-Store each contract inside the release folder that introduced it. Pros: keeps temporal context with release artifacts. Cons: governance spreads across multiple release directories, so contributors must know the exact release to find a contract; duplicates decision metadata in changelog snippets.
+Create a top-level `docs/contracts/` section with a sibling `docs/decisions/`. Each contract lists its release context in the body while decisions cross-link to both the contract and the release bundle. This satisfies the 60-second discovery rule and keeps the guardrail chain visible without bloating release folders.
 
-### Option 2 — Dedicated contracts directory
+## Commitments
 
-Create a top-level `contracts/` section for all governance contracts plus a sibling `decisions/` directory. Each contract includes metadata about its introducing release and links back to the changelog, while decisions cross-link to both the contract and release receipts. Pros: predictable location, scales as new contracts arrive, keeps nav intentional via a Contracts group. Cons: requires upfront directory creation and nav tuning.
+1. Stand up the Contracts index and keep nav weight low by grouping governance content together.
+2. Ensure every contract/decision pair adds release metadata and links back to the relevant bundle, State, and Receipts.
+3. Log any off-cycle governance additions in the Governance ledger with owner, date, and exception data before publishing.
 
-### Option 3 — Embed full text in the changelog
+## Proof / acceptance
 
-Expand changelog entries to include the full contract text and decision rationale. Pros: zero new directories. Cons: changelog becomes bloated, governance content mixes with operational updates, and individual contracts become hard to maintain or cross-link.
+- Users locate governance docs in ≤60 seconds via the Contracts index.
+- Contracts and decisions cite their release bundle, State, and Receipts.
+- Analytics (view-to-click) and tagged feedback confirm the path is clear.
 
-## Decide
+## Review cadence
 
-- **Choice:** Option 2 — Dedicated contracts directory.
-- **Decider:** Product/Operations lead (@lop acting steward).
-- **Date:** Mid-November 2025 release window.
-- **Rationale:** Centralizes governance docs to satisfy the 60-second discovery rule, keeps the guardrail chain visible (contract ↔ decision ↔ receipts), and lets future contracts reuse the same layout without bloating release folders.
-- **Release linkage:** [site-v2025.11 changelog](../CHANGELOG/site-v2025.11).
-- **Contract reference:** [Northbook Operations Contract v1.0](../contracts/northbook-operations-contract-v1.md).
-
-## Review
-
-- **Next review:** Early January 2026 (two cycles after the decision).
-- **Success metric:** Users can locate governance documents within 60 seconds, every contract links to its introducing release, and contributor feedback confirms clarity on where contracts live.
-- **Signals:** Track doc view-to-click time via site analytics plus qualitative feedback from PRs/issues tagged `kl,feedback`.
-- **Owner actions:** Keep the Contracts index tidy, ensure each new contract/decision pair carries release metadata, and log any exceptions in the Governance ledger before adding off-cycle documents.
+- **Next review:** Early January 2026.
+- **Success metric:** 100% of governance docs discovered within the SLA, with zero orphaned contracts.
+- **Owner action:** Keep the index tidy and roll follow-up decisions into the same directory pattern.

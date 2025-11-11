@@ -42,6 +42,14 @@ jobs:
         id: frontmatter
         run: pnpm run frontmatter:lint
 
+      - name: 🔴 Release folder structure
+        id: release_folders
+        run: pnpm run release:folders:check
+
+      - name: 🔴 State page parity
+        id: state_check
+        run: pnpm run state:check
+
       # WARNERS (continue on error)
       - name: 🟡 Content guard
         id: content_guard
@@ -96,6 +104,18 @@ jobs:
             echo "❌ **Frontmatter schema failed** - Add missing required fields" >> $GITHUB_STEP_SUMMARY
           fi
 
+          if [ "${{ steps.state_check.outcome }}" == "success" ]; then
+            echo "✅ State & release automation" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **State automation failed** - Run pnpm run state:build and commit outputs" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [ "${{ steps.release_folders.outcome }}" == "success" ]; then
+            echo "✅ Release folder structure" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Release folder structure failed** - Ensure ops/releases/YYYY-MM/index.md exists with required metadata." >> $GITHUB_STEP_SUMMARY
+          fi
+
           # Warners section
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## 🟡 Advisory (Non-Blocking)" >> $GITHUB_STEP_SUMMARY
@@ -112,7 +132,7 @@ jobs:
           echo "---" >> $GITHUB_STEP_SUMMARY
 
           # Final verdict
-          if [ "${{ steps.markdown_lint.outcome }}" == "success" ] && [ "${{ steps.frontmatter.outcome }}" == "success" ]; then
+          if [ "${{ steps.markdown_lint.outcome }}" == "success" ] && [ "${{ steps.frontmatter.outcome }}" == "success" ] && [ "${{ steps.release_folders.outcome }}" == "success" ] && [ "${{ steps.state_check.outcome }}" == "success" ]; then
             echo "✨ **All critical checks passed** - Ready to merge" >> $GITHUB_STEP_SUMMARY
           else
             echo "🚫 **Critical checks failed** - Fix blockers above before merging" >> $GITHUB_STEP_SUMMARY
