@@ -4,7 +4,7 @@ band: A
 owner: '@lop'
 change_type: patch
 refresh_after_days: 60
-status: live
+status: archived
 nav_group: Operate
 nav_order: 20
 nav_label: Link Integrity
@@ -34,7 +34,7 @@ Keep every link contract intact so readers never hit a dead end. [Run the link c
 - A teammate reports “this link doesn’t work” or lands on a 404
 - Receipts or Lighthouse signal redirect chains or broken anchors
 
-## Action {#action}
+## Action
 
 1. **Reproduce** — Click the failing link from the same surface (doc, nav, release note). Capture the exact URL and the referring page.
 2. **Fix the source** — Update the Markdown link to the new canonical path. Prefer relative links (e.g., `../operate/runbooks-index.md`) so moves stay local.

@@ -38,23 +38,18 @@ decision_link: /decisions/dec-2025-11-ia-overhaul.md
 date: '2025-11-11'
 ---
 
-Confirm staging feature flags in minutes before looping in the platform team. [Run the flag checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).
+Confirm staging feature flags in minutes before looping in the platform team. [Run the flag checks](#quick-path) or [Escalate to Support IT](../support-it/contacting-it).
 
 > **Works here:** staging · Feature flag SDK · Regions: MY, DK  
-> **Owner:** Platform Engineering (`/support-it/contacting-it`)
+> **Owner:** Platform Engineering (`/Web Platform-O35/Issues-Support`)
 
 ## Quick path
 
 1. **Env check**: App shows **Staging** build and commit hash matches latest.
-
-   ![Staging build indicator banner](/img/support/flag-staging-1.png)
-
 2. **SDK key**: Staging key is configured (not Production).
 3. **Flag exists**: The exact flag key is present and **on** for staging environment.
 4. **User context**: The attributes used in targeting (email, role, cohort) are present in the SDK init.
 5. **Force refresh**: Clear cache and call the SDK’s `flush/identify/variation` test.
-
-   ![Console logging variation result](/img/support/flag-staging-2.png)
 
 ### Code snippet (evaluate a flag)
 
@@ -74,10 +69,10 @@ Expected vs observed: <1 line>
 Console/network screenshots attached
 ```
 
-**Handoff** → [/support-it/contacting-it](/support-it/contacting-it)
+**Handoff** → [/support-it/contacting-it](../support-it/contacting-it)
 
 ## Related references
 
 - [Fast support index](./index.md) — Share other flows if the blocker isn’t flag-related.
 - [Transition operating promises](../operate/transition-operating-promises.md) — Update promises if the flag outage pauses a handover.
-- [Decision Spine](../decision-spine.md) — Refer to it when a flag outcome requires a re-frame or new decision.
+- [Decision Spine](../operate/decision-spine.md) — Refer to it when a flag outcome requires a re-frame or new decision.

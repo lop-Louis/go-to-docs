@@ -233,7 +233,7 @@ Freeze new migrations if in any release either of these is true:
   A simple page that says what changed this month and what is pending.
 
 - **Release tag**
-  A monthly label on the repo. Format vYYYY.MM-<lane> and it links to the snapshot and receipts.
+  A monthly label on the repo. Format vYYYY.MM-\<seam\> and it links to the snapshot and receipts.
 
 - **SLA**
   How often something must be refreshed. Signals default to 30 days.
@@ -348,11 +348,10 @@ Everything else is a nudge or a conscious override with an expiry.
 
 ---
 
-### Appendix G · Tags, lanes, and snapshots
+### Appendix G · Tags, and snapshots
 
 - **Monthly tag**
-  First business day. Format vYYYY.MM-<lane>.
-  Lanes: pilot, main, legacy.
+  First business day. Format vYYYY.MM-\<seam\>.
 
 - **What the tag links to**
   The state snapshot and a receipts page.

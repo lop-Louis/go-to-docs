@@ -6,10 +6,11 @@
   "scripts": {
     "build": "pnpm run docs:build",
     "docs:dev": "vitepress dev docs",
-    "docs:build": "RELEASE_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo dev) node scripts/docs-build.mjs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs --port 5173",
     "docs:guard": "node scripts/docs-guard.mjs",
     "guard": "node scripts/guard.mjs",
+    "guardrail": "pnpm run docs:guard && pnpm run build --silent",
     "labs": "node scripts/run-labs.mjs",
     "lint:md": "markdownlint \"**/*.md\" --config .markdownlint.jsonc",
     "lint:md:fix": "markdownlint \"**/*.md\" --config .markdownlint.jsonc --fix",
@@ -21,6 +22,7 @@
     "frontmatter:lint": "node scripts/frontmatter-lint.mjs",
     "nav:sync": "node scripts/sync-navigation.mjs",
     "readme:sync": "node scripts/sync-readme.mjs",
+    "drift:check:links": "node scripts/internal-link-check.mjs",
     "drift": "node scripts/drift.mjs",
     "stale": "node scripts/stale.mjs",
     "analytics:snapshot": "node scripts/cloudflare-analytics.mjs",
@@ -55,7 +57,7 @@
       "prettier --write"
     ],
     "docs/**/*.md": [
-      "node scripts/docs-guard.mjs",
+      "markdownlint --config .markdownlint.jsonc --fix",
       "pnpm run nav:sync && git add docs/.vitepress/navigation.generated.ts"
     ],
     "scripts/scripts-meta.json": [

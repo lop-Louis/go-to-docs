@@ -16,7 +16,9 @@
   "MD029": false,
 
   // Allow inline HTML for any remaining media snippets.
-  "MD033": false,
+  "MD033": {
+    "allowed_elements": ["img", "video", "source"]
+  },
 
   // Fragment links reference permissible heading variants.
   "MD051": false,

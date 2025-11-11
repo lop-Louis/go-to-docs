@@ -27,7 +27,7 @@ date: '2025-11-04'
 
 # FAQ for New Joiners
 
-New joiners can self-serve most answers without waiting for a reply. [Scan the FAQ](#process-culture) or [Browse the runbooks index](../operate/runbooks-index).
+New joiners can self-serve most answers without waiting for a reply. [Scan the FAQ](#process--culture) or [Browse the runbooks index](../operate/runbooks-index).
 
 ## Process & Culture
 
@@ -115,7 +115,7 @@ Usually by week 3-4.
 - **Action today:** If your last receipt is older than **10 days**, submit it now.
 - **If unclear:** Ask "**Which date controls eligibility**?" then follow the SLA.
 
-Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](./pattern-expense-sla)
+Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](../operate/pattern-expense-sla)
 
 ## Still stuck?
 
@@ -127,6 +127,6 @@ Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](./
 
 ## Related references
 
-- [Start overview](./navigate/index.md) — Orients you to the full doc system.
-- [Wayfinding shortcuts](./navigate/find.md) — When you need a specific runbook or guide fast.
+- [Start overview](./index.md) — Orients you to the full doc system.
+- [Wayfinding shortcuts](./find.md) — When you need a specific runbook or guide fast.
 - [Playbook canon](../operate/) — Deep patterns referenced throughout this FAQ.

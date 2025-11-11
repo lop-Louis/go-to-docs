@@ -1,3 +1,4 @@
+import type { HeadConfig } from 'vitepress'
 import { defineConfig } from 'vitepress'
 import { generatedNav, generatedSidebar } from './navigation.generated'
 
@@ -8,7 +9,7 @@ const SKIP_ANALYTICS = process.env.SKIP_ANALYTICS === 'true'
 const EDIT_BRANCH = process.env.EDIT_BRANCH ?? 'main'
 const withBase = (path: string) => `${SITE_BASE}${path.replace(/^\//, '')}`
 
-const head = [
+const head: HeadConfig[] = [
   [
     'link',
     {
@@ -149,6 +150,7 @@ export default defineConfig({
   base: SITE_BASE,
   lastUpdated: true,
   head,
+  ignoreDeadLinks: [url => url.toLocaleLowerCase().includes('ops/')],
   themeConfig: {
     siteTitle: false,
     logo: {

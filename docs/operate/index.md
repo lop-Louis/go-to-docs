@@ -36,9 +36,9 @@ Exit metric: annex labs stay ≥ 0.9 pass rate and defects per changed page ≤ 
   [See the receipts](../signals/receipts/v2025.11-operate.md)
   :::
 
-These entries inherit the [content governance rules](/governance) so readers recognize layout, tone, and CTA placement at a glance.
+These entries inherit the [content governance rules](./governance) so readers recognize layout, tone, and CTA placement at a glance.
 
-## Playbook pages {#playbook-pages}
+## Playbook pages
 
 - [Guides vs rules](./guides-vs-rules.md) — Classify whether something is advisory or mandatory.
 - [Handshake contracts](./handshake-contracts.md) — Frame promises and acceptance criteria before collaborating across seams.
@@ -46,7 +46,7 @@ These entries inherit the [content governance rules](/governance) so readers rec
 - [Stop rules](./stop-rules.md) — Define the tripwires that pause or stop work when promises are at risk.
 - [Scoreboard](./scoreboard.md) — Publish baselines, targets, cadence, and accountability in one card.
 - [North Star & guardrails](./north-star-guardrails.md) — Keep direction, autonomy, and accountability in balance.
-- [Policy → action: expenses](/pattern-expense-sla) — Show the expense SLA as a working example.
+- [Policy → action: expenses](./pattern-expense-sla) — Show the expense SLA as a working example.
 
 Want a new pattern canonized? [Propose an addition to the playbook](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,proposal&title=%5BPlaybook%5D%20New%20pattern&body=Page:%20https://northbook.guide/operate/).
 

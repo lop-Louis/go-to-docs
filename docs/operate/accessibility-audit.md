@@ -67,6 +67,6 @@ Tickets opened: #123, #124
 
 ## Related references
 
-- [Accessibility Quick Wins](../accessibility-quick-wins) — Share this page with partners after the sweep.
+- [Accessibility Quick Wins](../operate/accessibility-quick-wins) — Share this page with partners after the sweep.
 - [Wayfinding shortcuts](../navigate/find.md) — Confirm links in navigation tables still map correctly.
 - [State ledger](../navigate/state-ledger.md) — Log the audit date and key outcomes with the monthly tag.

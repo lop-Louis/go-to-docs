@@ -27,7 +27,7 @@ date: '2025-11-04'
 
 # Accessibility Quick Wins
 
-These quick wins catch the bulk of accessibility bugs before you ship. [Run the quick checks](#keyboard-navigation) or [Browse the runbooks index](./operate/runbooks-index).
+These quick wins catch the bulk of accessibility bugs before you ship. [Run the quick checks](#keyboard-navigation) or [Browse the runbooks index](./index).
 
 ## Keyboard navigation
 
@@ -127,13 +127,12 @@ a:focus {
 - ❌ Placeholder text as label replacement
 - ❌ Low contrast gray text for "subtle" UI
 - ❌ Auto-playing media without controls
-- ❌ Forgetting to update docs when new components ship (sync with [Accessibility audit runbook](./operate/accessibility-audit.md))
+- ❌ Forgetting to update docs when new components ship (sync with [Accessibility audit runbook](./accessibility-audit.md))
 
 ## Related references
 
-- [Accessibility audit runbook](./operate/accessibility-audit.md) — Quarterly deep dive that proves these wins are in place.
-- [Link Integrity runbook](./operate/link-integrity.md) — Run this after adding/removing accessibility documentation to keep links healthy.
-- [Wayfinding shortcuts](./navigate/find.md) — Share this when teammates need quick access to the relevant runbook or guide.
+- [Accessibility audit runbook](./accessibility-audit) — Quarterly deep dive that proves these wins are in place.
+- [Wayfinding shortcuts](../navigate/find) — Share this when teammates need quick access to the relevant runbook or guide.
 - ❌ Time-limited actions without extensions
 
 ## Resources

@@ -21,5 +21,5 @@ l2 (nudge):
 notes:
 
 - all ids and tags lowercase
-- tag format: vyyyy.mm-<seam> (example `v2025.11-navigation`)
+- tag format: `vYYYY.MM-<seam>` (example `v2025.11-navigation`)
 - `pnpm run docs:guard` measures total runtime and fails only for red-lines or traceability gaps; drift/state/release/ux issues log warnings (nudge) but do not block.

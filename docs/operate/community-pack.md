@@ -26,7 +26,7 @@ date: '2025-11-11'
 
 # Community meeting pack
 
-This pack bundles the agenda, outputs, and reference links for a community session. [Prep the meeting pack](#agenda) or [Browse the runbooks index](./runbooks-index).
+This pack bundles the agenda, outputs, and reference links for a community session. [Prep the meeting pack](#agenda-template) or [Browse the runbooks index](./runbooks-index).
 
 ## Prep checklist
 
@@ -38,7 +38,7 @@ This pack bundles the agenda, outputs, and reference links for a community sessi
 | Dry run with speakers         | Facilitator       | T-1 day  | Notes logged        |
 | Share pre-read + Zoom link    | Ops partner       | T-1 day  | Posted in channel   |
 
-## Agenda template {#agenda}
+## Agenda template
 
 | Segment                 | Time   | Owner         | Notes                                          |
 | ----------------------- | ------ | ------------- | ---------------------------------------------- |
@@ -72,6 +72,6 @@ Next session: DATE (topic nominations welcome)
 
 ## Related references
 
-- [Facilitation Techniques](../facilitation.md) — Pluck prompts or warm-ups from here when the agenda needs energy.
-- [Decision Spine](../decision-spine.md) — Use it when the community session includes a decision point.
-- [State ledger](../navigate/state-ledger.md) — Capture the outcomes when the community meeting leads to a ship-worthy change.
+- [Facilitation Techniques](./facilitation) — Pluck prompts or warm-ups from here when the agenda needs energy.
+- [Decision Spine](./decision-spine) — Use it when the community session includes a decision point.
+- [State ledger](../navigate/state-ledger) — Capture the outcomes when the community meeting leads to a ship-worthy change.

@@ -100,7 +100,7 @@ git push origin site-vYYYY.MM
 ## Metrics Sources
 
 - Page views / time-to-answer: `pnpm run analytics:snapshot` (Cloudflare export)
-- Feedback / labs: [`reports/labs.json`](../../reports/labs.json) and the [Link Drift Proof Run](./labs/link-drift.md)
+- Feedback / labs: [`reports/labs.json`](../../reports/labs.json) and the [Link Drift Proof Run](../labs/link-drift.md)
 - Stale count: Weekly stale report issue data
 - Shared metric: Update via the [shared metric visibility](../operate/shared-metric-visibility.md) template before updating the manifest
 
@@ -125,7 +125,6 @@ Sunset or pivot if after 2 consecutive tags:
 
 ## Related references
 
-- [State ledger](./navigate/state-ledgerindex.md) — Generated from the release manifests.
-- [State ledger](./navigate/state-ledgerindex.md) — Generated from the release manifests.
+- [State ledger](./state-ledger) — Generated from the release manifests.
 - [Shared metric visibility](../operate/shared-metric-visibility.md) — Update metrics before locking the manifest.
 - [Transition operating promises](../operate/transition-operating-promises.md) — Align monthly commitments with the promises table if cadence slips.

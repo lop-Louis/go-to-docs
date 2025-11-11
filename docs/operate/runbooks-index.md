@@ -26,9 +26,9 @@ date: '2025-11-11'
 
 # Runbooks
 
-This index keeps the chore-heavy flows out of the softer guidance pages. [Jump to the runbook stack you need](#handoffs) or [Flag a missing runbook](https://github.com/lop-Louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Runbooks%20index&body=Page:%20https://northbook.guide/operate/runbooks-index).
+This index keeps the chore-heavy flows out of the softer guidance pages. [Jump to the runbook stack you need](#handoffs--transitions-handoffs) or [Flag a missing runbook](https://github.com/lop-Louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Runbooks%20index&body=Page:%20https://northbook.guide/operate/runbooks-index).
 
-Every runbook follows the [Anti-drift Content Governance](../governance.md) rules—sanitize identifiers before you paste receipts.
+Every runbook follows the [Anti-drift Content Governance](./governance.md) rules—sanitize identifiers before you paste receipts.
 
 ## Handoffs & transitions {#handoffs}
 
@@ -45,9 +45,5 @@ Every runbook follows the [Anti-drift Content Governance](../governance.md) rule
 
 - [Shared metric visibility](./shared-metric-visibility.md) — Publish shared KPIs with context and owners.
 - [State visibility map](./state-visibility.md) — Show every work stream’s entry/exit signals plus the SLI tied to it.
-
-## Quality gates & hygiene
-
-- [Link integrity runbook](./link-integrity.md) — When Quick-Run isn’t enough, this walks you through fixing broken anchors at scale.
 
 Need a quick pre-flight before you drop into these flows? Run the [Quick-Run](../navigate/quick-run) first; escalate here only if that guard still fails.

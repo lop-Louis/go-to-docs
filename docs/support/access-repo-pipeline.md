@@ -39,7 +39,7 @@ decision_link: /decisions/dec-2025-11-ia-overhaul.md
 date: '2025-11-11'
 ---
 
-Unblock repo or pipeline access in five minutes, then escalate with a clean request. [Follow the quick checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).
+Unblock repo or pipeline access in five minutes, then escalate with a clean request. [Follow the quick checks](#quick-path) or [Escalate to Support IT](../support-it/contacting-it).
 
 > **Works here:** prod · GitHub + Azure DevOps · Regions: MY, DK  
 > **Owner:** Platform Engineering (`/support-it/contacting-it`)
@@ -47,15 +47,10 @@ Unblock repo or pipeline access in five minutes, then escalate with a clean requ
 ## Quick path
 
 1. **Org membership**: Confirm you’re in the correct org/tenant. If SSO, re-authenticate.
-
-   ![GitHub org membership confirmation](/img/support/access-repo-pipeline-1.png)
-
 2. **Team role**: Ask your team lead to add you to the repo group (least privilege).
 3. **Repo visibility**: Private vs internal; confirm the repo actually exists under the org.
 4. **Branch protection**: If you can see but cannot push, check protection rules and required reviews.
 5. **Pipeline run permission** (ADO/GitHub Actions): ensure you’re in the “Run pipelines” role or Actions is allowed for forks.
-
-   ![Run pipeline permission error prompt](/img/support/access-repo-pipeline-2.png)
 
 ### CLI snippet to verify your permission (GitHub)
 
@@ -75,7 +70,7 @@ Owner/approver: <team lead or repo owner>
 Start/End date: <if temporary>
 ```
 
-**Handoff** → [/support-it/contacting-it](/support-it/contacting-it)
+**Handoff** → [/support-it/contacting-it](../support-it/contacting-it)
 
 ## Related references
 

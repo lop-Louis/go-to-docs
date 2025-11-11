@@ -69,6 +69,7 @@ let red = []
 let yellow = []
 let fileCount = 0
 let checkCount = 0
+const seamViolationCounts = {}
 
 const toneLintPath = path.join(process.cwd(), 'ops', 'tone_lint.json')
 let ctaAllowlist = []
@@ -111,6 +112,8 @@ function checkFile(p) {
   fileCount++
   const raw = fs.readFileSync(p, 'utf8')
   const { content, data } = matter(raw)
+  const redBefore = red.length
+  const yellowBefore = yellow.length
 
   // Skip VitePress config directory
   if (p.includes('.vitepress')) return
@@ -222,6 +225,14 @@ function checkFile(p) {
       red.push(`${p}: drafts pages must set frontmatter search: false (blocking)`)
       checkCount++
     }
+
+    const seam = data.seam || 'unknown'
+    const key = data.guardrail_id ? `${seam}:${data.guardrail_id}` : seam
+    seamViolationCounts[key] = seamViolationCounts[key] || { red: 0, yellow: 0 }
+    const newRed = red.length - redBefore
+    const newYellow = yellow.length - yellowBefore
+    seamViolationCounts[key].red += newRed > 0 ? newRed : 0
+    seamViolationCounts[key].yellow += newYellow > 0 ? newYellow : 0
   }
 }
 
@@ -278,7 +289,8 @@ const payload = {
   fileCount,
   checkCount,
   red,
-  yellow
+  yellow,
+  seamViolationCounts
 }
 
 // Persist yellow flags to reports/yellow-flags.json
@@ -319,6 +331,20 @@ if (JSON_MODE) {
   }
 
   console.log(`\n📝 Yellow flags persisted to reports/yellow-flags.json`)
+
+  const seamKeys = Object.keys(seamViolationCounts).filter(
+    key => seamViolationCounts[key].red || seamViolationCounts[key].yellow
+  )
+  if (seamKeys.length) {
+    console.log('\n📈 Guard violations by seam/guardrail:')
+    seamKeys.sort()
+    for (const key of seamKeys) {
+      const counts = seamViolationCounts[key]
+      console.log(
+        `- ${key}: ${counts.red} red, ${counts.yellow} yellow (add receipts under /signals/receipts/<tag>.md)`
+      )
+    }
+  }
 }
 
 if (status === 'red') {

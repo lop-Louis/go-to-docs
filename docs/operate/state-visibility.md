@@ -44,4 +44,4 @@ Stop guessing whether work is stuck—let this map show the state, entry signal,
 
 - [SLI States](../navigate/sli-states.md) — Mirror these rows in the public-facing legend so teams see the same definitions.
 - [Transition operating promises](./transition-operating-promises.md) — When a state breaches its SLI, trigger the promises here.
-- [Decision Spine](../decision-spine.md) — If a stream drops back into Framing, link to the spine so reviewers see context.
+- [Decision Spine](./decision-spine.md) — If a stream drops back into Framing, link to the spine so reviewers see context.

@@ -27,7 +27,7 @@ date: '2025-11-04'
 
 # Decision Spine
 
-This lightweight spine keeps framing, options, the call, and the review aligned across teams. [Run your next decision through the spine](#four-stages) or [Browse the runbooks index](./operate/runbooks-index).
+This lightweight spine keeps framing, options, the call, and the review aligned across teams. [Run your next decision through the spine](#four-stages) or [Browse the runbooks index](./index).
 
 - **Why**: Prevents re-litigation, makes tradeoffs explicit early, and leaves a durable paper trail for future teams.
 - **When**: Use for multi‑stakeholder choices, anything with meaningful tradeoffs, or answers you expect to paste more than twice.
@@ -91,9 +91,9 @@ Success metric: [What good looks like]
 
 ## Related references
 
-- [Handshake contracts](./operate/handshake-contracts.md) — Lock expectations once a decision is made.
-- [Start overview](./navigate/index.md) — Send new collaborators here before sharing the spine.
-- [Transition operating promises](./operate/transition-operating-promises.md) — Use these when a decision creates new approvals or escalations.
+- [Handshake contracts](./handshake-contracts) — Lock expectations once a decision is made.
+- [Start overview](../navigate/index) — Send new collaborators here before sharing the spine.
+- [Transition operating promises](./transition-operating-promises) — Use these when a decision creates new approvals or escalations.
 
 ## Integration with other practices
 
@@ -101,6 +101,6 @@ Combine with:
 
 - [Answer Ledger](./answer-ledger) for recurring questions
 - [Facilitation](./facilitation) techniques for group decisions
-- [Decision tripwires](./decision-tripwires) to enforce timely follow-up
+- [Decision tripwires](../decision-tripwires) to enforce timely follow-up
 
 See [Anti-drift Content Governance](./governance) for change types and the monthly release cadence.

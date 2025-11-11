@@ -59,6 +59,5 @@ If you spend more than 10 minutes chasing failures or the guard stays red after 
 
 ## Related references
 
-- [Link Integrity runbook](.../operate/link-integrity.md) — Full remediation path when Quick-Run isn’t enough.
 - [Fast support index](../support/) — Interrupt flows for anything that blocks shipping.
 - [State ledger](../navigate/state-ledger.md) — Update the release entry when logging a change.

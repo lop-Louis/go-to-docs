@@ -37,7 +37,7 @@ Mapping RACI by seam keeps ownership stable even when teams reorganize. [Use the
 2. **Assign roles, not people.** Roles survive reorgs; handles change.
 3. **Keep it lean.** One R, one A. Add C/I only if they act on the seam.
 4. **Validate with the seam owners.** Walk the table together and confirm nothing overlaps.
-5. **Link to supporting docs.** Decisions go to the <u>[Decision Spine](../decision-spine.md)</u>; policies go to the <u>[Answer Ledger](../answer-ledger.md)</u>.
+5. **Link to supporting docs.** Decisions go to the [Decision Spine](../operate/decision-spine.md); policies go to the [Answer Ledger](../operate/answer-ledger.md).
 
 ## Template
 

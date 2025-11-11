@@ -26,30 +26,29 @@ decision_link: /decisions/dec-2025-11-ia-overhaul.md
 date: '2025-11-11'
 ---
 
-Resolve the highest-volume interrupts with a single click. [Pick the quick-check flow](#flows) or [Escalate straight to Support IT](/support-it/contacting-it).
+Resolve the highest-volume interrupts with a single click. [Pick the quick-check flow](#flows) or [Escalate straight to Support IT](../support-it/contacting-it).
 Exit metric: freezes trigger inside 24 hours and recoveries land within 7 days.
 
 ::: tip Tiny receipts — Mitigate (v2025.11)
 
 - m-time-to-freeze: 6 hours average
 - m-time-to-recovery: 2.5 days
-  [See the receipts](../signals/receipts/v2025.11-mitigate.md)
+  [See the receipts](../signals/receipts/v2025.11-mitigate)
   :::
 
 Each page sticks to the 10-minute path and ends with a ready-to-paste escalation packet.
 
 ## Flows
 
-- [Teams notifications](./teams-notifications.md) — Restore toast/badge alerts across devices before calling IT.
-- [Repo or pipeline access](./access-repo-pipeline.md) — Confirm membership, branch rules, and run permissions prior to filing a ticket.
-- [Design System component decision](./ds-component-decision.md) — Decide whether to use, extend, compose, or fork without relitigating.
-- [Flag not behaving on Staging](./flag-staging.md) — Validate env, SDK keys, and targeting before pinging Platform.
-- [VWO/Bloomreach sanity](./vwo-bloomreach-sanity.md) — Detect duplicate injections, CSP blocks, or wrong keys fast.
+- [Teams notifications](./teams-notifications) — Restore toast/badge alerts across devices before calling IT.
+- [Repo or pipeline access](./access-repo-pipeline) — Confirm membership, branch rules, and run permissions prior to filing a ticket.
+- [Design System component decision](./ds-component-decision) — Decide whether to use, extend, compose, or fork without relitigating.
+- [Flag not behaving on Staging](./flag-staging) — Validate env, SDK keys, and targeting before pinging Platform.
+- [VWO/Bloomreach sanity](./vwo-bloomreach-sanity) — Detect duplicate injections, CSP blocks, or wrong keys fast.
 
 Need a different blocker covered? [Request a new Fix-it-fast flow](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,feature&title=%5BFlow%5D%20Fix%20it%20fast%20request&body=Page:%20https://northbook.guide/support/).
 
 ## Related references
 
-- [Quick-Run check](../navigate/quick-run.md) — Run this before/after a fast fix so receipts stay in your PR.
-- [Link Integrity runbook](../operate/link-integrity.md) — When a fix touches multiple anchors or navigation tables.
-- [Start overview](../navigate/index.md) — Share this if an interrupt uncovers a missing orientation doc.
+- [Quick-Run check](../navigate/quick-run) — Run this before/after a fast fix so receipts stay in your PR.
+- [Start overview](../navigate/index) — Share this if an interrupt uncovers a missing orientation doc.

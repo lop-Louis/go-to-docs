@@ -27,7 +27,7 @@ date: '2025-11-04'
 
 # Anti-drift Content Governance
 
-Keep public docs anti-drift by following this policy. [Apply the rules](#scope) or [Jump to the runbooks index](./operate/runbooks-index).
+Keep public docs anti-drift by following this policy. [Apply the rules](#scope) or [Jump to the runbooks index](./index).
 
 > Public-safe content only. Internal specifics live elsewhere. This page is the Anti-drift content governance playbook; project-level governance (RACI, automation owners, SLOs) lives in [`GOVERNANCE.md`](https://github.com/lop-Louis/go-to-docs/blob/main/GOVERNANCE.md).
 
@@ -106,7 +106,7 @@ Band A restricts pages to neutral, non-sensitive patterns:
 
 - Generic role or process descriptions
 - Decision-making frameworks and facilitation patterns
-- Sanitized examples (no real identifiers) — see the [Handover RACI template runbook](./operate/handover-raci-template.md) for a ready-to-use pattern
+- Sanitized examples (no real identifiers) — see the [Handover RACI template runbook](./handover-raci-template) for a ready-to-use pattern
 - Ranges/relative metrics ("~15%", "5–10", "few", "several")
 - Original or properly licensed code samples
 

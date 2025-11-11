@@ -27,7 +27,7 @@ date: '2025-11-11'
 # Handover RACI template
 
 Use this template when you need to broadcast handover roles without exposing internal specifics. [Copy the RACI template](#how-to-use-it) or [Browse the runbooks index](./runbooks-index).
-The structure below stays inside the [Anti-drift Content Governance](../governance.md) guardrails and keeps RACI labels uncluttered.
+The structure below stays inside the [Anti-drift Content Governance](./governance) guardrails and keeps RACI labels uncluttered.
 
 ## How to use it
 
@@ -41,12 +41,11 @@ The structure below stays inside the [Anti-drift Content Governance](../governan
 
 > Tip: keep one row per decision or activity so the RACI stays readable.
 
-| Activity / Decision              | Responsible (R)  | Accountable (A)    | Consulted (C)   | Informed (I)      | Notes                                                   |
-| -------------------------------- | ---------------- | ------------------ | --------------- | ----------------- | ------------------------------------------------------- |
-| Publish daily status update      | Delivery lead    | Product sponsor    | Facilitator     | Partner teams     | Async in #handover-status at 5pm                        |
-| Merge final PR to enable feature | Engineering lead | Tech lead          | QA lead         | Support team      | Attach receipts + rollback plan                         |
-| Update docs + run Link Integrity | Doc steward      | Product sponsor    | QA lead         | Entire org        | Reference [Link Integrity runbook](./link-integrity.md) |
-| Approve scope change >10%        | Product sponsor  | Steering committee | Finance partner | Transition distro | Requires updated SLI + timeline                         |
+| Activity / Decision              | Responsible (R)  | Accountable (A)    | Consulted (C)   | Informed (I)      | Notes                            |
+| -------------------------------- | ---------------- | ------------------ | --------------- | ----------------- | -------------------------------- |
+| Publish daily status update      | Delivery lead    | Product sponsor    | Facilitator     | Partner teams     | Async in #handover-status at 5pm |
+| Merge final PR to enable feature | Engineering lead | Tech lead          | QA lead         | Support team      | Attach receipts + rollback plan  |
+| Approve scope change >10%        | Product sponsor  | Steering committee | Finance partner | Transition distro | Requires updated SLI + timeline  |
 
 ## Related references
 

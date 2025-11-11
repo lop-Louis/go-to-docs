@@ -21,7 +21,7 @@ cta_primary_label: Try the Navigate path
 cta_secondary_label: See example route
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
+decision_link: /decisions/dec-2025-11-ia-overhaul
 date: '2025-11-04'
 ---
 
@@ -85,7 +85,7 @@ Before publishing (sanitize in this order):
 7. Review frontmatter: `band: A` and `owner` are present and accurate
 8. Run `npm run guard` locally before opening a PR
 
-See [Sanitization Checklist](./sanitization) for the full process and final verification steps.
+See [Sanitization Checklist](../operate/sanitization) for the full process and final verification steps.
 
 ## Quick Safe/Unsafe Cheat Sheet
 
@@ -94,6 +94,6 @@ See [Sanitization Checklist](./sanitization) for the full process and final veri
 
 ## Related references
 
-- [Sanitization checklist](./sanitization.md) — Deep dive on replacing specifics before shipping.
-- [Anti-drift governance](./governance.md) — Policy backing these rules and how automation enforces them.
-- [Start overview](./navigate/index.md) — Use this when someone needs the “why” behind Band A.
+- [Sanitization checklist](../operate/sanitization) — Deep dive on replacing specifics before shipping.
+- [Anti-drift governance](../operate/governance) — Policy backing these rules and how automation enforces them.
+- [Start overview](./index) — Use this when someone needs the “why” behind Band A.

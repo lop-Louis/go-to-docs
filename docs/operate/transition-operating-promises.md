@@ -20,13 +20,13 @@ cta_primary_label: Use this guardrail
 cta_secondary_label: See example runbook
 leading_metric: m-lab-pass
 lagging_metric: m-defect-rate-changed-pages
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
+decision_link: /decisions/dec-2025-11-ia-overhaul
 date: '2025-11-11'
 ---
 
 # Transition operating promises
 
-These templates keep transition approvals, escalations, and cadences explicit. [Codify your operating promises](#approvals-template) or [Browse the runbooks index](./runbooks-index). Pair them with the [Handover RACI template](./handover-raci-template.md) so every role knows the service level they own during a transition.
+These templates keep transition approvals, escalations, and cadences explicit. [Codify your operating promises](#approvals-template) or [Browse the runbooks index](./runbooks-index). Pair them with the [Handover RACI template](./handover-raci-template) so every role knows the service level they own during a transition.
 
 ## Approvals template
 
@@ -43,19 +43,18 @@ Fill this table before the handover call so nobody waits for ad-hoc green lights
 
 When a promise is violated, the on-call should know exactly who to page.
 
-| Breach                         | First escalation                              | Second escalation | Auto-stop rule                                                                                                   |
-| ------------------------------ | --------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------- |
-| SLA missed by >24h             | Delivery lead pings facilitator + owning lead | Program sponsor   | Pause transition until next review                                                                               |
-| Risk not acknowledged in 48h   | Facilitator pings governance owner            | VP sponsor        | Strip scope to minimum viable handover                                                                           |
-| Docs or runbooks lack receipts | Doc steward pings contributor                 | Governance owner  | Block release tag until [Quick-Run](../navigate/quick-run) + [Link Integrity](./link-integrity.md) receipts land |
+| Breach                       | First escalation                              | Second escalation | Auto-stop rule                         |
+| ---------------------------- | --------------------------------------------- | ----------------- | -------------------------------------- |
+| SLA missed by >24h           | Delivery lead pings facilitator + owning lead | Program sponsor   | Pause transition until next review     |
+| Risk not acknowledged in 48h | Facilitator pings governance owner            | VP sponsor        | Strip scope to minimum viable handover |
 
 ## Status cadence
 
-| Signal                    | Audience                      | Channel                         | Owner           | Notes                                                                                                 |
-| ------------------------- | ----------------------------- | ------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------- |
-| Daily checkpoint (10 min) | Core transition team          | Async thread with template      | Facilitator     | Share blockers + highlight upcoming promises                                                          |
-| Weekly executive update   | Sponsors + partner teams      | Snapshot doc + link to receipts | Program manager | Include SLA/RACI deltas + next focus                                                                  |
-| Release-ready review      | QA, doc steward, product lead | Live call + notes               | QA lead         | Run [Quick-Run](../navigate/quick-run) + [Link Integrity runbook](./link-integrity.md) before closing |
+| Signal                    | Audience                      | Channel                         | Owner           | Notes                                        |
+| ------------------------- | ----------------------------- | ------------------------------- | --------------- | -------------------------------------------- |
+| Daily checkpoint (10 min) | Core transition team          | Async thread with template      | Facilitator     | Share blockers + highlight upcoming promises |
+| Weekly executive update   | Sponsors + partner teams      | Snapshot doc + link to receipts | Program manager | Include SLA/RACI deltas + next focus         |
+| Release-ready review      | QA, doc steward, product lead | Live call + notes               | QA lead         | Run [Quick-Run](../navigate/quick-run)       |
 
 ## Communication promises
 
@@ -65,13 +64,12 @@ When a promise is violated, the on-call should know exactly who to page.
 
 ## After the handover
 
-1. Archive the fulfilled promises in the [State ledger](../navigate/state-ledger.md) with the release tag.
-2. Note any exceptions or escalations in the [Link Integrity runbook](./link-integrity.md) if they affected docs.
-3. Update the [Fast support index](../support/) if new interrupts surfaced during the transition.
-4. Review this page every 6 months—promises that no one owns should be removed or reassigned.
+1. Archive the fulfilled promises in the [State ledger](../navigate/state-ledger) with the release tag.
+2. Update the [Fast support index](../support/) if new interrupts surfaced during the transition.
+3. Review this page every 6 months—promises that no one owns should be removed or reassigned.
 
 ## Related references
 
-- [Handover RACI template](./handover-raci-template.md) — align each promise with the accountable role.
-- [SLI states map](../navigate/sli-states.md) — show state changes when promises trigger handoffs.
+- [Handover RACI template](./handover-raci-template) — align each promise with the accountable role.
+- [SLI states map](../navigate/sli-states) — show state changes when promises trigger handoffs.
 - [Playbook canon](../operate/) — link to the governing decision patterns you referenced.

@@ -38,24 +38,19 @@ leading_metric: m-time-to-freeze
 lagging_metric: m-time-to-recovery
 decision_link: /decisions/dec-2025-11-ia-overhaul.md
 date: '2025-11-11'
+search: false
 ---
 
-Verify experiment scripts are injected once, load from the right CDN, and aren’t blocked by CSP. [Run the sanity checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).
+Verify experiment scripts are injected once, load from the right CDN, and aren’t blocked by CSP. [Run the sanity checks](#quick-path) or [Escalate to Support IT](../support-it/contacting-it).
 
 > **Works here:** staging + prod · VWO + Bloomreach · Regions: MY, DK  
-> **Owner:** Web Platform (`/support-it/contacting-it`)
+> **Owner:** Web Platform (`Web Platform-O365/Issues-Support`)
 
 ## Quick path
 
 1. **One instance only**: Open DevTools → Console and run the snippet below. Expect **1** VWO and **1** Bloomreach.
-
-   ![Console output counting VWO and Bloomreach scripts](/img/support/vwo-bloomreach-sanity-1.png)
-
 2. **Correct URL**: Network tab confirms vendor CDN with **200** and no 404.
 3. **CSP**: Console has no `blocked by Content Security Policy` errors.
-
-   ![Network waterfall showing vendor scripts loading once](/img/support/vwo-bloomreach-sanity-2.png)
-
 4. **Order**: Bloomreach loads after core; experiments don’t delay page load > 200 ms.
 5. **Staging vs Prod**: Keys/IDs match environment.
 
@@ -79,10 +74,10 @@ Env keys/IDs: <staging/prod ids>
 Network screenshots attached
 ```
 
-**Handoff** → [/support-it/contacting-it](/support-it/contacting-it)
+**Handoff** → [/support-it/contacting-it](../support-it/contacting-it)
 
 ## Related references
 
 - [Fast support index](./index.md) — Route to other flows when scripts aren’t the issue.
-- [Accessibility Quick Wins](../accessibility-quick-wins.md) — Re-check if experiments inject UI that could regress a11y.
+- [Accessibility Quick Wins](../operate/accessibility-quick-wins.md) — Re-check if experiments inject UI that could regress a11y.
 - [Monthly cadence](../navigate/monthly-release.md) — Document significant experiment fixes in the release log.

@@ -23,7 +23,7 @@ date: '2025-11-11'
 
 # UI Baseline
 
-Consistent UI happens when every team uses the same tokens and states. [Apply the specs](#layout-rules) or [Browse the runbooks index](.../operate/runbooks-index).
+Consistent UI happens when every team uses the same tokens and states. [Apply the specs](#layout-rules) or [Browse the runbooks index](../operate/index).
 
 What: Canonical specs for spacing, typography, and states across product surfaces.
 Why: Prevents drift between teams and keeps polished UI without pixel-policing.
@@ -65,6 +65,6 @@ Use sentence case. Reserve bold for emphasis or inline labels, not whole paragra
 - [ ] Keyboard order matches visual flow.
 - [ ] Focus indicators never removed.
 - [ ] Icon-only buttons include `aria-label`.
-- [ ] Content passes [Accessibility Quick Wins](../accessibility-quick-wins).
+- [ ] Content passes [Accessibility Quick Wins](../operate/accessibility-quick-wins).
 
 Reference Figma file: `Northbook / Foundations / UI`. Ping @lop before diverging from tokens.

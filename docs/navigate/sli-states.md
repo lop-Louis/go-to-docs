@@ -26,7 +26,7 @@ date: '2025-11-11'
 
 # SLI States
 
-This map keeps every initiative’s SLI state and guardrails obvious. [Place your initiative](#sli-states) or [Read the Verify-in-10 guide](.../operate/verify-in-10).
+This map keeps every initiative’s SLI state and guardrails obvious. [Place your initiative](#sli-states) or [Read the Verify-in-10 guide](../operate/verify-in-10).
 
 | State            | Entry signals                                                                 | Exit signals                                                         | SLI guardrail                                                  |
 | ---------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -41,7 +41,7 @@ This map keeps every initiative’s SLI state and guardrails obvious. [Place you
 1. **Tag every initiative** in the planning doc or kanban we expose publicly. If a stream lacks a state, it is invisible by default.
 2. **Review once a week** (calendar it) and note anything that breached its SLI. A breached guardrail is a decision prompt, not a scarlet letter.
 3. **Escalate by state**:
-   - Framing stuck? Re-run the [20-minute handover drill](.../operate/handover-20-min.md).
+   - Framing stuck? Re-run the [20-minute handover drill](../operate/handover-20-min.md).
    - Build overloaded? Drop the lowest-impact stream until WIP <= 3.
    - Verify or Ready stalled? Use the [Fix it fast index](../support/) to clear the blocker or page an owner.
 4. **Publish the board** (screenshot or embed) wherever leadership expects status so the SLI legend is obvious.
@@ -61,7 +61,7 @@ This map keeps every initiative’s SLI state and guardrails obvious. [Place you
 
 ## Related references
 
-- [State visibility map](.../operate/state-visibility.md) — Publish this table in your shared status doc.
-- [Transition operating promises](.../operate/transition-operating-promises.md) — Define what happens when an SLI breaches.
+- [State visibility map](../operate/state-visibility.md) — Publish this table in your shared status doc.
+- [Transition operating promises](../operate/transition-operating-promises.md) — Define what happens when an SLI breaches.
 - [State ledger](../navigate/state-ledger.md) — Note state changes when you tag a release.
-- [Verify-in-10 guide](.../operate/verify-in-10.md) + [10-minute lab](../labs/verify-in-10.md) — Default gate before moving from Verify to Live.
+- [Verify-in-10 guide](../operate/verify-in-10.md) + [10-minute lab](../labs/verify-in-10.md) — Default gate before moving from Verify to Live.

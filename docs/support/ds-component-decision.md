@@ -38,7 +38,7 @@ decision_link: /decisions/dec-2025-11-ia-overhaul.md
 date: '2025-11-11'
 ---
 
-Make a consistent call on whether to use, extend, or fork a DS component without re-litigating. [Walk the decision steps](#quick-path) or [Review the handshake contract pattern](/operate/handshake-contracts).
+Make a consistent call on whether to use, extend, or fork a DS component without re-litigating. [Walk the decision steps](#quick-path) or [Review the handshake contract pattern](../operate/handshake-contracts).
 
 > **Works here:** prod · Flos UI · Regions: MY, DK  
 > **Owner:** Design System Lead
@@ -46,14 +46,8 @@ Make a consistent call on whether to use, extend, or fork a DS component without
 ## Quick path
 
 1. **Match**: Does an existing DS component meet the user need? If yes, use as-is.
-
-   ![Design System gallery callouts](/img/support/ds-component-decision-1.png)
-
 2. **Extend**: If 1–2 new props solve it without breaking a11y/tokens, propose an extension.
 3. **Compose**: Combine DS components before creating something new.
-
-   ![Component checklist illustrating compose-first approach](/img/support/ds-component-decision-2.png)
-
 4. **Fork**: Only when 1–3 fail and you have backing from the DS owner.
 
 ### “Show me” snippet (safe extend)
@@ -81,10 +75,10 @@ Review slot: <date>
 
 Forks explode maintenance; extensions keep invariants, tokens, and tests intact.
 
-**Handoff** → [/operate/handshake-contracts](/operate/handshake-contracts)
+**Handoff** → [/operate/handshake-contracts](../operate/handshake-contracts)
 
 ## Related references
 
 - [Playbook canon](../operate/) — Especially the Handshake Contracts and Decision Spine entries referenced here.
 - [Quick-Run check](../navigate/quick-run.md) — Run after editing DS documentation to keep receipts.
-- [Accessibility Quick Wins](../accessibility-quick-wins.md) — Validate any component extension still honors the a11y baseline.
+- [Accessibility Quick Wins](../operate/accessibility-quick-wins.md) — Validate any component extension still honors the a11y baseline.
