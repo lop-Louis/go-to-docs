@@ -136,6 +136,10 @@ export const generatedSidebar = [
       {
         text: 'Signal Registry',
         link: '/operate/signal-registry'
+      },
+      {
+        text: 'Guardrail index',
+        link: '/operate/guardrail-index'
       }
     ]
   },

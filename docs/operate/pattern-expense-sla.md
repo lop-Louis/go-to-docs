@@ -1,5 +1,5 @@
 ---
-title: "Policy \u2192 Action Pattern (Expenses)"
+title: Policy → Action Pattern (Expenses)
 band: A
 owner: '@lop-Louis'
 refresh_after_days: 180
@@ -8,13 +8,22 @@ status: live
 labels:
   - finance
 audience: People converting finance policies into public-safe actions
-tone: Plainspoken, candid, energetic
-narrative_goal: Show how to translate expense policy into fast, safe guidance
+tone: 'Plainspoken, candid, energetic'
+narrative_goal: 'Show how to translate expense policy into fast, safe guidance'
 nav_group: Operate
 nav_order: 40
 nav_label: Policy-to-action example
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Policy → Action Pattern (Expenses)

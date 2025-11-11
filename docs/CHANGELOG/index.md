@@ -10,6 +10,15 @@ tone: practical
 narrative_goal: Explain where release notes live after the changelog sunset
 nav:
   - none
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-09'
 ---
 
 This page is deprecated. Release bundles now live under [`ops/releases/YYYY-MM/`](https://github.com/lop-louis/go-to-docs/tree/main/ops/releases) and the public [State ledger](../navigate/state-ledger.md) replaces the changelog.

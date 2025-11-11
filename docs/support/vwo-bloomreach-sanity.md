@@ -6,10 +6,16 @@ refresh_after_days: 45
 change_type: patch
 status: live
 works_here:
-  env: [staging, prod]
-  apps: [VWO, Bloomreach]
-  regions: [MY, DK]
-audience: engineers, marketers
+  env:
+    - staging
+    - prod
+  apps:
+    - VWO
+    - Bloomreach
+  regions:
+    - MY
+    - DK
+audience: 'engineers, marketers'
 purpose: Detect duplicate/incorrect injections and CSP blocks quickly.
 owner_role: Web Platform
 last_verified: '2025-11-07'
@@ -23,6 +29,15 @@ nav:
 nav_group: Support
 nav_order: 50
 nav_label: VWO/Bloomreach sanity
+bucket: mitigate
+north_star_id: ns-001
+guardrail_id: gr-102
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
+leading_metric: m-time-to-freeze
+lagging_metric: m-time-to-recovery
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Verify experiment scripts are injected once, load from the right CDN, and aren’t blocked by CSP. [Run the sanity checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).

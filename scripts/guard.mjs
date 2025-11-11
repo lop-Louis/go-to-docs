@@ -70,10 +70,47 @@ let yellow = []
 let fileCount = 0
 let checkCount = 0
 
+const toneLintPath = path.join(process.cwd(), 'ops', 'tone_lint.json')
+let ctaAllowlist = []
+let ctaBanlist = []
+if (fs.existsSync(toneLintPath)) {
+  try {
+    const toneConfig = JSON.parse(fs.readFileSync(toneLintPath, 'utf8'))
+    ctaAllowlist = (toneConfig.allowlist_cta || []).map(entry => entry.toLowerCase().trim())
+    ctaBanlist = (toneConfig.banlist_terms || []).map(entry => entry.toLowerCase().trim())
+  } catch (error) {
+    console.warn(`Warning: unable to parse ${toneLintPath}: ${error.message}`)
+  }
+}
+
+function checkCtaLabel(filePath, labelType, value) {
+  if (!value || typeof value !== 'string') return
+  const trimmed = value.trim()
+  if (!trimmed) return
+  const lower = trimmed.toLowerCase()
+
+  for (const banned of ctaBanlist) {
+    if (banned && lower.includes(banned)) {
+      red.push(
+        `${filePath}: CTA ${labelType} label "${trimmed}" contains banned term "${banned}" (blocking)`
+      )
+      checkCount++
+      return
+    }
+  }
+
+  if (ctaAllowlist.length && !ctaAllowlist.some(entry => entry && lower.startsWith(entry))) {
+    yellow.push(
+      `${filePath}: CTA ${labelType} label "${trimmed}" is not in the allowlist (nudge only)`
+    )
+    checkCount++
+  }
+}
+
 function checkFile(p) {
   fileCount++
   const raw = fs.readFileSync(p, 'utf8')
-  const { content } = matter(raw)
+  const { content, data } = matter(raw)
 
   // Skip VitePress config directory
   if (p.includes('.vitepress')) return
@@ -144,6 +181,39 @@ function checkFile(p) {
     }
     yellow.push(`${p}: External link to ${url} missing utm_source=northbook for analytics tracking`)
     checkCount++
+  }
+
+  const receiptsLinkPattern = /\[See the receipts\]\(([^)]+)\)/gi
+  let receiptsMatch
+  while ((receiptsMatch = receiptsLinkPattern.exec(content)) !== null) {
+    const link = receiptsMatch[1]
+    const normalized = link.split('#')[0]
+    const isReceiptsPath =
+      normalized.startsWith('/signals/receipts/') || normalized.startsWith('../signals/receipts/')
+
+    if (!isReceiptsPath) {
+      red.push(`${p}: Receipts link "${link}" must point to /signals/receipts/<tag>.md (blocking)`)
+      checkCount++
+      continue
+    }
+
+    if (!normalized.startsWith('http')) {
+      let target
+      if (normalized.startsWith('/')) {
+        target = path.join(process.cwd(), normalized.replace(/^\//, ''))
+      } else {
+        target = path.resolve(path.dirname(p), normalized)
+      }
+      if (!fs.existsSync(target)) {
+        red.push(`${p}: Receipts link target "${normalized}" not found on disk (blocking)`)
+        checkCount++
+      }
+    }
+  }
+
+  if (data) {
+    checkCtaLabel(p, 'primary', data.cta_primary_label)
+    checkCtaLabel(p, 'secondary', data.cta_secondary_label)
   }
 }
 

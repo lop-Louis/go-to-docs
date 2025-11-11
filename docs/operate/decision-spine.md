@@ -7,13 +7,22 @@ change_type: patch
 status: live
 last_reviewed: '2025-11-04'
 audience: Deciders and collaborators tackling multi-team technical choices
-tone: Plainspoken, candid, energetic
-narrative_goal: Give a reusable structure for framing, deciding, and reviewing work
+tone: 'Plainspoken, candid, energetic'
+narrative_goal: 'Give a reusable structure for framing, deciding, and reviewing work'
 nav_group: Operate
 nav_order: 10
 nav_label: Decision spine
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-04'
 ---
 
 # Decision Spine

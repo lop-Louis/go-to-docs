@@ -10,6 +10,15 @@ nav_order: 15
 nav_label: Quick-Run check
 nav:
   - none
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Quick-Run

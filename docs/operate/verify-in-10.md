@@ -6,13 +6,22 @@ change_type: patch
 status: live
 refresh_after_days: 60
 audience: Operators and reviewers moving work from Verify to Live
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Explain when and why to run Verify-in-10 before using the lab
 nav_group: Operate
 nav_order: 35
 nav_label: Verify-in-10 guide
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Verify-in-10 (Guide)

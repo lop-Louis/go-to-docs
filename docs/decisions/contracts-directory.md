@@ -8,9 +8,20 @@ refresh_after_days: 60
 decider: '@lop'
 decision_date: '2025-11-10'
 next_review: '2026-01-10'
-success_metric: Users can open the right governance doc in ≤60 seconds and every contract links to its release receipts.
+success_metric: >-
+  Users can open the right governance doc in ≤60 seconds and every contract
+  links to its release receipts.
 related_contract: ../contracts/northbook-operations-contract-v1.md
 release_tag: site-v2025.11
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Contracts directory

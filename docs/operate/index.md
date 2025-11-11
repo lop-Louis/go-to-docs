@@ -5,7 +5,7 @@ owner: '@lop'
 refresh_after_days: 90
 change_type: patch
 status: live
-audience: Teams aligning on principles, policies, and shared patterns
+audience: 'Teams aligning on principles, policies, and shared patterns'
 tone: plainspoken
 narrative_goal: Point to the core playbook pages that keep guidance consistent
 nav_group: Operate
@@ -15,9 +15,26 @@ nav:
   - slot: main
     label: Operate
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Keep guidance consistent without adding chores. [Open the playbook page you need](#playbook-pages) or [Give feedback on the playbook](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Playbook%20index&body=Page:%20https://northbook.guide/operate/).
+Exit metric: annex labs stay ≥ 0.9 pass rate and defects per changed page ≤ 0.05.
+
+::: tip Tiny receipts — Operate (v2025.11)
+
+- m-lab-pass: 0.94 across Verify-in-10 runs
+- m-defect-rate-changed-pages: 0.03
+  [See the receipts](../signals/receipts/v2025.11-operate.md)
+  :::
 
 These entries inherit the [content governance rules](/governance) so readers recognize layout, tone, and CTA placement at a glance.
 

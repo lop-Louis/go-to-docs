@@ -5,6 +5,15 @@ owner: '@lop'
 change_type: patch
 refresh_after_days: 90
 status: archived
+bucket: learn
+north_star_id: ns-001
+guardrail_id: gr-105
+cta_primary_label: Learn more dashboards
+cta_secondary_label: See example receipts
+leading_metric: m-dashboard-freshness-days
+lagging_metric: m-decision-hit-rate
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Release receipts now live in the automated State ledger. [Open the State ledger](../navigate/state-ledger.md) or [Browse the release bundles](../../ops/releases).

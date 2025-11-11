@@ -6,11 +6,15 @@ refresh_after_days: 45
 change_type: patch
 status: live
 works_here:
-  env: [staging]
-  apps: ['Feature flag SDK']
-  regions: [MY, DK]
-audience: engineers, QA
-purpose: Verify environment, SDK keys, and targeting; then escalate with proof.
+  env:
+    - staging
+  apps:
+    - Feature flag SDK
+  regions:
+    - MY
+    - DK
+audience: 'engineers, QA'
+purpose: 'Verify environment, SDK keys, and targeting; then escalate with proof.'
 owner_role: Platform Eng
 last_verified: '2025-11-07'
 next_review: '2026-02-07'
@@ -23,6 +27,15 @@ nav:
 nav_group: Support
 nav_order: 40
 nav_label: Feature flag on staging
+bucket: mitigate
+north_star_id: ns-001
+guardrail_id: gr-102
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
+leading_metric: m-time-to-freeze
+lagging_metric: m-time-to-recovery
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Confirm staging feature flags in minutes before looping in the platform team. [Run the flag checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).

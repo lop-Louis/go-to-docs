@@ -6,9 +6,14 @@ refresh_after_days: 60
 change_type: patch
 status: live
 works_here:
-  env: [prod]
-  apps: [GitHub, 'Azure DevOps']
-  regions: [MY, DK]
+  env:
+    - prod
+  apps:
+    - GitHub
+    - Azure DevOps
+  regions:
+    - MY
+    - DK
 audience: engineers
 purpose: Fix common permission misses; otherwise file a precise access request.
 owner_role: Platform Eng
@@ -23,6 +28,15 @@ nav:
 nav_group: Support
 nav_order: 20
 nav_label: 'Fix: Repo & pipeline access'
+bucket: mitigate
+north_star_id: ns-001
+guardrail_id: gr-102
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
+leading_metric: m-time-to-freeze
+lagging_metric: m-time-to-recovery
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Unblock repo or pipeline access in five minutes, then escalate with a clean request. [Follow the quick checks](#quick-path) or [Escalate to Support IT](/support-it/contacting-it).

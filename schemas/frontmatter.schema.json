@@ -3,7 +3,22 @@
   "title": "Northbook frontmatter",
   "type": "object",
   "additionalProperties": true,
-  "required": ["title", "band", "owner", "refresh_after_days", "change_type", "status"],
+  "required": [
+    "title",
+    "band",
+    "owner",
+    "refresh_after_days",
+    "change_type",
+    "status",
+    "bucket",
+    "north_star_id",
+    "guardrail_id",
+    "cta_primary_label",
+    "cta_secondary_label",
+    "leading_metric",
+    "lagging_metric",
+    "date"
+  ],
   "properties": {
     "title": {
       "type": "string",
@@ -85,6 +100,60 @@
     },
     "nav_order": {
       "type": "number"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "bucket": {
+      "type": "string",
+      "enum": ["navigate", "operate", "learn", "mitigate"]
+    },
+    "north_star_id": {
+      "type": "string",
+      "const": "ns-001"
+    },
+    "guardrail_id": {
+      "type": "string",
+      "enum": ["gr-101", "gr-102", "gr-103", "gr-104", "gr-105"]
+    },
+    "cta_primary_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cta_secondary_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "leading_metric": {
+      "type": "string",
+      "enum": [
+        "m-nav-open",
+        "m-time-to-answer",
+        "m-lab-pass",
+        "m-defect-rate-changed-pages",
+        "m-dashboard-freshness-days",
+        "m-decision-hit-rate",
+        "m-time-to-freeze",
+        "m-time-to-recovery"
+      ]
+    },
+    "lagging_metric": {
+      "type": "string",
+      "enum": [
+        "m-nav-open",
+        "m-time-to-answer",
+        "m-lab-pass",
+        "m-defect-rate-changed-pages",
+        "m-dashboard-freshness-days",
+        "m-decision-hit-rate",
+        "m-time-to-freeze",
+        "m-time-to-recovery"
+      ]
+    },
+    "decision_link": {
+      "type": "string",
+      "minLength": 1
     }
   }
 }

@@ -31,6 +31,10 @@
     {
       "title": "Verify-in-10 decision",
       "path": "docs/decisions/verify-in-10.md"
+    },
+    {
+      "title": "Deep-embed North Star governance decision",
+      "path": "docs/decisions/adopt-deep-embed-north-star.md"
     }
   ],
   "signals": [

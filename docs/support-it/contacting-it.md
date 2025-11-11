@@ -6,11 +6,19 @@ refresh_after_days: 60
 change_type: patch
 status: live
 works_here:
-  env: [prod, staging]
-  apps: [Teams, ServiceNow]
-  regions: [MY, DK]
+  env:
+    - prod
+    - staging
+  apps:
+    - Teams
+    - ServiceNow
+  regions:
+    - MY
+    - DK
 audience: everyone
-purpose: Provide a single place to escalate unresolved IT blockers with the right evidence.
+purpose: >-
+  Provide a single place to escalate unresolved IT blockers with the right
+  evidence.
 owner_role: Support IT liaison
 last_verified: '2025-11-07'
 next_review: '2026-02-07'
@@ -18,6 +26,15 @@ tone: practical
 narrative_goal: resolve
 nav:
   - none
+bucket: mitigate
+north_star_id: ns-001
+guardrail_id: gr-102
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
+leading_metric: m-time-to-freeze
+lagging_metric: m-time-to-recovery
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Escalate stubborn IT issues with a clean packet so the liaison can act fast. [Prep the escalation packet](#prep-the-packet) or [Pick a contact channel](#contact-options).

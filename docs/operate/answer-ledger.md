@@ -7,13 +7,22 @@ change_type: patch
 status: live
 last_reviewed: '2025-11-04'
 audience: Team leads and knowledge stewards who maintain shared answers
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Show how to capture recurring questions into a searchable ledger
 nav_group: Operate
 nav_order: 20
 nav_label: Answer ledger pattern
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-04'
 ---
 
 # Answer Ledger Pattern

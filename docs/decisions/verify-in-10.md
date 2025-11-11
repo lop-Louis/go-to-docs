@@ -8,9 +8,21 @@ refresh_after_days: 60
 decider: '@lop'
 decision_date: '2025-11-10'
 next_review: '2025-12-08'
-success_metric: ≥80% of homepage clicks choose the guide before the lab, ≥60% of Start sessions trigger an SLI action, and the Verify lab runs in ≤10 minutes with telemetry captured.
+success_metric: >-
+  ≥80% of homepage clicks choose the guide before the lab, ≥60% of Start
+  sessions trigger an SLI action, and the Verify lab runs in ≤10 minutes with
+  telemetry captured.
 related_contract: ../contracts/northbook-operations-contract-v1.md
 release_tag: site-v2025.11
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Verify-in-10 guide + lab

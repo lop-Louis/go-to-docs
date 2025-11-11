@@ -1,15 +1,24 @@
 ---
-title: "Guides \u2260 Rules"
+title: Guides ≠ Rules
 change_type: minor
 band: A
 owner: '@lop'
 refresh_after_days: 60
 status: draft
 audience: Teams clarifying when guidance or hard rules apply
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Set expectations for how guides differ from enforceable rules
 nav:
   - none
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Guides ≠ Rules

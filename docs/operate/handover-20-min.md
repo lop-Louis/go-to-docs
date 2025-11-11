@@ -6,13 +6,22 @@ owner: '@lop'
 refresh_after_days: 60
 status: draft
 audience: Stream leads executing a rapid handover
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Lay out the steps that move work from Framing to Ready fast
 nav_group: Operate
 nav_order: 10
 nav_label: 20-minute handover
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # 20-minute handover drill

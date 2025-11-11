@@ -6,10 +6,19 @@ refresh_after_days: 120
 change_type: minor
 status: live
 audience: Designers and engineers building shared UI
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Lock in the visual system so product surfaces feel unified
 nav:
   - none
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # UI Baseline

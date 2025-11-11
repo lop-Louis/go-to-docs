@@ -82,8 +82,9 @@ function runScan() {
     const { data, content } = matter(raw)
     const relative = path.relative(repoRoot, filePath)
 
-    // Skip layout: home pages
-    if (data && data.layout === 'home') continue
+    const isHome = data && data.layout === 'home'
+    const isBandA = data && data.band === 'A'
+    if (isHome || !isBandA) continue
 
     const intro = extractIntro(content)
     const linkMatches = []

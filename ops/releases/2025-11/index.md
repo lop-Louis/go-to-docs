@@ -24,6 +24,7 @@ Monthly release artefacts live here. Follow the release folder decision for nami
 - [Release-centric ops folders](../../../docs/decisions/release-folders.md)
 - [Automate state and release pages](../../../docs/decisions/automation-state-pages.md)
 - [Verify-in-10 decision](../../../docs/decisions/verify-in-10.md)
+- [Deep-embed North Star governance decision](../../../docs/decisions/adopt-deep-embed-north-star.md)
 
 ## Signals
 

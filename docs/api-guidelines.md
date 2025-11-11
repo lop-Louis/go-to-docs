@@ -7,11 +7,19 @@ change_type: minor
 status: live
 last_reviewed: '2025-11-04'
 audience: Engineers designing and reviewing HTTP APIs
-tone: Plainspoken, candid, energetic
-narrative_goal: Capture the baseline rules for Northbook APIs until the full guide
-  ships
+tone: 'Plainspoken, candid, energetic'
+narrative_goal: Capture the baseline rules for Northbook APIs until the full guide ships
 nav:
   - none
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-04'
 ---
 
 # API Guidelines (Stub)

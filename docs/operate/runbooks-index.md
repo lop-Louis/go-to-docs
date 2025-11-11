@@ -6,13 +6,22 @@ owner: '@lop'
 refresh_after_days: 60
 status: live
 audience: Maintainers looking for operational to-do checklists
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Point to the tactical runbooks kept out of guidance sections
 nav_group: Operate
 nav_order: 10
 nav_label: All runbooks
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Runbooks

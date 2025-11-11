@@ -8,7 +8,7 @@ change_type: patch
 status: live
 last_reviewed: '2025-01-15'
 audience: Anyone looking for Northbook guidance and entry points
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Orient newcomers to the core pillars and where to start
 hero:
   name: Northbook
@@ -16,7 +16,9 @@ hero:
   image:
     src: /logo-symbol.png
     alt: Northbook logo
-  tagline: A visitor reaches the right doc and a runnable next action in under 60 seconds, for at least 80% of sessions.
+  tagline: >-
+    A visitor reaches the right doc and a runnable next action in under 60
+    seconds, for at least 80% of sessions.
   actions:
     - theme: brand
       text: Place your initiative on the SLI map
@@ -26,19 +28,34 @@ hero:
       link: /operate/verify-in-10?cta=home-verify-guide
 features:
   - title: Navigate fast
-    details: Place every initiative on the SLI map so the seam, guardrail, and next constraint are obvious in under a minute.
+    details: >-
+      Place every initiative on the SLI map so the seam, guardrail, and next
+      constraint are obvious in under a minute.
     link: /navigate/sli-states
     linkText: Open the SLI map
   - title: Operate with freedom
-    details: Ship small and prove it—read the Verify-in-10 guide, run the 10-minute lab, and keep the North Star guardrails visible.
+    details: >-
+      Ship small and prove it—read the Verify-in-10 guide, run the 10-minute
+      lab, and keep the North Star guardrails visible.
     link: /operate/verify-in-10
     linkText: Run Verify-in-10
   - title: Support with guidance
-    details: Clear the top interrupts via three Fix flows, each capped at 10 minutes with escalation packets ready for handoff.
+    details: >-
+      Clear the top interrupts via three Fix flows, each capped at 10 minutes
+      with escalation packets ready for handoff.
     link: /support/
     linkText: Open Fix flows
 nav:
   - none
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-01-15'
 ---
 
 Find the answer. Act within 60 seconds. [Place your initiative on the SLI map](./navigate/sli-states) or [Read the Verify-in-10 guide](./operate/verify-in-10).

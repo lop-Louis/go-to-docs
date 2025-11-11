@@ -7,13 +7,22 @@ change_type: patch
 status: live
 last_reviewed: '2025-11-04'
 audience: Engineers and collaborators onboarding to Northbook habits
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Answer recurring new-joiner questions with actionable next steps
 nav_group: Navigate
 nav_order: 20
 nav_label: New joiner FAQ
 nav:
   - sidebar
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-04'
 ---
 
 # FAQ for New Joiners

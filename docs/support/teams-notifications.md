@@ -6,11 +6,18 @@ refresh_after_days: 60
 change_type: patch
 status: live
 works_here:
-  env: [prod]
-  apps: ['Microsoft Teams desktop', 'Microsoft Teams web']
-  regions: [MY, DK]
+  env:
+    - prod
+  apps:
+    - Microsoft Teams desktop
+    - Microsoft Teams web
+  regions:
+    - MY
+    - DK
 audience: everyone
-purpose: Resolve common "no toast/badge" issues in under 10 minutes; otherwise hand off cleanly.
+purpose: >-
+  Resolve common "no toast/badge" issues in under 10 minutes; otherwise hand off
+  cleanly.
 owner_role: Support IT liaison
 last_verified: '2025-11-07'
 next_review: '2026-02-07'
@@ -23,6 +30,15 @@ nav:
 nav_group: Support
 nav_order: 10
 nav_label: 'Fix: Teams notifications'
+bucket: mitigate
+north_star_id: ns-001
+guardrail_id: gr-102
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
+leading_metric: m-time-to-freeze
+lagging_metric: m-time-to-recovery
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Keep Teams notifications reliable with a 10-minute check path before involving IT. [Run the quick checks](#quick-path-37-checks) or [Escalate to Support IT](../support-it/contacting-it).

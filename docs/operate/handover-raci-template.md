@@ -6,13 +6,22 @@ owner: '@lop'
 refresh_after_days: 120
 status: live
 audience: Stream leads packaging a handover
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Offer a public-safe RACI matrix teams can copy fast
 nav_group: Operate
 nav_order: 20
 nav_label: Handover RACI template
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Handover RACI template

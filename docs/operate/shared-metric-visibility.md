@@ -6,13 +6,22 @@ owner: '@lop'
 refresh_after_days: 120
 status: live
 audience: Stream leads aligning around one transition metric
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Lock in the baseline -> target -> date promise and keep it visible
 nav_group: Operate
 nav_order: 60
 nav_label: Shared metric visibility
 nav:
   - sidebar
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
+leading_metric: m-lab-pass
+lagging_metric: m-defect-rate-changed-pages
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 # Shared metric visibility

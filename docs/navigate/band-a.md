@@ -7,13 +7,22 @@ change_type: patch
 status: live
 last_reviewed: '2025-11-04'
 audience: Anyone publishing public-safe guidance from Northbook
-tone: Plainspoken, candid, energetic
+tone: 'Plainspoken, candid, energetic'
 narrative_goal: Explain what qualifies as Band A content and how to sanitize it
 nav_label: Band A guardrails
 nav_group: Navigate
 nav_order: 40
 nav:
   - sidebar
+bucket: navigate
+north_star_id: ns-001
+guardrail_id: gr-101
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
+leading_metric: m-nav-open
+lagging_metric: m-time-to-answer
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-04'
 ---
 
 # What is Band A

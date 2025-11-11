@@ -6,10 +6,14 @@ refresh_after_days: 60
 change_type: patch
 status: live
 works_here:
-  env: [prod]
-  apps: ['Flos UI']
-  regions: [MY, DK]
-audience: engineers, designers
+  env:
+    - prod
+  apps:
+    - Flos UI
+  regions:
+    - MY
+    - DK
+audience: 'engineers, designers'
 purpose: Decide use vs extend vs fork in <10 minutes.
 owner_role: Design System Lead
 last_verified: '2025-11-07'
@@ -17,12 +21,21 @@ next_review: '2026-02-07'
 tone: practical
 narrative_goal: decide
 adr_ref: /governance/decisions/ds-fork-policy.html
-stop_rule: If tokens or a11y rules change, refresh immediately.
+stop_rule: 'If tokens or a11y rules change, refresh immediately.'
 nav:
   - none
 nav_group: Support
 nav_order: 30
 nav_label: Design system component
+bucket: mitigate
+north_star_id: ns-001
+guardrail_id: gr-102
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
+leading_metric: m-time-to-freeze
+lagging_metric: m-time-to-recovery
+decision_link: /decisions/adopt-deep-embed-north-star
+date: '2025-11-11'
 ---
 
 Make a consistent call on whether to use, extend, or fork a DS component without re-litigating. [Walk the decision steps](#quick-path) or [Review the handshake contract pattern](/operate/handshake-contracts).
