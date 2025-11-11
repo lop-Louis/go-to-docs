@@ -58,6 +58,7 @@ Exit metric: dashboards refresh within 30 days and decision hit rate stays ≥ 6
 
 ## Related references
 
+- [Receipts & dashboards](./receipts.md)
 - [Signal registry](../operate/signal-registry.md)
 - [State ledger](../navigate/state-ledger.md)
 - [Verify-in-10 guide](../operate/verify-in-10.md)

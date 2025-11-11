@@ -53,6 +53,6 @@ Want a new pattern canonized? [Propose an addition to the playbook](https://gith
 
 ## Related references
 
-- [Start overview](../navigate/index.md) — Direct newcomers here before dropping them into canonical playbooks.
+- [Start overview](../start-here/index.md) — Direct newcomers here before dropping them into canonical playbooks.
 - [Runbooks index](../operate/runbooks-index.md) — Use this when a pattern needs a chore-heavy counterpart.
 - [Transition operating promises](../operate/transition-operating-promises.md) — Where playbook language turns into enforceable promises.

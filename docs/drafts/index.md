@@ -36,3 +36,7 @@ Exit metric: zero sanitization red-lines on public pages; blocked work stays pri
 1. Fix the opener pattern, frontmatter, CTA mapping, and sanitization issues.
 2. Move the page back under `navigate/`, `operate/`, `learn/`, or `mitigate`.
 3. Re-run `pnpm run docs:guard`; when green, update the PR with proof or receipts.
+
+## Current gated pages
+
+Auto-generated list: [gated work](./gated.generated.md). Anything on that list stays out of the sitemap until the opener pattern + frontmatter pass the guardrails.

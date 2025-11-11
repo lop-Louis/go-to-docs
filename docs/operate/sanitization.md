@@ -28,6 +28,7 @@ date: '2025-11-04'
 # Sanitization Guidance
 
 Northbook only ships guidance that anyone can quote safely. [Run the sanitization checklist](#what-sanitization-protects) or [Browse the runbooks index](../operate/runbooks-index). Use these guardrails to keep every page linkable while chore-like checklists stay in `/runbooks`.
+Exit metric: sanitization red-lines stay at zero during the release window.
 
 ## What Sanitization Protects
 

@@ -79,5 +79,5 @@ Network screenshots attached
 ## Related references
 
 - [Fast support index](./index.md) — Route to other flows when scripts aren’t the issue.
-- [Accessibility Quick Wins](../operate/accessibility-quick-wins.md) — Re-check if experiments inject UI that could regress a11y.
+- [UI baseline](../navigate/ui.md) — Re-check if experiments inject UI that could regress a11y.
 - [Monthly cadence](../navigate/monthly-release.md) — Document significant experiment fixes in the release log.

@@ -28,6 +28,7 @@ date: '2025-11-04'
 # What is Band A
 
 Band A keeps our public guidance safe to quote without leaking specifics. [Run the Band A checklist](#what-belongs-in-band-a) or [Browse the runbooks index](../operate/runbooks-index).
+Exit metric: public pages log zero sanitization red-lines during the release window.
 
 > Public-safe content only. Internal specifics live elsewhere.
 
@@ -49,7 +50,7 @@ Band A content is **public-safe** material that can be shared openly without ris
 
 - "A tech lead typically reviews 5–10 pull requests per day" (range, not exact count tied to individuals)
 - "A decision spine can have 4 stages: frame, options, decide, review" (generic pattern)
-- "Accessibility quick wins: keyboard navigation, ARIA labels, color contrast" (industry-standard guidance)
+- "Accessibility baseline: keyboard navigation, ARIA labels, color contrast" (industry-standard guidance)
 - "On-call handoffs should include: context summary, active incidents, next review time" (neutral list)
 
 ❌ **Exclude (never publish):**
@@ -96,4 +97,4 @@ See [Sanitization Checklist](../operate/sanitization) for the full process and f
 
 - [Sanitization checklist](../operate/sanitization) — Deep dive on replacing specifics before shipping.
 - [Anti-drift governance](../operate/governance) — Policy backing these rules and how automation enforces them.
-- [Start overview](./index) — Use this when someone needs the “why” behind Band A.
+- [Start overview](../start-here/index.md) — Use this when someone needs the “why” behind Band A.

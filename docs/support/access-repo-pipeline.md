@@ -40,6 +40,7 @@ date: '2025-11-11'
 ---
 
 Unblock repo or pipeline access in five minutes, then escalate with a clean request. [Follow the quick checks](#quick-path) or [Escalate to Support IT](../support-it/contacting-it).
+Exit metric: ≥90% of access issues resolve or escalate with a complete packet inside 10 minutes.
 
 > **Works here:** prod · GitHub + Azure DevOps · Regions: MY, DK  
 > **Owner:** Platform Engineering (`/support-it/contacting-it`)
@@ -76,4 +77,4 @@ Start/End date: <if temporary>
 
 - [Fast support index](./index.md) — When access isn’t the real blocker, point teammates to another flow.
 - [Transition operating promises](../operate/transition-operating-promises.md) — Record if access delays breach a transition SLA.
-- [Start overview](../navigate/index.md) — Share this when onboarding contributors who keep hitting access friction.
+- [Start overview](../start-here/index.md) — Share this when onboarding contributors who keep hitting access friction.

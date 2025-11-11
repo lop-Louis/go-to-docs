@@ -7,27 +7,88 @@ import prettier from 'prettier'
 
 const repoRoot = process.cwd()
 const docsDir = path.join(repoRoot, 'docs')
+const draftsDir = path.join(docsDir, 'drafts')
+const gatedListPath = path.join(draftsDir, 'gated.generated.md')
 const outputPath = path.join(docsDir, '.vitepress', 'navigation.generated.ts')
-const GROUP_ORDER = new Map([
-  ['Navigate', 10],
-  ['Operate', 20],
-  ['Learn', 30],
-  ['Mitigate', 40]
-])
+const REQUIRED_FIELDS = [
+  'bucket',
+  'north_star_id',
+  'guardrail_id',
+  'owner',
+  'band',
+  'date',
+  'cta_primary_label',
+  'cta_secondary_label',
+  'leading_metric',
+  'lagging_metric'
+]
+const FIXED_NAV = [
+  { text: 'Start here', link: '/start-here/' },
+  { text: 'Navigate', link: '/navigate/' },
+  { text: 'Operate', link: '/operate/' },
+  { text: 'Learn', link: '/learn/' },
+  { text: 'Mitigate', link: '/mitigate/' }
+]
+const SIDEBAR_BLUEPRINT = [
+  {
+    text: 'Navigate',
+    collapsed: false,
+    items: [
+      { text: 'Overview', link: '/navigate/' },
+      { text: 'Wayfinding shortcuts', link: '/navigate/find' },
+      { text: 'State', link: '/navigate/state-ledger' },
+      { text: 'Monthly cadence', link: '/navigate/monthly-release' },
+      { text: 'Band A guardrails', link: '/navigate/band-a' }
+    ]
+  },
+  {
+    text: 'Operate',
+    collapsed: false,
+    items: [
+      { text: 'Versioning & releases', link: '/operate/versioning-and-releases/' },
+      { text: 'Sanitization checklist', link: '/operate/sanitization' },
+      { text: 'Link integrity', link: '/operate/link-integrity' },
+      { text: 'Verify-in-10 guide', link: '/operate/verify-in-10' },
+      { text: 'Decision spine', link: '/operate/decision-spine' },
+      { text: 'Playbook canon', link: '/operate/' },
+      { text: 'Signal registry', link: '/operate/signal-registry' },
+      { text: 'Guardrail index', link: '/operate/guardrail-index' },
+      { text: 'Cloudflare analytics', link: '/operate/cloudflare-analytics' }
+    ]
+  },
+  {
+    text: 'Learn',
+    collapsed: false,
+    items: [{ text: 'Receipts & dashboards', link: '/learn/receipts' }]
+  },
+  {
+    text: 'Mitigate',
+    collapsed: false,
+    items: [
+      { text: 'Fix: Interrupt flows', link: '/support/' },
+      { text: 'Fix: Teams notifications', link: '/support/teams-notifications' },
+      { text: 'Fix: Repo & pipeline access', link: '/support/access-repo-pipeline' }
+    ]
+  }
+]
+
+function ensureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true })
+}
 
 function collectMarkdownFiles(dir) {
   const results = []
 
   function walk(current) {
     const entries = fs.readdirSync(current, { withFileTypes: true })
-
     for (const entry of entries) {
       if (entry.name.startsWith('.')) continue
       if (entry.name === 'node_modules') continue
+      const fullPath = path.join(current, entry.name)
       if (entry.isDirectory()) {
-        walk(path.join(current, entry.name))
+        walk(fullPath)
       } else if (entry.isFile() && entry.name.endsWith('.md')) {
-        results.push(path.join(current, entry.name))
+        results.push(fullPath)
       }
     }
   }
@@ -45,123 +106,128 @@ function routeFromFile(filePath) {
   return `/${relative.replace(/\.md$/, '')}`
 }
 
-function normalizeNavEntry(entry) {
-  if (!entry) return null
-  if (typeof entry === 'string') {
-    return { slot: entry }
-  }
-  if (typeof entry === 'object') {
-    const { slot, label, group, order } = entry
-    return { slot, label, group, order }
-  }
-  return null
+function isDraftPath(filePath) {
+  const relative = path.relative(docsDir, filePath)
+  return relative.split(path.sep).includes('drafts')
 }
 
-function deriveGroup(route) {
-  const clean = route.replace(/^\/+/, '')
-  const [segment] = clean.split('/')
-  switch (segment) {
-    case '':
-    case 'start-here':
-      return 'Navigate'
-    case 'learn':
-      return 'Learn'
-    case 'mitigate':
-    case 'support':
-    case 'fix':
-      return 'Mitigate'
-    default:
-      return 'Operate'
-  }
+function hasOpener(content) {
+  const snippet = content.split('\n').filter(Boolean).slice(0, 40).join('\n').toLowerCase()
+  if (!/exit metric/.test(snippet)) return false
+  const linkMatches = content.match(/\[[^\]]+\]\([^)]+\)/g) || []
+  return linkMatches.length >= 2
 }
 
-function formatItems(items) {
-  return items
-    .sort((a, b) => a.order - b.order || a.text.localeCompare(b.text))
-    .map(({ text, link }) => ({ text, link }))
+function isPublishable(frontmatter, content) {
+  if (!frontmatter) return { ok: false, reason: 'missing frontmatter' }
+  const missing = REQUIRED_FIELDS.filter(key => !frontmatter[key])
+  if (missing.length) {
+    return { ok: false, reason: `missing frontmatter: ${missing.join(', ')}` }
+  }
+  if (!hasOpener(content)) {
+    return { ok: false, reason: 'opener missing exit metric or two CTAs' }
+  }
+  return { ok: true }
+}
+
+function writeGatedList(entries) {
+  ensureDir(draftsDir)
+  const listBody = entries.length
+    ? entries
+        .sort((a, b) => a.route.localeCompare(b.route))
+        .map(entry => `- \`${entry.route}\` — ${entry.reason}`)
+        .join('\n')
+    : '- _None_'
+
+  const fm = {
+    title: 'Gated pages',
+    band: 'A',
+    owner: '@lop',
+    refresh_after_days: 30,
+    change_type: 'patch',
+    status: 'live',
+    nav: ['none'],
+    search: false,
+    bucket: 'operate',
+    north_star_id: 'ns-001',
+    guardrail_id: 'gr-104',
+    cta_primary_label: 'Use this guardrail',
+    cta_secondary_label: 'See example runbook',
+    leading_metric: 'm-nav-open',
+    lagging_metric: 'm-time-to-answer',
+    decision_link: '/decisions/dec-2025-11-proof-or-private.md',
+    date: new Date().toISOString().slice(0, 10)
+  }
+  const intro = `Keep unfinished pages out of nav until they meet the opener contract. [Return to the drafts hub](./index.md) or [Fix the opener contract](../operate/north-star-guardrails.md#ui-delivery-checks).
+Exit metric: gated pages either ship or leave the repo within 30 days.
+
+`
+  const body = `${intro}# Gated pages (auto-generated)
+
+${listBody}
+
+_Last updated: ${new Date().toISOString()}_
+`
+  const output = matter.stringify(body.trim() + '\n', fm)
+  fs.writeFileSync(gatedListPath, output)
+}
+
+function normalizeRoute(link) {
+  if (link === '/') return '/'
+  return link
 }
 
 function buildNavigation() {
   const files = collectMarkdownFiles(docsDir)
-  const mainNav = []
-  const sidebarGroups = new Map()
-
-  const mustHave = [
-    'bucket',
-    'north_star_id',
-    'guardrail_id',
-    'owner',
-    'band',
-    'date',
-    'cta_primary_label',
-    'cta_secondary_label',
-    'leading_metric',
-    'lagging_metric'
-  ]
-
-  function isPublishable(page) {
-    return (
-      mustHave.every(k => page.frontmatter?.[k]) &&
-      page.content.includes('**why**') &&
-      page.content.toLowerCase().includes('**exit metric**')
-    )
-  }
-
-  const publishable = files.filter(isPublishable)
-  const drafts = files.filter(p => !isPublishable(p)) // write these to /drafts index, excluded from sitemap
+  const publishableRoutes = new Set()
+  const gatedPages = []
 
   for (const file of files) {
+    if (file.includes(`${path.sep}.vitepress${path.sep}`)) continue
+    if (isDraftPath(file)) continue
+
     const raw = fs.readFileSync(file, 'utf8')
-    const { data } = matter(raw)
-
-    if (!data || !data.nav) continue
-
-    const entries = Array.isArray(data.nav) ? data.nav : [data.nav]
+    const { data, content } = matter(raw)
     const route = routeFromFile(file)
-    const defaultLabel = data.nav_label || data.short_title || data.title
-    const defaultGroup = data.nav_group
-    const defaultOrder =
-      typeof data.nav_order === 'number' && Number.isFinite(data.nav_order) ? data.nav_order : 1000
+    const result = isPublishable(data, content)
 
-    for (const rawEntry of entries) {
-      const entry = normalizeNavEntry(rawEntry)
-      if (!entry || entry.slot === 'none') continue
-
-      const label = entry.label || defaultLabel
-      if (!label) continue
-      const order =
-        typeof entry.order === 'number' && Number.isFinite(entry.order) ? entry.order : defaultOrder
-
-      if (entry.slot === 'main') {
-        mainNav.push({ text: label, link: route, order })
-      } else if (entry.slot === 'sidebar') {
-        const group = entry.group || defaultGroup || deriveGroup(route)
-        const key = group || 'Guides'
-        const existing = sidebarGroups.get(key) || {
-          text: key,
-          order,
-          items: []
-        }
-        const preferredGroupOrder = GROUP_ORDER.get(key)
-        if (typeof preferredGroupOrder === 'number') {
-          existing.order = preferredGroupOrder
-        } else {
-          existing.order = Math.min(existing.order, order)
-        }
-        existing.items.push({ text: label, link: route, order })
-        sidebarGroups.set(key, existing)
-      }
+    if (result.ok) {
+      publishableRoutes.add(route)
+    } else {
+      gatedPages.push({ route, reason: result.reason })
     }
   }
 
-  const nav = formatItems(mainNav)
-  const sidebar = Array.from(sidebarGroups.values())
-    .sort((a, b) => a.order - b.order || a.text.localeCompare(b.text))
-    .map(group => ({
-      text: group.text,
-      collapsed: false,
-      items: formatItems(group.items)
-    }))
+  writeGatedList(gatedPages)
+
+  const nav = FIXED_NAV.map(item => {
+    const normalized = normalizeRoute(item.link)
+    if (!publishableRoutes.has(normalized)) {
+      throw new Error(`Nav entry ${normalized} is missing or not publishable`)
+    }
+    return item
+  })
+
+  const missingSidebar = new Set()
+  const sidebar = SIDEBAR_BLUEPRINT.map(group => {
+    const items = group.items.filter(item => {
+      const normalized = normalizeRoute(item.link)
+      if (publishableRoutes.has(normalized)) {
+        return true
+      }
+      missingSidebar.add(normalized)
+      return false
+    })
+    if (!items.length) return null
+    return { text: group.text, collapsed: group.collapsed, items }
+  }).filter(Boolean)
+
+  if (missingSidebar.size) {
+    console.warn(
+      'Sidebar items skipped (await opener/frontmatter fixes):',
+      Array.from(missingSidebar).join(', ')
+    )
+  }
 
   return { nav, sidebar }
 }
@@ -172,7 +238,11 @@ async function writeNavigation(nav, sidebar) {
     nav,
     null,
     2
-  )} as DefaultTheme.NavItem[];\n\nexport const generatedSidebar = ${JSON.stringify(sidebar, null, 2)} as DefaultTheme.Sidebar;\n`
+  )} as DefaultTheme.NavItem[];\n\nexport const generatedSidebar = ${JSON.stringify(
+    sidebar,
+    null,
+    2
+  )} as DefaultTheme.Sidebar;\n`
   const formatted = await prettier.format(content, {
     parser: 'typescript',
     singleQuote: true,

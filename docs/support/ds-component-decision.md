@@ -81,4 +81,4 @@ Forks explode maintenance; extensions keep invariants, tokens, and tests intact.
 
 - [Playbook canon](../operate/) — Especially the Handshake Contracts and Decision Spine entries referenced here.
 - [Quick-Run check](../navigate/quick-run.md) — Run after editing DS documentation to keep receipts.
-- [Accessibility Quick Wins](../operate/accessibility-quick-wins.md) — Validate any component extension still honors the a11y baseline.
+- [UI baseline](../navigate/ui.md) — Validate any component extension still honors the a11y baseline.

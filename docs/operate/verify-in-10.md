@@ -27,6 +27,7 @@ date: '2025-11-11'
 # Verify-in-10 (Guide)
 
 Verify the work before you call it “done.” [Read the pattern](#why-it-exists) or [Run the 10-minute lab](../labs/verify-in-10).
+Exit metric: ≥80% of hero clicks go guide → lab and the annex lab runs in ≤10 minutes.
 
 ## Why it exists
 

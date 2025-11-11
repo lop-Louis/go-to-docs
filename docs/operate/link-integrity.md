@@ -27,6 +27,7 @@ date: '2025-11-11'
 # Link integrity runbook
 
 Keep every link contract intact so readers never hit a dead end. [Run the link check flow](#action) or [Open the Proof Run](../labs/link-drift).
+Exit metric: Link Drift + Quick-Run both pass with zero 404s for the touched scope.
 
 ## Trigger
 

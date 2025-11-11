@@ -65,6 +65,6 @@ Use sentence case. Reserve bold for emphasis or inline labels, not whole paragra
 - [ ] Keyboard order matches visual flow.
 - [ ] Focus indicators never removed.
 - [ ] Icon-only buttons include `aria-label`.
-- [ ] Content passes [Accessibility Quick Wins](../operate/accessibility-quick-wins).
+- [ ] Content passes this UI baseline (contrast, focus states, semantics, tokens).
 
 Reference Figma file: `Northbook / Foundations / UI`. Ping @lop before diverging from tokens.

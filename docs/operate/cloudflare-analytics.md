@@ -29,6 +29,7 @@ date: '2025-11-11'
 # Cloudflare analytics snapshot
 
 Keep adoption, quality, and credibility signals honest in under 10 minutes. [Run the export](#export-cloudflare-analytics) or [Update the Signal Registry](./signal-registry.md).
+Exit metric: sanitized snapshot + registry refresh complete within 30 days and ≤10 minutes per run.
 
 ## Why this exists
 

@@ -127,6 +127,6 @@ Need more detail? Read the public-safe pattern: [Expenses: Policy → Action](..
 
 ## Related references
 
-- [Start overview](./index.md) — Orients you to the full doc system.
+- [Start overview](../start-here/index.md) — Orients you to the full doc system.
 - [Wayfinding shortcuts](./find.md) — When you need a specific runbook or guide fast.
 - [Playbook canon](../operate/) — Deep patterns referenced throughout this FAQ.

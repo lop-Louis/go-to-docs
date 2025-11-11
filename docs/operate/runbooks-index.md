@@ -39,7 +39,6 @@ Every runbook follows the [Anti-drift Content Governance](./governance.md) rules
 ## Ritual kits
 
 - [Community meeting pack](./community-pack.md) — Agenda, prompts, and follow-ups for recurring community syncs.
-- [Accessibility audit runbook](./accessibility-audit.md) — Scope, checklist, and receipts for full-audit weeks.
 
 ## Visibility & metrics
 

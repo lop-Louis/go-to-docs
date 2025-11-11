@@ -27,10 +27,11 @@ date: '2025-11-11'
 # Wayfinding map
 
 You shouldn’t fight the site to find work. [Pick the fastest route](#routes-by-intent) or [Jump to the runbooks](../operate/runbooks-index).
+Exit metric: visitors land on the right doc within 60 seconds via the CTA pair.
 
 ## First three clicks
 
-1. **Hero buttons** — Decision Spine, Facilitation Techniques, and Accessibility Quick Wins stay pinned to the homepage hero for the default outcomes.
+1. **Hero buttons** — Decision Spine, Facilitation Techniques, and Verify-in-10 stay pinned to the homepage hero for the default outcomes.
 2. **Contracts** — Use [Start Here](./index.md) for the checklist and [Band A](../navigate/band-a) when you need the publishing guardrails.
 3. **Search** — Tap the header icon (or `⌘K` / `Ctrl+K`) and type a topic, owner, or acronym. The palette indexes titles, headings, and descriptions.
 
@@ -40,7 +41,7 @@ You shouldn’t fight the site to find work. [Pick the fastest route](#routes-by
 | ---------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------- |
 | Frame or decide        | [Decision Spine](../operate/decision-spine)                                                 | Template + review triggers in one place   |
 | Facilitate             | [Facilitation Techniques](../operate/facilitation)                                          | Ready prompts, no filler                  |
-| Ship accessibly        | [Accessibility Quick Wins](../operate/accessibility-quick-wins)                             | High-signal checks that fit sprint timing |
+| Ship accessibly        | [UI baseline](../navigate/ui.md)                                                            | High-signal checks that fit sprint timing |
 | Clear interrupts fast  | [Fast support index](../support/)                                                           | Triage flows with escalation packets      |
 | Check for regressions  | [Quick-Run](../navigate/quick-run)                                                          | Fast regression check before you merge    |
 | Verify your doc change | [Verify-in-10 guide](../operate/verify-in-10.md) + [10-minute lab](../labs/verify-in-10.md) | Learn the pattern, then run the lab       |
@@ -61,6 +62,6 @@ You shouldn’t fight the site to find work. [Pick the fastest route](#routes-by
 
 ## Related references
 
-- [Start overview](./index.md) — When you need the full onboarding story.
+- [Start overview](../start-here/index.md) — When you need the full onboarding story.
 - [Quick-Run check](../navigate/quick-run.md) — The hygiene run linked all over this page.
 - [Wayfinding shortcuts table source](../operate/) — Keep the canonical index synced if you add new guides.

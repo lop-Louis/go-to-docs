@@ -27,6 +27,7 @@ date: '2025-11-11'
 # Signal Registry
 
 This is the canonical list of metrics we publish every cycle. [Log a new signal](#signals-table) or [Run the Cloudflare analytics export](./cloudflare-analytics.md).
+Exit metric: registry stays at ≤8 signals and every entry refreshes within the 30-day SLA.
 
 ## Signals Table
 

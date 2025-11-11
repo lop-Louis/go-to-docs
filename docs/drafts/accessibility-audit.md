@@ -12,7 +12,8 @@ nav_group: Operate
 nav_order: 30
 nav_label: Accessibility audit
 nav:
-  - sidebar
+  - none
+search: false
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103

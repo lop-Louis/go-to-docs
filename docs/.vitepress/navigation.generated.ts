@@ -4,8 +4,8 @@ import { DefaultTheme } from 'vitepress'
 // Do not edit manually.
 export const generatedNav = [
   {
-    text: 'Mitigate',
-    link: '/mitigate/'
+    text: 'Start here',
+    link: '/start-here/'
   },
   {
     text: 'Navigate',
@@ -18,6 +18,10 @@ export const generatedNav = [
   {
     text: 'Learn',
     link: '/learn/'
+  },
+  {
+    text: 'Mitigate',
+    link: '/mitigate/'
   }
 ] as DefaultTheme.NavItem[]
 
@@ -39,16 +43,8 @@ export const generatedSidebar = [
         link: '/navigate/state-ledger'
       },
       {
-        text: 'New joiner FAQ',
-        link: '/navigate/faq-new-joiners'
-      },
-      {
         text: 'Monthly cadence',
         link: '/navigate/monthly-release'
-      },
-      {
-        text: 'SLI states map',
-        link: '/navigate/sli-states'
       },
       {
         text: 'Band A guardrails',
@@ -61,96 +57,40 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: '20-minute handover',
-        link: '/operate/handover-20-min'
-      },
-      {
-        text: 'All runbooks',
-        link: '/operate/runbooks-index'
-      },
-      {
-        text: 'Decision spine',
-        link: '/operate/decision-spine'
+        text: 'Versioning & releases',
+        link: '/operate/versioning-and-releases/'
       },
       {
         text: 'Sanitization checklist',
         link: '/operate/sanitization'
       },
       {
-        text: 'Playbook canon',
-        link: '/operate/'
-      },
-      {
-        text: 'Answer ledger pattern',
-        link: '/operate/answer-ledger'
-      },
-      {
-        text: 'Facilitation patterns',
-        link: '/operate/facilitation'
-      },
-      {
-        text: 'Handover RACI template',
-        link: '/operate/handover-raci-template'
-      },
-      {
-        text: 'Link Integrity',
+        text: 'Link integrity',
         link: '/operate/link-integrity'
-      },
-      {
-        text: 'North Star & Guardrails',
-        link: '/operate/north-star-guardrails'
-      },
-      {
-        text: 'Accessibility audit',
-        link: '/operate/accessibility-audit'
-      },
-      {
-        text: 'Accessibility quick wins',
-        link: '/operate/accessibility-quick-wins'
-      },
-      {
-        text: 'Anti-drift governance',
-        link: '/operate/governance'
       },
       {
         text: 'Verify-in-10 guide',
         link: '/operate/verify-in-10'
       },
       {
-        text: 'Community meeting pack',
-        link: '/operate/community-pack'
+        text: 'Decision spine',
+        link: '/operate/decision-spine'
       },
       {
-        text: 'Policy-to-action example',
-        link: '/operate/pattern-expense-sla'
+        text: 'Playbook canon',
+        link: '/operate/'
       },
       {
-        text: 'Versioning & releases',
-        link: '/operate/versioning-and-releases/'
-      },
-      {
-        text: 'Transition promises',
-        link: '/operate/transition-operating-promises'
-      },
-      {
-        text: 'Shared metric visibility',
-        link: '/operate/shared-metric-visibility'
-      },
-      {
-        text: 'State visibility map',
-        link: '/operate/state-visibility'
-      },
-      {
-        text: 'Cloudflare analytics',
-        link: '/operate/cloudflare-analytics'
-      },
-      {
-        text: 'Signal Registry',
+        text: 'Signal registry',
         link: '/operate/signal-registry'
       },
       {
         text: 'Guardrail index',
         link: '/operate/guardrail-index'
+      },
+      {
+        text: 'Cloudflare analytics',
+        link: '/operate/cloudflare-analytics'
       }
     ]
   },
@@ -159,8 +99,8 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Learn',
-        link: '/learn/'
+        text: 'Receipts & dashboards',
+        link: '/learn/receipts'
       }
     ]
   },
@@ -169,8 +109,8 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Mitigate',
-        link: '/mitigate/'
+        text: 'Fix: Interrupt flows',
+        link: '/support/'
       },
       {
         text: 'Fix: Teams notifications',
@@ -179,10 +119,6 @@ export const generatedSidebar = [
       {
         text: 'Fix: Repo & pipeline access',
         link: '/support/access-repo-pipeline'
-      },
-      {
-        text: 'Fix: Interrupt flows',
-        link: '/support/'
       }
     ]
   }

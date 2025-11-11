@@ -51,4 +51,4 @@ Need a different blocker covered? [Request a new Fix-it-fast flow](https://githu
 ## Related references
 
 - [Quick-Run check](../navigate/quick-run) — Run this before/after a fast fix so receipts stay in your PR.
-- [Start overview](../navigate/index) — Share this if an interrupt uncovers a missing orientation doc.
+- [Start overview](../start-here/index.md) — Share this if an interrupt uncovers a missing orientation doc.

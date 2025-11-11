@@ -28,6 +28,7 @@ date: '2025-11-04'
 # Monthly Release Rhythm
 
 This cadence keeps the public docs fresh each month and records what changed. [Run the prep checklist](#preparation-checklist) or [Browse the runbooks index](../operate/runbooks-index).
+Exit metric: release bundle + state ledger regenerate within 24 hours of the tag.
 
 ## Goals
 
