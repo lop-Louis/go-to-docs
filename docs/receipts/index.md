@@ -8,8 +8,8 @@ status: archived
 bucket: learn
 north_star_id: ns-001
 guardrail_id: gr-105
-cta_primary_label: Review the dashboard
-cta_secondary_label: Read the receipts
+cta_primary_label: Learn more dashboards
+cta_secondary_label: See example receipts
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
 decision_link: /decisions/adopt-deep-embed-north-star

@@ -16,8 +16,8 @@ nav:
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
-cta_primary_label: Run the guardrail pattern
-cta_secondary_label: Open the runbook
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
 leading_metric: m-lab-pass
 lagging_metric: m-defect-rate-changed-pages
 decision_link: /decisions/adopt-deep-embed-north-star
@@ -30,14 +30,18 @@ This is the canonical list of metrics we publish every cycle. [Log a new signal]
 
 ## Signals Table
 
-| id                                | Name                        | Source                                                                                 | Owner                    | Refresh after days | Direction | Threshold / stop rule                         | Kill criteria                                        |
-| --------------------------------- | --------------------------- | -------------------------------------------------------------------------------------- | ------------------------ | ------------------ | --------- | --------------------------------------------- | ---------------------------------------------------- |
-| `adoption.pages_touched`          | Pages touched (14d)         | Cloudflare export (converted via `scripts/cloudflare-analytics.mjs`)                   | Analytics steward (@lop) | 14                 | Up good   | ≥ 10 unique paths touched; investigate if < 5 | Remove if Cloudflare export unavailable for 2 cycles |
-| `adoption.time_to_answer`         | Median time-to-answer (ms)  | Cloudflare export (median page load/time-to-answer events)                             | Analytics steward        | 14                 | Down good | ≤ 60,000 ms for 80% of sessions               | Drop if CTA instrumentation is disabled              |
-| `quality.lab_pass_rate`           | Lab pass rate               | `reports/labs.json` (Quick-Run + Proof Run)                                            | Labs steward (@lop)      | 7                  | Up good   | ≥ 0.9; treat < 0.8 as yellow                  | Remove when labs are retired                         |
-| `quality.broken_links`            | Broken links per cycle      | Markdown lint + Cloudflare export `broken_links` field                                 | Docs operator            | 7                  | Down good | 0 blocking links; > 0 triggers fix-it         | Drop if link validation moves elsewhere              |
-| `credibility.state_fresh`         | State page freshness        | Manual value in `reports/cloudflare-export.json > credibility.state_fresh_within_days` | Governance steward       | 30                 | Down good | ≤ 30 days old                                 | Remove if State page merges into another surface     |
-| `credibility.exceptions_resolved` | Exceptions resolved on time | Exceptions log aggregated via script                                                   | Governance steward       | 14                 | Up good   | 100% on-time resolution                       | Retire if exception tracking moves to tooling        |
+All active signals share the same SLA: **refresh every 30 days** or raise an exception. The cap stays at eight.
+
+| id                            | Name                     | Source                                                                                | Owner (@handle) | Refresh after days | Direction | Threshold / stop rule                     | Kill criteria                                    |
+| ----------------------------- | ------------------------ | ------------------------------------------------------------------------------------- | --------------- | ------------------ | --------- | ----------------------------------------- | ------------------------------------------------ |
+| `m-nav-open`                  | Navigation open rate     | Cloudflare analytics export (`nav_open` event via `scripts/cloudflare-analytics.mjs`) | @lop            | 30                 | Up good   | >= baseline + show 10% lift in pilot tags | Remove if nav instrumentation drops for >1 cycle |
+| `m-time-to-answer`            | Time to answer           | Cloudflare analytics export (time-to-answer event)                                    | @lop            | 30                 | Down good | <= 60 seconds for 80% of tracked sessions | Drop if CTA instrumentation is disabled          |
+| `m-lab-pass`                  | Annex lab pass rate      | `reports/labs.json` (Quick-Run + Proof Run)                                           | @lop            | 30                 | Up good   | >= 0.9, freeze if < 0.8                   | Remove when Verify-in-10 labs retire             |
+| `m-defect-rate-changed-pages` | Defects per changed page | Link Drift + QA follow-ups recorded in `reports/labs.json`                            | @lop            | 30                 | Down good | <= 0.05; investigate if > 0.08            | Drop if defect tracking moves to another source  |
+| `m-dashboard-freshness-days`  | Dashboard freshness      | Manual value in `reports/cloudflare-export.json > dashboard_freshness`                | @lop            | 30                 | Down good | <= 30 days; exception at 35+              | Remove if dashboards merge with State            |
+| `m-decision-hit-rate`         | Decision hit rate        | Governance receipts + decision ledger                                                 | @lop            | 30                 | Up good   | >= 60% by second tag                      | Retire if decision receipts move to tooling      |
+| `m-time-to-freeze`            | Time to freeze           | Exceptions log + freeze manager                                                       | @lop            | 30                 | Down good | <= 24 hours to activate a freeze trigger  | Remove if mitigations move to another platform   |
+| `m-time-to-recovery`          | Time to recovery         | Exceptions log + Quick-Run receipts                                                   | @lop            | 30                 | Down good | <= 7 days to exit freeze                  | Remove if recovery tracking automates elsewhere  |
 
 ## How to add a signal
 

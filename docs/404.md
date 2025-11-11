@@ -13,8 +13,8 @@ nav:
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
-cta_primary_label: Open the Navigate path
-cta_secondary_label: See the Verify example
+cta_primary_label: Try the Navigate path
+cta_secondary_label: See example route
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
 decision_link: /decisions/adopt-deep-embed-north-star

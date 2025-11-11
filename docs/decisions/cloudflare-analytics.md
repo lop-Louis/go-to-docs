@@ -16,8 +16,8 @@ release_tag: site-v2025.11
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
-cta_primary_label: Run the guardrail pattern
-cta_secondary_label: Open the runbook
+cta_primary_label: Use this guardrail
+cta_secondary_label: See example runbook
 leading_metric: m-lab-pass
 lagging_metric: m-defect-rate-changed-pages
 decision_link: /decisions/adopt-deep-embed-north-star

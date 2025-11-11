@@ -33,8 +33,8 @@ nav_label: 'Fix: Teams notifications'
 bucket: mitigate
 north_star_id: ns-001
 guardrail_id: gr-102
-cta_primary_label: Open the fix flow
-cta_secondary_label: Log the exception
+cta_primary_label: Choose a fix flow
+cta_secondary_label: See example exception
 leading_metric: m-time-to-freeze
 lagging_metric: m-time-to-recovery
 decision_link: /decisions/adopt-deep-embed-north-star
