@@ -34,7 +34,7 @@ cta_primary_label: Choose a fix flow
 cta_secondary_label: See example exception
 leading_metric: m-time-to-freeze
 lagging_metric: m-time-to-recovery
-decision_link: /decisions/adopt-deep-embed-north-star
+decision_link: /decisions/dec-2025-11-ia-overhaul.md
 date: '2025-11-11'
 ---
 

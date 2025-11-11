@@ -30,7 +30,7 @@ success_metric: >-
   panel shipped; CTA lint stays <= 1 red-line per cycle.
 release_tag: site-v2025.11
 related_contract: ../contracts/northbook-ia-overhaul.md
-decision_link: /decisions/adopt-deep-embed-north-star
+decision_link: /decisions/dec-2025-11-ia-overhaul.md
 ---
 
 # Adopt deep-embed North Star + four-bucket IA with autonomy ladder
@@ -81,7 +81,7 @@ Adopt the **deep-embed** model: one North Star line visible on Home and each sec
 ## links
 
 - [state snapshot](../governance/state/v2025.11-governance)
-- [receipts](../signals/receipts/v2025.11-governance.md)
-- [exceptions log](../governance/exceptions.md)
+- [receipts](../signals/receipts/v2025.11-governance)
+- [exceptions log](../governance/exceptions)
 - [exceptions ledger](../governance/_exceptions_ledger.csv)
-- [guardrails index](../operate/guardrail-index.md#guardrails-table)
+- [guardrails index](../operate/guardrail-index#guardrails-table)

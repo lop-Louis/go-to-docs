@@ -181,7 +181,7 @@ ${sections}
     cta_secondary_label: 'See example route',
     leading_metric: 'm-nav-open',
     lagging_metric: 'm-time-to-answer',
-    decision_link: '/decisions/adopt-deep-embed-north-star',
+    decision_link: '/decisions/dec-2025-11-ia-overhaul.md',
     date:
       (latest && latest.manifest && latest.manifest.date) || new Date().toISOString().slice(0, 10)
   }
