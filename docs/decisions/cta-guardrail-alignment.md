@@ -17,7 +17,7 @@ release_tag: site-v2025.11
 
 Reduce overlapping CTA drift checks until the metadata path is ready. [See the governing contract](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Ledger: [Release state](../state/index.md)
+State: [State visibility map](../operate/state-visibility.md) · Ledger: [Release state](../navigate/state-ledger.md)
 
 ## Intent
 
@@ -26,7 +26,7 @@ Keep the high-signal CTA guardrail (the above-the-fold render check) and pause t
 ## Tension
 
 - Two checks—`verify-primary-actions.mjs` (markdown) and the post-build render scan—flag the same failures and extend Quick-Run for no extra safety.
-- CTA placement must still satisfy the [North Star & Guardrails opener contract](../playbook/north-star-guardrails.md#ui-delivery-checks).
+- CTA placement must still satisfy the [North Star & Guardrails opener contract](../operate/north-star-guardrails.md#ui-delivery-checks).
 - Future CTA metadata needs schema + documentation before we add automation again.
 
 ## Guardrails and constraints

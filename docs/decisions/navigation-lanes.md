@@ -15,7 +15,7 @@ release_tag: site-v2025.11
 
 # Navigation lanes (Navigate · Operate · Support)
 
-Split the docs navigation into three lanes so visitors orient fast and support remains intentional. [Open the Navigate hub](../start-here/index.md) or [review the Support fixes](../fix/index.md) to see the layout in use.
+Split the docs navigation into three lanes so visitors orient fast and support remains intentional. [Open the Navigate hub](../navigate/index.md) or [review the Support fixes](../support/index.md) to see the layout in use.
 
 ## Intent
 
@@ -51,6 +51,12 @@ Adopt the three-lane navigation:
 - **Support** — Capped at three “Fix:” entries (Interrupt flows index, Repo & pipeline access, Teams notifications).
 
 Top nav now mirrors the same labels (Navigate, Operate, Support).
+
+Home page feature cards follow the same trio:
+
+- **Navigate fast** → SLI map (seam + guardrail placement).
+- **Operate with freedom** → Verify-in-10 guide/lab + North Star guardrails.
+- **Support with guidance** → Fix-it flows landing on the Support index.
 
 ## Commitments
 

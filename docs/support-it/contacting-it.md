@@ -49,4 +49,4 @@ Escalate stubborn IT issues with a clean packet so the liaison can act fast. [Pr
 
 Missed SLA? Reply to the ticket, @mention the liaison again, then escalate via the `/escalations` contact listed in [/governance](/governance).
 
-**Handoff** → Quick paths usually live under [/runbooks](../runbooks/index.md); link that context when you escalate.
+**Handoff** → Quick paths usually live under [/runbooks](../operate/runbooks-index.md); link that context when you escalate.

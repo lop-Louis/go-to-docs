@@ -20,28 +20,28 @@ hero:
   actions:
     - theme: brand
       text: Place your initiative on the SLI map
-      link: /start-here/sli-states?cta=home-sli
+      link: /navigate/sli-states?cta=home-sli
     - theme: alt
       text: Verify-in-10 (guide)
-      link: /playbook/verify-in-10?cta=home-verify-guide
+      link: /operate/verify-in-10?cta=home-verify-guide
 features:
-  - title: Direction beats speed
-    details: A one-line North Star turns scattered actions into progress. Clear guardrails reduce rework and keep creativity alive.
-    link: /playbook/north-star-guardrails
-    linkText: Read North Star & Guardrails
-  - title: Ship small, prove it
-    details: Single bet per cycle. Pilot first. Receipts prove outcomes every 14 days—pages touched, time-to-answer, lab pass rate.
-    link: /ops/quick-run
-    linkText: Run Quick-Run
-  - title: Keep receipts
-    details: Public state, named owners, and traceability prevent hidden work. Change → Decision → Guardrail → Page → Signal → Receipt.
-    link: /state/index.md
-    linkText: See traceability
+  - title: Navigate fast
+    details: Place every initiative on the SLI map so the seam, guardrail, and next constraint are obvious in under a minute.
+    link: /navigate/sli-states
+    linkText: Open the SLI map
+  - title: Operate with freedom
+    details: Ship small and prove it—read the Verify-in-10 guide, run the 10-minute lab, and keep the North Star guardrails visible.
+    link: /operate/verify-in-10
+    linkText: Run Verify-in-10
+  - title: Support with guidance
+    details: Clear the top interrupts via three Fix flows, each capped at 10 minutes with escalation packets ready for handoff.
+    link: /support/
+    linkText: Open Fix flows
 nav:
   - none
 ---
 
-Find the answer. Act within 60 seconds. [Place your initiative on the SLI map](./start-here/sli-states) or [Read the Verify-in-10 guide](./playbook/verify-in-10).
+Find the answer. Act within 60 seconds. [Place your initiative on the SLI map](./navigate/sli-states) or [Read the Verify-in-10 guide](./operate/verify-in-10).
 
 Northbook is the public operating contract for docs, labs, and automation. Everything here exists to get you to the right page and a runnable next step inside one minute.
 
@@ -50,10 +50,10 @@ Northbook is the public operating contract for docs, labs, and automation. Every
 
 ## Your 60-second path
 
-1. **Map your initiative** — Use the [SLI map](./start-here/sli-states) to confirm the seam and constraint.
-2. **Learn before running** — Read the [Verify-in-10 guide](./playbook/verify-in-10) for the why/when/anti-patterns.
+1. **Map your initiative** — Use the [SLI map](./navigate/sli-states) to confirm the seam and constraint.
+2. **Learn before running** — Read the [Verify-in-10 guide](./operate/verify-in-10) for the why/when/anti-patterns.
 3. **Run the lab** — Execute the [10-minute lab](./labs/verify-in-10) and capture receipts as you go.
-4. **Post receipts & state** — Follow [Quick-Run](./ops/quick-run) and update [State](./state/index.md) so the ledger reflects reality.
+4. **Post receipts & state** — Follow [Quick-Run](./navigate/quick-run) and update [State](./navigate/state-ledgerindex.md) so the ledger reflects reality.
 
 **Protect the North Star.** Every page shows owner, band, exit metric, State, and Receipts. Default deny outside the guardrails. Exceptions are allowed only with owner, reason, expiry, rollback, and stop rule.
 
@@ -66,15 +66,15 @@ Northbook is the public operating contract for docs, labs, and automation. Every
 5. **One owner and date per change** — Traceability from Change → Decision → Guardrail → Page → Signal → Receipt.
 6. **Sanitize before publish** — Frontmatter complete, links live, names redacted.
 
-Automation enforces frontmatter schema, guardrail links, build integrity, secret scans, and state freshness. Read the [North Star & Guardrails playbook](./playbook/north-star-guardrails) for the full contract.
+Automation enforces frontmatter schema, guardrail links, build integrity, secret scans, and state freshness. Read the [North Star & Guardrails playbook](./operate/north-star-guardrails) for the full contract.
 
 ## Receipts we publish every cycle
 
-- **Adoption** — Pages touched, time-to-answer, CTA telemetry from the [Signal Registry](./runbooks/signal-registry).
+- **Adoption** — Pages touched, time-to-answer, CTA telemetry from the [Signal Registry](./operate/signal-registry).
 - **Quality** — Verify-in-10 lab pass rate, link health, accessibility quick wins.
 - **Credibility** — State freshness, release tags, and exception closure rate.
 
-Check the live ledger on the [State page](./state/index.md) or open the current [release bundle](./release.md).
+Check the live ledger on the [State page](./navigate/state-ledgerindex.md) or open the current [release bundle](./release.md).
 
 ## Build or change a page
 
@@ -88,9 +88,9 @@ _Stop rule:_ If CI adds more than 15 minutes per day across two weeks, remove th
 
 ## When to raise your hand
 
-- New joiner? Start with the [FAQ for New Joiners](./faq-new-joiners) plus the [Handshake contracts](./playbook/handshake-contracts).
+- New joiner? Start with the [FAQ for New Joiners](./navigate/faq-new-joiners) plus the [Handshake contracts](./operate/handshake-contracts).
 - Making a scope call? Open the [Decision Spine](./decision-spine) and [Decision tripwires](./decision-tripwires).
-- Unsure if content belongs? Re-check [Band A](./band-a) and the [Contracts directory](./contracts/index.md).
-- Need facilitation or handover help? Use the [20-minute handover runbook](./runbooks/handover-20-min.md) or the [Handover RACI template](./runbooks/handover-raci-template.md).
+- Unsure if content belongs? Re-check [Band A](./navigate/band-a) and the [Contracts directory](./contracts/index.md).
+- Need facilitation or handover help? Use the [20-minute handover runbook](./operate/handover-20-min.md) or the [Handover RACI template](./operate/handover-raci-template.md).
 
 If this page didn’t get you to an answer in 60 seconds, [tell us so we can fix it](https://github.com/lop-louis/northbook/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Homepage&body=Page:%20https://northbook.guide/). We'll log the feedback, post receipts, and adjust within the next cycle.

@@ -9,12 +9,17 @@ const CHECK_MODE = args.includes('--check')
 
 const repoRoot = process.cwd()
 const releasesDir = path.join(repoRoot, 'ops', 'releases')
-const stateDir = path.join(repoRoot, 'docs', 'state')
-const stateFile = path.join(stateDir, 'index.md')
+const stateDir = path.join(repoRoot, 'docs', 'navigate')
+const stateFile = path.join(stateDir, 'state-ledger.md')
 const mismatches = []
 
-async function formatMarkdown(content) {
-  return prettier.format(content, { parser: 'markdown' })
+async function formatMarkdown(content, filePath) {
+  const resolvedConfig = (await prettier.resolveConfig(filePath, { editorconfig: true })) ?? {}
+  return prettier.format(content, {
+    ...resolvedConfig,
+    parser: 'markdown',
+    filepath: filePath
+  })
 }
 
 function readJSON(filePath) {
@@ -99,7 +104,7 @@ ${section('Receipts', receipts)}
   }
 
   const raw = matter.stringify(body.trim() + '\n', frontmatter)
-  return await formatMarkdown(raw)
+  return await formatMarkdown(raw, indexPath)
 }
 
 function relativeFromState(targetPath) {
@@ -160,8 +165,8 @@ ${metricsLines}
     ? latest.manifest.release_tag || `site-v${latest.name.replace('-', '.')}`
     : 'latest release'
   const latestLink = latest ? relativeFromState(path.join(latest.dir, 'index.md')) : '#'
-  const runbookPath = path.join(repoRoot, 'docs', 'runbooks', 'state-visibility.md')
-  const runbookLink = relativeFromState(runbookPath)
+  const runbookPath = path.join(repoRoot, 'docs', 'operate', 'state-visibility.md')
+  const runbookLink = fs.existsSync(runbookPath) ? relativeFromState(runbookPath) : '#'
 
   const body = `# Release state ledger
 
@@ -171,7 +176,7 @@ ${sections}
 `
 
   const raw = matter.stringify(body.trim() + '\n', frontmatter)
-  return await formatMarkdown(raw)
+  return await formatMarkdown(raw, stateFile)
 }
 
 async function main() {

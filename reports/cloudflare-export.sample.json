@@ -10,12 +10,12 @@
               "quantiles": { "responseTime95th": 52000 }
             },
             {
-              "dimensions": { "clientRequestPath": "/docs/runbooks/index" },
+              "dimensions": { "clientRequestPath": "/docs/operate/runbooks-index" },
               "sum": { "requests": 322 },
               "quantiles": { "responseTime95th": 61000 }
             },
             {
-              "dimensions": { "clientRequestPath": "/docs/fix/index" },
+              "dimensions": { "clientRequestPath": "/docs/support/index" },
               "sum": { "requests": 214 },
               "quantiles": { "responseTime95th": 48000 }
             }
@@ -26,11 +26,11 @@
               "median": { "pageLoadTime": 47000 }
             },
             {
-              "dimensions": { "path": "/docs/runbooks/index" },
+              "dimensions": { "path": "/docs/operate/runbooks-index" },
               "median": { "pageLoadTime": 54000 }
             },
             {
-              "dimensions": { "path": "/docs/fix/index" },
+              "dimensions": { "path": "/docs/support/index" },
               "median": { "pageLoadTime": 51000 }
             }
           ],

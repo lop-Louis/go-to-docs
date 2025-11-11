@@ -3,15 +3,15 @@
 export const generatedNav = [
   {
     text: 'Navigate',
-    link: '/start-here/'
+    link: '/navigate/'
   },
   {
     text: 'Support',
-    link: '/fix/'
+    link: '/support/'
   },
   {
     text: 'Operate',
-    link: '/playbook/'
+    link: '/operate/'
   }
 ] as const
 export const generatedSidebar = [
@@ -21,31 +21,31 @@ export const generatedSidebar = [
     items: [
       {
         text: 'Overview',
-        link: '/start-here/'
+        link: '/navigate/'
       },
       {
         text: 'Wayfinding shortcuts',
-        link: '/start-here/find'
+        link: '/navigate/find'
       },
       {
         text: 'State',
-        link: '/state/'
+        link: '/navigate/state-ledger'
       },
       {
         text: 'New joiner FAQ',
-        link: '/faq-new-joiners'
+        link: '/navigate/faq-new-joiners'
       },
       {
         text: 'Monthly cadence',
-        link: '/monthly-release'
+        link: '/navigate/monthly-release'
       },
       {
         text: 'SLI states map',
-        link: '/start-here/sli-states'
+        link: '/navigate/sli-states'
       },
       {
         text: 'Band A guardrails',
-        link: '/band-a'
+        link: '/navigate/band-a'
       }
     ]
   },
@@ -55,87 +55,87 @@ export const generatedSidebar = [
     items: [
       {
         text: '20-minute handover',
-        link: '/runbooks/handover-20-min'
+        link: '/operate/handover-20-min'
       },
       {
         text: 'All runbooks',
-        link: '/runbooks/'
+        link: '/operate/runbooks-index'
       },
       {
         text: 'Decision spine',
-        link: '/decision-spine'
+        link: '/operate/decision-spine'
       },
       {
         text: 'Sanitization checklist',
-        link: '/sanitization'
+        link: '/operate/sanitization'
       },
       {
         text: 'Playbook canon',
-        link: '/playbook/'
+        link: '/operate/'
       },
       {
         text: 'Answer ledger pattern',
-        link: '/answer-ledger'
+        link: '/operate/answer-ledger'
       },
       {
         text: 'Facilitation patterns',
-        link: '/facilitation'
+        link: '/operate/facilitation'
       },
       {
         text: 'Handover RACI template',
-        link: '/runbooks/handover-raci-template'
+        link: '/operate/handover-raci-template'
       },
       {
         text: 'Link Integrity',
-        link: '/runbooks/link-integrity'
+        link: '/operate/link-integrity'
       },
       {
         text: 'North Star & Guardrails',
-        link: '/playbook/north-star-guardrails'
+        link: '/operate/north-star-guardrails'
       },
       {
         text: 'Accessibility audit',
-        link: '/runbooks/accessibility-audit'
+        link: '/operate/accessibility-audit'
       },
       {
         text: 'Accessibility quick wins',
-        link: '/accessibility-quick-wins'
+        link: '/operate/accessibility-quick-wins'
       },
       {
         text: 'Anti-drift governance',
-        link: '/governance'
+        link: '/operate/governance'
       },
       {
         text: 'Verify-in-10 guide',
-        link: '/playbook/verify-in-10'
+        link: '/operate/verify-in-10'
       },
       {
         text: 'Community meeting pack',
-        link: '/runbooks/community-pack'
+        link: '/operate/community-pack'
       },
       {
         text: 'Policy-to-action example',
-        link: '/pattern-expense-sla'
+        link: '/operate/pattern-expense-sla'
       },
       {
         text: 'Transition promises',
-        link: '/runbooks/transition-operating-promises'
+        link: '/operate/transition-operating-promises'
       },
       {
         text: 'Shared metric visibility',
-        link: '/runbooks/shared-metric-visibility'
+        link: '/operate/shared-metric-visibility'
       },
       {
         text: 'State visibility map',
-        link: '/runbooks/state-visibility'
+        link: '/operate/state-visibility'
       },
       {
         text: 'Cloudflare analytics',
-        link: '/runbooks/cloudflare-analytics'
+        link: '/operate/cloudflare-analytics'
       },
       {
         text: 'Signal Registry',
-        link: '/runbooks/signal-registry'
+        link: '/operate/signal-registry'
       }
     ]
   },
@@ -145,15 +145,15 @@ export const generatedSidebar = [
     items: [
       {
         text: 'Fix: Interrupt flows',
-        link: '/fix/'
+        link: '/support/'
       },
       {
         text: 'Fix: Teams notifications',
-        link: '/fix/teams-notifications'
+        link: '/support/teams-notifications'
       },
       {
         text: 'Fix: Repo & pipeline access',
-        link: '/fix/access-repo-pipeline'
+        link: '/support/access-repo-pipeline'
       }
     ]
   }

@@ -57,10 +57,6 @@
       "node scripts/guard.mjs",
       "pnpm run nav:sync && git add docs/.vitepress/navigation.generated.ts"
     ],
-    "runbooks/**/*.md": [
-      "node scripts/guard.mjs",
-      "pnpm run nav:sync && git add docs/.vitepress/navigation.generated.ts"
-    ],
     "scripts/scripts-meta.json": [
       "pnpm run readme:sync && git add README.md"
     ]

@@ -260,7 +260,7 @@ band: A
 audience: squad|leads|exec
 tone: practical|coaching|policy
 narrative_goal: resolve|decide|teach
-primary_action: /runbooks/handover-20-min
+primary_action: /operate/handover-20-min
 review_after_days: 90
 owner_role: chapter-lead
 ```

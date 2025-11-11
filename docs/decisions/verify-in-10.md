@@ -46,14 +46,14 @@ Ship the guide and lab together, update Home/Start CTAs with helper text + telem
 ## Commitments
 
 1. **Publish artifacts**
-   - Guide (`docs/playbook/verify-in-10.md`): why/when, SLII mapping, anti-patterns, example receipts, <500 words before examples.
+   - Guide (`docs/operate/verify-in-10.md`): why/when, SLII mapping, anti-patterns, example receipts, <500 words before examples.
    - Lab (`docs/labs/verify-in-10.md`): preflight, 5 steps, acceptance checks, rollback, stop rule; runnable ≤10 minutes.
 2. **Homepage hero**
    - Primary CTA: “Place your initiative on the SLI map” + helper text.
    - Secondary CTA: “Verify-in-10 (guide)” + helper text, plus a text link to run the lab.
    - Telemetry IDs on both buttons + link.
 3. **Start hub actions**
-   - “Find my stage” → `start-here/sli-states`.
+   - “Find my stage” → `navigate/sli-states`.
    - “Verify-in-10 (guide → lab)” with guide first.
    - “Post Receipts & State” → manifest + `pnpm run state:build`.
 4. **Wiring**

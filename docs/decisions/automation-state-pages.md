@@ -15,7 +15,7 @@ release_tag: site-v2025.11
 
 # Automate State and release pages
 
-Keep the State page, release indices, and cross-links generated off the same release metadata source of truth. [Open the latest bundle](../../ops/releases/2025-11/index.md) or [review the State visibility runbook](../runbooks/state-visibility.md) for context.
+Keep the State page, release indices, and cross-links generated off the same release metadata source of truth. [Open the latest bundle](../../ops/releases/2025-11/index.md) or [review the State visibility runbook](../operate/state-visibility.md) for context.
 
 ## Intent
 
@@ -43,7 +43,7 @@ Make State, Receipts, and release indices regenerate from manifests so editors s
 
 ## Decision
 
-Adopt full manifest-driven generation. One Node script reads `ops/releases/YYYY-MM/manifest.json`, emits deterministic `index.md` files and `docs/state/index.md`, and runs as part of `pnpm run docs:guard` plus a dedicated CI step. This keeps receipts visible, enforces frontmatter, and removes duplicate editing.
+Adopt full manifest-driven generation. One Node script reads `ops/releases/YYYY-MM/manifest.json`, emits deterministic `index.md` files and `docs/navigate/state-ledger.md`, and runs as part of `pnpm run docs:guard` plus a dedicated CI step. This keeps receipts visible, enforces frontmatter, and removes duplicate editing.
 
 ## Commitments
 

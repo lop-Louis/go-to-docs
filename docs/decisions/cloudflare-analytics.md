@@ -15,7 +15,7 @@ release_tag: site-v2025.11
 
 # Cloudflare analytics
 
-Set up privacy-safe Cloudflare analytics so the Signal Registry stays trustworthy. [Open the Signal Registry runbook](../runbooks/signal-registry.md) or [read the Cloudflare analytics runbook](../runbooks/cloudflare-analytics.md) for implementation detail.
+Set up privacy-safe Cloudflare analytics so the Signal Registry stays trustworthy. [Open the Signal Registry runbook](../operate/signal-registry.md) or [read the Cloudflare analytics runbook](../operate/cloudflare-analytics.md) for implementation detail.
 
 ## Intent
 
@@ -31,7 +31,7 @@ Replace manual spreadsheet exports with an auditable, automated signal snapshot 
 
 1. Stick to Automation & CI invariants: local-first, <10 minute runtime, no committed secrets, exceptions honored.
 2. Collect only aggregated, sanitized metrics—no IP- or user-level telemetry.
-3. Signals must register in `docs/runbooks/signal-registry.md` with owner, source, cadence, thresholds, kill criteria.
+3. Signals must register in `docs/operate/signal-registry.md` with owner, source, cadence, thresholds, kill criteria.
 
 ## Options considered
 

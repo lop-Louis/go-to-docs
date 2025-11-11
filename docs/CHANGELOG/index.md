@@ -12,8 +12,8 @@ nav:
   - none
 ---
 
-This page is deprecated. Release bundles now live under [`ops/releases/YYYY-MM/`](https://github.com/lop-louis/go-to-docs/tree/main/ops/releases) and the public [State ledger](../state/index.md) replaces the changelog.
+This page is deprecated. Release bundles now live under [`ops/releases/YYYY-MM/`](https://github.com/lop-louis/go-to-docs/tree/main/ops/releases) and the public [State ledger](../navigate/state-ledger.md) replaces the changelog.
 
-- Need the latest release? [Open the State ledger](../state/index.md) and jump to the newest entry (e.g., `site-v2025.11`).
+- Need the latest release? [Open the State ledger](../navigate/state-ledger.md) and jump to the newest entry (e.g., `site-v2025.11`).
 - Need historical artefacts? Browse the `ops/releases/` folder for the corresponding month.
 - Need help? [Open an issue](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,question&title=%5BRelease%5D%20Archive%20request) and we’ll surface what you need.

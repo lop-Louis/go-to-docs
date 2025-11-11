@@ -15,7 +15,7 @@ success_metric: Contracts describe their release, state, and receipts context wi
 
 Protect guardrail clarity before adding new schema fields. [See the contract in practice](../contracts/northbook-operations-contract-v1.md).
 
-State: [State visibility map](../runbooks/state-visibility.md) · Ledger: [Release state](../state/index.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)
+State: [State visibility map](../operate/state-visibility.md) · Ledger: [Release state](../navigate/state-ledger.md) · Release reference: [site-v2025.11 bundle](../../ops/releases/2025-11/index.md)
 
 ## Intent
 

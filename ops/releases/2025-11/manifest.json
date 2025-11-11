@@ -53,11 +53,11 @@
   "receipts": [
     {
       "title": "State ledger entry",
-      "path": "docs/state/index.md#site-v2025.11-2025-11"
+      "path": "docs/navigate/state-ledger.md#site-v2025.11-2025-11"
     },
     {
       "title": "State visibility runbook",
-      "path": "docs/runbooks/state-visibility.md"
+      "path": "docs/operate/state-visibility.md"
     }
   ]
 }

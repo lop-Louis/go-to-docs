@@ -8,7 +8,7 @@ status: live
 sidebar: false
 ---
 
-Run this checklist in ≤10 minutes after reading the [Verify-in-10 guide](../playbook/verify-in-10.md). [Run the lab](#steps) or [Log your receipts](../state/index.md).
+Run this checklist in ≤10 minutes after reading the [Verify-in-10 guide](../operate/verify-in-10.md). [Run the lab](#steps) or [Log your receipts](../navigate/state-ledger.md).
 
 ## Preconditions
 
@@ -22,7 +22,7 @@ Run this checklist in ≤10 minutes after reading the [Verify-in-10 guide](../pl
 2. **Fold rules (2 min)** — Verify opener + CTAs render above the first section and the Verify guide link is visible when required.
 3. **Tests + labs (3 min)** — Run `pnpm run docs:guard` (or targeted labs). Capture the first successful output for receipts.
 4. **Receipts + snapshot (2 min)** — Refresh analytics snapshot (`pnpm run analytics:snapshot`) if adoption data changed.
-5. **State build (2 min)** — Edit manifest metrics, run `pnpm run state:build`, stage `ops/releases/YYYY-MM/index.md` + `docs/state/index.md`.
+5. **State build (2 min)** — Edit manifest metrics, run `pnpm run state:build`, stage `ops/releases/YYYY-MM/index.md` + `do../navigate/state-ledger.md`.
 
 ## Acceptance checks
 
@@ -39,6 +39,6 @@ Run this checklist in ≤10 minutes after reading the [Verify-in-10 guide](../pl
 
 ## Related references
 
-- [Verify-in-10 guide](../playbook/verify-in-10.md)
-- [State ledger](../state/index.md)
-- [Monthly release workflow](../monthly-release.md)
+- [Verify-in-10 guide](../operate/verify-in-10.md)
+- [State ledger](../navigate/state-ledger.md)
+- [Monthly release workflow](../navigate/monthly-release.md)

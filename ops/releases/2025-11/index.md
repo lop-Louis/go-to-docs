@@ -33,5 +33,5 @@ Monthly release artefacts live here. Follow the release folder decision for nami
 
 ## Receipts
 
-- [State ledger entry](../../../docs/state/index.md#site-v2025.11-2025-11)
-- [State visibility runbook](../../../docs/runbooks/state-visibility.md)
+- [State ledger entry](../../../docs/navigate/state-ledger.md#site-v2025.11-2025-11)
+- [State visibility runbook](../../../docs/operate/state-visibility.md)

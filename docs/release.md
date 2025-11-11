@@ -15,7 +15,7 @@ nav:
 
 # Releases
 
-Release notes now live in the [State ledger](./state/index.md) and the per-month bundles under `ops/releases/`. [Open the ledger](./state/index.md) or [Browse the release runbook](./runbooks/state-visibility.md).
+Release notes now live in the [State ledger](./navigate/state-ledger.md) and the per-month bundles under `ops/releases/`. [Open the ledger](./navigate/state-ledger.md) or [Browse the release runbook](./operate/state-visibility.md).
 
 ## Current bundle
 
