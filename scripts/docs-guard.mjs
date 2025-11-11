@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 import { spawnSync } from 'node:child_process'
+import fs from 'node:fs'
+import path from 'node:path'
 
 const BLOCKING_REASON = {
   redline: 'red-line violation',
@@ -38,6 +40,17 @@ function runStep({ name, mode, reason }) {
 
 for (const step of steps) {
   runStep(step)
+}
+
+const sitemapFiles = ['public/sitemap.xml', 'public/feed.rss', 'public/feed.xml']
+for (const file of sitemapFiles) {
+  const abs = path.join(process.cwd(), file)
+  if (!fs.existsSync(abs)) continue
+  const content = fs.readFileSync(abs, 'utf8')
+  if (content.includes('/drafts/')) {
+    console.error(`docs:guard failed - ${file} contains /drafts/ entries`)
+    process.exit(1)
+  }
 }
 
 const totalMs = Date.now() - startTime
