@@ -117,7 +117,7 @@ jobs:
         run: node scripts/generate-smoke-targets.mjs --output ../smoke-targets.json
 
       - name: Upload smoke targets
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: smoke-targets
           path: smoke-targets.json
