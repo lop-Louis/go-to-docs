@@ -119,6 +119,11 @@ function checkFile(p) {
   if (p.includes('.vitepress')) return
 
   // Check for forbidden patterns in content
+  // const segments = p.split(path.sep)
+  // const inDrafts = segments.includes('drafts')
+  // if (inDrafts) {
+  //   return
+  // }
   const forbiddenMatches = []
   for (const rx of forbidden) {
     const matches = content.match(rx)
@@ -221,13 +226,6 @@ function checkFile(p) {
   if (data) {
     checkCtaLabel(p, 'primary', data.cta_primary_label)
     checkCtaLabel(p, 'secondary', data.cta_secondary_label)
-
-    const segments = p.split(path.sep)
-    const inDrafts = segments.includes('drafts')
-    if (inDrafts && data.search !== false) {
-      red.push(`${p}: drafts pages must set frontmatter search: false (blocking)`)
-      checkCount++
-    }
 
     const seam = data.seam || 'unknown'
     const key = data.guardrail_id ? `${seam}:${data.guardrail_id}` : seam

@@ -44,14 +44,6 @@
     "description": "Advisory drift audit (storytelling, inclusive language, etc.)"
   },
   {
-    "name": "ux:scan",
-    "description": "Verify CTA intro sentence includes both actions before the first section"
-  },
-  {
-    "name": "links",
-    "description": "Check internal and external links"
-  },
-  {
     "name": "stale",
     "description": "Generate stale page report"
   },

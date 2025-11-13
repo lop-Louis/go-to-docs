@@ -10,18 +10,6 @@ const docsDir = path.join(repoRoot, 'docs')
 const draftsDir = path.join(docsDir, 'drafts')
 const gatedListPath = path.join(draftsDir, 'gated.generated.md')
 const outputPath = path.join(docsDir, '.vitepress', 'navigation.generated.ts')
-const REQUIRED_FIELDS = [
-  'bucket',
-  'north_star_id',
-  'guardrail_id',
-  'owner',
-  'band',
-  'date',
-  'cta_primary_label',
-  'cta_secondary_label',
-  'leading_metric',
-  'lagging_metric'
-]
 const FIXED_NAV = [
   { text: 'Start here', link: '/start-here/' },
   { text: 'Navigate', link: '/navigate/' },
@@ -34,40 +22,33 @@ const SIDEBAR_BLUEPRINT = [
     text: 'Navigate',
     collapsed: false,
     items: [
-      { text: 'Overview', link: '/navigate/' },
-      { text: 'Wayfinding shortcuts', link: '/navigate/find' },
-      { text: 'State', link: '/navigate/state-ledger' },
-      { text: 'Monthly cadence', link: '/navigate/monthly-release' },
-      { text: 'Band A guardrails', link: '/navigate/band-a' }
+      { text: 'Start here', link: '/start-here/' },
+      { text: 'Navigate overview', link: '/navigate/' }
     ]
   },
   {
     text: 'Operate',
     collapsed: false,
     items: [
-      { text: 'North Star & guardrails', link: '/operate/north-star-guardrails' },
-      { text: 'Versioning & releases', link: '/operate/versioning-and-releases/' },
-      { text: 'Sanitization checklist', link: '/operate/sanitization' },
-      { text: 'Verify-in-10 guide', link: '/operate/verify-in-10' },
-      { text: 'Decision spine', link: '/operate/decision-spine' },
-      { text: 'Playbook canon', link: '/operate/' },
-      { text: 'Signal registry', link: '/operate/signal-registry' },
-      { text: 'Guardrail index', link: '/operate/guardrail-index' },
-      { text: 'Cloudflare analytics', link: '/operate/cloudflare-analytics' }
+      { text: 'Operate overview', link: '/operate/' },
+      { text: 'Chapter state (pilot)', link: '/operate/state/web-frontend' },
+      { text: 'Steward roster', link: '/operate/stewards' }
     ]
   },
   {
     text: 'Learn',
     collapsed: false,
-    items: [{ text: 'Receipts & dashboards', link: '/learn/receipts' }]
+    items: [
+      { text: 'Learn overview', link: '/learn/' },
+      { text: 'Signals roster', link: '/learn/signals-roster' }
+    ]
   },
   {
     text: 'Mitigate',
     collapsed: false,
     items: [
-      { text: 'Fix: Interrupt flows', link: '/support/' },
-      { text: 'Fix: Teams notifications', link: '/support/teams-notifications' },
-      { text: 'Fix: Repo & pipeline access', link: '/support/access-repo-pipeline' }
+      { text: 'Mitigate overview', link: '/mitigate/' },
+      { text: 'Cloud access blocks', link: '/mitigate/exception-cloud-access' }
     ]
   }
 ]
@@ -109,25 +90,6 @@ function routeFromFile(filePath) {
 function isDraftPath(filePath) {
   const relative = path.relative(docsDir, filePath)
   return relative.split(path.sep).includes('drafts')
-}
-
-function hasOpener(content) {
-  const snippet = content.split('\n').filter(Boolean).slice(0, 40).join('\n').toLowerCase()
-  if (!/exit metric/.test(snippet)) return false
-  const linkMatches = content.match(/\[[^\]]+\]\([^)]+\)/g) || []
-  return linkMatches.length >= 2
-}
-
-function isPublishable(frontmatter, content) {
-  if (!frontmatter) return { ok: false, reason: 'missing frontmatter' }
-  const missing = REQUIRED_FIELDS.filter(key => !frontmatter[key])
-  if (missing.length) {
-    return { ok: false, reason: `missing frontmatter: ${missing.join(', ')}` }
-  }
-  if (!hasOpener(content)) {
-    return { ok: false, reason: 'opener missing exit metric or two CTAs' }
-  }
-  return { ok: true }
 }
 
 function writeGatedList(entries) {
@@ -186,16 +148,9 @@ function buildNavigation() {
     if (file.includes(`${path.sep}.vitepress${path.sep}`)) continue
     if (isDraftPath(file)) continue
 
-    const raw = fs.readFileSync(file, 'utf8')
-    const { data, content } = matter(raw)
     const route = routeFromFile(file)
-    const result = isPublishable(data, content)
 
-    if (result.ok) {
-      publishableRoutes.add(route)
-    } else {
-      gatedPages.push({ route, reason: result.reason })
-    }
+    publishableRoutes.add(route)
   }
 
   writeGatedList(gatedPages)

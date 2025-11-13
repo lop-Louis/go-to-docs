@@ -1,65 +1,62 @@
 ---
-title: Learn with proof
+title: Learn lane · Web frontend pilot
+owner: '@louis'
 band: A
-owner: '@lop'
-refresh_after_days: 45
-change_type: minor
+refresh_after_days: 60
+change_type: patch
 status: live
-audience: Measurement owners and reviewers publishing receipts
-tone: plainspoken
-narrative_goal: Keep dashboards refreshed and decisions backed by receipts
-nav_group: Learn
-nav_order: 30
-nav_label: Learn
-nav:
-  - slot: main
-    label: Learn
-  - sidebar
+audience: People who want to see how the chapter is doing and what we’re noticing
+tone: Plainspoken, calm, practical
+narrative_goal: Focus attention on the two health checks without turning it into a dashboard
 bucket: learn
 north_star_id: ns-001
-guardrail_id: gr-105
-cta_primary_label: Use this dashboard cadence
-cta_secondary_label: See example receipts
+guardrail_id: gr-103
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
-date: '2025-11-11'
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
+date: '2025-11-15'
+nav:
+  - none
+search: false
 ---
 
-# Learn with proof
+Use this page when you want to **see what we are learning** from how the chapter runs, not just what we planned.
 
-Teach with receipts, not vibes. [Use this dashboard cadence](#keep-dashboards-fresh) or [See example receipts](../signals/receipts/v2025.11-learn.md).
-Exit metric: dashboards refresh within 30 days and decision hit rate stays ≥ 60%.
+Exit metric: you leave knowing which simple signal to look at to understand how the chapter feels right now.  
+For this pilot, that lives in the **signals roster**:
 
-::: tip Tiny receipts — Learn (v2025.11)
+- [Open signals roster](./signals-roster)
+- [See chapter state for context](../operate/state/web-frontend)
 
-- m-dashboard-freshness-days: 9 days
-- m-decision-hit-rate: 62%
-  [See the receipts](../signals/receipts/v2025.11-learn.md)
-  :::
+---
 
-## Keep dashboards fresh
+## What “Learn” means in this pilot
 
-1. **Start from the manifest** — Update `ops/releases/YYYY-MM/manifest.json` with owner, guardrail, and signal IDs before touching the chart.
-2. **Refresh data on a cadence** — Run `pnpm run analytics:snapshot` (Cloudflare) and publish deltas inside 30 days. Capture the timestamp plus links in the PR.
-3. **Regenerate State** — After dashboards update, run `pnpm run state:build` and stage `docs/navigate/state-ledger.md` so auditors see the change.
+Long term, “Learn” could host many write-ups and dashboards.
 
-## Show the decision hit rate
+For this pilot, we keep it small:
 
-- Map every metric to a decision ID (`decision_id` frontmatter + receipts entry) before you publish. Missing mappings trigger `pnpm run traceability:check`.
-- Attach a short proof in `/signals/receipts/vYYYY.MM-learn.md` for each change: scope, metric delta, source file, owner.
-- During a freeze, summarize adoption/quality/credibility in `ops/releases/<tag>/index.md` so the ledger stays green.
+- one page that tracks two health checks
+- stories and observations shared in chapter ops sessions
 
-## Teach with runnable examples
+The goal is to notice patterns early, not to build a giant report.
 
-- **Narrate the signal chain** — Each Learn article links `guardrail → signal → dashboard → receipt`. Use the [Signal registry](../operate/signal-registry.md) as the source of truth.
-- **Keep labs under 10 minutes** — When you add a walkthrough, drop the steps into `/labs/` and wire them into `pnpm run labs` for telemetry.
-- **Document anti-patterns** — Capture two “don’t do this” examples in every Learn guide so readers know how to keep receipts credible.
+## The two health checks
 
-## Related references
+Open the **signals roster** to see:
 
-- [Receipts & dashboards](./receipts.md)
-- [Signal registry](../operate/signal-registry.md)
-- [State ledger](../navigate/state-ledger.md)
-- [Verify-in-10 guide](../operate/verify-in-10.md)
-- [Release bundle · 2025-11](../../ops/releases/2025-11/index.md)
+- how current our chapter roster is
+- how often people leave sessions with a clear next step
+
+> [Open signals roster](./signals-roster)
+
+These are not performance scores. They are checks on whether our routines are helping or getting in the way.
+
+## How to use this lane
+
+If you are:
+
+- **preparing for a chapter ops session**: glance at the signals so you know where to ask questions
+- **leaving a session**: notice whether you have a clear next step, and say so if you don’t
+
+Over time, the Learn lane may grow into short write-ups of what worked. For now, the signals roster is enough to keep us honest.

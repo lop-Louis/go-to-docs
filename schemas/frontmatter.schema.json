@@ -13,8 +13,6 @@
     "bucket",
     "north_star_id",
     "guardrail_id",
-    "cta_primary_label",
-    "cta_secondary_label",
     "leading_metric",
     "lagging_metric",
     "date"

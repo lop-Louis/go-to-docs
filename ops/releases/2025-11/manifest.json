@@ -11,74 +11,7 @@
     "quality": "Lab pass rate 1.00, broken links 0 (Quick-Run + Link Drift).",
     "credibility": "State page refreshed 12 days ago, 1 exception open / 2 resolved on time."
   },
-  "decisions": [
-    {
-      "title": "Navigation lanes decision",
-      "path": "docs/decisions/navigation-lanes.md"
-    },
-    {
-      "title": "Cloudflare analytics decision",
-      "path": "docs/decisions/cloudflare-analytics.md"
-    },
-    {
-      "title": "Release-centric ops folders",
-      "path": "docs/decisions/release-folders.md"
-    },
-    {
-      "title": "Automate state and release pages",
-      "path": "docs/decisions/automation-state-pages.md"
-    },
-    {
-      "title": "Verify-in-10 decision",
-      "path": "docs/decisions/verify-in-10.md"
-    },
-    {
-      "title": "Deep-embed North Star governance decision",
-      "path": "docs/decisions/dec-2025-11-ia-overhaul.md"
-    },
-    {
-      "title": "Operate pilot — versioning & releases",
-      "path": "docs/decisions/dec-2025-11-operate-pilot.md"
-    },
-    {
-      "title": "Navigation lock decision",
-      "path": "docs/decisions/dec-2025-11-nav-lock.md"
-    }
-  ],
-  "signals": [
-    {
-      "title": "Analytics snapshot",
-      "path": "reports/cloudflare-snapshot.json",
-      "note": "Generated via pnpm run analytics:snapshot"
-    },
-    {
-      "title": "Cloudflare export template",
-      "path": "reports/cloudflare-export.sample.json",
-      "note": "Shows the expected sanitized structure"
-    },
-    {
-      "title": "Labs report",
-      "path": "reports/labs.json",
-      "note": "Quick-Run + Proof Run lab results"
-    },
-    {
-      "title": "Pilot receipts",
-      "path": "docs/signals/receipts/v2025.11-releases.md",
-      "note": "Adoption, quality, credibility for the operate pilot slice"
-    },
-    {
-      "title": "Pilot state snapshot",
-      "path": "docs/releases/state/v2025.11-releases.md"
-    }
-  ],
-  "receipts": [
-    {
-      "title": "State ledger entry",
-      "path": "docs/navigate/state-ledger.md#site-v2025.11-2025-11"
-    },
-    {
-      "title": "State visibility runbook",
-      "path": "docs/operate/state-visibility.md"
-    }
-  ]
+  "decisions": [],
+  "signals": [],
+  "receipts": []
 }

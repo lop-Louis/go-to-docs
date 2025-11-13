@@ -1,0 +1,58 @@
+---
+title: Release bundle · site-v2025.11
+owner: '@louis'
+band: A
+refresh_after_days: 365
+change_type: minor
+status: live
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: See current chapter state
+cta_secondary_label: See decisions involved
+leading_metric: m-dashboard-freshness-days
+lagging_metric: m-decision-hit-rate
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
+date: '2025-11-15'
+nav:
+  - none
+search: false
+---
+
+This release bundle shows what the **web frontend chapter pilot** put in place around November 2025.
+
+If you only care about where we are today, use the [chapter state page](/operate/state/web-frontend).  
+If you care about **how we got here**, you are in the right place.
+
+## What this release was about
+
+This tag collects the first small slice of chapter ops for the web frontend chapter:
+
+- making it clear **who owns what** in ops
+- watching **two simple health checks**
+- handling **cloud access blocks** in the open
+
+## Pages in this release
+
+These are the main docs that belong to this release.
+
+<ReleaseList release-tag="site-v2025.11" kind="pages" />
+
+## Decisions behind this release
+
+<ReleaseList
+  release-tag="site-v2025.11"
+  kind="decisions"
+  empty-text="No decisions have been attached to this release yet."
+/>
+
+As we add more decisions or pages to this tag, they should show up here.
+
+## For auditors and ops
+
+This page is built from frontmatter fields like:
+
+- `release_tag: site-v2025.11`
+- `decision_id`, `guardrail_id`, `leading_metric`, `lagging_metric`
+
+If something looks wrong in this bundle, fix the frontmatter on the underlying pages and rebuild. This view should never be edited by hand once automation is in place.

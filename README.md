@@ -74,8 +74,6 @@ See `docs/principles.md` and [GOVERNANCE](./GOVERNANCE.md) for fuller details.
 | `pnpm run freeze:verify`    | Verify if a file can be modified during freeze                               |
 | `pnpm run freeze:status`    | Show current freeze state                                                    |
 | `pnpm run drift`            | Advisory drift audit (storytelling, inclusive language, etc.)                |
-| `pnpm run ux:scan`          | Verify CTA intro sentence includes both actions before the first section     |
-| `pnpm run links`            | Check internal and external links                                            |
 | `pnpm run stale`            | Generate stale page report                                                   |
 | `pnpm run test`             | Run Node tests and component suite                                           |
 

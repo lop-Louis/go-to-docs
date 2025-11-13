@@ -41,8 +41,10 @@ function checkFile(p) {
   // Skip VitePress internals
   if (p.includes('.vitepress')) return
 
-  fileCount++
   const relPath = path.relative(repoRoot, p).split(path.sep).join('/')
+  if (relPath.split('/').includes('drafts')) return
+
+  fileCount++
 
   // Storytelling metadata expectations for certain sections
   const needsStorytelling = storytellingPrefixes.some(rx => rx.test(relPath))

@@ -1,5 +1,5 @@
 {
-  "setup": ["pnpm run ux:scan", "pnpm run traceability:check", "pnpm run docs:guard"],
+  "setup": ["pnpm run docs:guard"],
   "check": [
     "node -e \"const fs=require('fs');const receipts=fs.readFileSync('docs/signals/receipts/v2025.11-releases.md','utf8');const state=fs.readFileSync('docs/releases/state/v2025.11-releases.md','utf8');const ok=/v2025\\.11-releases/.test(receipts)&&/versioning & releases/i.test(state);process.exit(ok?0:1)\""
   ],

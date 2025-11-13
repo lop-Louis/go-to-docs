@@ -7,3 +7,4 @@ m-dashboard-freshness-days,louis,30,"days since last dashboard refresh","leading
 m-decision-hit-rate,louis,30,"decisions that produced expected receipts","lagging"
 m-time-to-freeze,louis,30,"elapsed time from trigger to freeze","leading"
 m-time-to-recovery,louis,30,"elapsed time to recover to baseline","lagging"
+m-search-noise,louis,30,"irrelevant results per 100 internal searches","leading"

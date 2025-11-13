@@ -1,0 +1,98 @@
+---
+title: move irrelevant docs to `/draft` and exclude from build/search
+band: A
+owner: '@lop'
+refresh_after_days: 14
+change_type: major
+status: final
+bucket: operate
+north_star_id: ns-001
+guardrail_id: gr-103
+cta_primary_label: Follow this decision
+cta_secondary_label: See contract
+leading_metric: m-search-noise
+lagging_metric: m-time-to-answer
+date: '2025-11-15'
+decider: '@lop'
+decision_date: '2025-11-15'
+next_review: '2025-12-15'
+seam: governance
+decision_id: dec-2025-11-draft-move
+baseline_window: last-30-days
+delta_type: people-capacity-risk
+stop_rule: freeze if orphan links > 0 or search-noise worsens >=10% for 7 days.
+tags:
+  - v2025.11-governance
+release_tag: site-v2025.11
+related_contract: ../contracts/northbook-operations-contract-v1.md
+decision_link: /ops/decisions/dec-2025-11-draft-move
+success_metric: >-
+  All irrelevant docs moved to `/draft` with zero broken links and search noise
+  trending down within two tags.
+---
+
+# Move irrelevant docs to `/draft` and exclude from build/search
+
+Park low-value or out-of-scope pages in a quarantined `/draft` area so pilots focus on actionable guidance without deleting history. This decision is final and pairs with the refreshed [Northbook Operations Contract](../contracts/northbook-operations-contract-v1.md).
+
+## context
+
+Irrelevant or stale docs dilute search, confuse receipts, and slow the pilot without contributing to the North Star. We need a reversible quarantine that does not require new tooling, keeps traceability intact, and still lets us restore a page quickly if its owner proves the value.
+
+### invariants (carry-over)
+
+- No CI/tooling changes in v0.1. Use existing page-scan, docs:guard, VitePress ignore, and search ignore lists.
+- Traceability never breaks. Every move records an owner, reason, and binds to a stable id in `/ops`.
+- Guidance over gate: block only when required annotations or commitments are missing (L4 rule). Everything else is a warning or receipt-level nudge.
+
+## decision
+
+Move every doc classified as **irrelevant for v0.1** into `/draft`, ensure it is excluded from build/search, and record the move on the next release tag with receipts linking the prior location and justification. The move is reversible; the receipts log plus `/ops` binding is the source of truth.
+
+Tradeoffs:
+
+- We accept a temporary increase in bookkeeping (annotating each move) to avoid deleting history.
+- Search noise drops immediately because `/draft` stays out of the build, but contributors must fetch content from history when they want to reuse it.
+- No new tooling keeps risk low, but manual receipts work requires discipline across releases.
+
+## scope
+
+**In scope:** All public docs under `/docs` during the v0.1 pilot that meet at least one of these rules:
+
+1. **Out-of-scope topic** – the content does not map to a live bucket, guardrail, or active contract.
+2. **Stale owner** – no current owner or date in frontmatter and no refresh commitment.
+3. **Unrunnable guidance** – cannot be executed within 10 minutes or lacks a measurable CTA path.
+4. **Duplicative** – overlaps another page where the canonical source is already tagged.
+
+**Out of scope:** system docs already hidden (legacy, sandbox), legal/compliance docs with separate retention commitments, and annex labs currently under an exception.
+
+## acceptance
+
+- Moves use only the existing guardrails (`docs:guard`, page-scan, VitePress ignore) and do not add CI steps.
+- Every moved page keeps `owner`, `date`, `bucket_id`, `page_id`, adds `decision_id: dec-2025-11-draft-move`, a single-sentence `move_reason`, and a `receipts` reference to the release tag entry.
+- `/ops` entries bind the stable id to the move receipt so traceability never breaks.
+- Page-scan reports zero broken links and no more than one redirect hop from the former URL.
+- The release tag lists each move with its `move_reason`, old path, and new `/draft` path.
+- Bucket indices show a net reduction of irrelevant surface without breaking a required CTA path.
+
+## receipts (expected)
+
+- **Leading:** `m-search-noise` <= baseline within one tag; `m-link-warnings` stays at zero after the move.
+- **Lagging:** `m-time-to-answer` improves >= 10% by the second tag after the move; `m-draft-restore-rate` <= 10% over two cycles (few reversals).
+- Attach receipts to `site-v2025.11` and subsequent seam tags.
+
+## freeze and exit
+
+Freeze new moves if any of these fire:
+
+1. Broken-link count > 0 or redirect hops > 1 for a moved page.
+2. Release tag misses a receipt entry for any move.
+3. Search noise worsens >= 10% over baseline for 7 consecutive days.
+
+Exit the freeze once receipts show the offending metric back within 10% of baseline for 7 days, all missing receipts are posted, and the owner revalidates the `/draft` quarantine list.
+
+## links
+
+- [Northbook Operations Contract v1 (refreshed)](../contracts/northbook-operations-contract-v1.md)
+- [site-v2025.11 release bundle](../releases/2025-11/index.md)
+- [State visibility runbook](../../docs/operate/state-visibility.md)

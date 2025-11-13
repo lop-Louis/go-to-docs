@@ -1,67 +1,70 @@
 ---
-title: Mitigate fast
+title: Mitigate lane · Web frontend pilot
+owner: '@louis'
 band: A
-owner: '@platform-eng'
-refresh_after_days: 45
+refresh_after_days: 60
 change_type: patch
 status: live
-audience: People clearing high-volume interrupts in under 10 minutes
-tone: practical
-narrative_goal: Route teams to the right fix flow and keep freezes/receipts visible
-nav_group: Mitigate
-nav_order: 1
-nav_label: Mitigate
-nav:
-  - slot: main
-    label: Mitigate
-  - sidebar
+audience: People facing blockers and wanting to handle them in the open
+tone: Plainspoken, calm, practical
+narrative_goal: Help people log serious blocks and use the cloud-access stub without drama
 bucket: mitigate
 north_star_id: ns-001
-guardrail_id: gr-102
-cta_primary_label: Choose a fix flow
-cta_secondary_label: See example exception
-leading_metric: m-time-to-freeze
-lagging_metric: m-time-to-recovery
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
-date: '2025-11-11'
+guardrail_id: gr-103
+leading_metric: m-dashboard-freshness-days
+lagging_metric: m-decision-hit-rate
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
+date: '2025-11-15'
+nav:
+  - none
+search: false
 ---
 
-# Mitigate fast
+Use this page when something is **blocking work** and you want to handle it in the open, not in private chats.
 
-Contain the blast radius first, then recover with receipts. [Choose a fix flow](#fix-flows) or [See example exception](../governance/exceptions.md).
-Exit metric: freezes trigger within 24 hours and recovery finishes inside 7 days.
+Exit metric: you leave knowing whether your blocker belongs in the **cloud-access stub** or somewhere else, and what to do next.  
+Most pilot-era blocks go here:
 
-::: tip Tiny receipts — Mitigate (v2025.11)
+- [Open cloud-access stub](./exception-cloud-access)
+- [See who owns exceptions](../operate/stewards)
 
-- m-time-to-freeze: 6 hours average
-- m-time-to-recovery: 2.5 days
-  [See the receipts](../signals/receipts/v2025.11-mitigate.md)
-  :::
+## What “Mitigate” means in this pilot
 
-## How this lane works
+This lane is about handling trouble:
 
-1. **Freeze quickly** — Follow the matching 10-minute fix flow below. Each one ends with a ready-to-send escalation packet.
-2. **Log the exception** — Record `exc-` IDs, owner, expiry, and exit criteria in [exceptions](../governance/exceptions.md) if you step outside a guardrail.
-3. **Post receipts** — Add quality/adoption deltas to `/signals/receipts/v2025.11-mitigate.md` and update the release bundle once the issue is clear.
+- access gaps
+- process issues that stall work
+- things that keep repeating but never quite get fixed
 
-## Fix flows
+In the pilot, we start with one concrete case: **cloud-platform access** problems for people doing DevOps and delivery work.
 
-- [Teams notifications](../support/teams-notifications.md) — Restore toast/badge alerts across devices before calling IT.
-- [Repo or pipeline access](../support/access-repo-pipeline.md) — Confirm membership, branch rules, and run permissions prior to filing a ticket.
-- [Design System component decision](../support/ds-component-decision.md) — Decide whether to use, extend, compose, or fork without relitigating.
-- [Flag not behaving on Staging](../support/flag-staging.md) — Validate env, SDK keys, and targeting before pinging Platform.
-- [VWO/Bloomreach sanity](../support/vwo-bloomreach-sanity.md) — Detect duplicate injections, CSP blocks, or wrong keys fast.
-- Need a bite-sized runbook? [Request a new Fix flow](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,feature&title=%5BFlow%5D%20Fix%20it%20fast%20request&body=Page:%20https://northbook.guide/mitigate/).
+## Cloud-access blocks
 
-## Escalate when needed
+Use the **cloud-access exception stub** when:
 
-- Use the [Quick-Run checklist](../navigate/quick-run.md) before/after every fast fix so the receipts stay traceable.
-- When a fix requires more than 10 minutes, escalate to [Support IT](../support-it/contacting-it.md) with the packet from the flow you ran.
-- Close the loop by updating `ops/releases/YYYY-MM/manifest.json` and re-running `pnpm run state:build`.
+- you cannot do needed work because of missing access, tooling, or unclear responsibility
+- it affects more than just one trivial task
+- you need a safe temporary path while the fix is in progress
 
-## Related references
+On that page you can:
 
-- [Navigate Start Here](../navigate/index.md)
-- [Operate playbook canon](../operate/index.md)
-- [Signal registry](../operate/signal-registry.md)
-- [Mitigate receipts](../signals/receipts/v2025.11-mitigate.md)
+- log the blocker with an owner and an expiry
+- agree on a temporary route so work can continue safely
+- see what must be true before we close the exception
+
+> [Open cloud-access stub](./exception-cloud-access)
+
+## Who to talk to
+
+If you are unsure whether to log something as an exception, check the **steward roster**:
+
+- find the exception steward
+- ask whether this belongs in Mitigate or somewhere else
+
+> [Open steward roster](../operate/stewards)
+
+## Growing this lane
+
+As we learn which kinds of blocks recur often, this lane may grow to include more specific guides or stubs.
+
+For the pilot, we keep it at one clear pattern and do that well first.

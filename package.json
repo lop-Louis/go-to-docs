@@ -27,9 +27,7 @@
     "stale": "node scripts/stale.mjs",
     "analytics:snapshot": "node scripts/cloudflare-analytics.mjs",
     "release:folders:check": "node scripts/release-folders-check.mjs",
-    "state:build": "node scripts/generate-state.mjs",
-    "state:check": "node scripts/generate-state.mjs --check",
-    "traceability:check": "node scripts/traceability-check.mjs",
+    "releases:sync": "node scripts/sync-releases.mjs",
     "test": "pnpm run test:unit && pnpm run test:components",
     "test:unit": "node --test tests/*.test.mjs",
     "test:components": "vitest run tests/components tests/accessibility",
@@ -41,7 +39,6 @@
     "typecheck": "tsc --noEmit",
     "lighthouse": "node scripts/lighthouse-runner.mjs",
     "review:update": "node scripts/update-last-reviewed.mjs",
-    "ux:scan": "node scripts/ux-scan.mjs",
     "prepare": "husky"
   },
   "lint-staged": {

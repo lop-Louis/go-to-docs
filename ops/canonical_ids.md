@@ -22,6 +22,7 @@
 - m-decision-hit-rate
 - m-time-to-freeze
 - m-time-to-recovery
+- m-search-noise
 
 ## seams
 

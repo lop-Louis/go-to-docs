@@ -1,64 +1,74 @@
 ---
-title: Navigate lane
-band: A
+title: Navigate lane · Northbook pilot
 owner: '@lop'
-refresh_after_days: 60
-change_type: minor
+band: A
+refresh_after_days: 120
+change_type: patch
 status: live
-last_reviewed: '2025-11-10'
-audience: People keeping the map stable while content moves
-tone: 'Plainspoken, directive'
-narrative_goal: Keep the four-bucket skeleton and redirect ledger honest
-nav_group: Navigate
-nav_order: 1
-nav_label: Navigate
-nav:
-  - sidebar
+audience: People trying to find which Northbook page or lane to use
+tone: Plainspoken, calm, practical
+narrative_goal: Route people to the small set of active pilot pages without overwhelming them
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
-cta_primary_label: Try the Navigate path
-cta_secondary_label: See example route
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
-date: '2025-11-11'
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
+date: '2025-01-15'
+nav:
+  - none
+search: false
 ---
 
-# Navigate lane
+Use this page when you are trying to figure out **where** in Northbook your work or question belongs.
 
-Keep the four-bucket map stable while content moves. [Open Start Here](../start-here/) or [Check the SLI map](./sli-states).
-Exit metric: 404 crawl passes and `/legacy` traffic stays <5% during the freeze.
+Exit metric: you leave with one page to open next, not a list of ten.  
+From here, most people either go to **chapter state** or to the **steward roster**:
 
-::: tip Tiny receipts — Navigate (v2025.11)
+- [Open chapter state](../operate/state/web-frontend)
+- [Open steward roster](../operate/stewards)
 
-- Nav skeleton: 4-of-4 buckets visible with opener pattern
-- `/legacy` traffic: 3.4% (Cloudflare 7-day lookback)
-  [See the receipts](../signals/receipts/v2025.11-navigate.md)
-  :::
+## What “Navigate” means in this pilot
 
-## Hold the frame
+Long term, “Navigate” will cover maps and shortcuts across all of Northbook.
 
-1. **Lock the buckets** — Home hero + top nav must show Navigate · Operate · Learn · Mitigate every release.
-2. **Mirror the opener** — Each landing keeps one sentence why, two CTAs, and an exit metric above the first heading.
-3. **Surface receipts** — Link the seam receipts for every landing (Navigate uses `v2025.11-navigate`).
+In this pilot, it does one simpler job:
 
-Use [Start Here](../start-here/) for orientation copy; keep this page focused on the governance skeleton.
+- help you find the **few** ops pages that are actually in play for the web frontend chapter
 
-## Redirects & legacy
+We keep the navigation surface small on purpose so it stays honest and easy to use.
 
-- `/legacy` renders the [published banner](../../ops/legacy_banner.md) and points visitors to `/start-here/`.
-- Every moved path lands in [`ops/redirect_ledger.csv`](../../ops/redirect_ledger.csv) with lower-case, single-hop entries.
+## Common situations
 
-## Receipts & monitoring
+### “I just joined / I’m catching up”
 
-- `/legacy` traffic stays <5% — track via Cloudflare nav dashboard and log deltas in [Navigate receipts](../signals/receipts/v2025.11-navigate.md).
-- 404 crawl = 0 blockers — tie runs to `pnpm run drift:check` and capture proof in the release bundle.
-- Exceptions older than 14 days halt moves; close them or stop migrating until they’re green.
+Start with the **chapter state**:
 
-## Related references
+- see what the pilot is currently testing
+- see which ops pages matter right now
 
-- [Wayfinding shortcuts](./find.md) — Keeps the quick links honest.
-- [Band A guardrails](./band-a.md) — Sanitization rules this lane enforces.
-- [Monthly cadence](./monthly-release.md) — Where we log nav changes + receipts.
-- [Quick-Run check](./quick-run.md) — Required before escalating nav regressions.
+> [Open chapter state](../operate/state/web-frontend)
+
+### “I’m not sure who owns this kind of problem”
+
+Go to the **steward roster**:
+
+- find who to tap for scope, signals, or exceptions
+- check if there is a backup if the primary steward is busy
+
+> [Open steward roster](../operate/stewards)
+
+### “I want to see the health checks”
+
+If you care about how the chapter is doing over time, open the **signals roster**:
+
+- roster freshness
+- whether people leave sessions with a clear next step
+
+> [Open signals roster](../learn/signals-roster)
+
+## If you are still unsure
+
+If none of these fit your situation, pick the closest one and bring the mismatch as a story.
+
+Navigation in a pilot is allowed to be rough; what matters is that you can find a person or page to talk through it with.

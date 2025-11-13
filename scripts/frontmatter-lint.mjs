@@ -45,6 +45,7 @@ function lintFile(filePath) {
   const relPath = path.relative(process.cwd(), filePath).split(path.sep).join('/')
 
   if (relPath.includes('.vitepress/')) return
+  if (relPath.split('/').includes('drafts')) return
 
   const raw = fs.readFileSync(filePath, 'utf8')
   const { data } = matter(raw)

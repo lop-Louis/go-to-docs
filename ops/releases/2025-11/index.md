@@ -19,24 +19,12 @@ Monthly release artefacts live here. Follow the release folder decision for nami
 
 ## Decisions
 
-- [Navigation lanes decision](../../../docs/decisions/navigation-lanes.md)
-- [Cloudflare analytics decision](../../../docs/decisions/cloudflare-analytics.md)
-- [Release-centric ops folders](../../../docs/decisions/release-folders.md)
-- [Automate state and release pages](../../../docs/decisions/automation-state-pages.md)
-- [Verify-in-10 decision](../../../docs/decisions/verify-in-10.md)
-- [Deep-embed North Star governance decision](../../../docs/decisions/dec-2025-11-ia-overhaul.md)
-- [Operate pilot — versioning & releases](../../../docs/decisions/dec-2025-11-operate-pilot.md)
-- [Navigation lock decision](../../../docs/decisions/dec-2025-11-nav-lock.md)
+- _None_
 
 ## Signals
 
-- [Analytics snapshot](../../../reports/cloudflare-snapshot.json) — Generated via pnpm run analytics:snapshot
-- [Cloudflare export template](../../../reports/cloudflare-export.sample.json) — Shows the expected sanitized structure
-- [Labs report](../../../reports/labs.json) — Quick-Run + Proof Run lab results
-- [Pilot receipts](../../../docs/signals/receipts/v2025.11-releases.md) — Adoption, quality, credibility for the operate pilot slice
-- [Pilot state snapshot](../../../docs/releases/state/v2025.11-releases.md)
+- _None_
 
 ## Receipts
 
-- [State ledger entry](../../../docs/navigate/state-ledger.md#site-v2025.11-2025-11)
-- [State visibility runbook](../../../docs/operate/state-visibility.md)
+- _None_

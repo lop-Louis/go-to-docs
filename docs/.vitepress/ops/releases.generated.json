@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2025-11-13T08:58:18.833Z",
+  "releases": {
+    "site-v2025.11": {
+      "pages": [
+        {
+          "title": "Casual vs Operation meeting defaults",
+          "path": "/operate/ops-defaults-meetings",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-lab-pass",
+          "lagging_metric": "m-defect-rate-changed-pages"
+        },
+        {
+          "title": "Chapter ops steward roster",
+          "path": "/operate/stewards",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Chapter state · Web frontend pilot",
+          "path": "/operate/state/web-frontend",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Cloud access exception stub",
+          "path": "/mitigate/exception-cloud-access",
+          "bucket": "mitigate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-time-to-freeze",
+          "lagging_metric": "m-time-to-recovery"
+        },
+        {
+          "title": "Signals roster · baseline + direction clarity",
+          "path": "/learn/signals-roster",
+          "bucket": "learn",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Web Frontend chapter scope line",
+          "path": "/navigate/chapter-scope",
+          "bucket": "navigate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-nav-open",
+          "lagging_metric": "m-time-to-answer"
+        }
+      ],
+      "decisions": [
+        {
+          "title": "Chapter Ops Defaults & Signals — turn post‑meeting notes into fuel",
+          "path": "/decisions/ops/dec-2025-11-chapter-ops-defaults",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-time-to-answer",
+          "lagging_metric": "m-nav-open"
+        }
+      ]
+    }
+  }
+}

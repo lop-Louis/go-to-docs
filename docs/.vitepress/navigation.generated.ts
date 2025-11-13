@@ -31,24 +31,12 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Overview',
+        text: 'Start here',
+        link: '/start-here/'
+      },
+      {
+        text: 'Navigate overview',
         link: '/navigate/'
-      },
-      {
-        text: 'Wayfinding shortcuts',
-        link: '/navigate/find'
-      },
-      {
-        text: 'State',
-        link: '/navigate/state-ledger'
-      },
-      {
-        text: 'Monthly cadence',
-        link: '/navigate/monthly-release'
-      },
-      {
-        text: 'Band A guardrails',
-        link: '/navigate/band-a'
       }
     ]
   },
@@ -57,40 +45,16 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'North Star & guardrails',
-        link: '/operate/north-star-guardrails'
-      },
-      {
-        text: 'Versioning & releases',
-        link: '/operate/versioning-and-releases/'
-      },
-      {
-        text: 'Sanitization checklist',
-        link: '/operate/sanitization'
-      },
-      {
-        text: 'Verify-in-10 guide',
-        link: '/operate/verify-in-10'
-      },
-      {
-        text: 'Decision spine',
-        link: '/operate/decision-spine'
-      },
-      {
-        text: 'Playbook canon',
+        text: 'Operate overview',
         link: '/operate/'
       },
       {
-        text: 'Signal registry',
-        link: '/operate/signal-registry'
+        text: 'Chapter state (pilot)',
+        link: '/operate/state/web-frontend'
       },
       {
-        text: 'Guardrail index',
-        link: '/operate/guardrail-index'
-      },
-      {
-        text: 'Cloudflare analytics',
-        link: '/operate/cloudflare-analytics'
+        text: 'Steward roster',
+        link: '/operate/stewards'
       }
     ]
   },
@@ -99,8 +63,12 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Receipts & dashboards',
-        link: '/learn/receipts'
+        text: 'Learn overview',
+        link: '/learn/'
+      },
+      {
+        text: 'Signals roster',
+        link: '/learn/signals-roster'
       }
     ]
   },
@@ -109,16 +77,12 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Fix: Interrupt flows',
-        link: '/support/'
+        text: 'Mitigate overview',
+        link: '/mitigate/'
       },
       {
-        text: 'Fix: Teams notifications',
-        link: '/support/teams-notifications'
-      },
-      {
-        text: 'Fix: Repo & pipeline access',
-        link: '/support/access-repo-pipeline'
+        text: 'Cloud access blocks',
+        link: '/mitigate/exception-cloud-access'
       }
     ]
   }

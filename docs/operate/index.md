@@ -1,58 +1,88 @@
 ---
-title: Playbook index
+title: Operate lane · Web frontend pilot
+owner: '@louis'
 band: A
-owner: '@lop'
-refresh_after_days: 90
+refresh_after_days: 60
 change_type: patch
 status: live
-audience: 'Teams aligning on principles, policies, and shared patterns'
-tone: plainspoken
-narrative_goal: Point to the core playbook pages that keep guidance consistent
-nav_group: Operate
-nav_order: 15
-nav_label: Playbook canon
-nav:
-  - slot: main
-    label: Operate
-  - sidebar
+audience: People changing or running web frontend chapter ops
+tone: Plainspoken, calm, practical
+narrative_goal: Point people to chapter state, stewards, signals, and cloud-access handling
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
-cta_primary_label: Use this guardrail
-cta_secondary_label: See example runbook
-leading_metric: m-lab-pass
-lagging_metric: m-defect-rate-changed-pages
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
-date: '2025-11-11'
+leading_metric: m-dashboard-freshness-days
+lagging_metric: m-decision-hit-rate
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
+date: '2025-11-15'
+nav:
+  - none
+search: false
 ---
 
-Keep guidance consistent without adding chores. [Open the playbook page you need](#playbook-pages) or [Give feedback on the playbook](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Playbook%20index&body=Page:%20https://northbook.guide/operate/).
-Exit metric: annex labs stay ≥ 0.9 pass rate and defects per changed page ≤ 0.05.
+Use this page when you are thinking about **how the web frontend chapter runs**, not just about one pull request.
 
-::: tip Tiny receipts — Operate (v2025.11)
+Exit metric: you leave knowing which ops page to look at before you change how the chapter operates.  
+Most of the time, that means:
 
-- m-lab-pass: 0.94 across Verify-in-10 runs
-- m-defect-rate-changed-pages: 0.03
-  [See the receipts](../signals/receipts/v2025.11-operate.md)
-  :::
+- [Review the chapter state](./state/web-frontend)
+- [Review the steward roster](./stewards)
 
-These entries inherit the [content governance rules](./governance) so readers recognize layout, tone, and CTA placement at a glance.
+## What “Operate” means in this pilot
 
-## Playbook pages
+In this pilot, “Operate” focuses on a small set of routines that shape how the chapter works:
 
-- [Guides vs rules](./guides-vs-rules.md) — Classify whether something is advisory or mandatory.
-- [Handshake contracts](./handshake-contracts.md) — Frame promises and acceptance criteria before collaborating across seams.
-- [Versioning & releases pilot](./versioning-and-releases/) — Follow the opener pattern + annex lab combo before cloning the slice.
-- [RACI by seams](./raci-by-seams.md) — Assign ownership using the seam-first model.
-- [Stop rules](./stop-rules.md) — Define the tripwires that pause or stop work when promises are at risk.
-- [Scoreboard](./scoreboard.md) — Publish baselines, targets, cadence, and accountability in one card.
-- [North Star & guardrails](./north-star-guardrails.md) — Keep direction, autonomy, and accountability in balance.
-- [Policy → action: expenses](./pattern-expense-sla) — Show the expense SLA as a working example.
+- the **current picture** of where we are (chapter state)
+- **who owns what** in ops (stewards)
+- **how we watch ourselves** (signals)
+- **what we do when blocked** (cloud access)
 
-Want a new pattern canonized? [Propose an addition to the playbook](https://github.com/lop-louis/go-to-docs/issues/new?labels=kl,proposal&title=%5BPlaybook%5D%20New%20pattern&body=Page:%20https://northbook.guide/operate/).
+We avoided adding more until these pieces prove useful.
 
-## Related references
+## The core ops pages
 
-- [Start overview](../start-here/index.md) — Direct newcomers here before dropping them into canonical playbooks.
-- [Runbooks index](../operate/runbooks-index.md) — Use this when a pattern needs a chore-heavy counterpart.
-- [Transition operating promises](../operate/transition-operating-promises.md) — Where playbook language turns into enforceable promises.
+### Chapter state
+
+A simple snapshot of:
+
+- what this pilot is trying to do
+- which ops pages are active
+- what to look at before a chapter ops session
+
+> [Open chapter state](./state/web-frontend)
+
+### Steward roster
+
+Shows who is currently on point for:
+
+- scope
+- signals
+- exceptions
+
+and their expected response window.
+
+> [Open steward roster](./stewards)
+
+### Signals roster
+
+Shows the two health checks we are watching:
+
+- how fresh the roster is
+- whether people leave sessions with a clear next step
+
+> [Open signals roster](/learn/signals-roster)
+
+### Cloud-access exception stub
+
+Used when cloud access blocks meaningful work:
+
+- log the blocker with an owner and expiry
+- follow a safe temporary path while the fix is in progress
+
+> [Open cloud-access stub](/mitigate/exception-cloud-access)
+
+## If you want the deeper contract
+
+If you help maintain Northbook itself (docs, state, automation), there is a separate ops contract that explains the guardrails and release flow.
+
+Read it when you are working **on** the system, not when you just need to get work done.

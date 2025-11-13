@@ -17,7 +17,7 @@
 
   // Allow inline HTML for any remaining media snippets.
   "MD033": {
-    "allowed_elements": ["img", "video", "source"]
+    "allowed_elements": ["img", "video", "source", "ReleaseList"]
   },
 
   // Fragment links reference permissible heading variants.

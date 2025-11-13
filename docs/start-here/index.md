@@ -1,82 +1,65 @@
 ---
-title: Start Here
-band: A
+title: Start here · Northbook pilot
 owner: '@lop'
-refresh_after_days: 60
-change_type: minor
+band: A
+refresh_after_days: 120
+change_type: patch
 status: live
-last_reviewed: '2025-11-10'
-audience: Anyone kicking off work and needing a fast orientation
-tone: 'Plainspoken, candid, energetic'
-narrative_goal: Give newcomers outcome-based entry points before policy
-nav_group: Navigate
-nav_order: 1
-nav_label: Overview
-nav:
-  - slot: main
-    label: Start here
-  - sidebar
+audience: People who are not sure where to begin with the Northbook pilot
+tone: Plainspoken, calm, practical
+narrative_goal: Help newcomers choose between chapter state and steward roster as their first step
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
-cta_primary_label: Try the Navigate path
-cta_secondary_label: See example route
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
-date: '2025-11-10'
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
+date: '2025-01-15'
+nav:
+  - none
 ---
 
-# Start Here
+Use this page when you are not sure where to begin with Northbook.
 
-Jump into the work, not the policy. [Place your initiative on the SLI map](../navigate/sli-states) or [Read the Verify-in-10 guide](../operate/verify-in-10).
-Exit metric: readers act via the CTA pair within 60 seconds.
+Exit metric: you leave knowing whether you should look at the **chapter state** or at **who owns what** next.  
+Try one of these:
 
-::: tip Tiny receipts — Navigate (v2025.11)
+- [See the chapter state](../operate/state/web-frontend)
+- [See who owns what](../operate/stewards)
 
-- m-nav-open: +8% vs baseline
-- m-time-to-answer: 51 s median
-  [See the receipts](../signals/receipts/v2025.11-navigate.md)
-  :::
+## What “start here” means for this pilot
 
-## SL actions first
+For now, Northbook is a small pilot focused on the **web frontend chapter**.
 
-1. **Find my stage** — Drop the work into the [SLI map](../navigate/sli-states) so the team sees the same signals.
-2. **Verify-in-10 (guide → lab)** — [Read the pattern](../operate/verify-in-10.md), then [run the 10-minute lab](../labs/verify-in-10.md) before calling a change “done.”
-3. **Post Receipts & State** — Update [`ops/releases/YYYY-MM/manifest.json`](../navigate/monthly-release.md) and run `pnpm run state:build` so [State](../navigate/state-ledger.md) shows the new signals.
+It is here to help you answer two questions:
 
-> Completed the SL loop? Then move on to decisions, facilitation, or accessibility below.
+1. Where does my question or change belong?
+2. Who should I talk to or what should I read next?
 
-## Pick your first win
+There is no full playbook behind this page yet on purpose.  
+We only expose the pieces that are already in use.
 
-- **Decide faster** — Use the [Decision Spine](../operate/decision-spine) to frame options, make the call, and leave a review plan.
-- **Facilitate better** — Borrow ready-to-use prompts from [Facilitation Techniques](../operate/facilitation) to keep meetings on-rails.
-- **Ship accessibly** — Check the [UI baseline](../navigate/ui.md) before you publish so tokens and contrast stay consistent.
+## If you want to see where the chapter stands
 
-## When you need the rules
+Open the **chapter state** page:
 
-Need to publish or link something publicly? Check [What is Band A](../navigate/band-a) for the sanitization contract, then ship.
+- see what the current pilot covers
+- see which ops pages are actively in play
+- use it as a quick briefing before a chapter ops session
 
-Need the UI, tone, or states for your artifact? Use:
+> [Open chapter state](../operate/state/web-frontend)
 
-- [Find anything fast](../navigate/find.md) for a search cheatsheet
-- [Voice & Tone](../navigate/tone.md) for sample phrasing
-- [UI Baseline](../navigate/ui.md) for typography, buttons, and spacing
-- [SLI States](../navigate/sli-states) to see how we visualize progress
+## If you want to know who owns what
 
-## Fix it fast or escalate
+Open the **steward roster**:
 
-- Follow the [Quick-Run](../navigate/quick-run) when something regresses after an edit, then [Verify-in-10](../operate/verify-in-10.md) + [run the lab](../labs/verify-in-10.md) before re-listing it as Live.
-- Browse the [Fix-it-fast index](../mitigate/index.md) when interrupts hit and you need a 10-minute checklist.
-- Need something more involved? The [Runbooks index](../operate/runbooks-index) keeps the chore-heavy flows out of guidance pages.
+- see who looks after scope, signals, and exceptions
+- see who is backup and how fast they’re expected to respond
 
-## Feedback loop
+> [Open steward roster](../operate/stewards)
 
-If this hub doesn’t land you on the right page within a minute, [tell us](https://github.com/lop-louis/northbook/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Start%20here&body=Page:%20https://northbook.guide/start-here/) so we can plug the gap.
+## If this still feels unclear
 
-## Related references
+If you reached this page and still feel lost, treat that as useful feedback.
 
-- [Wayfinding shortcuts](../navigate/find.md) — Fast pointer to every major doc category.
-- [Band A guardrails](../navigate/band-a.md) — Sanitization contract before you publish.
-- [Quick-Run check](../navigate/quick-run.md) — Required pre-flight after any doc edit.
-- [Playbook canon](../operate/) — The deeper guidance you’ll link once you’re oriented.
+Raise it in the next chapter ops session or with whoever shared Northbook with you so we can adjust this entrance.

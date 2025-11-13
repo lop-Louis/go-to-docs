@@ -7,110 +7,122 @@ refresh_after_days: 120
 change_type: patch
 status: live
 last_reviewed: '2025-01-15'
-audience: Anyone looking for Northbook guidance and entry points
-tone: 'Plainspoken, candid, energetic'
-narrative_goal: Orient newcomers to the core pillars and where to start
+audience: Anyone in the web frontend chapter looking for ops guidance and entry points
+tone: 'Plainspoken, calm, practical'
+narrative_goal: Help people see where the chapter stands, who owns what, and what to do when blocked
 hero:
   name: Northbook
-  text: Make the work predictable.
+  text: A small pilot for calmer chapter ops.
   image:
     src: /logo-symbol.png
     alt: Northbook logo
   tagline: >-
-    A visitor reaches the right doc and a runnable next action in under 60
-    seconds, for at least 80% of sessions.
+    For this pilot, Northbook gives the web frontend chapter one place to see where we are, who owns what, and how to handle blocks.
   actions:
     - theme: brand
-      text: Place your initiative on the SLI map
-      link: /navigate/sli-states?cta=home-sli
+      text: See the chapter state
+      link: /operate/state/web-frontend
     - theme: alt
-      text: Verify-in-10 (guide)
-      link: /operate/verify-in-10?cta=home-verify-guide
+      text: See who owns what
+      link: /operate/stewards
 features:
-  - title: Navigate fast
+  - title: See where the chapter stands
     details: >-
-      Place every initiative on the SLI map so the seam, guardrail, and next
-      constraint are obvious in under a minute.
-    link: /navigate/sli-states
-    linkText: Open the SLI map
-  - title: Operate with freedom
+      Open the chapter state page to see a simple snapshot of what shipped recently and which ops pages are in play for this pilot.
+    link: /operate/state/web-frontend
+    linkText: Open chapter state
+  - title: Know who to tap
     details: >-
-      Ship small and prove it—read the Verify-in-10 guide, run the 10-minute
-      lab, and keep the North Star guardrails visible.
-    link: /operate/verify-in-10
-    linkText: Run Verify-in-10
-  - title: Learn with proof
+      Use the steward roster to see who currently looks after scope, signals, and exceptions, plus their expected response window.
+    link: /operate/stewards
+    linkText: Open steward roster
+  - title: Watch the two health checks
     details: >-
-      Refresh dashboards within 30 days, log decisions with receipts, and keep
-      the signal registry as the single source of truth.
-    link: /learn/
-    linkText: Open the Learn lane
-  - title: Mitigate with guidance
+      The signals roster tracks two things only: how fresh the chapter roster is, and whether people leave sessions with a clear next step.
+    link: /learn/signals-roster
+    linkText: Open signals roster
+  - title: Handle cloud access blocks
     details: >-
-      Clear the top interrupts via capped fix flows, trigger freezes fast, and
-      publish mitigations with exceptions plus receipts.
-    link: /mitigate/
-    linkText: Open Mitigate lane
+      When cloud access gets in the way, the cloud-access stub helps you log the blocker, name an owner, and use a safe temporary path.
+    link: /mitigate/exception-cloud-access
+    linkText: Open cloud-access stub
 nav:
   - none
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
-cta_primary_label: Try the Navigate path
-cta_secondary_label: See example route
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: /decisions/dec-2025-11-ia-overhaul.md
+decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-01-15'
 ---
 
-Find the answer. Act within 60 seconds. [Place your initiative on the SLI map](./navigate/sli-states) or [Read the Verify-in-10 guide](./operate/verify-in-10).
+For now, Northbook is a **small pilot** for the web frontend chapter.
 
-Northbook is the public operating contract for docs, labs, and automation. Everything here exists to get you to the right page and a runnable next step inside one minute.
+It does three things:
 
-## Your 60-second path
+1. shows where the chapter stands
+2. shows who owns which part of ops
+3. gives a simple path when cloud access blocks work
 
-1. **Map your initiative** — Use the [SLI map](./navigate/sli-states) to confirm the seam and constraint.
-2. **Learn before running** — Read the [Verify-in-10 guide](./operate/verify-in-10) for the why/when/anti-patterns.
-3. **Run the lab** — Execute the [10-minute lab](./labs/verify-in-10) and capture receipts as you go.
-4. **Post receipts & state** — Follow [Quick-Run](./navigate/quick-run) and update [State](./navigate/state-ledger.md) so the ledger reflects reality.
+There is no full playbook here yet on purpose. What you see is what we are actually using.
 
-**Protect the North Star.** Every page shows owner, band, exit metric, State, and Receipts. Default deny outside the guardrails. Exceptions are allowed only with owner, reason, expiry, rollback, and stop rule.
+## Start here
 
-## Ops guardrails we enforce
+Choose what matches your situation today.
 
-1. **Default deny outside guardrails** — No contract, no work.
-2. **Public Band‑A content only** — Sanitized for public sharing; no internal data or secrets.
-3. **Runnable in 10 minutes** — Labs, annexes, and automation must finish locally inside the limit.
-4. **Exceptions auto-expire** — No entry, no work after expiry.
-5. **One owner and date per change** — Traceability from Change → Decision → Guardrail → Page → Signal → Receipt.
-6. **Sanitize before publish** — Frontmatter complete, links live, names redacted.
+### I want to see where the chapter stands
 
-Automation enforces frontmatter schema, guardrail links, build integrity, secret scans, and state freshness. Read the [North Star & Guardrails playbook](./operate/north-star-guardrails) for the full contract.
+Go to the **chapter state** page:
 
-## Receipts we publish every cycle
+- see the latest snapshot for this pilot
+- see which ops pages are currently in play
 
-- **Adoption** — Pages touched, time-to-answer, CTA telemetry from the [Signal Registry](./operate/signal-registry).
-- **Quality** — Verify-in-10 lab pass rate, link health, accessibility quick wins.
-- **Credibility** — State freshness, release tags, and exception closure rate.
+> [Open chapter state](./operate/state/web-frontend)
 
-Check the live ledger on the [State page](./navigate/state-ledger.md) or open the current [release bundle](./release.md).
+### I want to know who owns what in ops
 
-## Build or change a page
+Open the **steward roster**:
 
-1. Map the change to an existing guardrail or log an exception + decision before starting.
-2. Run `pnpm run docs:guard` to enforce frontmatter, guardrails, and Band-A sanitization.
-3. Run `pnpm run docs:build` to confirm the site compiles cleanly.
-4. Keep owner, date, guardrail mapping, and acceptance checklist visible in the doc or PR.
-5. Post receipts via `pnpm run state:build` and link them inside the release folder.
+- see who is on point for scope, signals, and exceptions
+- see who is backup and how fast they are expected to respond
 
-_Stop rule:_ If CI adds more than 15 minutes per day across two weeks, remove the last added check and raise a decision before re-enabling it.
+> [Open steward roster](./operate/stewards)
 
-## When to raise your hand
+### I want to see the two health checks
 
-- New joiner? Start with the [FAQ for New Joiners](./navigate/faq-new-joiners) plus the [Handshake contracts](./operate/handshake-contracts).
-- Making a scope call? Open the [Decision Spine](./operate/decision-spine) and [Decision tripwires](./decision-tripwires).
-- Unsure if content belongs? Re-check [Band A](./navigate/band-a) and the [Contracts directory](./contracts/northbook-operations-contract-v1.md).
-- Need facilitation or handover help? Use the [20-minute handover runbook](./operate/handover-20-min.md) or the [Handover RACI template](./operate/handover-raci-template.md).
+Open the **signals roster**:
 
-If this page didn’t get you to an answer in 60 seconds, [tell us so we can fix it](https://github.com/lop-louis/northbook/issues/new?labels=kl,feedback&title=%5BFeedback%5D%20Homepage&body=Page:%20https://northbook.guide/). We'll log the feedback, post receipts, and adjust within the next cycle.
+- roster freshness: do we have a current picture of each person?
+- direction after sessions: do people leave knowing their next step?
+
+You do not have to touch metrics directly. Just use it to sense if we are drifting.
+
+> [Open signals roster](./learn/signals-roster)
+
+### I am blocked by cloud access
+
+Use the **cloud-access stub**:
+
+- log the blocker with an owner and an expiry
+- use the agreed temporary path so work can keep moving safely
+
+> [Open cloud-access stub](./mitigate/exception-cloud-access)
+
+## If you help maintain this pilot
+
+If you are updating these pages or wiring automation around them, there is a separate ops contract that explains:
+
+- the few guardrails we keep
+- how releases and state are generated
+- how traceability works without cluttering these pages
+
+That contract is written for operators, not first-time visitors. Use it when you are working on the system, not when you just need an answer.
+
+## If this home page did not help
+
+If you could not find a useful page or a clear next step from here, tell us.
+
+We will treat it as a signal that the entrance is wrong, not that you are.
+
+> If you help maintain Northbook and need history or traceability, use the [Releases view](./operate/releases/). It is written for operators and auditors, not for first-time visitors.
