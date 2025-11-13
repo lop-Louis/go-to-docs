@@ -1,66 +1,55 @@
-<!-- title tip: feat(<seam>): <short change>; tag vyyyy.mm-<seam> -->
-<!-- seams: navigation | governance | signals | tests | releases -->
+<!-- title tip: feat(<area>): <short change> -->
+<!-- examples: feat(ops): simplify steward roster; fix(mitigate): cloud stub copy -->
 
 ## why
 
-<one sentence: intent + tradeoff>
+<one or two sentences: what problem this change is trying to solve, and any tradeoff you are accepting.>
 
-<!-- L4: required. Tone lint applies (ops_pack/tone_lint.json). -->
+<!-- Keep it concrete and human. This is for reviewers, not auditors. -->
 
 ## what changed
 
 - <bullet 1>
 - <bullet 2>
 - <bullet 3>
-<!-- L2: nudge if vague or missing. Keep to ~3 bullets. -->
+
+<!-- Aim for 1–3 bullets. If it is hard to summarise, you may be mixing changes. -->
 
 ## acceptance checks
 
-- [ ] opener pattern renders above first section
-- [ ] required frontmatter valid and lowercase ids
-- [ ] traceability complete (see links)
-- [ ] ci cold-start ≤ 5m; red-lines/traceability blocking verified
-- [ ] annex lab runs in ≤ 10 minutes (attach evidence or path)
-<!-- L4: list must exist and be checkable. Frontmatter keys/ids: ops_pack/canonical_ids.md.
-     L4: traceability block; red-lines in ci_rule_map.md. L3: annex lab proof allowed with exception if truly pending. -->
+- [ ] Affected pages still open and render without errors
+- [ ] Frontmatter is present and valid for any new or edited docs
+- [ ] Links you touched or added work (no obvious 404s)
+- [ ] This change is small enough to explain in one short paragraph
 
-## signals baseline (last-30-days)
+<!-- Treat this as a simple safety check, not a punishment. -->
 
-- m-time-to-answer: <value + range>
-- m-lab-pass: <value>
-<!-- L4: provide baselines for any claimed movement. Metrics: ops_pack/signal_registry_seed.csv; anchors: dashboard_home_stub.md. -->
+## impact and follow-up
 
-## receipts plan
+- What do you expect to feel different after this change?
+- Is there anything we should look at in the next chapter ops session because of this?
 
-- leading: <metric id + expected direction/range>
-- lagging: <metric id + expected direction/range>
-- tag: `vyyyy.mm-<seam>`
-<!-- L4: tag format lowercase. Receipt categories live in receipts_template.md. -->
+<!-- Plain language is fine. Metrics and dashboards are optional for this pilot. -->
 
-## traceability links
+## trace notes (optional but helpful)
 
-- decision: </governance/decisions/<decision_id>.md>
-- snapshot: </governance/state/vyyyy.mm-<seam>.md>
-- receipts: </signals/receipts/vyyyy.mm-<seam>.md>
-- annex_lab: </labs/>
-- ci_run: <url>
-- exceptions: </governance/exceptions.md> (public) | </governance/\_exceptions_ledger.csv> (private)
-<!-- L4: decision link must resolve. L3: snapshot/receipts may be pending with exception (ops_pack/exception_template.md).
-     L2: annex_lab and ci_run nudged but merge allowed. -->
+- Related decision (if any): </decisions/...>
+- Related release tag (if any): `site-v2025.11`
+- Pages you touched that matter for the pilot:
+  - </operate/state/web-frontend>
+  - </operate/stewards>
+  - </learn/signals-roster>
+  - </mitigate/exception-cloud-access>
 
-## exceptions
+<!-- Fill this in when it is obvious. Leave it light instead of forcing it. -->
+
+## exceptions (if something is knowingly incomplete)
 
 - none
-<!-- or:
-- id: <exc-2025-xx> | owner: louis | expiry: yyyy-mm-dd | exit: proof metric returns within 10% of baseline for 7 days
-  -->
 
-<!-- quick references:
-- ids & guards: ops_pack/canonical_ids.md
-- signals: ops_pack/signal_registry_seed.csv
-- tone verbs: ops_pack/tone_lint.json
-- ci policy: ops_pack/ci_rule_map.md
-- receipts & snapshot shells: ops_pack/receipts_template.md, ops_pack/state_snapshot_template.md
-- exceptions: ops_pack/exception_template.md
-- archetypes: ops_pack/page_archetype_*.md
+<!-- or, if you are taking a conscious shortcut:
+- area: <what is incomplete>
+- reason: <why we accept it for now>
+- owner: <who will follow up>
+- planned fix by: <date or milestone>
 -->

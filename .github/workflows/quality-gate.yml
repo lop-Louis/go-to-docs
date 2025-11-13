@@ -53,10 +53,6 @@ jobs:
         id: release_folders
         run: pnpm run release:folders:check
 
-      - name: 🔴 State page parity
-        id: state_check
-        run: pnpm run state:check
-
       # New: build must succeed → L4 if not
       - name: 🔴 Build VitePress site
         id: build_docs

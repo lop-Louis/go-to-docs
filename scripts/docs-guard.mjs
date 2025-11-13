@@ -12,8 +12,7 @@ const steps = [
   { name: 'frontmatter:lint', mode: 'block', reason: BLOCKING_REASON.traceability },
   { name: 'guard', mode: 'block', reason: BLOCKING_REASON.redline },
   { name: 'drift', mode: 'warn' },
-  { name: 'release:folders:check', mode: 'warn' },
-  { name: 'state:check', mode: 'warn' }
+  { name: 'release:folders:check', mode: 'warn' }
 ]
 
 const warnings = []

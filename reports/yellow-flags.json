@@ -1,1 +1,7 @@
-[]
+[
+  "docs/operate/decisions/dec-2025-11-chapter-baseline.md: CTA primary label \"See current chapter state\" is not in the allowlist (nudge only)",
+  "docs/operate/decisions/dec-2025-11-chapter-baseline.md: CTA secondary label \"See decisions involved\" is not in the allowlist (nudge only)",
+  "docs/operate/releases/index.md: CTA secondary label \"See chapter state\" is not in the allowlist (nudge only)",
+  "docs/operate/releases/site-v2025.11.md: CTA primary label \"See current chapter state\" is not in the allowlist (nudge only)",
+  "docs/operate/releases/site-v2025.11.md: CTA secondary label \"See decisions involved\" is not in the allowlist (nudge only)"
+]

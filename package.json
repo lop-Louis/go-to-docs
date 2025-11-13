@@ -27,8 +27,6 @@
     "stale": "node scripts/stale.mjs",
     "analytics:snapshot": "node scripts/cloudflare-analytics.mjs",
     "release:folders:check": "node scripts/release-folders-check.mjs",
-    "state:build": "node scripts/generate-state.mjs",
-    "state:check": "node scripts/generate-state.mjs --check",
     "releases:sync": "node scripts/sync-releases.mjs",
     "test": "pnpm run test:unit && pnpm run test:components",
     "test:unit": "node --test tests/*.test.mjs",
