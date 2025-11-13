@@ -152,7 +152,6 @@ jobs:
           echo "✅ markdown lint" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.markdown_lint.outcome }}" != "success" ] && echo "❌ **markdown lint failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ markdown lint" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.frontmatter.outcome }}" != "success" ] && echo "❌ **frontmatter failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ frontmatter" >> $GITHUB_STEP_SUMMARY
-          [ "${{ steps.state_check.outcome }}" != "success" ] && echo "❌ **state check failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ state check" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.release_folders.outcome }}" != "success" ] && echo "❌ **release folders failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ release folders" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.build_docs.outcome }}" != "success" ] && echo "❌ **build docs failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ build docs" >> $GITHUB_STEP_SUMMARY
           [ "${{ steps.link_check_internal.outcome }}" != "success" ] && echo "❌ **link check internal failed**" >> $GITHUB_STEP_SUMMARY || echo "✅ link check internal" >> $GITHUB_STEP_SUMMARY

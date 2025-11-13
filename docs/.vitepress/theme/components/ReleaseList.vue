@@ -32,13 +32,20 @@ const props = withDefaults(
 const releases = releasesData.releases as Record<string, ReleaseBlock>
 const release = computed(() => releases?.[props.releaseTag] ?? null)
 const entries = computed<ReleaseEntry[]>(() => release.value?.[props.kind] ?? [])
+
+function toHref(path: string | null) {
+  if (!path) return '#'
+  if (path === '/' || path.startsWith('http')) return path
+  if (path.endsWith('/') || path.endsWith('.html')) return path
+  return `${path}.html`
+}
 </script>
 
 <template>
   <div class="release-list">
     <ul v-if="entries.length" class="release-list__items">
       <li v-for="entry in entries" :key="entry.path" class="release-list__item">
-        <a :href="entry.path">{{ entry.title }}</a>
+        <a :href="toHref(entry.path)">{{ entry.title }}</a>
         <Badge v-if="entry.bucket" type="info" class="release-list__meta">{{ entry.bucket }}</Badge>
       </li>
     </ul>
