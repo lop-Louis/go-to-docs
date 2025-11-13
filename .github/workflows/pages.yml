@@ -98,6 +98,11 @@ jobs:
           mkdir -p public/v1 public/staging
           rsync -a --delete release/docs/.vitepress/dist/ public/v1/
           rsync -a --delete staging/docs/.vitepress/dist/ public/staging/
+          if [ -f release/docs/.vitepress/dist/404.html ]; then
+            cp release/docs/.vitepress/dist/404.html public/404.html
+          else
+            echo "⚠️ 404.html missing from release build"
+          fi
 
       - name: Create redirect + versions manifest
         env:
