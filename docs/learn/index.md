@@ -6,7 +6,7 @@ refresh_after_days: 60
 change_type: patch
 status: live
 audience: People who want to see how the chapter is doing and what we’re noticing
-tone: Plainspoken, calm, practical
+tone: 'Plainspoken, calm, practical'
 narrative_goal: Focus attention on the two health checks without turning it into a dashboard
 bucket: learn
 north_star_id: ns-001
@@ -14,7 +14,6 @@ guardrail_id: gr-103
 decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
 release_tag: site-v2025.11
 nav:

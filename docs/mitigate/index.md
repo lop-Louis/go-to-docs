@@ -6,7 +6,7 @@ refresh_after_days: 60
 change_type: patch
 status: live
 audience: People facing blockers and wanting to handle them in the open
-tone: Plainspoken, calm, practical
+tone: 'Plainspoken, calm, practical'
 narrative_goal: Help people log serious blocks and use the cloud-access stub without drama
 bucket: mitigate
 north_star_id: ns-001
@@ -14,7 +14,6 @@ guardrail_id: gr-103
 decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
 release_tag: site-v2025.11
 nav:

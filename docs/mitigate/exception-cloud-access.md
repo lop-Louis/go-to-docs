@@ -12,7 +12,6 @@ decision_id: dec-2025-11-chapter-ops-defaults
 date: '2025-11-15'
 leading_metric: m-time-to-freeze
 lagging_metric: m-time-to-recovery
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
 ---
 

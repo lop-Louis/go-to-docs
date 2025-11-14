@@ -14,7 +14,6 @@ cta_primary_label: try
 cta_secondary_label: open
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
 ---
 

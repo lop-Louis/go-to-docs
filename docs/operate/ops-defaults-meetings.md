@@ -14,7 +14,6 @@ cta_primary_label: use
 cta_secondary_label: open
 leading_metric: m-lab-pass
 lagging_metric: m-defect-rate-changed-pages
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
 ---
 

@@ -16,7 +16,6 @@
     "leading_metric",
     "lagging_metric",
     "release_tag",
-    "decision_link",
     "decision_id",
     "date"
   ],
@@ -151,10 +150,6 @@
         "m-time-to-freeze",
         "m-time-to-recovery"
       ]
-    },
-    "decision_link": {
-      "type": "string",
-      "minLength": 1
     }
   }
 }

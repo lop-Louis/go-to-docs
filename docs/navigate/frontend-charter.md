@@ -16,7 +16,6 @@ cta_primary_label: try the ops defaults
 cta_secondary_label: see the roster signals
 leading_metric: m-time-to-answer
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
 ---
 

@@ -6,7 +6,7 @@ refresh_after_days: 120
 change_type: patch
 status: live
 audience: People trying to find which Northbook page or lane to use
-tone: Plainspoken, calm, practical
+tone: 'Plainspoken, calm, practical'
 narrative_goal: Route people to the small set of active pilot pages without overwhelming them
 bucket: navigate
 north_star_id: ns-001
@@ -14,7 +14,6 @@ guardrail_id: gr-101
 decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-01-15'
 release_tag: site-v2025.11
 nav:

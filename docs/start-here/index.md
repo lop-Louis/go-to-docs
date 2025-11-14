@@ -6,15 +6,16 @@ refresh_after_days: 120
 change_type: patch
 status: live
 audience: People who are not sure where to begin with the Northbook pilot
-tone: Plainspoken, calm, practical
-narrative_goal: Help newcomers choose between chapter state and steward roster as their first step
+tone: 'Plainspoken, calm, practical'
+narrative_goal: >-
+  Help newcomers choose between chapter state and steward roster as their first
+  step
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
 decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-01-15'
 release_tag: site-v2025.11
 nav:

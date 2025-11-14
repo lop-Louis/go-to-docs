@@ -13,7 +13,6 @@ cta_primary_label: See current chapter state
 cta_secondary_label: See decisions involved
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
 release_tag: site-v2025.11
 nav:
