@@ -1,4 +1,5 @@
 [
+  "docs/navigate/frontend-charter.md: CTA secondary label \"see the roster signals\" is not in the allowlist (nudge only)",
   "docs/operate/decisions/dec-2025-11-chapter-baseline.md: CTA primary label \"See current chapter state\" is not in the allowlist (nudge only)",
   "docs/operate/decisions/dec-2025-11-chapter-baseline.md: CTA secondary label \"See decisions involved\" is not in the allowlist (nudge only)",
   "docs/operate/releases/index.md: CTA secondary label \"See chapter state\" is not in the allowlist (nudge only)",

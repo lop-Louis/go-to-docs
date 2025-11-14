@@ -37,6 +37,10 @@ export const generatedSidebar = [
       {
         text: 'Navigate overview',
         link: '/navigate/'
+      },
+      {
+        text: 'Frontend charter',
+        link: '/navigate/frontend-charter'
       }
     ]
   },

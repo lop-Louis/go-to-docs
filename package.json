@@ -48,6 +48,7 @@
     ],
     "*.md": [
       "markdownlint --config .markdownlint.jsonc --fix",
+      "pnpm releases:sync",
       "prettier --write"
     ],
     "*.{json,yml,yaml}": [

@@ -23,7 +23,8 @@ const SIDEBAR_BLUEPRINT = [
     collapsed: false,
     items: [
       { text: 'Start here', link: '/start-here/' },
-      { text: 'Navigate overview', link: '/navigate/' }
+      { text: 'Navigate overview', link: '/navigate/' },
+      { text: 'Frontend charter', link: '/navigate/frontend-charter' }
     ]
   },
   {

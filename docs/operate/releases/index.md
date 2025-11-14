@@ -8,6 +8,7 @@ status: live
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
+decision_id: dec-2025-11-chapter-ops-defaults
 cta_primary_label: Open latest release
 cta_secondary_label: See chapter state
 leading_metric: m-dashboard-freshness-days
@@ -15,6 +16,7 @@ lagging_metric: m-decision-hit-rate
 decision_link: /decisions/ops/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
 search: false
+release_tag: site-v2025.11
 nav:
   - none
 ---

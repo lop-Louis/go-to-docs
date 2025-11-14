@@ -1,5 +1,5 @@
 ---
-title: 'Chapter Ops Defaults & Signals — turn post‑meeting notes into fuel'
+title: 'Chapter Ops Defaults & Signals'
 owner: '@louis'
 band: A
 date: '2025-11-13'

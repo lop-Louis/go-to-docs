@@ -10,6 +10,7 @@ last_reviewed: '2025-01-15'
 audience: Anyone in the web frontend chapter looking for ops guidance and entry points
 tone: 'Plainspoken, calm, practical'
 narrative_goal: Help people see where the chapter stands, who owns what, and what to do when blocked
+release_tag: site-v2025.11
 hero:
   name: Northbook
   text: A small pilot for calmer chapter ops.
@@ -51,6 +52,7 @@ nav:
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
+decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
 decision_link: operate/decisions/dec-2025-11-chapter-baseline.md

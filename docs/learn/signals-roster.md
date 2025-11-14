@@ -1,5 +1,5 @@
 ---
-title: Signals roster · baseline + direction clarity
+title: Signals roster
 owner: '@louis'
 band: A
 refresh_after_days: 30

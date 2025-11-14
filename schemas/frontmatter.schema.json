@@ -15,6 +15,9 @@
     "guardrail_id",
     "leading_metric",
     "lagging_metric",
+    "release_tag",
+    "decision_link",
+    "decision_id",
     "date"
   ],
   "properties": {

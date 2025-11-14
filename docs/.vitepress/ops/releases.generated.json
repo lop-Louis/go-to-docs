@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-13T08:58:18.833Z",
+  "generatedAt": "2025-11-14T03:10:21.143Z",
   "releases": {
     "site-v2025.11": {
       "pages": [
@@ -44,7 +44,77 @@
           "lagging_metric": "m-time-to-recovery"
         },
         {
-          "title": "Signals roster · baseline + direction clarity",
+          "title": "Frontend chapter · scope line",
+          "path": "/navigate/frontend-charter",
+          "bucket": "navigate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-time-to-answer",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Learn lane · Web frontend pilot",
+          "path": "/learn",
+          "bucket": "learn",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Mitigate lane · Web frontend pilot",
+          "path": "/mitigate",
+          "bucket": "mitigate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Navigate lane · Northbook pilot",
+          "path": "/navigate",
+          "bucket": "navigate",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-nav-open",
+          "lagging_metric": "m-time-to-answer"
+        },
+        {
+          "title": "Operate lane · Web frontend pilot",
+          "path": "/operate",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Release bundle · site-v2025.11",
+          "path": "/operate/releases/site-v2025.11",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Releases · Northbook",
+          "path": "/operate/releases",
+          "bucket": "operate",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        },
+        {
+          "title": "Signals roster",
           "path": "/learn/signals-roster",
           "bucket": "learn",
           "owner": "@louis",
@@ -66,7 +136,7 @@
       ],
       "decisions": [
         {
-          "title": "Chapter Ops Defaults & Signals — turn post‑meeting notes into fuel",
+          "title": "Chapter Ops Defaults & Signals",
           "path": "/decisions/ops/dec-2025-11-chapter-ops-defaults",
           "bucket": "operate",
           "owner": "@louis",
@@ -74,6 +144,16 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-time-to-answer",
           "lagging_metric": "m-nav-open"
+        },
+        {
+          "title": "Release bundle · site-v2025.11",
+          "path": "/operate/decisions/dec-2025-11-chapter-baseline",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
         }
       ]
     }
