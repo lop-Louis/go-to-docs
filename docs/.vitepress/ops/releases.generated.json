@@ -1,6 +1,21 @@
 {
-  "generatedAt": "2025-11-14T03:10:21.143Z",
+  "generatedAt": "2025-11-14T03:43:59.617Z",
   "releases": {
+    "site-v2025.11decisi": {
+      "pages": [],
+      "decisions": [
+        {
+          "title": "Release bundle · site-v2025.11",
+          "path": "/operate/decisions/dec-2025-11-chapter-baseline",
+          "bucket": "operate",
+          "owner": "@louis",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate"
+        }
+      ]
+    },
     "site-v2025.11": {
       "pages": [
         {
@@ -134,28 +149,7 @@
           "lagging_metric": "m-time-to-answer"
         }
       ],
-      "decisions": [
-        {
-          "title": "Chapter Ops Defaults & Signals",
-          "path": "/decisions/ops/dec-2025-11-chapter-ops-defaults",
-          "bucket": "operate",
-          "owner": "@louis",
-          "status": "live",
-          "decision_id": "dec-2025-11-chapter-ops-defaults",
-          "leading_metric": "m-time-to-answer",
-          "lagging_metric": "m-nav-open"
-        },
-        {
-          "title": "Release bundle · site-v2025.11",
-          "path": "/operate/decisions/dec-2025-11-chapter-baseline",
-          "bucket": "operate",
-          "owner": "@louis",
-          "status": "live",
-          "decision_id": "dec-2025-11-chapter-ops-defaults",
-          "leading_metric": "m-dashboard-freshness-days",
-          "lagging_metric": "m-decision-hit-rate"
-        }
-      ]
+      "decisions": []
     }
   }
 }
