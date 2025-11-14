@@ -32,7 +32,7 @@ jobs:
       - name: Preview changelog aggregation
         run: pnpm run changelog:preview > changelog_preview.md
       - name: Append preview artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: changelog-preview
           path: changelog_preview.md
