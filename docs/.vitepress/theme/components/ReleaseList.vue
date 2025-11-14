@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import releasesData from '../../ops/releases.generated.json'
 
 type ReleaseEntry = {
@@ -35,9 +36,10 @@ const entries = computed<ReleaseEntry[]>(() => release.value?.[props.kind] ?? []
 
 function toHref(path: string | null) {
   if (!path) return '#'
-  if (path === '/' || path.startsWith('http')) return path
-  if (path.endsWith('/') || path.endsWith('.html')) return path
-  return `${path}.html`
+  if (path.startsWith('http')) return path
+  const needsHtml = !path.endsWith('/') && !path.endsWith('.html')
+  const target = needsHtml ? `${path}.html` : path
+  return withBase(target)
 }
 </script>
 
