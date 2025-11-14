@@ -64,7 +64,7 @@ Tradeoffs:
 Use the **copy_writer_starter_pack** templates for opener, CTA labels, and annex lab stub. Keep people‑leader tone, Band‑A safe.
 
 1. **Navigate / Chapter scope line**
-   - Path: [chapter-scope.md](../../navigate/chapter-scope.md)
+   - Path: [frontend-charter.md](../../navigate/frontend-charter.md)
    - What: one‑sentence scope line clarifying what the chapter is for and what it is not.
    - Opener: why in one sentence, two gentle actions, exit metric line.
    - CTAs: `try the ops defaults`, `see the roster signals`.
