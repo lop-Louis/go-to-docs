@@ -31,6 +31,13 @@ This page turns “Casual vs Operation” into a runnable default so every chapt
 - action 1: use this in your next session — label the meeting, prep the doc-first note, and exit with a receipt in under 20 minutes.
 - action 2: open the parking lot — move topics that lack an owner/date into the shared lot with a steward and revisit time.
 
+> For this default, a “receipt” is:
+>
+> - a doc-first note with why we met and the expected outcome, and
+> - for each topic, either:
+>   1. an owner + date, or
+>   2. a parking-lot entry with a steward + revisit date.
+
 ## How we’ll know it’s working
 
 Within the first month, the doc-first notes actually go out before the meeting.  
@@ -39,8 +46,10 @@ Over two review cycles:
 - At least 9 out of 10 Operation sessions end with an owner/date logged or a parking-lot entry with a revisit date.
 - At least 8 out of 10 people say the cadence helps them know what to prep before we meet.
 
-> impact notes: `site-v2025.11`, `/docs/reports/impact-notes/2025-11.md`, `/v1/operate/state/chapters/web-frontend.html`
-> receipts: `/v1/operate/state/chapters/web-frontend.html`, `runsheet.chapter-ops-follow-up.md`, `site-v2025.11`
+## Reference log:
+
+- [Frontend Charter](../navigate/frontend-charter.md)
+- [Release v2025.11](./releases/site-v2025.11.md)
 
 ---
 

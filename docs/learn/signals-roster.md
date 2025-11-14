@@ -41,6 +41,11 @@ Use this page as a quick health check:
 
 If you are changing chapter routines or planning an ops session, read this first.
 
+> For signals, receipts show up as:
+>
+> - an updated roster row for each member (lane, 60-day target, constraints, review style, with a fresh date), and
+> - a simple count of “yes / no” to “Can you name your next step?” after operation sessions. You don’t log extra. You just keep the roster real and ask that one question at the end.
+
 ## The two health checks
 
 ### 1. Roster freshness

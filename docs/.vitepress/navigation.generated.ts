@@ -57,6 +57,10 @@ export const generatedSidebar = [
         link: '/operate/state/web-frontend'
       },
       {
+        text: 'Defaults Meeting',
+        link: '/operate/ops-defaults-meetings'
+      },
+      {
         text: 'Steward roster',
         link: '/operate/stewards'
       }

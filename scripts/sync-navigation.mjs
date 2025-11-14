@@ -30,6 +30,7 @@ const SIDEBAR_BLUEPRINT = [
     items: [
       { text: 'Operate overview', link: '/operate/' },
       { text: 'Chapter state', link: '/operate/state/web-frontend' },
+      { text: 'Defaults Meeting', link: '/operate/ops-defaults-meetings' },
       { text: 'Steward roster', link: '/operate/stewards' }
     ]
   },

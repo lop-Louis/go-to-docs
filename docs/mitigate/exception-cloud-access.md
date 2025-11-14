@@ -75,6 +75,11 @@ Over two review cycles, we treat this as healthy if:
 
 If we see long-lived blockers or confusion about “what now,” we fix the process, not the person.
 
+> For cloud access, a “receipt” is:
+>
+> - a short exception entry with owner, reason, expiry, rollback, and pause rule, and
+> - a close-out note when the normal path is restored and the fallback passes its quick lab.
+
 ---
 
 ### Exception fields (what to capture)
