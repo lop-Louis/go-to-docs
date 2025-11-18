@@ -1,42 +1,46 @@
 ---
-title: Navigate lane · Northbook pilot
+title: Navigate overview
+mode: pilot
+pilot_id: web_frontend_chapter_v1
 owner: '@lop'
 band: A
 refresh_after_days: 120
 change_type: patch
 status: live
 audience: People trying to find which Northbook page or lane to use
-tone: Plainspoken, calm, practical
+tone: 'Plainspoken, calm, practical'
 narrative_goal: Route people to the small set of active pilot pages without overwhelming them
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
+cta_primary_label: open_chapter_state
+cta_secondary_label: open_steward_roster
+decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-01-15'
+release_tag: site-v2025.11
 nav:
   - none
 search: false
+list_label: >
+  How the Navigate bucket works in this pilot and what belongs here instead of Operate, Learn, or
+  Mitigate.
 ---
-
-Use this page when you are trying to figure out **where** in Northbook your work or question belongs.
-
-Exit metric: you leave with one page to open next, not a list of ten.  
-From here, most people either go to **chapter state** or to the **steward roster**:
-
-- [Open chapter state](../operate/state/web-frontend)
-- [Open steward roster](../operate/stewards)
-
-## What “Navigate” means in this pilot
-
-Long term, “Navigate” will cover maps and shortcuts across all of Northbook.
 
 In this pilot, it does one simpler job:
 
 - help you find the **few** ops pages that are actually in play for the web frontend chapter
 
 We keep the navigation surface small on purpose so it stays honest and easy to use.
+
+<PageCTA />
+
+> **Expected Takeaway:** you leave with one page to open next, not a list of ten.
+
+## Quick links for the web frontend pilot
+
+<PilotPageList bucket="navigate" />
 
 ## Common situations
 
@@ -47,7 +51,7 @@ Start with the **chapter state**:
 - see what the pilot is currently testing
 - see which ops pages matter right now
 
-> [Open chapter state](../operate/state/web-frontend)
+> [Open chapter state](../changelog/state/web-frontend)
 
 ### “I’m not sure who owns this kind of problem”
 

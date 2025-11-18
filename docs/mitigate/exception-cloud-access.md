@@ -1,10 +1,12 @@
 ---
-title: Cloud access exception stub
-owner: '@louis'
+title: Cloud access blocks
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 14
 change_type: minor
-status: live
+status: pilot
 bucket: mitigate
 north_star_id: ns-001
 guardrail_id: gr-103
@@ -12,8 +14,11 @@ decision_id: dec-2025-11-chapter-ops-defaults
 date: '2025-11-15'
 leading_metric: m-time-to-freeze
 lagging_metric: m-time-to-recovery
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
+cta_primary_label: raise_exception
+cta_secondary_label: use_in_next_session
+list_label: >
+  Simple template for handling cloud access blocks in the open instead of hacking around them.
 ---
 
 Use this page when **cloud access is blocking your work**.
@@ -25,6 +30,8 @@ Two moves only:
 
 The detailed graphs and trails live in the reporting views and releases.  
 This page is here to keep the story and the promises clear.
+
+<PageCTA />
 
 ## What this page is for
 
@@ -69,6 +76,11 @@ Over two review cycles, we treat this as healthy if:
 - most affected people say they knew what temporary path to use without scrambling
 
 If we see long-lived blockers or confusion about “what now,” we fix the process, not the person.
+
+> For cloud access, a “receipt” is:
+>
+> - a short exception entry with owner, reason, expiry, rollback, and pause rule, and
+> - a close-out note when the normal path is restored and the fallback passes its quick lab.
 
 ---
 

@@ -1,21 +1,25 @@
 ---
-title: Chapter state · Web frontend pilot
-owner: '@louis'
+title: Chapter state
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 30
 change_type: minor
-status: live
+status: pilot
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
 decision_id: dec-2025-11-chapter-ops-defaults
 date: '2025-11-15'
-cta_primary_label: review
-cta_secondary_label: share
+cta_primary_label: use_in_next_session
+cta_secondary_label: open_steward_roster
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
+list_label: >
+  Snapshot of where the frontend chapter pilot stands today across lanes, stewards, and the live
+  signals.
 ---
 
 This page gives a simple picture of where the **web frontend chapter** is right now for the Northbook pilot.
@@ -27,6 +31,8 @@ It is meant to answer three questions:
 3. Where should I look before I walk into a chapter ops conversation?
 
 There is no full playbook here on purpose. This is a small, honest slice of how we are currently running.
+
+<PageCTA />
 
 ## What this page is for
 
@@ -54,7 +60,7 @@ These are the pages that are "in play" right now. If you only have a few minutes
 
 - **Steward roster**
   See who is currently on point for scope, signals, and exceptions, plus their expected response window.
-  → [Open steward roster](../stewards)
+  → [Open steward roster](../../operate/stewards)
 
 - **Signals roster**
   See the two health checks we are watching: how fresh the roster is, and whether people leave sessions knowing their next step.
@@ -94,6 +100,6 @@ Raise it in the next chapter ops session or with whoever shared Northbook with y
 ## If you need history
 
 If you need to see **when** these pages changed or which decisions and guardrails are tied to them,  
-open the [Releases view](../../operate/releases/) and use the `site-v2025.11` bundle.
+open the [Releases view](../../changelog/releases/) and use the `site-v2025.11` bundle.
 
 Most people do not need this for day-to-day work.

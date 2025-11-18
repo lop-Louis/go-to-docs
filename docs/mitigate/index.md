@@ -1,32 +1,43 @@
 ---
-title: Mitigate lane · Web frontend pilot
-owner: '@louis'
+title: Mitigate overview
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 60
 change_type: patch
-status: live
+status: pilot
 audience: People facing blockers and wanting to handle them in the open
-tone: Plainspoken, calm, practical
+tone: 'Plainspoken, calm, practical'
 narrative_goal: Help people log serious blocks and use the cloud-access stub without drama
 bucket: mitigate
 north_star_id: ns-001
 guardrail_id: gr-103
+cta_primary_label: open_cloud_exception
+cta_secondary_label: raise_exception
+decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
+release_tag: site-v2025.11
 nav:
   - none
 search: false
+list_label: >
+  Where we park the ugly stuff for this pilot: blocks, exceptions, and how we decide what to do
+  about them.
 ---
 
 Use this page when something is **blocking work** and you want to handle it in the open, not in private chats.
 
-Exit metric: you leave knowing whether your blocker belongs in the **cloud-access stub** or somewhere else, and what to do next.  
-Most pilot-era blocks go here:
+<PageCTA />
 
-- [Open cloud-access stub](./exception-cloud-access)
-- [See who owns exceptions](../operate/stewards)
+> **Expected Takeaway:** you leave knowing whether your blocker belongs in the **cloud-access stub** or somewhere else, and what to do next.  
+> Most pilot-era blocks go here:
+
+## Quick links for the web frontend pilot
+
+<PilotPageList bucket="mitigate" />
 
 ## What “Mitigate” means in this pilot
 

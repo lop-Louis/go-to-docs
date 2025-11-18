@@ -15,6 +15,8 @@
     "guardrail_id",
     "leading_metric",
     "lagging_metric",
+    "release_tag",
+    "decision_id",
     "date"
   ],
   "properties": {
@@ -42,7 +44,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["live", "stale", "archived", "draft"]
+      "enum": ["live", "stale", "pilot", "archived"]
     },
     "last_reviewed": {
       "type": "string",
@@ -149,9 +151,10 @@
         "m-time-to-recovery"
       ]
     },
-    "decision_link": {
+    "list_label": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "maxLength": 200
     }
   }
 }

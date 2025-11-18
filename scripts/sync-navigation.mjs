@@ -2,28 +2,19 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import matter from 'gray-matter'
 import prettier from 'prettier'
 
 const repoRoot = process.cwd()
 const docsDir = path.join(repoRoot, 'docs')
-const draftsDir = path.join(docsDir, 'drafts')
-const gatedListPath = path.join(draftsDir, 'gated.generated.md')
 const outputPath = path.join(docsDir, '.vitepress', 'navigation.generated.ts')
-const FIXED_NAV = [
-  { text: 'Start here', link: '/start-here/' },
-  { text: 'Navigate', link: '/navigate/' },
-  { text: 'Operate', link: '/operate/' },
-  { text: 'Learn', link: '/learn/' },
-  { text: 'Mitigate', link: '/mitigate/' }
-]
+const FIXED_NAV = [{ text: 'Start here', link: '/start-here/' }]
 const SIDEBAR_BLUEPRINT = [
   {
     text: 'Navigate',
     collapsed: false,
     items: [
-      { text: 'Start here', link: '/start-here/' },
-      { text: 'Navigate overview', link: '/navigate/' }
+      { text: 'Navigate overview', link: '/navigate/' },
+      { text: 'Frontend charter', link: '/navigate/frontend-charter' }
     ]
   },
   {
@@ -31,7 +22,7 @@ const SIDEBAR_BLUEPRINT = [
     collapsed: false,
     items: [
       { text: 'Operate overview', link: '/operate/' },
-      { text: 'Chapter state (pilot)', link: '/operate/state/web-frontend' },
+      { text: 'Defaults Meeting', link: '/operate/ops-defaults-meetings' },
       { text: 'Steward roster', link: '/operate/stewards' }
     ]
   },
@@ -52,10 +43,6 @@ const SIDEBAR_BLUEPRINT = [
     ]
   }
 ]
-
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true })
-}
 
 function collectMarkdownFiles(dir) {
   const results = []
@@ -92,48 +79,6 @@ function isDraftPath(filePath) {
   return relative.split(path.sep).includes('drafts')
 }
 
-function writeGatedList(entries) {
-  ensureDir(draftsDir)
-  const listBody = entries.length
-    ? entries
-        .sort((a, b) => a.route.localeCompare(b.route))
-        .map(entry => `- \`${entry.route}\` — ${entry.reason}`)
-        .join('\n')
-    : '- _None_'
-
-  const fm = {
-    title: 'Gated pages',
-    band: 'A',
-    owner: '@lop',
-    refresh_after_days: 30,
-    change_type: 'patch',
-    status: 'live',
-    nav: ['none'],
-    search: false,
-    bucket: 'operate',
-    north_star_id: 'ns-001',
-    guardrail_id: 'gr-104',
-    cta_primary_label: 'Use this guardrail',
-    cta_secondary_label: 'See example runbook',
-    leading_metric: 'm-nav-open',
-    lagging_metric: 'm-time-to-answer',
-    decision_link: '/decisions/dec-2025-11-proof-or-private.md',
-    date: new Date().toISOString().slice(0, 10)
-  }
-  const intro = `Keep unfinished pages out of nav until they meet the opener contract. [Return to the drafts hub](./index.md) or [Fix the opener contract](../operate/north-star-guardrails.md#ui-delivery-checks).
-Exit metric: gated pages either ship or leave the repo within 30 days.
-
-`
-  const body = `${intro}# Gated pages (auto-generated)
-
-${listBody}
-
-_Last updated: ${new Date().toISOString()}_
-`
-  const output = matter.stringify(body.trim() + '\n', fm)
-  fs.writeFileSync(gatedListPath, output)
-}
-
 function normalizeRoute(link) {
   if (link === '/') return '/'
   return link
@@ -142,7 +87,6 @@ function normalizeRoute(link) {
 function buildNavigation() {
   const files = collectMarkdownFiles(docsDir)
   const publishableRoutes = new Set()
-  const gatedPages = []
 
   for (const file of files) {
     if (file.includes(`${path.sep}.vitepress${path.sep}`)) continue
@@ -153,8 +97,6 @@ function buildNavigation() {
     publishableRoutes.add(route)
   }
 
-  writeGatedList(gatedPages)
-
   const nav = FIXED_NAV.map(item => {
     const normalized = normalizeRoute(item.link)
     if (!publishableRoutes.has(normalized)) {
@@ -164,18 +106,30 @@ function buildNavigation() {
   })
 
   const missingSidebar = new Set()
-  const sidebar = SIDEBAR_BLUEPRINT.map(group => {
-    const items = group.items.filter(item => {
-      const normalized = normalizeRoute(item.link)
-      if (publishableRoutes.has(normalized)) {
-        return true
+  const sidebar = []
+
+  for (const group of SIDEBAR_BLUEPRINT) {
+    if (group.items) {
+      const items = group.items.filter(item => {
+        const normalized = normalizeRoute(item.link)
+        if (publishableRoutes.has(normalized)) {
+          return true
+        }
+        missingSidebar.add(normalized)
+        return false
+      })
+      if (items.length) {
+        sidebar.push({ text: group.text, collapsed: group.collapsed, items })
       }
-      missingSidebar.add(normalized)
-      return false
-    })
-    if (!items.length) return null
-    return { text: group.text, collapsed: group.collapsed, items }
-  }).filter(Boolean)
+    } else if (group.link && group.text) {
+      const normalized = normalizeRoute(group.link)
+      if (publishableRoutes.has(normalized)) {
+        sidebar.push({ text: group.text, link: group.link })
+      } else {
+        missingSidebar.add(normalized)
+      }
+    }
+  }
 
   if (missingSidebar.size) {
     console.warn(

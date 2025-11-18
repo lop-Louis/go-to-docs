@@ -1,5 +1,7 @@
 ---
 title: Northbook
+mode: pilot
+pilot_id: web_frontend_chapter_v1
 layout: home
 band: A
 owner: '@lop'
@@ -9,7 +11,10 @@ status: live
 last_reviewed: '2025-01-15'
 audience: Anyone in the web frontend chapter looking for ops guidance and entry points
 tone: 'Plainspoken, calm, practical'
-narrative_goal: Help people see where the chapter stands, who owns what, and what to do when blocked
+narrative_goal: >-
+  Help people see where the chapter stands, who owns what, and what to do when
+  blocked
+release_tag: site-v2025.11
 hero:
   name: Northbook
   text: A small pilot for calmer chapter ops.
@@ -17,33 +22,38 @@ hero:
     src: /logo-symbol.png
     alt: Northbook logo
   tagline: >-
-    For this pilot, Northbook gives the web frontend chapter one place to see where we are, who owns what, and how to handle blocks.
+    For this pilot, Northbook gives the web frontend chapter one place to see
+    where we are, who owns what, and how to handle blocks.
   actions:
     - theme: brand
       text: See the chapter state
-      link: /operate/state/web-frontend
+      link: /changelog/state/web-frontend
     - theme: alt
       text: See who owns what
       link: /operate/stewards
 features:
   - title: See where the chapter stands
     details: >-
-      Open the chapter state page to see a simple snapshot of what shipped recently and which ops pages are in play for this pilot.
-    link: /operate/state/web-frontend
+      Open the chapter state page to see a simple snapshot of what shipped
+      recently and which ops pages are in play for this pilot.
+    link: /changelog/state/web-frontend
     linkText: Open chapter state
   - title: Know who to tap
     details: >-
-      Use the steward roster to see who currently looks after scope, signals, and exceptions, plus their expected response window.
+      Use the steward roster to see who currently looks after scope, signals,
+      and exceptions, plus their expected response window.
     link: /operate/stewards
     linkText: Open steward roster
   - title: Watch the two health checks
     details: >-
-      The signals roster tracks two things only: how fresh the chapter roster is, and whether people leave sessions with a clear next step.
+      The signals roster tracks two things only: how fresh the chapter roster
+      is, and whether people leave sessions with a clear next step.
     link: /learn/signals-roster
     linkText: Open signals roster
   - title: Handle cloud access blocks
     details: >-
-      When cloud access gets in the way, the cloud-access stub helps you log the blocker, name an owner, and use a safe temporary path.
+      When cloud access gets in the way, the cloud-access stub helps you log the
+      blocker, name an owner, and use a safe temporary path.
     link: /mitigate/exception-cloud-access
     linkText: Open cloud-access stub
 nav:
@@ -51,9 +61,9 @@ nav:
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
+decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-01-15'
 ---
 
@@ -78,7 +88,7 @@ Go to the **chapter state** page:
 - see the latest snapshot for this pilot
 - see which ops pages are currently in play
 
-> [Open chapter state](./operate/state/web-frontend)
+> [Open chapter state](./changelog/state/web-frontend)
 
 ### I want to know who owns what in ops
 
@@ -125,4 +135,4 @@ If you could not find a useful page or a clear next step from here, tell us.
 
 We will treat it as a signal that the entrance is wrong, not that you are.
 
-> If you help maintain Northbook and need history or traceability, use the [Releases view](./operate/releases/). It is written for operators and auditors, not for first-time visitors.
+> If you help maintain Northbook and need history or traceability, use the [Releases view](./changelog/releases/). It is written for operators and auditors, not for first-time visitors.

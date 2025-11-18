@@ -21,7 +21,7 @@ jobs:
         run: pnpm verify:cta || true
       - name: Check freeze status
         run: pnpm freeze:check || true
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: reports
           path: reports

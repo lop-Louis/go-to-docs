@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-11-13T08:58:18.833Z",
+  "generatedAt": "2025-11-18",
   "releases": {
     "site-v2025.11": {
       "pages": [
@@ -7,75 +7,134 @@
           "title": "Casual vs Operation meeting defaults",
           "path": "/operate/ops-defaults-meetings",
           "bucket": "operate",
-          "owner": "@louis",
-          "status": "live",
+          "owner": "@lop",
+          "status": "pilot",
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-lab-pass",
-          "lagging_metric": "m-defect-rate-changed-pages"
+          "lagging_metric": "m-defect-rate-changed-pages",
+          "list_label": "How we tell a casual chat from an ops session, plus the default 1:1 pattern we fall back to when nothing else is agreed.\n",
+          "cta_primary_label": "try_ops_defaults",
+          "cta_secondary_label": "see_roster_signals"
         },
         {
-          "title": "Chapter ops steward roster",
-          "path": "/operate/stewards",
-          "bucket": "operate",
-          "owner": "@louis",
-          "status": "live",
-          "decision_id": "dec-2025-11-chapter-ops-defaults",
-          "leading_metric": "m-dashboard-freshness-days",
-          "lagging_metric": "m-decision-hit-rate"
-        },
-        {
-          "title": "Chapter state · Web frontend pilot",
-          "path": "/operate/state/web-frontend",
-          "bucket": "operate",
-          "owner": "@louis",
-          "status": "live",
-          "decision_id": "dec-2025-11-chapter-ops-defaults",
-          "leading_metric": "m-dashboard-freshness-days",
-          "lagging_metric": "m-decision-hit-rate"
-        },
-        {
-          "title": "Cloud access exception stub",
-          "path": "/mitigate/exception-cloud-access",
-          "bucket": "mitigate",
-          "owner": "@louis",
-          "status": "live",
-          "decision_id": "dec-2025-11-chapter-ops-defaults",
-          "leading_metric": "m-time-to-freeze",
-          "lagging_metric": "m-time-to-recovery"
-        },
-        {
-          "title": "Signals roster · baseline + direction clarity",
-          "path": "/learn/signals-roster",
-          "bucket": "learn",
-          "owner": "@louis",
-          "status": "live",
-          "decision_id": "dec-2025-11-chapter-ops-defaults",
-          "leading_metric": "m-dashboard-freshness-days",
-          "lagging_metric": "m-decision-hit-rate"
-        },
-        {
-          "title": "Web Frontend chapter scope line",
+          "title": "Chapter Scope (duplicate)",
           "path": "/navigate/chapter-scope",
           "bucket": "navigate",
-          "owner": "@louis",
-          "status": "live",
+          "owner": "@lop",
+          "status": "archived",
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-nav-open",
-          "lagging_metric": "m-time-to-answer"
-        }
-      ],
-      "decisions": [
+          "lagging_metric": "m-time-to-answer",
+          "list_label": "**Heads-up:** The canonical scope page is now [Frontend chapter · scope line](./frontend-charter.md).\n",
+          "cta_primary_label": "start_with_chapter_scope",
+          "cta_secondary_label": "open_chapter_state"
+        },
         {
-          "title": "Chapter Ops Defaults & Signals — turn post‑meeting notes into fuel",
-          "path": "/decisions/ops/dec-2025-11-chapter-ops-defaults",
-          "bucket": "operate",
-          "owner": "@louis",
+          "title": "Cloud access blocks",
+          "path": "/mitigate/exception-cloud-access",
+          "bucket": "mitigate",
+          "owner": "@lop",
+          "status": "pilot",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-time-to-freeze",
+          "lagging_metric": "m-time-to-recovery",
+          "list_label": "Simple template for handling cloud access blocks in the open instead of hacking around them.\n",
+          "cta_primary_label": "raise_exception",
+          "cta_secondary_label": "use_in_next_session"
+        },
+        {
+          "title": "Frontend charter",
+          "path": "/navigate/frontend-charter",
+          "bucket": "navigate",
+          "owner": "@lop",
           "status": "live",
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-time-to-answer",
-          "lagging_metric": "m-nav-open"
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "What the frontend chapter is for, what it is not for, and when to bring something here instead of to your squad.\n",
+          "cta_primary_label": "try_ops_defaults",
+          "cta_secondary_label": "see_roster_signals"
+        },
+        {
+          "title": "Learn overview",
+          "path": "/learn",
+          "bucket": "learn",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "How we watch the pilot’s health and turn two simple signals into small, real changes.\n",
+          "cta_primary_label": "open_signals_roster",
+          "cta_secondary_label": "open_chapter_state"
+        },
+        {
+          "title": "Mitigate overview",
+          "path": "/mitigate",
+          "bucket": "mitigate",
+          "owner": "@lop",
+          "status": "pilot",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "Where we park the ugly stuff for this pilot: blocks, exceptions, and how we decide what to do about them.\n",
+          "cta_primary_label": "open_cloud_exception",
+          "cta_secondary_label": "raise_exception"
+        },
+        {
+          "title": "Navigate overview",
+          "path": "/navigate",
+          "bucket": "navigate",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-nav-open",
+          "lagging_metric": "m-time-to-answer",
+          "list_label": "How the Navigate bucket works in this pilot and what belongs here instead of Operate, Learn, or Mitigate.\n",
+          "cta_primary_label": "open_chapter_state",
+          "cta_secondary_label": "open_steward_roster"
+        },
+        {
+          "title": "Operate overview",
+          "path": "/operate",
+          "bucket": "operate",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "What lives in Operate for the frontend pilot: the current state, named stewards, and the few working agreements we actually run.\n",
+          "cta_primary_label": "open_chapter_state",
+          "cta_secondary_label": "open_steward_roster"
+        },
+        {
+          "title": "Signals roster",
+          "path": "/learn/signals-roster",
+          "bucket": "learn",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "The two health checks we watch for the pilot—roster freshness and whether people leave sessions knowing their next step.\n",
+          "cta_primary_label": "use_in_next_session",
+          "cta_secondary_label": "open_chapter_state"
+        },
+        {
+          "title": "Steward roster",
+          "path": "/operate/stewards",
+          "bucket": "operate",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "Who is currently on point for scope, signals and exceptions in this pilot, plus how fast they aim to respond.\n",
+          "cta_primary_label": "open_signals_roster",
+          "cta_secondary_label": "raise_exception"
         }
-      ]
+      ],
+      "decisions": []
     }
   }
 }

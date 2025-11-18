@@ -1,35 +1,30 @@
 ---
-title: Start here · Northbook pilot
+title: Start here
 owner: '@lop'
 band: A
 refresh_after_days: 120
 change_type: patch
 status: live
 audience: People who are not sure where to begin with the Northbook pilot
-tone: Plainspoken, calm, practical
-narrative_goal: Help newcomers choose between chapter state and steward roster as their first step
+tone: 'Plainspoken, calm, practical'
+narrative_goal: >-
+  Help newcomers choose between chapter state and steward roster as their first
+  step
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-101
+cta_primary_label: start_with_chapter_scope
+cta_secondary_label: open_navigate_overview
+decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-nav-open
 lagging_metric: m-time-to-answer
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-01-15'
-nav:
-  - none
+release_tag: site-v2025.11
+list_label: >
+  Entry point for the pilot when you are not sure which chapter ops page to open first.
 ---
 
-Use this page when you are not sure where to begin with Northbook.
-
-Exit metric: you leave knowing whether you should look at the **chapter state** or at **who owns what** next.  
-Try one of these:
-
-- [See the chapter state](../operate/state/web-frontend)
-- [See who owns what](../operate/stewards)
-
-## What “start here” means for this pilot
-
-For now, Northbook is a small pilot focused on the **web frontend chapter**.
+For now, Northbook is a small pilot focused on the **frontend chapter**.
 
 It is here to help you answer two questions:
 
@@ -39,6 +34,14 @@ It is here to help you answer two questions:
 There is no full playbook behind this page yet on purpose.  
 We only expose the pieces that are already in use.
 
+<PageCTA />
+
+> **Expected Takeaway:** you leave knowing whether you should look at the **chapter state** or at **who owns what** next.
+
+## Quick links for the web frontend pilot
+
+<PilotPageList :max-items="8" />
+
 ## If you want to see where the chapter stands
 
 Open the **chapter state** page:
@@ -47,7 +50,7 @@ Open the **chapter state** page:
 - see which ops pages are actively in play
 - use it as a quick briefing before a chapter ops session
 
-> [Open chapter state](../operate/state/web-frontend)
+> [Open chapter state](../changelog/state/web-frontend)
 
 ## If you want to know who owns what
 

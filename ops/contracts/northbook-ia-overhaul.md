@@ -21,7 +21,7 @@ date: '2025-11-10'
 Guardrail reference: [Narrator tone guide (gr-101)](../navigate/tone.md).
 
 Keep the IA overhaul guardrails enforceable and receipt-backed. [Review the deep-embed decision](../decisions/dec-2025-11-ia-overhaul.md) or [Open the governance release bundle](../../ops/releases/2025-11/index.md).
-Exit metric: governance freeze triggers stay clear while annex labs finish in <= 10 minutes.
+**Expected Takeaway:** governance freeze triggers stay clear while annex labs finish in <= 10 minutes.
 
 **Owner:** Louis
 **Band:** A (public)

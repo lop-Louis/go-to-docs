@@ -1,21 +1,25 @@
 ---
 title: Casual vs Operation meeting defaults
-owner: '@louis'
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 14
 change_type: minor
-status: live
+status: pilot
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
 decision_id: dec-2025-11-chapter-ops-defaults
 date: '2025-11-15'
-cta_primary_label: use
-cta_secondary_label: open
+cta_primary_label: try_ops_defaults
+cta_secondary_label: see_roster_signals
 leading_metric: m-lab-pass
 lagging_metric: m-defect-rate-changed-pages
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
+list_label: >
+  How we tell a casual chat from an ops session, plus the default 1:1 pattern we fall back to when
+  nothing else is agreed.
 ---
 
 Steady every touchpoint before you dive in. [Use this kit in your next session](#what-you-can-do-here) or [Open the shared parking lot](#11-fallback-pattern) so nothing drifts.
@@ -29,6 +33,13 @@ This page turns “Casual vs Operation” into a runnable default so every chapt
 - action 1: use this in your next session — label the meeting, prep the doc-first note, and exit with a receipt in under 20 minutes.
 - action 2: open the parking lot — move topics that lack an owner/date into the shared lot with a steward and revisit time.
 
+> For this default, a “receipt” is:
+>
+> - a doc-first note with why we met and the expected outcome, and
+> - for each topic, either:
+>   1. an owner + date, or
+>   2. a parking-lot entry with a steward + revisit date.
+
 ## How we’ll know it’s working
 
 Within the first month, the doc-first notes actually go out before the meeting.  
@@ -37,8 +48,10 @@ Over two review cycles:
 - At least 9 out of 10 Operation sessions end with an owner/date logged or a parking-lot entry with a revisit date.
 - At least 8 out of 10 people say the cadence helps them know what to prep before we meet.
 
-> impact notes: `site-v2025.11`, `/docs/reports/impact-notes/2025-11.md`, `/v1/operate/state/chapters/web-frontend.html`
-> receipts: `/v1/operate/state/chapters/web-frontend.html`, `runsheet.chapter-ops-follow-up.md`, `site-v2025.11`
+## Reference log:
+
+- [Frontend Charter](../navigate/frontend-charter.md)
+- [Release v2025.11](../changelog/releases/site-v2025.11.md)
 
 ---
 

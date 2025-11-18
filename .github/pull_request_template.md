@@ -36,7 +36,7 @@
 - Related decision (if any): </decisions/...>
 - Related release tag (if any): `site-v2025.11`
 - Pages you touched that matter for the pilot:
-  - </operate/state/web-frontend>
+  - </changelog/state/web-frontend>
   - </operate/stewards>
   - </learn/signals-roster>
   - </mitigate/exception-cloud-access>

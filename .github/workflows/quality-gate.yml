@@ -133,7 +133,7 @@ jobs:
       # ---------------------
       - name: Upload preview artifact
         if: always() && steps.build_docs.outcome == 'success'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: preview-dist
           path: ${{ env.DIST_DIR }}

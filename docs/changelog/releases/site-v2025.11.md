@@ -1,6 +1,8 @@
 ---
 title: Release bundle · site-v2025.11
-owner: '@louis'
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 365
 change_type: minor
@@ -8,21 +10,27 @@ status: live
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
-cta_primary_label: See current chapter state
-cta_secondary_label: See decisions involved
+decision_id: dec-2025-11-chapter-ops-defaults
+cta_primary_label: open_chapter_state
+cta_secondary_label: open_steward_roster
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
+release_tag: site-v2025.11
 nav:
   - none
 search: false
+list_label: >
+  Bundle of everything tagged site-v2025.11 so ops and auditors can see what this release actually
+  touched.
 ---
 
 This release bundle shows what the **web frontend chapter pilot** put in place around November 2025.
 
-If you only care about where we are today, use the [chapter state page](/operate/state/web-frontend).  
-If you care about **how we got here**, you are in the right place.
+- If you only care about where we are today, use the **chapter state page**.
+- If you care about **how we got here**, you are in the right place.
+
+<PageCTA />
 
 ## What this release was about
 

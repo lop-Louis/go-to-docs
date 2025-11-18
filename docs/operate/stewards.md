@@ -1,6 +1,8 @@
 ---
-title: Chapter ops steward roster
-owner: '@louis'
+title: Steward roster
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 14
 change_type: patch
@@ -10,12 +12,14 @@ north_star_id: ns-001
 guardrail_id: gr-103
 decision_id: dec-2025-11-chapter-ops-defaults
 date: '2025-11-15'
-cta_primary_label: review
-cta_secondary_label: share
+cta_primary_label: open_signals_roster
+cta_secondary_label: raise_exception
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 release_tag: site-v2025.11
+list_label: >
+  Who is currently on point for scope, signals and exceptions in this pilot, plus how fast they aim
+  to respond.
 ---
 
 Use this page to answer two simple questions:
@@ -24,6 +28,8 @@ Use this page to answer two simple questions:
 2. Is anyone carrying too much without a backup?
 
 If you feel overloaded or unsure who owns what, this is the place to raise it and adjust.
+
+<PageCTA />
 
 ## Steward roster
 

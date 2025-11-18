@@ -1,0 +1,69 @@
+{
+  "start_with_chapter_scope": {
+    "text": "Start with chapter scope",
+    "doc": "navigate/frontend-charter.md"
+  },
+  "open_navigate_overview": {
+    "text": "Open navigation overview",
+    "doc": "navigate/index.md"
+  },
+  "open_operate_overview": {
+    "text": "Open operate overview",
+    "doc": "operate/index.md"
+  },
+  "open_learn_overview": {
+    "text": "Open learn overview",
+    "doc": "learn/index.md"
+  },
+  "open_mitigate_overview": {
+    "text": "Open mitigate overview",
+    "doc": "mitigate/index.md"
+  },
+  "open_chapter_state": {
+    "text": "Open chapter state",
+    "doc": "changelog/state/web-frontend.md"
+  },
+  "open_steward_roster": {
+    "text": "Open steward roster",
+    "doc": "operate/stewards.md"
+  },
+  "open_signals_roster": {
+    "text": "Open signals roster",
+    "doc": "learn/signals-roster.md"
+  },
+  "open_cloud_exception": {
+    "text": "Open cloud-access blocks",
+    "doc": "mitigate/exception-cloud-access.md"
+  },
+  "try_ops_defaults": {
+    "text": "Try ops defaults",
+    "doc": "operate/ops-defaults-meetings.md"
+  },
+  "use_in_next_session": {
+    "text": "Use in next session"
+  },
+  "see_roster_signals": {
+    "text": "See roster signals",
+    "doc": "learn/signals-roster.md"
+  },
+  "raise_exception": {
+    "text": "Log an exception",
+    "doc": "mitigate/exception-cloud-access.md"
+  },
+  "see_guardrail": {
+    "text": "Use this guardrail",
+    "doc": "operate/north-star-guardrails.md"
+  },
+  "see_guardrail_runbook": {
+    "text": "See example runbook",
+    "doc": "operate/north-star-guardrails.md"
+  },
+  "open_decision_bundle": {
+    "text": "See the decisions",
+    "doc": "operate/decisions/dec-2025-11-chapter-baseline.md"
+  },
+  "open_latest_release": {
+    "text": "Open latest release",
+    "doc": "operate/releases/site-v2025.11.md"
+  }
+}

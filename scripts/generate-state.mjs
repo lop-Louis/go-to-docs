@@ -158,7 +158,7 @@ ${metricsLines}
   const body = `# Release state ledger
 
 Keep the monthly state bundle predictable. [Open ${latestTag}](${latestLink}) or [Browse the State runbook](${runbookLink}).
-Exit metric: readers act via the CTA pair within 60 seconds.
+**Expected Takeaway:** readers act via the CTA pair within 60 seconds.
 
 ${sections}
 `
@@ -177,11 +177,10 @@ ${sections}
     bucket: 'navigate',
     north_star_id: 'ns-001',
     guardrail_id: 'gr-101',
-    cta_primary_label: 'Try the Navigate path',
-    cta_secondary_label: 'See example route',
+    cta_primary_label: 'open_navigate_overview',
+    cta_secondary_label: 'open_operate_overview',
     leading_metric: 'm-nav-open',
     lagging_metric: 'm-time-to-answer',
-    decision_link: '/decisions/ops/dec-2025-11-chapter-baseline.md',
     date:
       (latest && latest.manifest && latest.manifest.date) || new Date().toISOString().slice(0, 10)
   }

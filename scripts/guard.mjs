@@ -72,8 +72,10 @@ let checkCount = 0
 const seamViolationCounts = {}
 
 const toneLintPath = path.join(process.cwd(), 'ops', 'tone_lint.json')
+const ctaMapPath = path.join(process.cwd(), 'ops', 'cta-map.json')
 let ctaAllowlist = []
 let ctaBanlist = []
+let ctaKeys = new Set()
 if (fs.existsSync(toneLintPath)) {
   try {
     const toneConfig = JSON.parse(fs.readFileSync(toneLintPath, 'utf8'))
@@ -83,12 +85,25 @@ if (fs.existsSync(toneLintPath)) {
     console.warn(`Warning: unable to parse ${toneLintPath}: ${error.message}`)
   }
 }
+if (fs.existsSync(ctaMapPath)) {
+  try {
+    const ctaConfig = JSON.parse(fs.readFileSync(ctaMapPath, 'utf8'))
+    ctaKeys = new Set(Object.keys(ctaConfig || {}))
+  } catch (error) {
+    console.warn(`Warning: unable to parse ${ctaMapPath}: ${error.message}`)
+  }
+}
 
 function checkCtaLabel(filePath, labelType, value) {
   if (!value || typeof value !== 'string') return
   const trimmed = value.trim()
   if (!trimmed) return
   const lower = trimmed.toLowerCase()
+
+  if (ctaKeys.has(trimmed)) {
+    checkCount++
+    return
+  }
 
   for (const banned of ctaBanlist) {
     if (banned && lower.includes(banned)) {

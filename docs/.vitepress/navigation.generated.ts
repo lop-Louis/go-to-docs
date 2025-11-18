@@ -6,22 +6,6 @@ export const generatedNav = [
   {
     text: 'Start here',
     link: '/start-here/'
-  },
-  {
-    text: 'Navigate',
-    link: '/navigate/'
-  },
-  {
-    text: 'Operate',
-    link: '/operate/'
-  },
-  {
-    text: 'Learn',
-    link: '/learn/'
-  },
-  {
-    text: 'Mitigate',
-    link: '/mitigate/'
   }
 ] as DefaultTheme.NavItem[]
 
@@ -31,12 +15,12 @@ export const generatedSidebar = [
     collapsed: false,
     items: [
       {
-        text: 'Start here',
-        link: '/start-here/'
-      },
-      {
         text: 'Navigate overview',
         link: '/navigate/'
+      },
+      {
+        text: 'Frontend charter',
+        link: '/navigate/frontend-charter'
       }
     ]
   },
@@ -49,8 +33,8 @@ export const generatedSidebar = [
         link: '/operate/'
       },
       {
-        text: 'Chapter state (pilot)',
-        link: '/operate/state/web-frontend'
+        text: 'Defaults Meeting',
+        link: '/operate/ops-defaults-meetings'
       },
       {
         text: 'Steward roster',

@@ -1,32 +1,42 @@
 ---
-title: Operate lane · Web frontend pilot
-owner: '@louis'
+title: Operate overview
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 60
 change_type: patch
 status: live
 audience: People changing or running web frontend chapter ops
-tone: Plainspoken, calm, practical
-narrative_goal: Point people to chapter state, stewards, signals, and cloud-access handling
+tone: 'Plainspoken, calm, practical'
+narrative_goal: 'Point people to chapter state, stewards, signals, and cloud-access handling'
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
+cta_primary_label: open_chapter_state
+cta_secondary_label: open_steward_roster
+decision_id: dec-2025-11-chapter-ops-defaults
 leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
-decision_link: operate/decisions/dec-2025-11-chapter-baseline.md
 date: '2025-11-15'
+release_tag: site-v2025.11
 nav:
   - none
 search: false
+list_label: >
+  What lives in Operate for the frontend pilot: the current state, named stewards, and the few
+  working agreements we actually run.
 ---
 
 Use this page when you are thinking about **how the web frontend chapter runs**, not just about one pull request.
 
-Exit metric: you leave knowing which ops page to look at before you change how the chapter operates.  
-Most of the time, that means:
+<PageCTA />
 
-- [Review the chapter state](./state/web-frontend)
-- [Review the steward roster](./stewards)
+> **Expected Takeaway:** you leave knowing which ops page to look at before you change how the chapter operates.
+
+## Quick links for the web frontend pilot
+
+<PilotPageList bucket="operate" />
 
 ## What “Operate” means in this pilot
 
@@ -49,7 +59,7 @@ A simple snapshot of:
 - which ops pages are active
 - what to look at before a chapter ops session
 
-> [Open chapter state](./state/web-frontend)
+> [Open chapter state](../changelog/state/web-frontend)
 
 ### Steward roster
 
@@ -70,7 +80,7 @@ Shows the two health checks we are watching:
 - how fresh the roster is
 - whether people leave sessions with a clear next step
 
-> [Open signals roster](/learn/signals-roster)
+> [Open signals roster](../learn/signals-roster)
 
 ### Cloud-access exception stub
 
@@ -79,7 +89,7 @@ Used when cloud access blocks meaningful work:
 - log the blocker with an owner and expiry
 - follow a safe temporary path while the fix is in progress
 
-> [Open cloud-access stub](/mitigate/exception-cloud-access)
+> [Open cloud-access stub](../mitigate/exception-cloud-access)
 
 ## If you want the deeper contract
 
