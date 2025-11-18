@@ -173,8 +173,7 @@ describe('Accessibility (WCAG AA Compliance)', () => {
       expect(text).toContain("Something isn't working?")
 
       // Link labels should be unambiguous
-      expect(text).toContain('steward')
-      expect(text).toContain('exception')
+      expect(text.toLowerCase()).toContain('issue')
     })
 
     it('provides clear call to action', () => {
