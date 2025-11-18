@@ -21,13 +21,6 @@ nav:
   - none
 search: false
 list_label: Guardrails and receipts for changing Northbook as a platform.
-feedback_paths:
-  - label: Tag the steward roster contact
-    href: /operate/stewards
-  - label: Log blocker as exception
-    href: /mitigate/exception-cloud-access
-  - label: Open an ops-contract feedback issue
-    href: https://github.com/lop-louis/northbook/issues/new?labels=feedback,kl,operate,contract&title=%5BOps%20contract%5D%20%2Foperate%2Fops-contract&body=What%20felt%20off%3F%0A%0APage%3A%20%2Foperate%2Fops-contract
 ---
 
 This contract keeps the platform predictable: one guardrail set, clear exceptions, visible receipts, cross-team.

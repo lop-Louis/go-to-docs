@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useData, useRoute } from 'vitepress'
+import { useRoute } from 'vitepress'
 
 const repo = 'lop-louis/northbook'
 const route = useRoute()
-const { page } = useData()
 
 const bucket = computed(() => {
   const segments = route.path.split('/').filter(Boolean)
@@ -13,29 +12,25 @@ const bucket = computed(() => {
 
 const exits = computed(() => {
   const path = route.path
-  const data = {
-    steward: { label: 'Tag the steward roster contact', href: '/operate/stewards' },
-    exception: { label: 'Log blocker as exception', href: '/mitigate/exception-cloud-access' }
-  }
 
   const issue = (bucketLabel: string) => ({
-    label: `Open a ${bucketLabel} feedback issue`,
-    href: `https://github.com/${repo}/issues/new?labels=feedback,kl,${bucketLabel}&title=%5B${encodeURIComponent(
+    label: `Open an issue tell us more`,
+    href: `https://github.com/${repo}/issues/new?labels=feedback,kl,${bucketLabel}_bucket&title=%5B${encodeURIComponent(
       bucketLabel
     )}%5D%20${encodeURIComponent(path)}&body=What%20felt%20off%3F%0A%0APage%3A%20${encodeURIComponent(path)}`
   })
 
   switch (bucket.value) {
     case 'navigate':
-      return [data.steward, issue('navigate')]
+      return [issue('navigate')]
     case 'operate':
-      return [data.steward, data.exception, issue('operate')]
+      return [issue('operate')]
     case 'learn':
-      return [data.steward, issue('learn')]
+      return [issue('learn')]
     case 'mitigate':
-      return [data.exception, data.steward, issue('mitigate')]
+      return [issue('mitigate')]
     default:
-      return [data.steward, data.exception, issue('home')]
+      return [issue('home')]
   }
 })
 
@@ -43,18 +38,11 @@ function iconFor(href: string) {
   if (typeof href !== 'string') return 'book'
   return href.includes('github.com') ? 'github' : 'book'
 }
-
-const shouldRender = computed(() => {
-  if (page.value?.frontmatter?.layout === 'home') return false
-  return exits.value.length > 0
-})
 </script>
 
 <template>
-  <div v-if="shouldRender" class="vp-feedback" role="region" aria-label="Page feedback exits">
-    <div class="vp-feedback__title">
-      If this page isn’t working for you, use one of these exits:
-    </div>
+  <div class="vp-feedback" role="region" aria-label="Page feedback exits">
+    <h5 class="vp-feedback__title">Something isn't working?</h5>
     <div class="vp-feedback__row">
       <a
         v-for="path in exits"
@@ -75,12 +63,6 @@ const shouldRender = computed(() => {
             d="M12 2a10 10 0 0 0-3.162 19.491c.5.094.686-.217.686-.483 0-.237-.01-1.023-.014-1.855-2.79.606-3.379-1.194-3.379-1.194-.455-1.156-1.11-1.465-1.11-1.465-.907-.62.069-.608.069-.608 1.003.07 1.53 1.03 1.53 1.03.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.338-2.228-.253-4.57-1.115-4.57-4.961 0-1.095.39-1.99 1.029-2.69-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.503.338 1.909-1.296 2.748-1.026 2.748-1.026.546 1.378.203 2.397.1 2.65.64.7 1.028 1.595 1.028 2.69 0 3.857-2.346 4.705-4.58 4.953.36.31.679.917.679 1.85 0 1.334-.012 2.41-.012 2.737 0 .268.184.58.69.482A10 10 0 0 0 12 2Z"
           />
         </svg>
-        <svg v-else class="vp-button__icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            fill="currentColor"
-            d="M6 2.75A2.75 2.75 0 0 0 3.25 5.5v13A2.75 2.75 0 0 0 6 21.25h12a.75.75 0 0 0 .75-.75V5.5A2.75 2.75 0 0 0 16 2.75H6Zm12 4H6a1.25 1.25 0 0 1 0-2.5h10A1.25 1.25 0 0 1 17.25 5v12.75H6A1.25 1.25 0 0 1 4.75 16.5V5.5A1.25 1.25 0 0 1 6 4.25Zm-6 5.5a.75.75 0 0 1-.75.75H8.5a.75.75 0 0 1 0-1.5h2.75a.75.75 0 0 1 .75.75ZM9.25 9a.75.75 0 0 1 .75-.75h1.75a.75.75 0 0 1 0 1.5H10a.75.75 0 0 1-.75-.75Zm0 4.5a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"
-          />
-        </svg>
         {{ path.label }}
       </a>
     </div>
@@ -92,14 +74,14 @@ const shouldRender = computed(() => {
   margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--vp-c-divider);
-  display: grid;
-  gap: 0.4rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .vp-feedback__title {
-  font-size: 0.95rem;
   line-height: 1.4;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .vp-feedback__row {

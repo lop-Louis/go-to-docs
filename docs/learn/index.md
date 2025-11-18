@@ -23,11 +23,6 @@ nav:
   - none
 search: false
 list_label: Two health checks only; no dashboard here.
-feedback_paths:
-  - label: Tag the steward roster contact
-    href: /operate/stewards
-  - label: Open a Learn feedback issue
-    href: https://github.com/lop-louis/northbook/issues/new?labels=feedback,kl,learn&title=%5BLearn%5D%20%2Flearn%2F&body=What%20felt%20off%3F%0A%0APage%3A%20%2Flearn%2F
 ---
 
 See the two health checks; nothing more yet.

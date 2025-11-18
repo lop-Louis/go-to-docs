@@ -23,13 +23,6 @@ nav:
   - none
 search: false
 list_label: Small set of ops pages in play for this platform.
-feedback_paths:
-  - label: Tag the steward roster contact
-    href: /operate/stewards
-  - label: Log blocker as exception
-    href: /mitigate/exception-cloud-access
-  - label: Open an ops feedback issue
-    href: https://github.com/lop-louis/northbook/issues/new?labels=feedback,kl,operate&title=%5BOperate%5D%20%2Foperate%2F&body=What%20needs%20change%3F%0A%0APage%3A%20%2Foperate%2F
 ---
 
 Use this when you are changing **how the chapter runs**—state, stewards, signals, or blockers. Everything else waits.

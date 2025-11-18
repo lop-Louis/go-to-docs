@@ -23,11 +23,6 @@ nav:
   - none
 search: false
 list_label: Quick routes for the platform; keep nav small and clear.
-feedback_paths:
-  - label: Tag the steward roster contact
-    href: /operate/stewards
-  - label: Open a navigation feedback issue
-    href: https://github.com/lop-louis/northbook/issues/new?labels=feedback,kl,navigate&title=%5BNavigate%5D%20%2Fnavigate%2F&body=What%20felt%20off%3F%0A%0APage%3A%20%2Fnavigate%2F
 ---
 
 Find the one page you need to move forward. Everything else stays out of the way.

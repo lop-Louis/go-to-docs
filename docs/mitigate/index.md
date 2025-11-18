@@ -24,13 +24,6 @@ nav:
 search: false
 list_label: >
   Where we park the ugly stuff: blocks, exceptions, and how we decide what to do about them.
-feedback_paths:
-  - label: Log a cloud-access exception
-    href: /mitigate/exception-cloud-access
-  - label: Tag the steward roster contact
-    href: /operate/stewards
-  - label: Open a Mitigate feedback issue
-    href: https://github.com/lop-louis/northbook/issues/new?labels=feedback,kl,mitigate&title=%5BMitigate%5D%20%2Fmitigate%2F&body=What%20felt%20off%3F%0A%0APage%3A%20%2Fmitigate%2F
 ---
 
 Use this when work is **blocked** and you need an open, safe path forward.
