@@ -69,6 +69,7 @@ jobs:
             --root-dir "${{ env.DIST_DIR }}"
             --require-https
             --exclude-path '(^|/)drafts/.*'
+            --exclude 'file://.*/[^./#]+(?:/[^./#]+)*$'
             --github-token "${{ secrets.GITHUB_TOKEN }}"
             "${{ env.DIST_DIR }}/**/*.html"
         env:
