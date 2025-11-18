@@ -1,12 +1,11 @@
 ---
 title: Casual vs Operation meeting defaults
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 14
 change_type: minor
-status: pilot
+status: live
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103

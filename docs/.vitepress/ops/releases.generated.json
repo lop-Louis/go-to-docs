@@ -8,7 +8,7 @@
           "path": "/operate/ops-defaults-meetings",
           "bucket": "operate",
           "owner": "@lop",
-          "status": "pilot",
+          "status": "live",
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-lab-pass",
           "lagging_metric": "m-defect-rate-changed-pages",
@@ -34,7 +34,7 @@
           "path": "/mitigate/exception-cloud-access",
           "bucket": "mitigate",
           "owner": "@lop",
-          "status": "pilot",
+          "status": "live",
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-time-to-freeze",
           "lagging_metric": "m-time-to-recovery",
@@ -73,11 +73,11 @@
           "path": "/mitigate",
           "bucket": "mitigate",
           "owner": "@lop",
-          "status": "pilot",
+          "status": "live",
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "Where we park the ugly stuff for this pilot: blocks, exceptions, and how we decide what to do about them.\n",
+          "list_label": "Where we park the ugly stuff: blocks, exceptions, and how we decide what to do about them.\n",
           "cta_primary_label": "open_cloud_exception",
           "cta_secondary_label": "raise_exception"
         },
@@ -90,7 +90,7 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-nav-open",
           "lagging_metric": "m-time-to-answer",
-          "list_label": "Quick routes for the pilot; go elsewhere only if it is not in play here.",
+          "list_label": "Quick routes for the platform; keep nav small and clear.",
           "cta_primary_label": "open_chapter_state",
           "cta_secondary_label": "open_steward_roster"
         },
@@ -103,12 +103,12 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "Small set of ops pages in play for this pilot.",
+          "list_label": "Small set of ops pages in play for this platform.",
           "cta_primary_label": "open_chapter_state",
           "cta_secondary_label": "open_steward_roster"
         },
         {
-          "title": "Ops contract · web frontend pilot",
+          "title": "Ops contract · platform baseline",
           "path": "/operate/ops-contract",
           "bucket": "operate",
           "owner": "@lop",
@@ -116,7 +116,7 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "Guardrails and receipts for changing Northbook during the web frontend pilot.",
+          "list_label": "Guardrails and receipts for changing Northbook as a platform.",
           "cta_primary_label": null,
           "cta_secondary_label": null
         },
@@ -129,7 +129,7 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "The two health checks we watch for the pilot—roster freshness and whether people leave sessions knowing their next step.\n",
+          "list_label": "The two health checks we watch—roster freshness and whether people leave sessions knowing their next step.\n",
           "cta_primary_label": "use_in_next_session",
           "cta_secondary_label": "open_chapter_state"
         },
@@ -142,7 +142,7 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "Who is currently on point for scope, signals and exceptions in this pilot, plus how fast they aim to respond.\n",
+          "list_label": "Who is currently on point for scope, signals and exceptions, plus how fast they aim to respond.\n",
           "cta_primary_label": "open_signals_roster",
           "cta_secondary_label": "raise_exception"
         }

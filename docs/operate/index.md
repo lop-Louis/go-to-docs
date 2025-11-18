@@ -1,7 +1,6 @@
 ---
 title: Operate overview
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 60
@@ -23,7 +22,7 @@ release_tag: site-v2025.11
 nav:
   - none
 search: false
-list_label: Small set of ops pages in play for this pilot.
+list_label: Small set of ops pages in play for this platform.
 ---
 
 Use this when you are changing **how the chapter runs**—state, stewards, signals, or blockers. Everything else waits.
@@ -43,7 +42,7 @@ Use this when you are changing **how the chapter runs**—state, stewards, signa
 
 ## If you are changing the system itself
 
-The **ops contract** explains guardrails, exceptions, and receipts for this pilot.  
+The **ops contract** explains guardrails, exceptions, and receipts for this platform slice.  
 Read it when you are working **on** Northbook, not just using it.  
 → [Open ops contract](./ops-contract)
 

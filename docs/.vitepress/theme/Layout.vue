@@ -37,7 +37,7 @@ function goBack() {
         >
           ← Back
         </button>
-        <span class="nb-spacer" />
+        <span class="nb-spacer"></span>
         <div v-if="owner || status" class="nb-page-badges">
           <Badge v-if="owner" type="info">
             <strong>Owner: {{ owner }}</strong>
@@ -55,7 +55,7 @@ function goBack() {
         {{ pageTitle }}
       </h1>
       <div
-        v-if="page.value?.frontmatter?.status === 'stale'"
+        v-if="page?.frontmatter?.status === 'stale'"
         :style="{
           padding: '0.8rem',
           border: '1px solid var(--vp-c-divider)',

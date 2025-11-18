@@ -1,7 +1,6 @@
 ---
 title: Northbook
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 layout: home
 band: A
 owner: '@lop'
@@ -67,7 +66,7 @@ lagging_metric: m-time-to-answer
 date: '2025-01-15'
 ---
 
-For now, Northbook is a **small pilot** for the web frontend chapter.
+Northbook started as a **small pilot** for the web frontend chapter and is now the platform baseline.
 
 It does three things only:
 

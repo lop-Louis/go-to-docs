@@ -1,12 +1,11 @@
 ---
 title: Chapter state
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 30
 change_type: minor
-status: pilot
+status: live
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
@@ -18,19 +17,18 @@ leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
 release_tag: site-v2025.11
 list_label: >
-  Snapshot of where the frontend chapter pilot stands today across lanes, stewards, and the live
-  signals.
+  Snapshot of where the frontend chapter stands today across lanes, stewards, and the live signals.
 ---
 
-This page gives a simple picture of where the **web frontend chapter** is right now for the Northbook pilot.
+This page gives a simple picture of where the **web frontend chapter** is right now for Northbook.
 
 It is meant to answer three questions:
 
-1. What are we currently testing in chapter ops?
-2. Who and what is in play for this pilot?
+1. What are we currently focusing on in chapter ops?
+2. Who and what is in play right now?
 3. Where should I look before I walk into a chapter ops conversation?
 
-There is no full playbook here on purpose. This is a small, honest slice of how we are currently running.
+This is a small, honest slice of how we are currently running.
 
 <PageCTA />
 
@@ -40,13 +38,13 @@ Use this page as your starting point before you:
 
 - join a chapter ops session
 - make a change to how the chapter runs
-- want to understand what this pilot actually covers
+- want to understand what this scope actually covers
 
 If it does not help you answer those, it needs to change.
 
-## Current focus for this pilot
+## Current focus
 
-For this pilot, the web frontend chapter is focusing on three small pieces of ops:
+The web frontend chapter is focusing on three small pieces of ops:
 
 - **Stewardship**: making it clear who looks after scope, signals, and exceptions.
 - **Two health checks**: keeping a basic picture of the roster and whether people leave sessions with a clear next step.
@@ -54,7 +52,7 @@ For this pilot, the web frontend chapter is focusing on three small pieces of op
 
 Everything else stays out of scope until we prove these pieces are useful.
 
-## Active ops pages in this pilot
+## Active ops pages
 
 These are the pages that are "in play" right now. If you only have a few minutes, start here.
 
@@ -69,7 +67,7 @@ These are the pages that are "in play" right now. If you only have a few minutes
   Use this when cloud access is seriously blocking work. Log the blocker, name an owner, set an expiry, and use the agreed temporary path.
   → [Open cloud-access stub](../../mitigate/exception-cloud-access)
 
-If a page is not listed here, it is not part of this pilot yet.
+If a page is not listed here, it is out of scope for now.
 
 ## What to look at before a chapter ops session
 

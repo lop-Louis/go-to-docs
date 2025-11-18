@@ -1,7 +1,6 @@
 ---
 title: Signals roster
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 30
@@ -18,8 +17,8 @@ cta_primary_label: use_in_next_session
 cta_secondary_label: open_chapter_state
 release_tag: site-v2025.11
 list_label: >
-  The two health checks we watch for the pilot—roster freshness and whether people leave sessions
-  knowing their next step.
+  The two health checks we watch—roster freshness and whether people leave sessions knowing their
+  next step.
 ---
 
 This page keeps an eye on two simple things:
