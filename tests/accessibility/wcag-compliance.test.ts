@@ -136,7 +136,7 @@ describe('Accessibility (WCAG AA Compliance)', () => {
       // Should have title div with clear label
       const title = wrapper.find('.vp-feedback__title')
       expect(title.exists()).toBe(true)
-      expect(title.text()).toContain('use one of these exits')
+      expect(title.text()).toContain("Something isn't working?")
     })
   })
 
@@ -170,7 +170,7 @@ describe('Accessibility (WCAG AA Compliance)', () => {
       const text = wrapper.text()
 
       // Title should be clear and concise
-      expect(text).toContain('use one of these exits')
+      expect(text).toContain("Something isn't working?")
 
       // Link labels should be unambiguous
       expect(text).toContain('steward')
