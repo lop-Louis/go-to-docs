@@ -1,6 +1,8 @@
 ---
 title: Release bundle · site-v2025.11
-owner: '@louis'
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 365
 change_type: minor

@@ -1,6 +1,6 @@
 ---
 title: Release bundle · site-v2025.11
-owner: '@louis'
+owner: '@lop'
 band: A
 refresh_after_days: 365
 change_type: minor
