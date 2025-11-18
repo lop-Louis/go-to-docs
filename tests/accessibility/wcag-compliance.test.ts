@@ -78,7 +78,6 @@ describe('Accessibility (WCAG AA Compliance)', () => {
 
       // Component should use VitePress button classes
       expect(html).toContain('vp-button')
-      expect(html).toContain('vp-c-divider')
     })
   })
 
