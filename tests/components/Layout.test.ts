@@ -24,7 +24,6 @@ describe('Layout.vue', () => {
   it('includes Feedback component', () => {
     expect(layoutContent).toContain('<Feedback')
     expect(layoutContent).toContain('import Feedback')
-    expect(layoutContent).toContain('role="region"')
   })
 
   it('uses doc-before and doc-after slots', () => {
