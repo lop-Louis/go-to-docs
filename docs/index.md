@@ -69,13 +69,13 @@ date: '2025-01-15'
 
 For now, Northbook is a **small pilot** for the web frontend chapter.
 
-It does three things:
+It does three things only:
 
-1. shows where the chapter stands
-2. shows who owns which part of ops
-3. gives a simple path when cloud access blocks work
+1. show where the chapter stands
+2. show who owns which part of ops
+3. give a simple path when cloud access blocks work
 
-There is no full playbook here yet on purpose. What you see is what we are actually using.
+No full playbook yet—just the pages in use.
 
 ## Start here
 
@@ -83,39 +83,17 @@ Choose what matches your situation today.
 
 ### I want to see where the chapter stands
 
-Go to the **chapter state** page:
-
-- see the latest snapshot for this pilot
-- see which ops pages are currently in play
-
 > [Open chapter state](./changelog/state/web-frontend)
 
 ### I want to know who owns what in ops
-
-Open the **steward roster**:
-
-- see who is on point for scope, signals, and exceptions
-- see who is backup and how fast they are expected to respond
 
 > [Open steward roster](./operate/stewards)
 
 ### I want to see the two health checks
 
-Open the **signals roster**:
-
-- roster freshness: do we have a current picture of each person?
-- direction after sessions: do people leave knowing their next step?
-
-You do not have to touch metrics directly. Just use it to sense if we are drifting.
-
 > [Open signals roster](./learn/signals-roster)
 
 ### I am blocked by cloud access
-
-Use the **cloud-access stub**:
-
-- log the blocker with an owner and an expiry
-- use the agreed temporary path so work can keep moving safely
 
 > [Open cloud-access stub](./mitigate/exception-cloud-access)
 

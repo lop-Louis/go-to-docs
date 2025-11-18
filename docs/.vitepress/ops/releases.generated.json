@@ -64,7 +64,7 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "How we watch the pilot’s health and turn two simple signals into small, real changes.\n",
+          "list_label": "Two health checks only; no dashboard here.",
           "cta_primary_label": "open_signals_roster",
           "cta_secondary_label": "open_chapter_state"
         },
@@ -90,7 +90,7 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-nav-open",
           "lagging_metric": "m-time-to-answer",
-          "list_label": "How the Navigate bucket works in this pilot and what belongs here instead of Operate, Learn, or Mitigate.\n",
+          "list_label": "Quick routes for the pilot; go elsewhere only if it is not in play here.",
           "cta_primary_label": "open_chapter_state",
           "cta_secondary_label": "open_steward_roster"
         },
@@ -103,9 +103,22 @@
           "decision_id": "dec-2025-11-chapter-ops-defaults",
           "leading_metric": "m-dashboard-freshness-days",
           "lagging_metric": "m-decision-hit-rate",
-          "list_label": "What lives in Operate for the frontend pilot: the current state, named stewards, and the few working agreements we actually run.\n",
+          "list_label": "Small set of ops pages in play for this pilot.",
           "cta_primary_label": "open_chapter_state",
           "cta_secondary_label": "open_steward_roster"
+        },
+        {
+          "title": "Ops contract · web frontend pilot",
+          "path": "/operate/ops-contract",
+          "bucket": "operate",
+          "owner": "@lop",
+          "status": "live",
+          "decision_id": "dec-2025-11-chapter-ops-defaults",
+          "leading_metric": "m-dashboard-freshness-days",
+          "lagging_metric": "m-decision-hit-rate",
+          "list_label": "Guardrails and receipts for changing Northbook during the web frontend pilot.",
+          "cta_primary_label": null,
+          "cta_secondary_label": null
         },
         {
           "title": "Signals roster",

@@ -33,7 +33,7 @@ export const generatedSidebar = [
         link: '/operate/'
       },
       {
-        text: 'Defaults Meeting',
+        text: 'Casual vs Operation defaults',
         link: '/operate/ops-defaults-meetings'
       },
       {

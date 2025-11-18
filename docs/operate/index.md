@@ -9,7 +9,7 @@ change_type: patch
 status: live
 audience: People changing or running web frontend chapter ops
 tone: 'Plainspoken, calm, practical'
-narrative_goal: 'Point people to chapter state, stewards, signals, and cloud-access handling'
+narrative_goal: Keep ops changes on the small set of active pages
 bucket: operate
 north_star_id: ns-001
 guardrail_id: gr-103
@@ -23,76 +23,26 @@ release_tag: site-v2025.11
 nav:
   - none
 search: false
-list_label: >
-  What lives in Operate for the frontend pilot: the current state, named stewards, and the few
-  working agreements we actually run.
+list_label: Small set of ops pages in play for this pilot.
 ---
 
-Use this page when you are thinking about **how the web frontend chapter runs**, not just about one pull request.
-
-<PageCTA />
-
-> **Expected Takeaway:** you leave knowing which ops page to look at before you change how the chapter operates.
-
-## Quick links for the web frontend pilot
+Use this when you are changing **how the chapter runs**—state, stewards, signals, or blockers. Everything else waits.
 
 <PilotPageList bucket="operate" />
 
-## What “Operate” means in this pilot
+## What is live in Operate
 
-In this pilot, “Operate” focuses on a small set of routines that shape how the chapter works:
+- **Chapter state** — the current snapshot and what to read before ops time.  
+  → [Open chapter state](../changelog/state/web-frontend)
+- **Steward roster** — owners for scope, signals, and exceptions plus backups.  
+  → [Open steward roster](./stewards)
+- **Signals roster** — the two health checks (roster freshness, clear next step).  
+  → [Open signals roster](../learn/signals-roster)
+- **Cloud-access stub** — log and handle serious access blocks.  
+  → [Open cloud-access stub](../mitigate/exception-cloud-access)
 
-- the **current picture** of where we are (chapter state)
-- **who owns what** in ops (stewards)
-- **how we watch ourselves** (signals)
-- **what we do when blocked** (cloud access)
+## If you are changing the system itself
 
-We avoided adding more until these pieces prove useful.
-
-## The core ops pages
-
-### Chapter state
-
-A simple snapshot of:
-
-- what this pilot is trying to do
-- which ops pages are active
-- what to look at before a chapter ops session
-
-> [Open chapter state](../changelog/state/web-frontend)
-
-### Steward roster
-
-Shows who is currently on point for:
-
-- scope
-- signals
-- exceptions
-
-and their expected response window.
-
-> [Open steward roster](./stewards)
-
-### Signals roster
-
-Shows the two health checks we are watching:
-
-- how fresh the roster is
-- whether people leave sessions with a clear next step
-
-> [Open signals roster](../learn/signals-roster)
-
-### Cloud-access exception stub
-
-Used when cloud access blocks meaningful work:
-
-- log the blocker with an owner and expiry
-- follow a safe temporary path while the fix is in progress
-
-> [Open cloud-access stub](../mitigate/exception-cloud-access)
-
-## If you want the deeper contract
-
-If you help maintain Northbook itself (docs, state, automation), there is a separate ops contract that explains the guardrails and release flow.
-
-Read it when you are working **on** the system, not when you just need to get work done.
+The **ops contract** explains guardrails, exceptions, and receipts for this pilot.  
+Read it when you are working **on** Northbook, not just using it.  
+→ [Open ops contract](./ops-contract)
