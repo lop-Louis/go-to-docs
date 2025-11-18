@@ -170,24 +170,23 @@ describe('Accessibility (WCAG AA Compliance)', () => {
       const wrapper = mount(Feedback)
       const text = wrapper.text()
 
-      // Question should be clear and concise
-      expect(text).toContain('Was this helpful')
+      // Title should be clear and concise
+      expect(text).toContain('use one of these exits')
 
       // Link labels should be unambiguous
-      expect(text).toContain('Yes')
-      expect(text).toContain('No')
+      expect(text).toContain('steward')
+      expect(text).toContain('exception')
     })
 
     it('provides clear call to action', () => {
       const wrapper = mount(Feedback)
       const links = wrapper.findAll('a')
 
-      // Each link should go to GitHub issues
-      links.forEach(link => {
-        const href = link.attributes('href')
-        expect(href).toContain('github.com')
-        expect(href).toContain('issues/new')
-      })
+      const hrefs = links.map(link => link.attributes('href'))
+
+      // At least one link is internal and one is a GitHub issue
+      expect(hrefs.some(href => href.startsWith('/'))).toBe(true)
+      expect(hrefs.some(href => href.includes('github.com'))).toBe(true)
     })
   })
 })
