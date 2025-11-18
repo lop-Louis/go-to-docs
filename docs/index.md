@@ -1,5 +1,7 @@
 ---
 title: Northbook
+mode: pilot
+pilot_id: web_frontend_chapter_v1
 layout: home
 band: A
 owner: '@lop'

@@ -1,22 +1,22 @@
 {
   "start_with_chapter_scope": {
-    "text": "Start with the chapter scope line",
+    "text": "Start with chapter scope",
     "doc": "navigate/frontend-charter.md"
   },
   "open_navigate_overview": {
-    "text": "Open the navigation overview",
+    "text": "Open navigation overview",
     "doc": "navigate/index.md"
   },
   "open_operate_overview": {
-    "text": "Open the operate overview",
+    "text": "Open operate overview",
     "doc": "operate/index.md"
   },
   "open_learn_overview": {
-    "text": "Open the learn overview",
+    "text": "Open learn overview",
     "doc": "learn/index.md"
   },
   "open_mitigate_overview": {
-    "text": "Open the mitigate overview",
+    "text": "Open mitigate overview",
     "doc": "mitigate/index.md"
   },
   "open_chapter_state": {
@@ -36,18 +36,18 @@
     "doc": "mitigate/exception-cloud-access.md"
   },
   "try_ops_defaults": {
-    "text": "Try the ops defaults",
+    "text": "Try ops defaults",
     "doc": "operate/ops-defaults-meetings.md"
   },
   "use_in_next_session": {
-    "text": "Use this in your next session"
+    "text": "Use in next session"
   },
   "see_roster_signals": {
-    "text": "See the roster signals",
+    "text": "See roster signals",
     "doc": "learn/signals-roster.md"
   },
   "raise_exception": {
-    "text": "Log an exception instead of hacking around it",
+    "text": "Log an exception",
     "doc": "mitigate/exception-cloud-access.md"
   },
   "see_guardrail": {
@@ -59,11 +59,11 @@
     "doc": "operate/north-star-guardrails.md"
   },
   "open_decision_bundle": {
-    "text": "See the decisions involved",
+    "text": "See the decisions",
     "doc": "operate/decisions/dec-2025-11-chapter-baseline.md"
   },
   "open_latest_release": {
-    "text": "Open the latest release bundle",
+    "text": "Open latest release",
     "doc": "operate/releases/site-v2025.11.md"
   }
 }

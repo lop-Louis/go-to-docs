@@ -1,10 +1,12 @@
 ---
 title: Frontend charter
+mode: pilot
+pilot_id: web_frontend_chapter_v1
 bucket: navigate
 north_star_id: ns-001
 guardrail_id: gr-103
 decision_id: dec-2025-11-chapter-ops-defaults
-owner: '@louis'
+owner: '@lop'
 band: A
 status: live
 date: '2025-11-15'

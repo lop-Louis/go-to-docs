@@ -1,6 +1,6 @@
 ---
 title: Chapter Scope (duplicate)
-owner: '@louis'
+owner: '@lop'
 band: A
 refresh_after_days: 30
 change_type: minor
