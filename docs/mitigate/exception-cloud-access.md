@@ -1,6 +1,8 @@
 ---
 title: Cloud access blocks
-owner: '@louis'
+mode: pilot
+pilot_id: web_frontend_chapter_v1
+owner: '@lop'
 band: A
 refresh_after_days: 14
 change_type: minor

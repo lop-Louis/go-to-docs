@@ -13,6 +13,8 @@ const isPilotOrDraft = computed(() => {
 })
 
 const pageTitle = computed(() => page.value?.frontmatter?.title ?? page.value?.title ?? '')
+const owner = computed(() => page.value?.frontmatter?.owner ?? '')
+const status = computed(() => page.value?.frontmatter?.status ?? '')
 
 function goBack() {
   if (history.length > 1) {
@@ -36,16 +38,16 @@ function goBack() {
           ← Back
         </button>
         <span class="nb-spacer" />
-        <div v-if="page.frontmatter.owner || page.frontmatter.status" class="nb-page-badges">
-          <Badge v-if="page.frontmatter.owner" type="info">
-            <strong>{{ page.frontmatter.owner }}</strong>
+        <div v-if="owner || status" class="nb-page-badges">
+          <Badge v-if="owner" type="info">
+            <strong>Owner: {{ owner }}</strong>
           </Badge>
           <Badge
-            v-if="page.frontmatter.status"
-            :type="page.frontmatter.status === 'pilot' ? 'warning' : 'tip'"
+            v-if="status"
+            :type="status === 'pilot' ? 'warning' : 'tip'"
             class="nb-status-badge"
           >
-            {{ page.frontmatter.status }}
+            {{ status }}
           </Badge>
         </div>
       </div>
@@ -53,14 +55,14 @@ function goBack() {
         {{ pageTitle }}
       </h1>
       <div
-        v-if="page.frontmatter.status === 'stale'"
-        style="
-          padding: 0.8rem;
-          border: 1px solid var(--vp-c-divider);
-          border-radius: 0.5rem;
-          background: var(--vp-c-bg-soft);
-          margin-bottom: 1rem;
-        "
+        v-if="page.value?.frontmatter?.status === 'stale'"
+        :style="{
+          padding: '0.8rem',
+          border: '1px solid var(--vp-c-divider)',
+          borderRadius: '0.5rem',
+          background: 'var(--vp-c-bg-soft)',
+          marginBottom: '1rem'
+        }"
       >
         ⚠️ This page is due for review. Content may be outdated.
         <a

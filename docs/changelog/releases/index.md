@@ -1,5 +1,7 @@
 ---
 title: Releases · Northbook
+mode: pilot
+pilot_id: web_frontend_chapter_v1
 owner: '@lop'
 band: A
 refresh_after_days: 90
