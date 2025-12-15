@@ -145,7 +145,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Download smoke targets
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: smoke-targets
           path: smoke
