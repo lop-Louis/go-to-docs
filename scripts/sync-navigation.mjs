@@ -22,7 +22,7 @@ const SIDEBAR_BLUEPRINT = [
     collapsed: false,
     items: [
       { text: 'Operate overview', link: '/operate/' },
-      { text: 'Defaults Meeting', link: '/operate/ops-defaults-meetings' },
+      { text: 'Casual vs Operation defaults', link: '/operate/ops-defaults-meetings' },
       { text: 'Steward roster', link: '/operate/stewards' }
     ]
   },

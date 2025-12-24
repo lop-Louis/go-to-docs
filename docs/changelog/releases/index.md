@@ -1,7 +1,6 @@
 ---
 title: Releases · Northbook
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 90
@@ -26,13 +25,13 @@ list_label: >
 
 This page is for people who need to see **what changed when**, not for day-to-day work.
 
-If you just need a current picture, use the [chapter state · web frontend pilot](../../changelog/state/web-frontend) instead.
+If you just need a current picture, use the [chapter state](../../changelog/state/web-frontend) instead.
 
-## Releases in this pilot
+## Releases tracked
 
-For now, we only track the pilot under one release tag:
+For now, we track one release tag:
 
-- `site-v2025.11` · web frontend chapter ops pilot  
+- `site-v2025.11` · web frontend chapter ops  
   → [Open release bundle](../../changelog/releases/site-v2025.11)
 
-As the pilot grows, new tags will show up here. No tag, no history.
+As new tags are added, they will show up here. No tag, no history.

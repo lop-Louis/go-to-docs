@@ -211,31 +211,37 @@ textarea {
   line-height: calc(var(--nb-line-height-body) / var(--nb-phi-step));
 }
 
+h1,
 .vp-doc h1 {
   font-size: var(--nb-font-size-h1);
   line-height: 1.2;
 }
 
+h2,
 .vp-doc h2 {
   font-size: var(--nb-font-size-h2);
   line-height: 1.25;
 }
 
+h3,
 .vp-doc h3 {
   font-size: var(--nb-font-size-h3);
   line-height: 1.3;
 }
 
+h4,
 .vp-doc h4 {
   font-size: var(--nb-font-size-h4);
   line-height: 1.35;
 }
 
+h5,
 .vp-doc h5 {
   font-size: var(--nb-font-size-h5);
   line-height: 1.45;
 }
 
+h6,
 .vp-doc h6 {
   font-size: var(--nb-font-size-h6);
   line-height: 1.5;

@@ -91,7 +91,7 @@ Use the **copy_writer_starter_pack** templates for opener, CTA labels, and annex
    - Acceptance: expiry set; rollback plan; appears in public exceptions list.
 
 5. **Ops / State snapshot update**
-   - Path: [dec-2025-11-chapter-ops-defaults](../../decisions/ops/dec-2025-11-chapter-ops-defaults.md)
+   - Path: [Chapter state](../state/web-frontend.md)
    - What: add snapshot lines for new pages and the two signals; link receipts.
    - Acceptance: snapshot exists; links valid; tag listed as `v2025.11-main`.
 

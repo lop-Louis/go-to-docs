@@ -41,8 +41,16 @@ const entries = computed<ReleaseEntry[]>(() => {
 function toHref(path: string | null) {
   if (!path) return '#'
   if (path.startsWith('http')) return path
-  const needsHtml = !path.endsWith('/') && !path.endsWith('.html')
-  const target = needsHtml ? `${path}.html` : path
+  const trimmed = path.replace(/\/+$/, '')
+  const segments = trimmed.split('/').filter(Boolean)
+  const topLevelSections = new Set(['learn', 'mitigate', 'navigate', 'operate'])
+
+  // Clean-URL sections render as /section/index.html in dist; use a trailing slash to hit the index.
+  if (segments.length === 1 && topLevelSections.has(segments[0])) {
+    return withBase(`/${segments[0]}/`)
+  }
+
+  const target = trimmed.endsWith('.html') ? trimmed : `${trimmed}.html`
   return withBase(target)
 }
 </script>

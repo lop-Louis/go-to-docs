@@ -1,7 +1,6 @@
 ---
 title: Steward roster
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 14
@@ -18,8 +17,7 @@ leading_metric: m-dashboard-freshness-days
 lagging_metric: m-decision-hit-rate
 release_tag: site-v2025.11
 list_label: >
-  Who is currently on point for scope, signals and exceptions in this pilot, plus how fast they aim
-  to respond.
+  Who is currently on point for scope, signals and exceptions, plus how fast they aim to respond.
 ---
 
 Use this page to answer two simple questions:

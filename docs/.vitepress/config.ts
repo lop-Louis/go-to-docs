@@ -150,6 +150,7 @@ export default defineConfig({
   base: SITE_BASE,
   lastUpdated: true,
   srcExclude: ['drafts/**'],
+  cleanUrls: false,
   head,
   ignoreDeadLinks: [url => url.toLocaleLowerCase().includes('ops/')],
   themeConfig: {

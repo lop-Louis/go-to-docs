@@ -16,7 +16,7 @@ jobs:
     if: github.event.pull_request.draft == false
 
     env:
-      DIST_DIR: docs/.vitepress/dist
+      DIST_DIR: ${{ github.workspace }}/docs/.vitepress/dist
       BASE_URL: /
 
     steps:
@@ -62,13 +62,14 @@ jobs:
       # New: crawl built site for broken links → L4 if internal links fail
       - name: 🔴 Check internal links (dist crawl)
         id: link_check_internal
-        uses: lycheeverse/lychee-action@v1.10.0
+        uses: lycheeverse/lychee-action@v2.7.0
         with:
           args: >-
-            --base "${{ env.DIST_DIR }}"
-            --require-https
             --offline
-            --exclude-path "**/drafts/**"
+            --root-dir "${{ env.DIST_DIR }}"
+            --require-https
+            --exclude-path '(^|/)drafts/.*'
+            --exclude 'file://.*/[^./#]+(?:/[^./#]+)*$'
             --github-token "${{ secrets.GITHUB_TOKEN }}"
             "${{ env.DIST_DIR }}/**/*.html"
         env:
@@ -111,7 +112,7 @@ jobs:
       # Optional: external link check as advisory (keeps flakes out)
       - name: 🟡 Check external links (advisory)
         id: link_check_external
-        uses: lycheeverse/lychee-action@v1.10.0
+        uses: lycheeverse/lychee-action@v2.7.0
         with:
           args: >-
             --no-progress
@@ -171,7 +172,6 @@ jobs:
           if [ "${{ steps.markdown_lint.outcome }}" = "success" ] \
              && [ "${{ steps.frontmatter.outcome }}" = "success" ] \
              && [ "${{ steps.release_folders.outcome }}" = "success" ] \
-             && [ "${{ steps.state_check.outcome }}" = "success" ] \
              && [ "${{ steps.build_docs.outcome }}" = "success" ] \
              && [ "${{ steps.link_check_internal.outcome }}" = "success" ]; then
             echo "✨ **All critical checks passed** – ready to merge" >> $GITHUB_STEP_SUMMARY

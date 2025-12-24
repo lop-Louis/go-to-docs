@@ -7,7 +7,7 @@ describe('Layout.vue', () => {
   const layoutContent = readFileSync(layoutPath, 'utf-8')
 
   it('contains stale banner logic', () => {
-    expect(layoutContent).toContain("page.frontmatter.status === 'stale'")
+    expect(layoutContent).toContain("frontmatter?.status === 'stale'")
     expect(layoutContent).toContain('This page is due for review')
   })
 

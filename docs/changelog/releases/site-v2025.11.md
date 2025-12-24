@@ -1,7 +1,6 @@
 ---
 title: Release bundle · site-v2025.11
-mode: pilot
-pilot_id: web_frontend_chapter_v1
+mode: platform
 owner: '@lop'
 band: A
 refresh_after_days: 365
@@ -25,7 +24,7 @@ list_label: >
   touched.
 ---
 
-This release bundle shows what the **web frontend chapter pilot** put in place around November 2025.
+This release bundle shows what the **web frontend chapter** put in place around November 2025.
 
 - If you only care about where we are today, use the **chapter state page**.
 - If you care about **how we got here**, you are in the right place.
