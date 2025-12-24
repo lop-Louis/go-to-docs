@@ -21,6 +21,7 @@
 - [ ] Frontmatter is present and valid for any new or edited docs
 - [ ] Links you touched or added work (no obvious 404s)
 - [ ] This change is small enough to explain in one short paragraph
+- [ ] I followed the Content Review Checklist: </playbook/content-review-checklist>
 
 <!-- Treat this as a simple safety check, not a punishment. -->
 
